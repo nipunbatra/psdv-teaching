@@ -1,0 +1,2570 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Nipun Batra">
+<meta name="dcterms.date" content="2024-02-06">
+<meta name="description" content="Movie Recommendation using Matrix Factorization">
+
+<title>Movie Recommendation using Matrix Factorization – Machine Learning Resources</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Machine Learning Resources</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://nipunbatra.github.io"> 
+<span class="menu-text">Instructor Homepage</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../notebooks.html"> 
+<span class="menu-text">Notebooks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../slides.html"> 
+<span class="menu-text">Slides</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Movie Recommendation using Matrix Factorization</h1>
+</div>
+
+<div>
+  <div class="description">
+    Movie Recommendation using Matrix Factorization
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nipun Batra </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 6, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="cell-1" class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-2" class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now working with real data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">"Movie-Recommendation-2024-Fall.xlsx"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="76">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Timestamp</th>
+<th data-quarto-table-cell-role="th">Your name</th>
+<th data-quarto-table-cell-role="th">Sholay</th>
+<th data-quarto-table-cell-role="th">Swades (We The People)</th>
+<th data-quarto-table-cell-role="th">The Matrix (I)</th>
+<th data-quarto-table-cell-role="th">Interstellar</th>
+<th data-quarto-table-cell-role="th">Dangal</th>
+<th data-quarto-table-cell-role="th">Taare Zameen Par</th>
+<th data-quarto-table-cell-role="th">Shawshank Redemption</th>
+<th data-quarto-table-cell-role="th">The Dark Knight</th>
+<th data-quarto-table-cell-role="th">Notting Hill</th>
+<th data-quarto-table-cell-role="th">Uri: The Surgical Strike</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2024-09-09 18:12:41.227</td>
+<td>P.Sai Keerthana</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>4.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2024-09-09 18:12:47.984</td>
+<td>Pradeep</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2024-09-09 18:12:54.979</td>
+<td>Uday Sankar Gottipalli</td>
+<td>3.0</td>
+<td>NaN</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2024-09-09 18:12:58.795</td>
+<td>Aashmun Gupta</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>1.0</td>
+<td>3.0</td>
+<td>4.0</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2024-09-09 18:13:01.629</td>
+<td>Siddharth Mohanty</td>
+<td>4.0</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>2.0</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>2024-09-09 18:13:17.288</td>
+<td>Ayush Shrivastava</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>4.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>2024-09-09 18:15:18.092</td>
+<td>Abhay Pisharodi</td>
+<td>3.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>3.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>NaN</td>
+<td>4.0</td>
+<td>NaN</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>2024-09-09 18:16:12.892</td>
+<td>Shreya Mali</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>3.0</td>
+<td>4.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>2024-09-09 18:17:39.678</td>
+<td>Shounak Ranade</td>
+<td>3.0</td>
+<td>NaN</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>NaN</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>2024-09-09 18:17:58.374</td>
+<td>Prathamesh P. Shanbhag</td>
+<td>3.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>5.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-3" class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Discard the timestamp column</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop(<span class="st">'Timestamp'</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Make the "Your Name" column the index</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.set_index(<span class="st">'Your name'</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="77">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Sholay</th>
+<th data-quarto-table-cell-role="th">Swades (We The People)</th>
+<th data-quarto-table-cell-role="th">The Matrix (I)</th>
+<th data-quarto-table-cell-role="th">Interstellar</th>
+<th data-quarto-table-cell-role="th">Dangal</th>
+<th data-quarto-table-cell-role="th">Taare Zameen Par</th>
+<th data-quarto-table-cell-role="th">Shawshank Redemption</th>
+<th data-quarto-table-cell-role="th">The Dark Knight</th>
+<th data-quarto-table-cell-role="th">Notting Hill</th>
+<th data-quarto-table-cell-role="th">Uri: The Surgical Strike</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">Your name</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">P.Sai Keerthana</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>4.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Pradeep</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Uday Sankar Gottipalli</td>
+<td>3.0</td>
+<td>NaN</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Aashmun Gupta</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>1.0</td>
+<td>3.0</td>
+<td>4.0</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Siddharth Mohanty</td>
+<td>4.0</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>2.0</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Vadithe Venkat Akhilesh Naik</td>
+<td>4.0</td>
+<td>3.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Rudra</td>
+<td>3.0</td>
+<td>NaN</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>1.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Mukesh</td>
+<td>3.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Niyati siju</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>4.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Rahul Singal</td>
+<td>2.0</td>
+<td>NaN</td>
+<td>1.0</td>
+<td>NaN</td>
+<td>3.0</td>
+<td>1.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>83 rows × 10 columns</p>
+</div>
+</div>
+</div>
+<div id="cell-4" class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="78">
+<pre><code>Index(['P.Sai Keerthana ', 'Pradeep ', 'Uday Sankar Gottipalli',
+       'Aashmun Gupta', 'Siddharth Mohanty', 'Ayush Shrivastava',
+       'Abhay Pisharodi', 'Shreya Mali', 'Shounak Ranade',
+       'Prathamesh P. Shanbhag', 'Suruchi Hardaha', 'Balkrishna Sehra',
+       'Het Shukla', 'N. Eshwar karthikeya ', 'Dhruv Patel',
+       'Shreyas Dharmatti ', 'Mohit', 'Praveen Rathod ', 'Dinesh', 'Rahul',
+       'Devansh Lodha', 'Abhinav ', 'Tejas Lohia', 'Laksh Jain ',
+       'Burra Saharsh', 'Vanshri', 'Karan Gandhi', 'Romit Mohane ',
+       'Vedant Acharya', 'Abhiroop Chintalapudi', 'Yash sahu', 'Dinesh',
+       'Manish Prasad', 'Parthiv', 'Shivansh Soni',
+       'Chepuri Venkata Naga Thrisha', 'Abhinav Kumar', 'Anurag',
+       'Bhavya Parmar ', 'Soham Shrivastava ', 'Aditya Borate', 'Hemant ',
+       'Abhinav Singh Yadav ', 'Arul Singh', 'Harinarayan J ',
+       'uday kumar jarapala', 'Sailesh Panda', 'Yash Sonone ', 'Sayak Dutta',
+       'Biswajit Rakshit', 'Praanshu ', 'Samarth Sonawane ',
+       'Shah Harshil Hardik ', 'Paras Prashant Shirvale ', 'Venkatakrishnan E',
+       'Patel Ridham Vijaykumar', 'Kaushal', 'Suriya', 'Nishchay Bhutoria',
+       'Darpana', 'Umang Shikarvar', 'Rishabh Jogani', 'Shriniket Behera',
+       'Srivaths P', 'M. Lakshmi Manasa ', 'Afraz', 'Arpita Kumawat ',
+       'Naveen pal', 'Naveen pal', 'Vedant', 'Tanishq Bhushan Chaudhari',
+       'Shardul Junagade', 'Soham Gaonkar', 'Xyz', 'Akash Gupta ',
+       'Pranav Somase', 'Maharshi Patel', 'Susmita R',
+       'Vadithe Venkat Akhilesh Naik', 'Rudra', 'Mukesh ', 'Niyati siju ',
+       'Rahul Singal'],
+      dtype='object', name='Your name')</code></pre>
+</div>
+</div>
+<div id="cell-5" class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get index for user and movie</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>user <span class="op">=</span> <span class="st">'Ayush Shrivastava'</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(user <span class="kw">in</span> df.index)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the movie ratings for user</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>user_ratings <span class="op">=</span> df.loc[user]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>user_ratings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="79">
+<pre><code>Sholay                      4.0
+Swades (We The People)      4.0
+The Matrix (I)              5.0
+Interstellar                5.0
+Dangal                      3.0
+Taare Zameen Par            4.0
+Shawshank Redemption        NaN
+The Dark Knight             NaN
+Notting Hill                NaN
+Uri: The Surgical Strike    4.0
+Name: Ayush Shrivastava, dtype: float64</code></pre>
+</div>
+</div>
+<div id="cell-6" class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of missing values</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df.isnull().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="80">
+<pre><code>Sholay                      20
+Swades (We The People)      35
+The Matrix (I)               6
+Interstellar                14
+Dangal                       4
+Taare Zameen Par             8
+Shawshank Redemption        35
+The Dark Knight             25
+Notting Hill                45
+Uri: The Surgical Strike    12
+dtype: int64</code></pre>
+</div>
+</div>
+<div id="cell-7" class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generic Matrix Factorization (without missing values)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn.functional <span class="im">as</span> F</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.optim <span class="im">as</span> optim</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>n_users, n_movies <span class="op">=</span> <span class="dv">20</span>, <span class="dv">10</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># A is a matrix of size (n_users, n_movies) randomly generated values between 1 and 5</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> torch.randint(<span class="dv">1</span>, <span class="dv">6</span>, (n_users, n_movies), dtype<span class="op">=</span>torch.<span class="bu">float</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="81">
+<pre><code>tensor([[3., 5., 1., 2., 2., 5., 1., 5., 5., 3.],
+        [1., 5., 4., 4., 5., 5., 5., 1., 4., 2.],
+        [3., 3., 5., 1., 1., 5., 5., 1., 1., 2.],
+        [4., 3., 2., 2., 5., 4., 4., 5., 2., 1.],
+        [4., 1., 1., 5., 4., 2., 2., 4., 3., 1.],
+        [4., 2., 5., 4., 3., 5., 5., 3., 4., 3.],
+        [1., 3., 1., 3., 1., 3., 5., 4., 1., 2.],
+        [1., 1., 2., 4., 3., 3., 2., 1., 5., 1.],
+        [3., 1., 1., 1., 5., 4., 2., 5., 5., 2.],
+        [2., 2., 1., 5., 3., 5., 3., 2., 1., 4.],
+        [3., 3., 3., 4., 4., 1., 5., 3., 4., 4.],
+        [5., 1., 1., 3., 2., 2., 4., 5., 2., 3.],
+        [3., 1., 4., 1., 1., 3., 3., 3., 1., 2.],
+        [1., 5., 1., 3., 3., 4., 1., 4., 2., 3.],
+        [1., 2., 1., 3., 5., 4., 4., 1., 3., 3.],
+        [3., 4., 3., 4., 4., 2., 2., 5., 4., 2.],
+        [1., 4., 4., 4., 4., 1., 3., 5., 2., 3.],
+        [1., 5., 4., 3., 3., 2., 3., 2., 3., 4.],
+        [5., 4., 2., 3., 2., 4., 5., 2., 1., 1.],
+        [4., 4., 2., 1., 2., 3., 4., 1., 4., 4.]])</code></pre>
+</div>
+</div>
+<div id="cell-8" class="cell" data-execution_count="82">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>A.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="82">
+<pre><code>torch.Size([20, 10])</code></pre>
+</div>
+</div>
+<p>Let us decompose A as WH. W is of shape (n, k) and H is of shape (k, n). We can write the above equation as: A = WH</p>
+<div id="cell-10" class="cell" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomly initialize A and B</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set device to cuda:0 if available and on Linux</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># If on mac try mps</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> torch.cuda.is_available():</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    device <span class="op">=</span> torch.device(<span class="st">"cuda:0"</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> torch.backends.mps.is_available():</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    device <span class="op">=</span> torch.device(<span class="st">"mps"</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    device <span class="op">=</span> torch.device(<span class="st">"cpu"</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Working on device: "</span>, device)</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>W <span class="op">=</span> torch.randn(n_users, r, requires_grad<span class="op">=</span><span class="va">True</span>, device<span class="op">=</span>device)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> torch.randn(r, n_movies, requires_grad<span class="op">=</span><span class="va">True</span>, device<span class="op">=</span>device)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> A.to(device)</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the loss</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    loss <span class="op">=</span> torch.norm(torch.mm(W, H) <span class="op">-</span> A)</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(loss)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Working on device:  mps
+tensor(50.2602, device='mps:0')</code></pre>
+</div>
+</div>
+<div id="cell-11" class="cell" data-execution_count="99">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    temp_pred <span class="op">=</span> torch.mm(W, H)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    bw_0_1 <span class="op">=</span> torch.nn.Sigmoid()(temp_pred)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    bw_0_5 <span class="op">=</span> <span class="dv">5</span><span class="op">*</span>bw_0_1</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(temp_pred.<span class="bu">max</span>(), temp_pred.<span class="bu">min</span>())</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bw_0_1.<span class="bu">max</span>(), bw_0_1.<span class="bu">min</span>())</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bw_0_5.<span class="bu">max</span>(), bw_0_5.<span class="bu">min</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tensor(4.2534, device='mps:0') tensor(-6.2291, device='mps:0')
+tensor(0.9860, device='mps:0') tensor(0.0020, device='mps:0')
+tensor(4.9299, device='mps:0') tensor(0.0098, device='mps:0')</code></pre>
+</div>
+</div>
+<div id="cell-12" class="cell" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(torch.mm(W, H).cpu().detach().numpy()).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="84">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">6</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">8</th>
+<th data-quarto-table-cell-role="th">9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>-0.891001</td>
+<td>-0.634515</td>
+<td>-3.235490</td>
+<td>-1.123262</td>
+<td>-0.822733</td>
+<td>0.247268</td>
+<td>-0.177382</td>
+<td>-0.227028</td>
+<td>-1.626003</td>
+<td>1.122110</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>-0.877492</td>
+<td>-0.278806</td>
+<td>-1.831263</td>
+<td>-0.834423</td>
+<td>-0.545472</td>
+<td>0.780769</td>
+<td>-0.330289</td>
+<td>-0.112227</td>
+<td>-0.676177</td>
+<td>0.701097</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>-0.264974</td>
+<td>-2.991497</td>
+<td>-2.802118</td>
+<td>0.335193</td>
+<td>-0.957647</td>
+<td>0.119414</td>
+<td>-1.969304</td>
+<td>2.189706</td>
+<td>-1.220401</td>
+<td>3.390876</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>-2.748779</td>
+<td>-0.559342</td>
+<td>-5.203822</td>
+<td>-2.586238</td>
+<td>-1.577665</td>
+<td>2.597816</td>
+<td>-0.933461</td>
+<td>-0.491536</td>
+<td>-1.794108</td>
+<td>1.846012</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1.951718</td>
+<td>0.157127</td>
+<td>2.712191</td>
+<td>1.634342</td>
+<td>0.929842</td>
+<td>-2.237743</td>
+<td>0.785591</td>
+<td>0.256963</td>
+<td>0.600561</td>
+<td>-1.029533</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-13" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(A.cpu().detach().numpy()).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">6</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">8</th>
+<th data-quarto-table-cell-role="th">9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>3.0</td>
+<td>4.0</td>
+<td>2.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>5.0</td>
+<td>2.0</td>
+<td>5.0</td>
+<td>1.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>5.0</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>2.0</td>
+<td>5.0</td>
+<td>2.0</td>
+<td>4.0</td>
+<td>1.0</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>3.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-14" class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Optimizer</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> optim.Adam([W, H], lr<span class="op">=</span><span class="fl">0.01</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Train the model</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">600</span>):</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute the loss</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    loss <span class="op">=</span> torch.norm(torch.mm(W, H) <span class="op">-</span> A)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Zero the gradients</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    optimizer.zero_grad()</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Backpropagate</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    loss.backward()</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Update the parameters</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    optimizer.step()</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Print the loss</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">%</span> <span class="dv">10</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(i, loss.item())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0 55.518882751464844
+10 52.659767150878906
+20 50.37566375732422
+30 48.51186752319336
+40 46.83131790161133
+50 45.094539642333984
+60 43.114288330078125
+70 40.78749084472656
+80 38.10878372192383
+90 35.157928466796875
+100 32.074623107910156
+110 29.021379470825195
+120 26.15049934387207
+130 23.621992111206055
+140 21.566579818725586
+150 20.013381958007812
+160 18.89710235595703
+170 18.127681732177734
+180 17.621126174926758
+190 17.2957820892334
+200 17.079294204711914
+210 16.919897079467773
+220 16.787397384643555
+230 16.666202545166016
+240 16.548551559448242
+250 16.430585861206055
+260 16.310630798339844
+270 16.188627243041992
+280 16.06583595275879
+290 15.944452285766602
+300 15.82705020904541
+310 15.71599006652832
+320 15.612943649291992
+330 15.518715858459473
+340 15.433331489562988
+350 15.356307983398438
+360 15.286922454833984
+370 15.224400520324707
+380 15.168001174926758
+390 15.117039680480957
+400 15.070890426635742
+410 15.028966903686523
+420 14.990720748901367
+430 14.955638885498047
+440 14.923242568969727
+450 14.893086433410645
+460 14.864763259887695
+470 14.837905883789062
+480 14.812182426452637
+490 14.78730297088623
+500 14.76301097869873
+510 14.739081382751465
+520 14.715320587158203
+530 14.691561698913574
+540 14.667658805847168
+550 14.643492698669434
+560 14.618959426879883
+570 14.593977928161621
+580 14.568486213684082
+590 14.542439460754395</code></pre>
+</div>
+</div>
+<div id="cell-15" class="cell" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(torch.mm(W, H).cpu().detach().numpy()).head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="86">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">6</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">8</th>
+<th data-quarto-table-cell-role="th">9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2.507077</td>
+<td>2.882409</td>
+<td>1.014812</td>
+<td>3.618050</td>
+<td>4.393669</td>
+<td>4.244705</td>
+<td>2.526482</td>
+<td>3.759181</td>
+<td>4.175953</td>
+<td>2.472470</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2.096234</td>
+<td>4.719135</td>
+<td>3.403720</td>
+<td>3.538269</td>
+<td>3.727524</td>
+<td>5.825880</td>
+<td>4.797643</td>
+<td>1.286691</td>
+<td>3.555986</td>
+<td>3.319029</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-16" class="cell" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    pred <span class="op">=</span> torch.mm(W, H)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tensor([[2.5071, 2.8824, 1.0148, 3.6180, 4.3937, 4.2447, 2.5265, 3.7592, 4.1760,
+         2.4725],
+        [2.0962, 4.7191, 3.4037, 3.5383, 3.7275, 5.8259, 4.7976, 1.2867, 3.5560,
+         3.3190],
+        [1.9424, 3.8889, 4.4717, 2.1537, 1.5326, 3.5554, 4.9624, 0.3696, 1.3432,
+         2.7223],
+        [3.2004, 2.8246, 2.0544, 3.4926, 3.8315, 3.3191, 3.2242, 4.3713, 3.5237,
+         2.6092],
+        [3.1014, 1.7170, 0.8792, 3.1483, 3.6712, 2.1976, 1.9481, 5.0449, 3.3680,
+         1.9746],
+        [3.4649, 4.0731, 3.9972, 3.6500, 3.5021, 4.1153, 5.0495, 3.4916, 3.1635,
+         3.3433],
+        [2.4187, 2.5760, 2.6503, 2.4030, 2.2778, 2.4943, 3.3048, 2.5503, 2.0379,
+         2.1813],
+        [1.4519, 2.4073, 0.8205, 2.5799, 3.1635, 3.6162, 1.9812, 1.9655, 3.0497,
+         1.8606],
+        [2.9072, 2.0137, 0.5374, 3.4440, 4.2075, 2.9997, 1.8686, 4.8841, 3.9363,
+         2.1061],
+        [1.8149, 3.1825, 1.7480, 2.9721, 3.4117, 4.3003, 2.9872, 1.9706, 3.2621,
+         2.3937],
+        [3.6335, 3.1765, 3.4501, 3.3264, 3.1627, 2.8898, 4.2959, 4.2345, 2.7955,
+         2.8895],
+        [3.6077, 1.9201, 2.1290, 2.9908, 3.0406, 1.6020, 2.8706, 5.1514, 2.6693,
+         2.1967],
+        [2.5846, 2.2309, 3.2388, 1.9116, 1.4077, 1.4257, 3.4981, 2.5014, 1.1339,
+         1.9999],
+        [1.9620, 2.6912, 1.1617, 2.9910, 3.5664, 3.8354, 2.4170, 2.6666, 3.3997,
+         2.1766],
+        [1.4638, 3.2153, 1.3959, 2.9428, 3.5207, 4.6469, 2.7373, 1.5462, 3.4142,
+         2.3180],
+        [3.6219, 2.5907, 2.2168, 3.5091, 3.7423, 2.7442, 3.2718, 5.0664, 3.3826,
+         2.5968],
+        [3.6559, 2.6337, 3.2100, 3.0238, 2.7970, 2.0870, 3.8787, 4.4767, 2.4195,
+         2.5847],
+        [2.5847, 3.4608, 3.6446, 2.7093, 2.4208, 3.3422, 4.3718, 2.1372, 2.1672,
+         2.7134],
+        [2.5238, 3.3669, 3.3085, 2.7727, 2.6074, 3.4258, 4.1167, 2.2515, 2.3633,
+         2.6544],
+        [2.2396, 3.3835, 3.0556, 2.7231, 2.6510, 3.6647, 3.9279, 1.8880, 2.4411,
+         2.5856]], device='mps:0')</code></pre>
+</div>
+</div>
+<div id="cell-17" class="cell" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pred.<span class="bu">max</span>(), pred.<span class="bu">min</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="92">
+<pre><code>(tensor(5.8259, device='mps:0'), tensor(0.3696, device='mps:0'))</code></pre>
+</div>
+</div>
+<div id="cell-18" class="cell" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(A.cpu()).head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="87">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">6</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">8</th>
+<th data-quarto-table-cell-role="th">9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>5.0</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>1.0</td>
+<td>4.0</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-19" class="cell" data-execution_count="100">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> factorize(A, k, device<span class="op">=</span>torch.device(<span class="st">"cpu"</span>)):</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Factorize the matrix A into W and H</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">    A: input matrix of size (n_users, n_movies)</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co">    k: number of latent features</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns W and H</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">    W: matrix of size (n_users, k)</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co">    H: matrix of size (k, n_movies)</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> A.to(device)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Randomly initialize W and H</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    W <span class="op">=</span> torch.randn(A.shape[<span class="dv">0</span>], k, requires_grad<span class="op">=</span><span class="va">True</span>, device<span class="op">=</span>device)</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    H <span class="op">=</span> torch.randn(k, A.shape[<span class="dv">1</span>], requires_grad<span class="op">=</span><span class="va">True</span>, device<span class="op">=</span>device)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Optimizer</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    optimizer <span class="op">=</span> optim.Adam([W, H], lr<span class="op">=</span><span class="fl">0.01</span>)</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Train the model</span></span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Compute the loss</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> torch.norm(torch.mm(W, H) <span class="op">-</span> A)</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Zero the gradients</span></span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>        optimizer.zero_grad()</span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Backpropagate</span></span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>        loss.backward()</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Update the parameters</span></span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>        optimizer.step()</span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> W, H, loss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-20" class="cell" data-execution_count="101">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">9</span>]:</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    W, H, loss <span class="op">=</span> factorize(A, k, device<span class="op">=</span>device)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(k, loss.item())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1 18.47580909729004
+2 16.0474853515625
+3 13.883170127868652
+4 12.110709190368652
+5 10.14443302154541
+6 8.560541152954102
+9 3.077495813369751</code></pre>
+</div>
+</div>
+<div id="cell-21" class="cell" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(torch.mm(W,H).cpu().detach().numpy()).head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="102">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">6</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">8</th>
+<th data-quarto-table-cell-role="th">9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>3.221090</td>
+<td>5.013057</td>
+<td>1.102975</td>
+<td>1.975984</td>
+<td>2.243918</td>
+<td>5.007381</td>
+<td>0.727418</td>
+<td>4.854879</td>
+<td>4.776544</td>
+<td>3.170928</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1.150956</td>
+<td>5.008823</td>
+<td>4.070340</td>
+<td>3.983593</td>
+<td>5.166485</td>
+<td>5.005116</td>
+<td>4.813902</td>
+<td>0.900851</td>
+<td>3.847399</td>
+<td>2.116858</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-22" class="cell" data-execution_count="103">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(A.cpu()).head(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="103">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">6</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">8</th>
+<th data-quarto-table-cell-role="th">9</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>1.0</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>5.0</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>3.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>1.0</td>
+<td>4.0</td>
+<td>2.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-23" class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>x_uniform2d <span class="op">=</span> torch.rand(<span class="dv">1000</span>, <span class="dv">2</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># satter plot</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(x_uniform2d[:, <span class="dv">0</span>], x_uniform2d[:, <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="movie-recommendation-knn-mf_files/figure-html/cell-23-output-1.png" width="547" height="413" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-24" class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check values of x_uniform2d &lt; 0.5 and color them red</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> x_uniform2d <span class="op">&lt;</span> <span class="fl">0.5</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mask)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tensor([[ True,  True],
+        [ True,  True],
+        [ True,  True],
+        ...,
+        [ True,  True],
+        [False,  True],
+        [False,  True]])</code></pre>
+</div>
+</div>
+<div id="cell-25" class="cell" data-execution_count="115">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># With missing values</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Randomly replace some entries with NaN</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> torch.randint(<span class="dv">1</span>, <span class="dv">6</span>, (n_users, n_movies), dtype<span class="op">=</span>torch.<span class="bu">float</span>)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>A[torch.rand(A.shape) <span class="op">&lt;</span> <span class="fl">0.5</span>] <span class="op">=</span> <span class="bu">float</span>(<span class="st">'nan'</span>)</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="115">
+<pre><code>tensor([[5., nan, nan, nan, 3., nan, nan, nan, 2., nan],
+        [nan, nan, 1., nan, 1., nan, nan, 3., 5., 1.],
+        [3., nan, nan, nan, 4., 1., nan, nan, nan, nan],
+        [nan, nan, nan, nan, nan, 5., 5., nan, 3., nan],
+        [2., 3., nan, 2., 1., nan, nan, 1., 1., nan],
+        [nan, 4., nan, 3., 5., nan, 3., 4., 2., 2.],
+        [nan, nan, nan, nan, nan, 2., 1., 5., 2., nan],
+        [5., 5., nan, nan, 1., nan, nan, nan, 4., 4.],
+        [nan, nan, nan, nan, 3., nan, nan, nan, 2., 4.],
+        [nan, nan, nan, nan, nan, 3., 2., 3., 5., 5.],
+        [nan, 4., nan, nan, 2., nan, 2., nan, nan, nan],
+        [nan, 2., 3., nan, 4., nan, nan, 4., nan, 2.],
+        [nan, nan, 2., 2., 4., 2., 2., 3., nan, nan],
+        [3., nan, 1., nan, nan, 3., nan, nan, 1., nan],
+        [nan, 2., nan, nan, 5., nan, nan, 2., 1., nan],
+        [nan, 2., nan, nan, 5., nan, 4., nan, nan, 1.],
+        [nan, nan, nan, nan, 1., 3., 2., 3., 1., nan],
+        [nan, nan, nan, 3., nan, nan, nan, 3., 4., 1.],
+        [nan, 1., 5., 1., nan, nan, 2., nan, 2., nan],
+        [2., 1., nan, nan, nan, nan, nan, nan, nan, 5.]])</code></pre>
+</div>
+</div>
+<div id="cell-26" class="cell" data-execution_count="116">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>W, H, loss <span class="op">=</span> factorize(A, <span class="dv">2</span>, device<span class="op">=</span>device)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>loss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="116">
+<pre><code>tensor(nan, device='mps:0', grad_fn=&lt;NormBackward1&gt;)</code></pre>
+</div>
+</div>
+<p>As expected, the above function does not work. Our current loss function does not handle missing values.</p>
+<div id="cell-28" class="cell" data-execution_count="117">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>A.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="117">
+<pre><code>torch.Size([20, 10])</code></pre>
+</div>
+</div>
+<div id="cell-29" class="cell" data-execution_count="118">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> <span class="op">~</span>torch.isnan(A)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>mask</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="118">
+<pre><code>tensor([[ True, False, False, False,  True, False, False, False,  True, False],
+        [False, False,  True, False,  True, False, False,  True,  True,  True],
+        [ True, False, False, False,  True,  True, False, False, False, False],
+        [False, False, False, False, False,  True,  True, False,  True, False],
+        [ True,  True, False,  True,  True, False, False,  True,  True, False],
+        [False,  True, False,  True,  True, False,  True,  True,  True,  True],
+        [False, False, False, False, False,  True,  True,  True,  True, False],
+        [ True,  True, False, False,  True, False, False, False,  True,  True],
+        [False, False, False, False,  True, False, False, False,  True,  True],
+        [False, False, False, False, False,  True,  True,  True,  True,  True],
+        [False,  True, False, False,  True, False,  True, False, False, False],
+        [False,  True,  True, False,  True, False, False,  True, False,  True],
+        [False, False,  True,  True,  True,  True,  True,  True, False, False],
+        [ True, False,  True, False, False,  True, False, False,  True, False],
+        [False,  True, False, False,  True, False, False,  True,  True, False],
+        [False,  True, False, False,  True, False,  True, False, False,  True],
+        [False, False, False, False,  True,  True,  True,  True,  True, False],
+        [False, False, False,  True, False, False, False,  True,  True,  True],
+        [False,  True,  True,  True, False, False,  True, False,  True, False],
+        [ True,  True, False, False, False, False, False, False, False,  True]])</code></pre>
+</div>
+</div>
+<div id="cell-30" class="cell" data-execution_count="119">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>mask.<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="119">
+<pre><code>tensor(87)</code></pre>
+</div>
+</div>
+<div id="cell-31" class="cell" data-execution_count="120">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>W <span class="op">=</span> torch.randn(A.shape[<span class="dv">0</span>], k, requires_grad<span class="op">=</span><span class="va">True</span>, device<span class="op">=</span>device)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> torch.randn(k, A.shape[<span class="dv">1</span>],  requires_grad<span class="op">=</span><span class="va">True</span>, device<span class="op">=</span>device)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>diff_matrix <span class="op">=</span> torch.mm(W, H)<span class="op">-</span>A.to(device)</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>diff_matrix.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="120">
+<pre><code>torch.Size([20, 10])</code></pre>
+</div>
+</div>
+<div id="cell-32" class="cell" data-execution_count="121">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>diff_matrix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="121">
+<pre><code>tensor([[-6.9854,     nan,     nan,     nan,  2.5382,     nan,     nan,     nan,
+         -3.3296,     nan],
+        [    nan,     nan, -4.0131,     nan, -6.2010,     nan,     nan, -3.9650,
+         -6.5180,  0.9829],
+        [-1.0404,     nan,     nan,     nan, -4.7079, -0.7452,     nan,     nan,
+             nan,     nan],
+        [    nan,     nan,     nan,     nan,     nan, -6.6035, -6.2113,     nan,
+         -5.2806,     nan],
+        [ 2.2240, -0.5113,     nan, -1.0281, -0.3319,     nan,     nan, -1.0290,
+         -8.5193,     nan],
+        [    nan, -1.5060,     nan, -1.0225, -5.9332,     nan,  3.1254, -1.2558,
+         -7.6531, -1.3446],
+        [    nan,     nan,     nan,     nan,     nan, -1.1617,  1.4732, -4.9664,
+         -6.6226,     nan],
+        [-2.9062, -4.3373,     nan,     nan, -3.4020,     nan,     nan,     nan,
+         -7.5088, -4.6871],
+        [    nan,     nan,     nan,     nan, -6.3027,     nan,     nan,     nan,
+         -6.2829, -4.3568],
+        [    nan,     nan,     nan,     nan,     nan, -0.5816, -1.3435, -6.3993,
+         -5.6600, -4.1959],
+        [    nan, -7.8034,     nan,     nan,  0.4608,     nan, -5.6186,     nan,
+             nan,     nan],
+        [    nan, -6.6628,  1.1697,     nan, -3.5552,     nan,     nan, -8.1775,
+             nan,  2.9435],
+        [    nan,     nan, -1.3904, -2.1634,  6.3728, -1.6834,  0.0504, -3.1274,
+             nan,     nan],
+        [-1.1221,     nan,  1.2635,     nan,     nan, -3.3154,     nan,     nan,
+         -5.8986,     nan],
+        [    nan, -2.8094,     nan,     nan, -5.0974,     nan,     nan, -2.7950,
+         -6.6121,     nan],
+        [    nan, -3.9005,     nan,     nan, -7.2914,     nan, -5.1783,     nan,
+             nan, -0.4819],
+        [    nan,     nan,     nan,     nan, -4.6136,  0.8440,  0.9016,  1.4004,
+         -7.1846,     nan],
+        [    nan,     nan,     nan, -2.3378,     nan,     nan,     nan,  0.4268,
+         -9.2480, -0.9357],
+        [    nan, -5.5819,  2.4075, -3.1272,     nan,     nan,  3.5693,     nan,
+         -0.1390,     nan],
+        [ 4.1499, -2.5375,     nan,     nan,     nan,     nan,     nan,     nan,
+             nan, -4.0199]], device='mps:0', grad_fn=&lt;SubBackward0&gt;)</code></pre>
+</div>
+</div>
+<div id="cell-33" class="cell" data-execution_count="122">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mask the matrix</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>diff_matrix[mask].shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="122">
+<pre><code>torch.Size([87])</code></pre>
+</div>
+</div>
+<div id="cell-34" class="cell" data-execution_count="123">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>diff_matrix[mask]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="123">
+<pre><code>tensor([-6.9854,  2.5382, -3.3296, -4.0131, -6.2010, -3.9650, -6.5180,  0.9829,
+        -1.0404, -4.7079, -0.7452, -6.6035, -6.2113, -5.2806,  2.2240, -0.5113,
+        -1.0281, -0.3319, -1.0290, -8.5193, -1.5060, -1.0225, -5.9332,  3.1254,
+        -1.2558, -7.6531, -1.3446, -1.1617,  1.4732, -4.9664, -6.6226, -2.9062,
+        -4.3373, -3.4020, -7.5088, -4.6871, -6.3027, -6.2829, -4.3568, -0.5816,
+        -1.3435, -6.3993, -5.6600, -4.1959, -7.8034,  0.4608, -5.6186, -6.6628,
+         1.1697, -3.5552, -8.1775,  2.9435, -1.3904, -2.1634,  6.3728, -1.6834,
+         0.0504, -3.1274, -1.1221,  1.2635, -3.3154, -5.8986, -2.8094, -5.0974,
+        -2.7950, -6.6121, -3.9005, -7.2914, -5.1783, -0.4819, -4.6136,  0.8440,
+         0.9016,  1.4004, -7.1846, -2.3378,  0.4268, -9.2480, -0.9357, -5.5819,
+         2.4075, -3.1272,  3.5693, -0.1390,  4.1499, -2.5375, -4.0199],
+       device='mps:0', grad_fn=&lt;IndexBackward0&gt;)</code></pre>
+</div>
+</div>
+<div id="cell-35" class="cell" data-execution_count="161">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modify the loss function to ignore NaN values</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> factorize(A, k, device<span class="op">=</span>torch.device(<span class="st">"cpu"</span>)):</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Factorize the matrix D into A and B"""</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> A.to(device)</span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Randomly initialize A and B</span></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>    W <span class="op">=</span> torch.randn(A.shape[<span class="dv">0</span>], k, requires_grad<span class="op">=</span><span class="va">True</span>, device<span class="op">=</span>device)</span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>    H <span class="op">=</span> torch.randn(k, A.shape[<span class="dv">1</span>], requires_grad<span class="op">=</span><span class="va">True</span>, device<span class="op">=</span>device)</span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Optimizer</span></span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>    optimizer <span class="op">=</span> optim.Adam([W, H], lr<span class="op">=</span><span class="fl">0.01</span>)</span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> <span class="op">~</span>torch.isnan(A)</span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Train the model</span></span>
+<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb55-14"><a href="#cb55-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Compute the loss</span></span>
+<span id="cb55-15"><a href="#cb55-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">#diff_matrix = 5*torch.nn.Sigmoid()(torch.mm(W, H)) - A</span></span>
+<span id="cb55-16"><a href="#cb55-16" aria-hidden="true" tabindex="-1"></a>        diff_matrix <span class="op">=</span> torch.mm(W, H) <span class="op">-</span> A</span>
+<span id="cb55-17"><a href="#cb55-17" aria-hidden="true" tabindex="-1"></a>        diff_vector <span class="op">=</span> diff_matrix[mask]</span>
+<span id="cb55-18"><a href="#cb55-18" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> torch.norm(diff_vector)</span>
+<span id="cb55-19"><a href="#cb55-19" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb55-20"><a href="#cb55-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Zero the gradients</span></span>
+<span id="cb55-21"><a href="#cb55-21" aria-hidden="true" tabindex="-1"></a>        optimizer.zero_grad()</span>
+<span id="cb55-22"><a href="#cb55-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb55-23"><a href="#cb55-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Backpropagate</span></span>
+<span id="cb55-24"><a href="#cb55-24" aria-hidden="true" tabindex="-1"></a>        loss.backward()</span>
+<span id="cb55-25"><a href="#cb55-25" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb55-26"><a href="#cb55-26" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Update the parameters</span></span>
+<span id="cb55-27"><a href="#cb55-27" aria-hidden="true" tabindex="-1"></a>        optimizer.step()</span>
+<span id="cb55-28"><a href="#cb55-28" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb55-29"><a href="#cb55-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> W, H, loss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-36" class="cell" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>W, H, loss <span class="op">=</span> factorize(A, <span class="dv">5</span>, device<span class="op">=</span>device)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>loss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="138">
+<pre><code>tensor(8.0831, device='mps:0', grad_fn=&lt;NormBackward1&gt;)</code></pre>
+</div>
+</div>
+<div id="cell-37" class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>torch.mm(W, H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="139">
+<pre><code>tensor([[ 3.7077e-01,  6.6310e+00,  1.5317e+01,  1.5463e+00,  2.3812e+00,
+          1.0566e+01,  4.1666e-01,  3.7488e-01,  1.9886e+01,  9.1443e+00],
+        [ 6.0725e+00,  4.9374e+00,  1.1223e+01,  1.6064e+01,  5.0131e+00,
+          7.6977e+00,  1.3872e+00,  8.5424e+00,  4.0570e-01,  8.0806e+00],
+        [ 4.0886e-01,  4.3280e-01,  3.1149e+01,  1.4252e+01,  3.7623e+00,
+          6.6555e+00,  2.3225e+01,  2.7410e+01,  5.6219e+00,  1.3889e+00],
+        [ 1.4532e+00,  1.7891e+00,  1.3172e+00,  3.0270e+00,  1.1199e+00,
+          2.3014e+00, -1.2625e+00,  3.5530e-01,  1.5922e+00,  2.7375e+00],
+        [ 1.6632e+00,  2.6585e-01,  2.1361e+01,  7.0106e+00,  2.8000e+00,
+          3.5102e+00,  4.2856e-01,  3.3931e+00, -3.8024e-01,  1.5930e+00],
+        [ 1.2141e+00,  1.0140e+00,  3.0760e+00,  2.6695e+00,  1.0877e+00,
+          1.3464e+00, -8.1209e+00, -2.7409e+00,  9.0885e-01,  2.8838e+00],
+        [ 4.0901e-01,  3.9038e+00,  8.7977e+00,  4.1466e-01,  1.3196e+00,
+          6.3608e+00,  6.7289e+00,  1.3803e+00,  1.0174e+01,  3.9643e+00],
+        [-9.8752e-01,  3.6740e-01,  2.6969e+00,  4.0674e+00,  4.0672e-01,
+          1.3851e+00,  2.4825e+00,  1.0826e+01,  5.9494e+00,  2.2289e+00],
+        [ 5.5207e-01,  1.1081e+00,  1.9142e+01,  2.3691e+00,  1.9192e+00,
+          4.2797e+00,  3.2013e+00,  4.6711e-01,  3.6369e+00,  1.3412e+00],
+        [ 4.6630e-01,  1.2243e+00,  5.9625e+00,  1.4046e+00,  1.0984e+00,
+          1.6349e+00, -2.0338e+01, -7.9498e+00,  5.1443e+00,  5.2937e+00],
+        [ 1.2857e+00,  1.5616e+00,  6.7867e+00,  4.8829e+00,  1.6570e+00,
+          2.8631e+00, -3.4178e+00,  2.2360e+00,  2.9275e+00,  3.5634e+00],
+        [ 6.3556e+00,  3.8148e-01, -4.0798e-01,  1.0863e+01,  2.8454e+00,
+          4.3686e-01,  1.5168e+01,  5.1601e+00, -1.8209e+01, -2.4838e+00],
+        [ 6.5525e+00,  8.4806e+00,  1.3856e+00,  8.3839e+00,  4.1564e+00,
+          1.0084e+01, -1.1960e+00, -4.9075e+00,  5.5259e+00,  1.0234e+01],
+        [ 6.5245e+00,  5.3424e-02,  9.7484e+00,  1.7353e+01,  4.4118e+00,
+          1.3884e+00,  2.8198e+00,  9.1513e+00, -1.5093e+01,  1.3853e+00],
+        [ 1.2177e+00,  9.9223e-01,  6.9760e+00,  3.4557e+00,  1.2884e+00,
+          2.5346e+00,  8.4102e+00,  4.5198e+00, -2.3623e-01,  2.9567e-01],
+        [ 1.7454e+00,  1.1318e+00,  4.1938e-01,  3.5559e+00,  1.0687e+00,
+          1.4206e+00,  1.3669e+00,  1.4285e+00, -1.4711e+00,  1.3943e+00],
+        [ 1.7910e+00,  1.2199e+00,  4.0360e-01,  4.2808e+00,  1.1723e+00,
+          1.5749e+00,  1.6105e+00,  2.6729e+00, -1.1288e+00,  1.7057e+00],
+        [-1.3556e+00, -1.4275e+00,  3.4785e+01,  1.2851e+01,  3.0411e+00,
+          5.2795e+00,  2.8474e+01,  3.1569e+01,  5.5362e+00, -1.3419e+00],
+        [-1.8762e-01, -2.3404e-01, -4.5376e-01, -7.7366e-01, -2.1038e-01,
+         -3.5672e-01,  3.9868e-01, -5.7151e-01, -4.0787e-01, -5.3638e-01],
+        [ 1.3838e+00, -2.2733e+00,  6.1621e+00,  8.6734e+00,  1.3886e+00,
+         -1.5119e+00,  5.2354e+00,  1.1302e+01, -8.0632e+00, -1.7889e+00],
+        [ 3.6552e+00,  2.5212e+00,  1.3857e+00,  6.9004e+00,  2.2509e+00,
+          3.1481e+00,  1.3866e+00,  1.3865e+00, -2.6466e+00,  3.1740e+00],
+        [ 1.0229e+00,  1.1825e+00,  4.2758e-01,  6.1655e+00,  1.0213e+00,
+          2.3481e+00,  1.6458e+01,  1.4319e+01,  5.4860e-01,  3.3834e-01],
+        [ 6.0379e+00,  1.4185e+00,  1.3875e+00,  1.3263e+01,  3.5322e+00,
+          1.3875e+00, -7.0567e+00,  1.3884e+00, -1.0741e+01,  3.8053e+00],
+        [-9.8381e-01, -1.3306e+00, -1.3938e+00, -2.1299e+00, -7.9858e-01,
+         -1.8705e+00, -1.4587e+00, -1.2413e+00, -1.2592e+00, -1.6469e+00],
+        [ 1.3220e+00, -4.9020e-01,  3.9410e+00,  7.6600e+00,  1.5701e+00,
+         -3.7274e-01, -1.4673e+01,  2.5561e+00, -1.1948e+00,  3.7111e+00],
+        [ 6.1220e+00,  7.4328e+00,  4.0750e-01,  3.4254e+00,  3.2144e+00,
+          8.5422e+00,  2.7018e+00, -1.0723e+01,  1.6187e+00,  6.6366e+00],
+        [-3.5685e+00, -1.7563e+00,  4.2421e+00,  5.5724e+00, -3.7115e-01,
+         -4.0291e-01,  4.3805e+00,  2.1632e+01,  9.1339e+00,  1.3505e+00],
+        [ 4.4832e-01, -1.5860e-02,  1.4055e+00,  1.0218e+01,  1.1916e+00,
+          1.3818e+00,  1.7442e+01,  2.3185e+01,  5.4138e-01,  4.2002e-01],
+        [ 4.1024e-01,  9.5018e-01,  1.3887e+00,  4.0686e-01,  3.8984e-01,
+          1.3909e+00,  1.3861e+00, -7.4408e-02,  1.4843e+00,  9.0930e-01],
+        [ 3.7110e+00,  7.8304e+00,  9.7398e+00,  9.2027e+00,  3.8842e+00,
+          1.1342e+01,  6.5249e+00,  6.9368e+00,  1.3636e+01,  1.0251e+01],
+        [ 2.8386e+00,  3.7927e+00, -2.7092e+00,  4.9386e+00,  1.6519e+00,
+          4.4198e+00,  7.3292e+00,  3.9203e+00,  2.1021e+00,  3.7490e+00],
+        [ 1.3547e+00,  1.0248e+00,  5.2940e-01,  5.9261e+00,  1.2267e+00,
+          1.4913e+00,  4.2189e-01,  6.3919e+00,  5.4764e-01,  2.5465e+00],
+        [ 2.9390e+00,  3.6583e+00,  1.4742e+01,  5.8615e+00,  2.8172e+00,
+          7.4801e+00,  2.6432e+01,  9.6709e+00,  1.3329e+00,  4.8200e-01],
+        [-5.5568e-01, -8.6809e-01,  1.3172e+01,  5.1727e+00,  1.1844e+00,
+          1.3867e+00,  4.6236e+00,  1.0093e+01,  2.0485e+00,  2.4118e-01],
+        [ 3.8864e+00,  2.3984e+00, -9.6685e+00,  6.0240e+00,  1.3454e+00,
+          1.5644e+00,  7.9850e+00,  3.7270e+00, -5.8279e+00,  1.4577e+00],
+        [ 1.1099e+00,  1.1423e+00,  3.8295e+00,  4.0440e+00,  1.1922e+00,
+          2.0748e+00,  1.4193e+00,  3.6980e+00,  1.2248e+00,  1.9989e+00],
+        [ 5.2677e+00,  3.8336e+00,  8.5316e+00,  8.7588e+00,  3.4359e+00,
+          6.2897e+00,  1.9443e+01,  5.7548e+00, -4.8913e+00,  1.3985e+00],
+        [ 1.3715e+00, -5.1365e-01,  6.1238e+00,  6.2748e+00,  1.4240e+00,
+          4.0118e-01,  1.2560e+00,  5.9392e+00, -3.4068e+00,  4.0654e-01],
+        [ 2.5741e+00,  1.6649e+00,  4.4096e+00,  7.5072e+00,  2.1164e+00,
+          2.7040e+00,  1.8751e-01,  4.6533e+00, -7.9788e-01,  3.1709e+00],
+        [ 1.9012e+00,  2.2319e+00,  1.4530e+00,  3.2700e+00,  1.3231e+00,
+          2.9013e+00,  1.2974e+00,  4.6004e-01,  1.1785e+00,  2.6793e+00],
+        [-1.3671e+00, -1.0607e+00,  4.9678e+00,  5.4084e+00,  4.1399e-01,
+         -4.9961e-03,  4.7888e-01,  1.2852e+01,  4.0295e+00,  1.3768e+00],
+        [ 1.7139e+00,  2.1075e+00,  1.2970e+00,  3.0185e+00,  1.1341e+00,
+          3.0403e+00,  9.3333e+00,  3.8229e+00,  5.1340e-01,  1.1762e+00],
+        [ 2.3762e+00,  5.2240e-01,  4.1048e-01,  1.8715e+01,  2.8521e+00,
+          1.4484e+00,  3.9806e-01,  2.5461e+01,  3.5661e-01,  5.8433e+00],
+        [ 1.3917e+00,  1.5611e+00,  4.2009e-01,  6.9560e+00,  1.2425e+00,
+          2.9011e+00,  1.9141e+01,  1.5693e+01,  3.9786e-01,  4.2775e-01],
+        [ 2.9598e+00,  4.8901e+00,  7.5000e+00,  1.0169e+01,  3.1609e+00,
+          7.5781e+00,  7.8298e+00,  1.1290e+01,  7.7062e+00,  6.9272e+00],
+        [ 9.3588e-01,  6.2922e-01,  1.4434e+00,  6.8615e+00,  1.2103e+00,
+          1.3005e+00,  1.4205e+00,  9.5011e+00,  1.1638e+00,  2.4664e+00],
+        [-5.1268e-01,  5.4848e-01,  4.0419e-01,  5.7054e+00,  6.1354e-01,
+          1.1910e+00, -4.0399e-01,  1.1494e+01,  5.5492e+00,  3.2506e+00],
+        [ 1.4683e+00,  1.5662e+00,  1.3074e+00,  2.7227e+00,  1.0122e+00,
+          2.1590e+00,  3.1041e+00,  1.4728e+00,  3.2532e-01,  1.5679e+00],
+        [ 7.6849e-01, -7.6948e-01,  1.6944e+01,  6.5754e+00,  1.9672e+00,
+          1.9643e+00,  6.9138e+00,  8.6214e+00, -1.5640e+00, -4.3651e-01],
+        [-2.1299e-01, -6.9929e-01, -4.1978e-01,  4.8846e+00,  2.6976e-01,
+         -2.8975e-01,  8.1442e+00,  1.2403e+01, -3.6345e-01, -4.0285e-01],
+        [ 2.5861e+00,  1.0537e+00,  4.0548e-01,  4.7218e+00,  1.3756e+00,
+          1.3889e+00,  5.6365e+00,  2.5055e+00, -4.5856e+00,  4.0554e-01],
+        [ 1.4566e+00,  1.3237e+00,  4.0939e-01,  4.5782e+00,  1.2249e+00,
+          1.4320e+00, -8.0603e+00,  4.0803e-01,  1.4356e+00,  3.8377e+00],
+        [ 8.1262e-01,  2.3074e-01,  1.7395e+01,  8.2779e+00,  2.3413e+00,
+          3.4393e+00,  8.3602e+00,  1.2176e+01,  1.7080e+00,  1.2617e+00],
+        [ 1.4001e+00,  1.5439e+00,  2.8954e+01,  9.4660e+00,  3.5679e+00,
+          7.0490e+00,  1.7842e+01,  1.4387e+01,  4.0233e+00,  1.3908e+00],
+        [ 9.1116e+00,  8.9888e+00, -1.3918e+00,  1.5321e+01,  5.5012e+00,
+          1.0329e+01,  4.0605e-01,  4.0663e-01,  4.0540e-01,  1.1435e+01],
+        [ 8.1939e+00,  1.3806e+00,  4.5657e+00,  5.2186e+00,  3.5657e+00,
+          4.2395e-01, -1.9076e+01, -2.4892e+01, -1.9680e+01,  1.3603e+00],
+        [ 1.0022e+00,  9.8732e-01, -3.5882e-01,  3.3790e+00,  7.4693e-01,
+          1.3344e+00,  3.3607e+00,  4.3721e+00,  3.0749e-01,  1.3101e+00],
+        [ 1.2174e-01, -1.0305e+00, -4.3249e-01, -3.0589e-01, -1.7696e-01,
+         -1.4498e+00, -1.3131e+00, -1.5901e+00, -3.4188e+00, -1.3657e+00],
+        [ 1.2888e+00,  8.2891e-01,  2.5650e+01,  3.5316e+00,  2.6780e+00,
+          4.7654e+00,  2.6639e+00, -1.2750e+00,  1.3973e+00,  9.3778e-01],
+        [ 1.3977e+00,  1.3825e+00,  2.3757e+01,  1.3840e+01,  3.5801e+00,
+          6.6870e+00,  2.6083e+01,  2.6249e+01,  3.8568e+00,  1.3932e+00],
+        [ 4.9924e+00,  8.0001e+00,  1.0591e+01,  6.0741e+00,  3.9055e+00,
+          1.1491e+01,  1.3512e+01,  8.5781e-02,  7.9272e+00,  7.2543e+00],
+        [ 1.8955e+00,  1.8061e+00,  1.3669e+00,  1.5413e+00,  1.0386e+00,
+          2.3137e+00,  3.1405e+00, -1.8895e+00, -8.7997e-01,  1.1596e+00],
+        [ 1.1633e+00,  5.6876e-02,  2.4588e+01,  5.2205e+00,  2.6591e+00,
+          3.6934e+00,  5.0582e-01,  1.2408e+00,  3.4684e-01,  9.7013e-01],
+        [ 1.8890e+00,  4.2230e+00,  1.3841e+00,  6.5417e+00,  1.9563e+00,
+          5.7192e+00,  4.3756e+00,  7.9008e+00,  7.8805e+00,  6.0569e+00],
+        [ 9.6615e-01,  1.0195e-01,  4.0618e-01,  1.3988e+00,  3.8151e-01,
+          4.0914e-01,  8.7006e+00,  2.8220e+00, -3.3580e+00, -1.5051e+00],
+        [ 4.2723e+00,  8.9018e+00,  1.0662e+01,  9.1192e+00,  4.2575e+00,
+          1.2717e+01,  6.7680e+00,  5.1806e+00,  1.4848e+01,  1.1238e+01],
+        [ 1.3898e+00,  3.1529e+00,  4.8560e+00,  1.3955e+00,  1.3844e+00,
+          4.4214e+00, -1.5194e+00, -2.7469e+00,  5.5049e+00,  4.0580e+00],
+        [ 5.4742e+00, -1.2980e+00,  1.1575e+01,  1.0763e+01,  3.3498e+00,
+         -4.1958e-01, -1.3949e+00, -1.3753e+00, -1.7263e+01, -1.4210e+00],
+        [ 1.3967e+00, -1.0635e+00,  1.3970e+01,  1.3876e+00,  1.3699e+00,
+          4.7296e-01,  1.5700e-01, -4.6728e+00, -6.0694e+00, -1.9964e+00],
+        [ 7.5026e-01, -1.4161e+00,  1.1501e+01,  5.9301e+00,  1.3854e+00,
+          4.0497e-01,  8.7014e+00,  9.1058e+00, -4.3039e+00, -1.8133e+00],
+        [ 1.2757e+00,  1.0440e+00,  5.8075e+00,  3.4733e+00,  1.3024e+00,
+          2.1550e+00,  1.1594e+00,  1.6926e+00,  3.6945e-01,  1.5767e+00],
+        [-4.1841e+00, -8.6575e-01, -5.6859e+00,  4.2037e+00, -1.3299e+00,
+         -4.1460e-01,  1.1076e+01,  2.5841e+01,  1.1696e+01,  1.3891e+00],
+        [ 5.0312e-01,  1.8976e+00,  5.2237e+00,  5.4767e+00,  1.4032e+00,
+          3.4213e+00,  1.1484e+00,  7.9271e+00,  6.1797e+00,  4.0041e+00],
+        [ 1.8295e+00,  1.5299e+00,  4.1042e-01,  7.8257e+00,  1.5812e+00,
+          2.3550e+00,  6.2944e+00,  1.0695e+01,  4.7176e-01,  2.5958e+00],
+        [ 1.3757e+00,  1.3617e+00,  1.4284e+00,  2.6318e+00,  9.8040e-01,
+          1.8306e+00,  3.8919e-01,  4.5521e-01,  3.0986e-01,  1.7845e+00],
+        [ 8.9114e-01,  1.9898e+00,  3.9593e-01,  3.5058e+00,  7.0391e-01,
+          3.6148e+00,  2.7193e+01,  1.4547e+01,  1.2249e+00, -1.2830e+00],
+        [ 1.1446e+00,  9.2672e-02,  1.2611e+00,  1.1337e+01,  1.6551e+00,
+          9.0619e-01,  3.1936e+00,  1.7302e+01,  3.6233e-01,  2.9303e+00],
+        [ 5.6404e-01,  1.3112e+00, -1.4610e+01, -5.5129e-01, -7.3192e-01,
+         -6.2388e-01, -1.3646e+00, -3.6969e-01,  4.5713e-01,  1.4946e+00],
+        [ 1.8349e+00,  3.8743e-01,  2.2851e+01,  9.5176e+00,  3.2526e+00,
+          3.9987e+00,  3.9907e-01,  6.9859e+00,  4.5959e-01,  2.5536e+00],
+        [ 1.4012e-01,  3.0445e-01,  3.3660e+00,  3.6189e+00,  5.6512e-01,
+          1.6817e+00,  1.6724e+01,  1.2033e+01,  3.1943e-01, -1.2344e+00],
+        [ 4.0966e-01,  5.9155e-01,  2.4535e+00,  3.2239e+00,  7.0914e-01,
+          1.3291e+00,  3.0239e+00,  5.2441e+00,  1.4251e+00,  1.1689e+00],
+        [ 2.6933e+00,  2.2949e+00,  3.6446e+00,  4.7861e+00,  1.8930e+00,
+          3.1729e+00, -3.7154e-01, -4.3632e-01, -4.0752e-01,  3.0464e+00],
+        [-4.0325e-01, -1.9121e+00, -1.3844e+00,  9.3613e+00,  3.9900e-01,
+         -1.3956e+00,  1.4606e+01,  2.3335e+01, -2.3192e+00, -1.3762e+00]],
+       device='mps:0', grad_fn=&lt;MmBackward0&gt;)</code></pre>
+</div>
+</div>
+<div id="cell-38" class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>df.values.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="140">
+<pre><code>(83, 10)</code></pre>
+</div>
+</div>
+<div id="cell-39" class="cell" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> torch.tensor(df.values, dtype<span class="op">=</span>torch.<span class="bu">float</span>)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>W, H, loss <span class="op">=</span> factorize(A, <span class="dv">3</span>, device<span class="op">=</span>device)</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(loss)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tensor(13.0500, device='mps:0', grad_fn=&lt;NormBackward1&gt;)</code></pre>
+</div>
+</div>
+<div id="cell-40" class="cell" data-execution_count="145">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dropdown menu for user and predict for all movies</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interact, widgets</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict_movie_ratings(user, df, W, H):</span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>    idx <span class="op">=</span> df.index.get_loc(user)</span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>    user_ratings <span class="op">=</span> df.iloc[idx]</span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>    user_ratings <span class="op">=</span> user_ratings.dropna()</span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>    user_ratings <span class="op">=</span> user_ratings.to_frame().T</span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a>    user_ratings <span class="op">=</span> user_ratings.reindex(columns<span class="op">=</span>df.columns, fill_value<span class="op">=</span><span class="bu">float</span>(<span class="st">'nan'</span>))</span>
+<span id="cb64-12"><a href="#cb64-12" aria-hidden="true" tabindex="-1"></a>    user_ratings <span class="op">=</span> user_ratings.to_numpy()</span>
+<span id="cb64-13"><a href="#cb64-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb64-14"><a href="#cb64-14" aria-hidden="true" tabindex="-1"></a>    predicted_ratings <span class="op">=</span> <span class="dv">5</span><span class="op">*</span>torch.nn.Sigmoid()(torch.mm(W, H)).cpu().detach().numpy()</span>
+<span id="cb64-15"><a href="#cb64-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame({<span class="st">"Observed"</span>: user_ratings.flatten(), <span class="st">"Predicted"</span>: predicted_ratings[idx].flatten()}, index<span class="op">=</span>df.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-41" class="cell" data-execution_count="146">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>predict_movie_ratings(<span class="st">'Ayush Shrivastava'</span>, df, W, H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="146">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Observed</th>
+<th data-quarto-table-cell-role="th">Predicted</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Sholay</td>
+<td>4.0</td>
+<td>3.632530</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Swades (We The People)</td>
+<td>4.0</td>
+<td>4.347816</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">The Matrix (I)</td>
+<td>5.0</td>
+<td>4.850659</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Interstellar</td>
+<td>5.0</td>
+<td>4.998452</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Dangal</td>
+<td>3.0</td>
+<td>3.240659</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Taare Zameen Par</td>
+<td>4.0</td>
+<td>3.987770</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Shawshank Redemption</td>
+<td>NaN</td>
+<td>4.999985</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">The Dark Knight</td>
+<td>NaN</td>
+<td>5.000000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Notting Hill</td>
+<td>NaN</td>
+<td>3.611275</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Uri: The Surgical Strike</td>
+<td>4.0</td>
+<td>3.840538</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-42" class="cell" data-execution_count="147">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>interact(predict_movie_ratings, user<span class="op">=</span>widgets.Dropdown(options<span class="op">=</span>df.index, value<span class="op">=</span>df.index[<span class="dv">0</span>], description<span class="op">=</span><span class="st">'User'</span>), df<span class="op">=</span>widgets.fixed(df), W<span class="op">=</span>widgets.fixed(W), H<span class="op">=</span>widgets.fixed(H))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"28a9f14e5c4a4bcebc4657db5652c825","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="147">
+<pre><code>&lt;function __main__.predict_movie_ratings(user, df, W, H)&gt;</code></pre>
+</div>
+</div>
+<div id="cell-43" class="cell" data-execution_count="148">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Image completion</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> os.path.exists(<span class="st">'dog.jpg'</span>):</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'dog.jpg exists'</span>)</span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">!</span>wget https:<span class="op">//</span>segment<span class="op">-</span>anything.com<span class="op">/</span>assets<span class="op">/</span>gallery<span class="op">/</span>AdobeStock_94274587_welsh_corgi_pembroke_CD.jpg <span class="op">-</span>O dog.jpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>dog.jpg exists</code></pre>
+</div>
+</div>
+<div id="cell-44" class="cell" data-execution_count="149">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in a image from torchvision</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> torchvision.io.read_image(<span class="st">"dog.jpg"</span>)</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(img.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>torch.Size([3, 1365, 2048])</code></pre>
+</div>
+</div>
+<div id="cell-45" class="cell" data-execution_count="150">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make grayscale</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> torch.tensor(img, dtype<span class="op">=</span>torch.<span class="bu">float</span>)</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> img.mean(dim<span class="op">=</span><span class="dv">0</span>, keepdim<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(img.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>torch.Size([1365, 2048])</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/z8/gpvqr8mn3w9_f38byxhnsk780000gn/T/ipykernel_9900/232810751.py:2: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  img = torch.tensor(img, dtype=torch.float)</code></pre>
+</div>
+</div>
+<div id="cell-46" class="cell" data-execution_count="151">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>img.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="151">
+<pre><code>torch.Size([1365, 2048])</code></pre>
+</div>
+</div>
+<div id="cell-47" class="cell" data-execution_count="152">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(img, cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="movie-recommendation-knn-mf_files/figure-html/cell-46-output-1.png" width="567" height="379" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-48" class="cell" data-execution_count="153">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>crop <span class="op">=</span> torchvision.transforms.functional.crop(img, <span class="dv">600</span>, <span class="dv">800</span>, <span class="dv">300</span>, <span class="dv">300</span>)</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>crop.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="153">
+<pre><code>torch.Size([300, 300])</code></pre>
+</div>
+</div>
+<div id="cell-49" class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(crop, cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="movie-recommendation-knn-mf_files/figure-html/cell-48-output-1.png" width="425" height="418" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-50" class="cell" data-execution_count="154">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mask the image with NaN values </span></span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mask_image(img, prop):</span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>    img_copy <span class="op">=</span> img.clone()</span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> torch.rand(img.shape) <span class="op">&lt;</span> prop</span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a>    img_copy[mask] <span class="op">=</span> <span class="bu">float</span>(<span class="st">'nan'</span>)</span>
+<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> img_copy, mask</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-51" class="cell" data-execution_count="155">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>masked_img <span class="op">=</span> mask_image(crop, <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-52" class="cell" data-execution_count="156">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>masked_img[<span class="dv">1</span>].<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="156">
+<pre><code>tensor(26858)</code></pre>
+</div>
+</div>
+<div id="cell-53" class="cell" data-execution_count="157">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(masked_img[<span class="dv">0</span>], cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="movie-recommendation-knn-mf_files/figure-html/cell-52-output-1.png" width="425" height="418" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-54" class="cell" data-execution_count="162">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>W, H, loss <span class="op">=</span> factorize(masked_img[<span class="dv">0</span>], <span class="dv">50</span>, device<span class="op">=</span>device)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-55" class="cell" data-execution_count="163">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>loss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="163">
+<pre><code>tensor(1303.8575, device='mps:0', grad_fn=&lt;NormBackward1&gt;)</code></pre>
+</div>
+</div>
+<div id="cell-56" class="cell" data-execution_count="164">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(torch.mm(W, H).cpu().detach().numpy(), cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="movie-recommendation-knn-mf_files/figure-html/cell-55-output-1.png" width="425" height="418" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-57" class="cell" data-execution_count="165">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_image_completion(prop<span class="op">=</span><span class="fl">0.1</span>, factors<span class="op">=</span><span class="dv">50</span>):</span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>    masked_img, mask <span class="op">=</span> mask_image(crop, prop)</span>
+<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a>    W, H, loss <span class="op">=</span> factorize(masked_img, factors, device<span class="op">=</span>device)</span>
+<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb90-5"><a href="#cb90-5" aria-hidden="true" tabindex="-1"></a>    reconstructed_img <span class="op">=</span> torch.mm(W, H).cpu().detach().numpy()</span>
+<span id="cb90-6"><a href="#cb90-6" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">0</span>].imshow(masked_img, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb90-7"><a href="#cb90-7" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">0</span>].set_title(<span class="st">"Masked image"</span>)</span>
+<span id="cb90-8"><a href="#cb90-8" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">1</span>].imshow(reconstructed_img, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb90-9"><a href="#cb90-9" aria-hidden="true" tabindex="-1"></a>    ax[<span class="dv">1</span>].set_title(<span class="st">"Reconstructed image"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-58" class="cell" data-execution_count="166">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>interact(plot_image_completion, prop<span class="op">=</span>widgets.FloatSlider(<span class="bu">min</span><span class="op">=</span><span class="fl">0.01</span>, <span class="bu">max</span><span class="op">=</span><span class="fl">0.9</span>, step<span class="op">=</span><span class="fl">0.01</span>, value<span class="op">=</span><span class="fl">0.3</span>), factors<span class="op">=</span>widgets.IntSlider(<span class="bu">min</span><span class="op">=</span><span class="dv">1</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">150</span>, step<span class="op">=</span><span class="dv">1</span>, value<span class="op">=</span><span class="dv">50</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"c717e27d89bf4d2095a90ca51a0937c3","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="166">
+<pre><code>&lt;function __main__.plot_image_completion(prop=0.1, factors=50)&gt;</code></pre>
+</div>
+</div>
+<div id="cell-59" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now use matrix faactaorization to predict the ratings</span></span>
+<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb93-5"><a href="#cb93-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn.functional <span class="im">as</span> F</span>
+<span id="cb93-6"><a href="#cb93-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-7"><a href="#cb93-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a class for the model</span></span>
+<span id="cb93-8"><a href="#cb93-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-9"><a href="#cb93-9" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MatrixFactorization(nn.Module):</span>
+<span id="cb93-10"><a href="#cb93-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, n_users, n_movies, n_factors<span class="op">=</span><span class="dv">20</span>):</span>
+<span id="cb93-11"><a href="#cb93-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb93-12"><a href="#cb93-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.user_factors <span class="op">=</span> nn.Embedding(n_users, n_factors)</span>
+<span id="cb93-13"><a href="#cb93-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.movie_factors <span class="op">=</span> nn.Embedding(n_movies, n_factors)</span>
+<span id="cb93-14"><a href="#cb93-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-15"><a href="#cb93-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, user, movie):</span>
+<span id="cb93-16"><a href="#cb93-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> (<span class="va">self</span>.user_factors(user) <span class="op">*</span> <span class="va">self</span>.movie_factors(movie)).<span class="bu">sum</span>(<span class="dv">1</span>)      </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/nipunbatra\.github\.io\/ml-teaching\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
