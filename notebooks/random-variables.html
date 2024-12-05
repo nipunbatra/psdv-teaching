@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Nipun Batra">
-<meta name="dcterms.date" content="2024-01-01">
+<meta name="dcterms.date" content="2024-12-05">
 
-<title>Decision Trees Entropy – Machine Learning Resources</title>
+<title>Random Variables – Machine Learning Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -104,6 +104,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -161,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Decision Trees Entropy</h1>
+<h1 class="title">Random Variables</h1>
   <div class="quarto-categories">
     <div class="quarto-category">ML</div>
   </div>
@@ -181,7 +184,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 1, 2024</p>
+      <p class="date">December 5, 2024</p>
     </div>
   </div>
   
@@ -196,204 +199,136 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="cell-1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Retina mode</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Retina mode</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-2" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> latexify <span class="im">import</span> latexify, format_axes</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> xlogy</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to calculate entropy</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> entropy(p):</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>p <span class="op">*</span> np.log2(p) <span class="op">-</span> (<span class="dv">1</span> <span class="op">-</span> p) <span class="op">*</span> np.log2(<span class="dv">1</span> <span class="op">-</span> p)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate data</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>x_values <span class="op">=</span> np.linspace(<span class="fl">0.000</span>, <span class="fl">1.0</span>, <span class="dv">100</span>)  <span class="co"># Avoid log(0) in the calculation</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>y_values <span class="op">=</span> entropy(x_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/1x/wmgn24mn1bbd2vgbqlk98tbc0000gn/T/ipykernel_73626/845472961.py:6: RuntimeWarning: divide by zero encountered in log2
-  return -p * np.log2(p) - (1 - p) * np.log2(1 - p)
-/var/folders/1x/wmgn24mn1bbd2vgbqlk98tbc0000gn/T/ipykernel_73626/845472961.py:6: RuntimeWarning: invalid value encountered in multiply
-  return -p * np.log2(p) - (1 - p) * np.log2(1 - p)</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample space for flipping a coin 2 times</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sample_space <span class="op">=</span> [<span class="st">"HH"</span>, <span class="st">"HT"</span>, <span class="st">"TH"</span>, <span class="st">"TT"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-3" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>y_values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>array([       nan, 0.08146203, 0.14257333, 0.19590927, 0.24414164,
-       0.28853851, 0.32984607, 0.36855678, 0.40502013, 0.43949699,
-       0.47218938, 0.50325833, 0.53283506, 0.56102849, 0.58793037,
-       0.61361902, 0.63816195, 0.66161791, 0.68403844, 0.70546904,
-       0.72595015, 0.74551784, 0.76420451, 0.78203929, 0.79904852,
-       0.81525608, 0.83068364, 0.84535094, 0.85927598, 0.87247521,
-       0.88496364, 0.89675502, 0.90786192, 0.91829583, 0.92806728,
-       0.93718586, 0.9456603 , 0.95349858, 0.9607079 , 0.96729478,
-       0.97326507, 0.97862399, 0.98337619, 0.98752571, 0.99107606,
-       0.99403021, 0.99639062, 0.99815923, 0.9993375 , 0.9999264 ,
-       0.9999264 , 0.9993375 , 0.99815923, 0.99639062, 0.99403021,
-       0.99107606, 0.98752571, 0.98337619, 0.97862399, 0.97326507,
-       0.96729478, 0.9607079 , 0.95349858, 0.9456603 , 0.93718586,
-       0.92806728, 0.91829583, 0.90786192, 0.89675502, 0.88496364,
-       0.87247521, 0.85927598, 0.84535094, 0.83068364, 0.81525608,
-       0.79904852, 0.78203929, 0.76420451, 0.74551784, 0.72595015,
-       0.70546904, 0.68403844, 0.66161791, 0.63816195, 0.61361902,
-       0.58793037, 0.56102849, 0.53283506, 0.50325833, 0.47218938,
-       0.43949699, 0.40502013, 0.36855678, 0.32984607, 0.28853851,
-       0.24414164, 0.19590927, 0.14257333, 0.08146203,        nan])</code></pre>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a random variable X as the number of Heads in the outcomes</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> random_variable_X(outcome):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> outcome.count(<span class="st">"H"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-4" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>random_variable_X(<span class="st">"HT"</span>), random_variable_X(<span class="st">"TT"</span>), random_variable_X(<span class="st">"HH"</span>), random_variable_X(<span class="st">"TH"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>(1, 0, 2, 1)</code></pre>
 </div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace NaN values with 0</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>y_values <span class="op">=</span> np.nan_to_num(y_values, nan<span class="op">=</span><span class="fl">0.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-5" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mapping of outcomes to the random variable values</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mapping <span class="op">=</span> {outcome: random_variable_X(outcome) <span class="cf">for</span> outcome <span class="kw">in</span> sample_space}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>latexify(columns<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-6" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mapping</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>{'HH': 2, 'HT': 1, 'TH': 1, 'TT': 0}</code></pre>
 </div>
-<div id="cell-6" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.plot(x_values, y_values, color<span class="op">=</span><span class="st">'black'</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Set labels and title</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'$P(+)$'</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Entropy'</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Entropy vs. $P(+)$'</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>format_axes(plt.gca())</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"../figures/decision-trees/entropy.pdf"</span>, bbox_inches<span class="op">=</span><span class="st">"tight"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+</div>
+<div id="cell-7" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(mapping, index<span class="op">=</span>[<span class="st">"X"</span>]).T</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df.index.name <span class="op">=</span> <span class="st">"Outcome"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
 <div>
-<figure class="figure">
-<p><img src="entropy_files/figure-html/cell-7-output-1.png" width="375" height="270" class="figure-img"></p>
-</figure>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">X</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Outcome</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">HH</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">HT</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">TH</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">TT</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to calculate entropy with numerical stability</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> entropy_numerically_stable(p):</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="op">-</span>xlogy(p, p) <span class="op">-</span> xlogy(<span class="dv">1</span> <span class="op">-</span> p, <span class="dv">1</span> <span class="op">-</span> p))<span class="op">/</span>np.log(<span class="dv">2</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>y_values <span class="op">=</span> entropy_numerically_stable(x_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-8" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find records/samples where X = 1</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"X"</span>] <span class="op">==</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>Outcome
+HH    False
+HT     True
+TH     True
+TT    False
+Name: X, dtype: bool</code></pre>
 </div>
-<div id="cell-8" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plt.plot(x_values, y_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+</div>
+<div id="cell-9" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">"X"</span>] <span class="op">==</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
 <div>
-<figure class="figure">
-<p><img src="entropy_files/figure-html/cell-9-output-1.png" width="357" height="232" class="figure-img"></p>
-</figure>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">X</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">Outcome</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">HT</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">TH</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
 </div>
-<p>How does <code>xlogy</code> handle the corner case?</p>
-<div id="cell-10" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>xlogy??</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Call signature:  xlogy(*args, **kwargs)
-Type:            ufunc
-String form:     &lt;ufunc 'xlogy'&gt;
-File:            ~/miniconda3/lib/python3.9/site-packages/numpy/__init__.py
-Docstring:      
-xlogy(x1, x2, /, out=None, *, where=True, casting='same_kind', order='K', dtype=None, subok=True[, signature, extobj])
-
-xlogy(x, y, out=None)
-
-Compute ``x*log(y)`` so that the result is 0 if ``x = 0``.
-
-Parameters
-----------
-x : array_like
-    Multiplier
-y : array_like
-    Argument
-out : ndarray, optional
-    Optional output array for the function results
-
-Returns
--------
-z : scalar or ndarray
-    Computed x*log(y)
-
-Notes
------
-The log function used in the computation is the natural log.
-
-.. versionadded:: 0.13.0
-
-Examples
---------
-We can use this function to calculate the binary logistic loss also
-known as the binary cross entropy. This loss function is used for
-binary classification problems and is defined as:
-
-.. math::
-    L = 1/n * \sum_{i=0}^n -(y_i*log(y\_pred_i) + (1-y_i)*log(1-y\_pred_i))
-
-We can define the parameters `x` and `y` as y and y_pred respectively.
-y is the array of the actual labels which over here can be either 0 or 1.
-y_pred is the array of the predicted probabilities with respect to
-the positive class (1).
-
-&gt;&gt;&gt; import numpy as np
-&gt;&gt;&gt; from scipy.special import xlogy
-&gt;&gt;&gt; y = np.array([0, 1, 0, 1, 1, 0])
-&gt;&gt;&gt; y_pred = np.array([0.3, 0.8, 0.4, 0.7, 0.9, 0.2])
-&gt;&gt;&gt; n = len(y)
-&gt;&gt;&gt; loss = -(xlogy(y, y_pred) + xlogy(1 - y, 1 - y_pred)).sum()
-&gt;&gt;&gt; loss /= n
-&gt;&gt;&gt; loss
-0.29597052165495025
-
-A lower loss is usually better as it indicates that the predictions are
-similar to the actual labels. In this example since our predicted
-probabilties are close to the actual labels, we get an overall loss
-that is reasonably low and appropriate.
-Class docstring:
-Functions that operate element by element on whole arrays.
-
-To see the documentation for a specific ufunc, use `info`.  For
-example, ``np.info(np.sin)``.  Because ufuncs are written in C
-(for speed) and linked into Python with NumPy's ufunc facility,
-Python's help() function finds this page whenever help() is called
-on a ufunc.
-
-A detailed explanation of ufuncs can be found in the docs for :ref:`ufuncs`.
-
-**Calling ufuncs:** ``op(*x[, out], where=True, **kwargs)``
-
-Apply `op` to the arguments `*x` elementwise, broadcasting the arguments.
-
-The broadcasting rules are:
-
-* Dimensions of length 1 may be prepended to either array.
-* Arrays may be repeated along dimensions of length 1.
-
-Parameters
-----------
-*x : array_like
-    Input arrays.
-out : ndarray, None, or tuple of ndarray and None, optional
-    Alternate array object(s) in which to put the result; if provided, it
-    must have a shape that the inputs broadcast to. A tuple of arrays
-    (possible only as a keyword argument) must have length equal to the
-    number of outputs; use None for uninitialized outputs to be
-    allocated by the ufunc.
-where : array_like, optional
-    This condition is broadcast over the input. At locations where the
-    condition is True, the `out` array will be set to the ufunc result.
-    Elsewhere, the `out` array will retain its original value.
-    Note that if an uninitialized `out` array is created via the default
-    ``out=None``, locations within it where the condition is False will
-    remain uninitialized.
-**kwargs
-    For other keyword-only arguments, see the :ref:`ufunc docs &lt;ufuncs.kwargs&gt;`.
-
-Returns
--------
-r : ndarray or tuple of ndarray
-    `r` will have the shape that the arrays in `x` broadcast to; if `out` is
-    provided, it will be returned. If not, `r` will be allocated and
-    may contain uninitialized values. If the function has more than one
-    output, then the result will be a tuple of arrays.</code></pre>
+<div id="cell-10" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate probabilities for X = 0, 1, 2</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_probability_X(x, df):</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    subset <span class="op">=</span> df[df[<span class="st">"X"</span>] <span class="op">==</span> x]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    len_subset <span class="op">=</span> <span class="bu">len</span>(subset)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    len_df <span class="op">=</span> <span class="bu">len</span>(df)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> len_subset <span class="op">/</span> len_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-11" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>calculate_probability_X(<span class="dv">0</span>, df), calculate_probability_X(<span class="dv">1</span>, df), calculate_probability_X(<span class="dv">2</span>, df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>(0.25, 0.5, 0.25)</code></pre>
 </div>
 </div>
 
