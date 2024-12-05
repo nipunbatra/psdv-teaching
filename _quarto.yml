@@ -1,0 +1,28 @@
+project:
+  type: website
+
+website:
+  title: "Machine Learning Resources"
+  navbar:
+    right:
+        - href: https://nipunbatra.github.io
+          text: Instructor Homepage
+        - href: index.qmd
+          text: Home
+        - href: notebooks.qmd
+          text: Notebooks
+        - href: slides.qmd
+          text: Slides
+format:
+  html:
+    theme:
+      light: [litera, styles.scss]
+      dark: [darkly, styles-dark.scss]
+    highlight-style: a11y-dark
+    mainfont: "Roboto"
+    code-copy: true
+    code-overflow: wrap
+
+
+execute:
+  freeze: auto
