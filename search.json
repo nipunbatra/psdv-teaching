@@ -7,18 +7,25 @@
     "text": "This webpage contains the course materials for the course “PSDV” that I (Nipun Batra) teach at Indian Institute of Technology, Gandhinagar. These materials have been developed over several years by me and excellent teaching assistants who have helped me in teaching this course."
   },
   {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
+    "objectID": "notebooks/set.html",
+    "href": "notebooks/set.html",
+    "title": "Set",
     "section": "",
-    "text": "No matching items"
+    "text": "import matplotlib.pyplot as plt\nimport numpy as np\nimport torch \nimport pandas as pd\n# Retina mode\n%matplotlib inline\n%config InlineBackend.figure_format = 'retina'\n\n\nSet_A = set([1,2,3,4,5,6,7,8,9,10])\nSet_B = set([2,4,6,8,10])\n\n# Union\nUnion = Set_A.union(Set_B)\nprint('Union:', Union)\n\nUnion: {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}\n\n\n\n# Intersection\nIntersection = Set_A.intersection(Set_B)\nprint('Intersection:', Intersection)\n\nIntersection: {2, 4, 6, 8, 10}\n\n\n\n# Difference\nDifference = Set_A.difference(Set_B)\nprint('Difference:', Difference)\n\nDifference: {1, 3, 5, 7, 9}\n\n\n\nSet_B.difference(Set_A)\n\nset()\n\n\n\nSet_A.issubset(Set_B)\n\nFalse\n\n\n\nSet_B.issubset(Set_A)\n\nTrue\n\n\n\ndef is_subset(set_a, set_b):\n    \"\"\"\n    set_a: set\n    set_b: set\n    ---\n    return: True if set_a is a subset of set_b, False otherwise\n    \"\"\"\n    assert isinstance(set_a, set), 'set_a must be a set'\n    assert isinstance(set_b, set), 'set_b must be a set'\n    \n    # Loop through all elements in set_a and check if they are in set_b\n    subset = True\n    for element in set_a:\n        if element in set_b:\n            continue\n        else:\n            subset = False\n            break\n    return subset\n\n\nis_subset(Set_A, Set_B)\n\nFalse\n\n\n\nis_subset(Set_B, Set_A)\n\nTrue"
   },
   {
     "objectID": "notebooks.html",
     "href": "notebooks.html",
     "title": "Notebooks",
     "section": "",
-    "text": "Random Variables\n\n\n\n\n\n\nML\n\n\n\n\n\n\n\n\n\nDec 5, 2024\n\n\nNipun Batra\n\n\n\n\n\n\nNo matching items"
+    "text": "Set\n\n\n\n\n\n\nML\n\n\n\n\n\n\n\n\n\nDec 7, 2024\n\n\nNipun Batra\n\n\n\n\n\n\n\n\n\n\n\n\nRandom Variables\n\n\n\n\n\n\nML\n\n\n\n\n\n\n\n\n\nDec 5, 2024\n\n\nNipun Batra\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "No matching items"
   },
   {
     "objectID": "notebooks/random-variables.html",
