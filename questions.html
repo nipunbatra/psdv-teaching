@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Notebooks – Machine Learning Resources</title>
+<title>Prerequisite – Machine Learning Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,72 +102,14 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -158,7 +132,7 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./notebooks.html" aria-current="page"> 
+    <a class="nav-link" href="./notebooks.html"> 
 <span class="menu-text">Notebooks</span></a>
   </li>  
   <li class="nav-item">
@@ -174,128 +148,214 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Notebooks</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TUw=">ML <span class="quarto-category-count">(2)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Prerequisite</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
+</header>
 
 
+<section id="prerequisite-questions-for-probability-statistics-and-data-visualization" class="level1">
+<h1>Prerequisite Questions for Probability, Statistics, and Data Visualization</h1>
+<section id="python-basics-lists-strings-dictionaries-file-handling-statistics-and-flow-control" class="level2">
+<h2 class="anchored" data-anchor-id="python-basics-lists-strings-dictionaries-file-handling-statistics-and-flow-control">Python Basics, Lists, Strings, Dictionaries, File Handling, Statistics, and Flow Control</h2>
+<ol type="1">
+<li><strong>List Operations and Basic Statistics:</strong>
+<ul>
+<li>Create a list of the first 20 natural numbers.</li>
+<li>Compute the sum of all even numbers in the list.</li>
+<li>Compute the product of all odd numbers in the list.</li>
+<li>Calculate the mean, median, and standard deviation of the list.</li>
+</ul></li>
+<li><strong>Mutable vs.&nbsp;Immutable Data Types:</strong>
+<ul>
+<li>Explain the difference between mutable and immutable data types in Python. Provide examples of each.</li>
+<li>Discuss how understanding these concepts is important for data manipulation in statistics.</li>
+</ul></li>
+<li><strong>Fibonacci Sequence:</strong>
+<ul>
+<li>Write a Python function that takes a number <code>n</code> and returns a list of the first <code>n</code> Fibonacci numbers.</li>
+<li>Plot the Fibonacci sequence using a line graph.</li>
+</ul></li>
+<li><strong>List Manipulation:</strong>
+<ul>
+<li>Given a list <code>[3, 5, 7, 9, 11, 13]</code>:
+<ul>
+<li>Insert <code>6</code> at the 3rd index.</li>
+<li>Remove the number <code>7</code> from the list.</li>
+<li>Reverse the list.</li>
+<li>Calculate the mean and median of the modified list.</li>
+</ul></li>
+</ul></li>
+<li><strong>User Input and Basic Statistics:</strong>
+<ul>
+<li>Write a program to read a comma-separated list of numbers from the user (e.g., “10, 20, 30, 40”).</li>
+<li>Calculate the mean of the numbers.</li>
+<li>Identify and print the smallest and largest numbers.</li>
+<li>Plot a histogram of the numbers.</li>
+</ul></li>
+<li><strong>Palindrome Check:</strong>
+<ul>
+<li>Write a program to check if a string is a palindrome (ignoring spaces and case).</li>
+<li>Input: <code>"A man a plan a canal Panama"</code></li>
+<li>Output: <code>True</code></li>
+</ul></li>
+<li><strong>Dictionary Operations:</strong>
+<ul>
+<li>Create a dictionary of student names (keys) and their marks (values).</li>
+<li>Compute the average marks.</li>
+<li>Print the names of students scoring above the average.</li>
+<li>Visualize the distribution of marks using a bar chart.</li>
+</ul></li>
+<li><strong>Tuple List Creation:</strong>
+<ul>
+<li>Create a list of tuples, where each tuple contains a number and its square (e.g., <code>[(1, 1), (2, 4), (3, 9), ...]</code> for numbers 1 to 10).</li>
+<li>Plot the numbers and their squares on a scatter plot.</li>
+</ul></li>
+<li><strong>Merging Dictionaries:</strong>
+<ul>
+<li><p>Write Python code to merge two dictionaries. If a key is present in both, sum their values.</p></li>
+<li><p>Example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dict1 <span class="op">=</span> {<span class="st">'a'</span>: <span class="dv">10</span>, <span class="st">'b'</span>: <span class="dv">20</span>}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dict2 <span class="op">=</span> {<span class="st">'b'</span>: <span class="dv">5</span>, <span class="st">'c'</span>: <span class="dv">15</span>}</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Output: {<span class="st">'a'</span>: <span class="dv">10</span>, <span class="st">'b'</span>: <span class="dv">25</span>, <span class="st">'c'</span>: <span class="dv">15</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong>Character Frequency:</strong>
+<ul>
+<li>Write a function that accepts a string and:
+<ul>
+<li>Converts all characters to lowercase.</li>
+<li>Counts the frequency of each character.</li>
+<li>Returns a dictionary with characters as keys and their counts as values.</li>
+<li>Visualize the character frequencies using a bar chart.</li>
+</ul></li>
+</ul></li>
+<li><strong>Remove Duplicates:</strong>
+<ul>
+<li>Write a program to remove duplicate elements from a list while maintaining the order of elements.</li>
+<li>Calculate the mean and median of the unique elements.</li>
+</ul></li>
+<li><strong>String Operations:</strong>
+<ul>
+<li>Given a list of strings, write a Python function to:
+<ul>
+<li>Find the longest string.</li>
+<li>Count how many strings start with a vowel.</li>
+<li>Visualize the distribution of string lengths using a histogram.</li>
+</ul></li>
+</ul></li>
+<li><strong>Sorting Dictionaries:</strong>
+<ul>
+<li><p>Write a function to sort a list of dictionaries by a key.</p></li>
+<li><p>Example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [{<span class="st">'name'</span>: <span class="st">'Alice'</span>, <span class="st">'age'</span>: <span class="dv">25</span>}, {<span class="st">'name'</span>: <span class="st">'Bob'</span>, <span class="st">'age'</span>: <span class="dv">22</span>}]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Sort by age → [{<span class="st">'name'</span>: <span class="st">'Bob'</span>, <span class="st">'age'</span>: <span class="dv">22</span>}, {<span class="st">'name'</span>: <span class="st">'Alice'</span>, <span class="st">'age'</span>: <span class="dv">25</span>}]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+</ul></li>
+<li><strong>Word Filtering and Sorting:</strong>
+<ul>
+<li>Write a program to:
+<ul>
+<li>Split a string into a list of words.</li>
+<li>Remove all words that are shorter than 4 characters.</li>
+<li>Sort the remaining words alphabetically.</li>
+<li>Visualize the word lengths using a bar chart.</li>
+</ul></li>
+</ul></li>
+<li><strong>Anagram Finder:</strong>
+<ul>
+<li>Write a Python function to find all anagrams of a word in a given list.</li>
+<li>Input: <code>word = "listen", words = ["enlist", "google", "inlets", "banana"]</code></li>
+<li>Output: <code>["enlist", "inlets"]</code></li>
+</ul></li>
+<li><strong>Set Operations:</strong>
+<ul>
+<li>Given two lists, write Python code to find their intersection, union, and symmetric difference.</li>
+<li>Visualize the results using Venn diagrams.</li>
+</ul></li>
+<li><strong>File Operations:</strong>
+<ul>
+<li>Write Python code to:
+<ul>
+<li>Create a text file.</li>
+<li>Write a list of numbers to the file (one per line).</li>
+<li>Read the file and compute their sum.</li>
+</ul></li>
+</ul></li>
+<li><strong>Word Count and Frequency:</strong>
+<ul>
+<li>Write a program to:
+<ul>
+<li>Read a file and count the number of words in it.</li>
+<li>Find the most frequent word.</li>
+<li>Visualize the word frequencies using a bar chart.</li>
+</ul></li>
+</ul></li>
+<li><strong>Random Number Generation:</strong>
+<ul>
+<li>Write a Python program to:
+<ul>
+<li>Generate 100 random integers between 1 and 50.</li>
+<li>Save them in a text file, one per line.</li>
+<li>Read the file and compute the mean of the numbers.</li>
+<li>Visualize the distribution of the numbers using a histogram.</li>
+</ul></li>
+</ul></li>
+<li><strong>CSV File Operations:</strong>
+<ul>
+<li>Write Python code to read a CSV file and compute the sum of values in a specific column.</li>
+<li>Visualize the data using a line plot.</li>
+</ul></li>
+<li><strong>Basic Statistics:</strong>
+<ul>
+<li>Write Python code to calculate:
+<ul>
+<li>Mean, median, mode, and standard deviation of a list of numbers.</li>
+<li>Visualize the data using a box plot.</li>
+</ul></li>
+</ul></li>
+<li><strong>Normalization:</strong>
+<ul>
+<li>Write a Python function to normalize a list of numbers to a range of 0 to 1.</li>
+<li>Visualize the normalized data using a line plot.</li>
+</ul></li>
+<li><strong>Even or Odd:</strong>
+<ul>
+<li>Write a Python program that takes an integer input from the user and prints whether the number is even or odd.</li>
+</ul></li>
+<li><strong>Grade Calculator:</strong>
+<ul>
+<li>Write a Python program that takes a numerical grade (0-100) as input and prints the corresponding letter grade (A, B, C, D, F).</li>
+</ul></li>
+<li><strong>Leap Year Checker:</strong>
+<ul>
+<li>Write a Python program that takes a year as input and checks if it is a leap year.</li>
+</ul></li>
+</ol>
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="TUw=" data-listing-date-sort="1733529600000" data-listing-file-modified-sort="1733726694297" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./notebooks/set.html" class="no-external"></a></p><a href="./notebooks/set.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./notebooks/set.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notebooks/set.html" class="no-external">Set</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./notebooks/set.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('TUw='); return false;">
-ML
-</div>
-</div>
-<div class="listing-description">
-<a href="./notebooks/set.html" class="no-external">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><span class="im">import</span> torch </span>
-<span id="cb1-4"><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-5"><span class="co"># Retina mode</span></span>
-<span id="cb1-6"><span class="op">%</span>matplotlib inline</span>
-<span id="cb1-7"><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code></pre></div>
-</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./notebooks/set.html" class="no-external">
-<div class="listing-date">
-Dec 7, 2024
-</div>
-<div class="listing-author">
-Nipun Batra
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="TUw=" data-listing-date-sort="1733356800000" data-listing-file-modified-sort="1733726694297" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<div class="thumbnail">
-<p><a href="./notebooks/random-variables.html" class="no-external"></a></p><a href="./notebooks/random-variables.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./notebooks/random-variables.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./notebooks/random-variables.html" class="no-external">Random Variables</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./notebooks/random-variables.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('TUw='); return false;">
-ML
-</div>
-</div>
-<div class="listing-description">
-<a href="./notebooks/random-variables.html" class="no-external">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><span class="im">import</span> torch </span>
-<span id="cb1-4"><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-5"><span class="co"># Retina mode</span></span>
-<span id="cb1-6"><span class="op">%</span>matplotlib inline</span>
-<span id="cb1-7"><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code></pre></div>
-</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./notebooks/random-variables.html" class="no-external">
-<div class="listing-date">
-Dec 5, 2024
-</div>
-<div class="listing-author">
-Nipun Batra
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

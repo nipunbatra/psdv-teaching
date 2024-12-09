@@ -1,13 +1,13 @@
 [
   {
+    "listing": "/slides.html",
+    "items": []
+  },
+  {
     "listing": "/notebooks.html",
     "items": [
       "/notebooks/set.html",
       "/notebooks/random-variables.html"
     ]
-  },
-  {
-    "listing": "/slides.html",
-    "items": []
   }
 ]
