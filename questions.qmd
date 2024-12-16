@@ -5,6 +5,7 @@ title: "Prerequisite"
 # Prerequisite Questions for Probability, Statistics, and Data Visualization
 
 Instructions:
+
 - Solve the following questions to assess your understanding of Python basics, data structures, and statistics.
 - Create a single Juptyer notebook with solutions to all questions.
 - Include output for each code cell.
