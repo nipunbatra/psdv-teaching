@@ -2,6 +2,7 @@
   {
     "listing": "/notebooks.html",
     "items": [
+      "/notebooks/intro-numpy.html",
       "/notebooks/intro.html",
       "/notebooks/set.html",
       "/notebooks/random-variables.html"
