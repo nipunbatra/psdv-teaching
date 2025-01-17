@@ -2,38 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nipunbatra.github.io/psdv-teaching/notebooks.html</loc>
-    <lastmod>2025-01-13T09:01:03.904Z</lastmod>
+    <lastmod>2025-01-17T07:21:48.838Z</lastmod>
   </url>
   <url>
     <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/random-variables.html</loc>
-    <lastmod>2025-01-13T09:01:03.937Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/set.html</loc>
-    <lastmod>2025-01-13T09:01:03.937Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/index.html</loc>
-    <lastmod>2025-01-13T09:01:03.904Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/slides.html</loc>
-    <lastmod>2025-01-13T09:01:03.937Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/questions.html</loc>
-    <lastmod>2025-01-13T09:01:03.937Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/intro.html</loc>
-    <lastmod>2025-01-13T09:01:03.931Z</lastmod>
+    <lastmod>2025-01-17T07:21:48.904Z</lastmod>
   </url>
   <url>
     <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/introduction-pandas.html</loc>
-    <lastmod>2025-01-13T09:01:03.936Z</lastmod>
+    <lastmod>2025-01-17T07:21:48.904Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/intro.html</loc>
+    <lastmod>2025-01-17T07:21:48.865Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/questions.html</loc>
+    <lastmod>2025-01-17T07:21:48.904Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/slides.html</loc>
+    <lastmod>2025-01-17T07:21:48.904Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/index.html</loc>
+    <lastmod>2025-01-17T07:21:48.838Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/set.html</loc>
+    <lastmod>2025-01-17T07:21:48.904Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/introduction-matplotlib.html</loc>
+    <lastmod>2025-01-17T07:21:48.898Z</lastmod>
   </url>
   <url>
     <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/intro-numpy.html</loc>
-    <lastmod>2025-01-13T09:01:03.930Z</lastmod>
+    <lastmod>2025-01-17T07:21:48.865Z</lastmod>
   </url>
 </urlset>
