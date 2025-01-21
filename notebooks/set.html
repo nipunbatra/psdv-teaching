@@ -270,7 +270,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>         c<span class="op">=</span>widgets.FloatSlider(value<span class="op">=</span><span class="dv">0</span>, <span class="bu">min</span><span class="op">=-</span><span class="dv">10</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">10</span>, step<span class="op">=</span><span class="fl">0.1</span>, description<span class="op">=</span><span class="st">'Intercept (c)'</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"aa3c33238ff24e7e87f42af4a40416c4","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"1a95db9eb40b46df965ec8c02d2130af","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
@@ -278,11 +278,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>samples_uniform <span class="op">=</span> np.random.rand(<span class="dv">50000</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.hist(samples_uniform)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>(array([4997., 4951., 4914., 5018., 4873., 5212., 5054., 4855., 5026.,
-        5100.]),
- array([1.53853245e-05, 1.00010640e-01, 2.00005894e-01, 3.00001149e-01,
-        3.99996403e-01, 4.99991658e-01, 5.99986912e-01, 6.99982167e-01,
-        7.99977421e-01, 8.99972676e-01, 9.99967930e-01]),
+<pre><code>(array([5044., 4923., 5075., 4798., 4977., 4982., 4989., 5158., 4992.,
+        5062.]),
+ array([3.93041625e-05, 1.00032757e-01, 2.00026211e-01, 3.00019664e-01,
+        4.00013117e-01, 5.00006570e-01, 6.00000024e-01, 6.99993477e-01,
+        7.99986930e-01, 8.99980383e-01, 9.99973836e-01]),
  &lt;BarContainer object of 10 artists&gt;)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -296,19 +296,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="cell-8" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>samples_uniform</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>array([0.36051428, 0.5228276 , 0.40698327, ..., 0.32825214, 0.22560456,
-       0.86283638])</code></pre>
+<pre><code>array([0.18674884, 0.81968297, 0.80087693, ..., 0.46548473, 0.47943922,
+       0.73968035])</code></pre>
 </div>
 </div>
 <div id="cell-9" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>samples_normal <span class="op">=</span> np.random.randn(<span class="dv">50000</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.hist(samples_normal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>(array([1.4000e+01, 2.7900e+02, 1.8030e+03, 6.8030e+03, 1.3565e+04,
-        1.5061e+04, 9.0130e+03, 2.8720e+03, 5.4000e+02, 5.0000e+01]),
- array([-4.10514101, -3.30761343, -2.51008585, -1.71255828, -0.9150307 ,
-        -0.11750312,  0.68002446,  1.47755204,  2.27507962,  3.0726072 ,
-         3.87013478]),
+<pre><code>(array([   23.,   285.,  1985.,  7467., 14803., 14914.,  7988.,  2201.,
+          309.,    25.]),
+ array([-4.18722189, -3.35305381, -2.51888572, -1.68471764, -0.85054956,
+        -0.01638148,  0.8177866 ,  1.65195468,  2.48612276,  3.32029084,
+         4.15445892]),
  &lt;BarContainer object of 10 artists&gt;)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -322,16 +322,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="cell-10" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>samples_normal[:<span class="dv">50</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>array([-0.47047191,  0.6526655 ,  0.01376231, -0.43144568, -0.56751739,
-        1.86046996, -0.78547076, -1.38958003, -0.9583516 , -0.41378251,
-       -1.77522434, -0.67704094,  0.39368991,  0.10492546, -0.18801198,
-       -0.79900202, -0.30704579, -0.05434027, -0.8481103 , -1.12993521,
-       -1.91924098,  1.60759057,  0.36055225, -0.49083657,  1.33687394,
-        0.91012486,  1.06562535,  0.72814474,  1.60368359,  0.72340906,
-        0.90917984,  0.24486392,  0.6263055 ,  1.00618301, -0.32371594,
-       -0.12681898,  0.65107234,  1.17338721, -1.61673872, -1.15878165,
-       -0.82408069, -1.36774616,  0.4624033 ,  0.88066368,  0.95061334,
-        0.56445145, -0.2013781 , -0.33254308,  0.66682821, -0.52832597])</code></pre>
+<pre><code>array([-1.02610077,  1.30693882, -0.60887913, -2.21509403, -0.49288884,
+       -0.24255606, -0.06006607, -0.43524481,  0.09849432,  0.65723845,
+        0.26736775, -0.23655818, -2.18103935, -0.49017392,  1.62213243,
+        0.38596106,  0.93529816,  1.08752614, -0.4461042 , -0.95299851,
+        1.38512913,  0.09622675, -0.72466762, -0.12871054, -0.50039256,
+        0.11997974, -1.54530777,  0.27708632, -1.59812337,  0.91816234,
+       -0.07142259, -1.00183667,  0.77816444,  0.24435284,  0.91035827,
+        0.60326872,  0.57121044,  1.26167048, -1.15016846, -0.69882365,
+       -1.07502868, -0.11305347,  0.82249031,  0.49697962, -1.21883061,
+       -1.96468898, -0.01928378, -0.56361649,  0.48693249, -0.27086149])</code></pre>
 </div>
 </div>
 <div id="cell-11" class="cell" data-execution_count="11">
@@ -430,7 +430,7 @@ Type:      method</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="set_files/figure-html/cell-14-output-1.png" width="554" height="418" class="figure-img"></p>
+<p><img src="set_files/figure-html/cell-14-output-1.png" width="554" height="413" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -476,20 +476,13 @@ Type:      method</code></pre>
 <span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>         phi<span class="op">=</span>widgets.FloatSlider(value<span class="op">=</span><span class="dv">0</span>, <span class="bu">min</span><span class="op">=</span><span class="dv">0</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">2</span><span class="op">*</span>np.pi, step<span class="op">=</span><span class="fl">0.1</span>, description<span class="op">=</span><span class="st">'Phase (φ)'</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"acd30e847ca040019a795922b4c67751","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"d4dfda94ea8648219ce0d0b2b6c9d5b5","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="set_files/figure-html/cell-17-output-2.png" width="702" height="546" class="figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="set_files/figure-html/cell-17-output-3.png" width="702" height="546" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -531,14 +524,722 @@ Type:      method</code></pre>
 </div>
 <div id="cell-21" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># why below code doesn't work? homework</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>A_star <span class="op">=</span> {{<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}, <span class="dv">6</span>, <span class="dv">7</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-```{=html}
-<pre><p><span class="ansi-red-fg">—————————————————————————</span> <span class="ansi-red-fg">TypeError</span> Traceback (most recent call last) Cell <span class="ansi-green-fg">In[21], line 2</span> <span class="ansi-green-fg ansi-bold"> 1</span> <span style="font-style:italic;color:rgb(95,135,135)"># why below code doesn’t work? homework</span> <span class="ansi-green-fg">—-&gt; 2</span> A_star <span style="color:rgb(98,98,98)">=</span></p>
-</pre></div>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    A <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, {<span class="dv">4</span>, <span class="dv">5</span>}}</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>unhashable type: 'set'</code></pre>
 </div>
 </div>
+<div id="cell-22" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(B.issubset(A))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div id="cell-23" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A.issubset(B))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False</code></pre>
+</div>
+</div>
+<div id="cell-24" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A.issuperset(B))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div id="cell-25" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>A.issubset(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div id="cell-26" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Other methods in set</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>{1, 2, 3, 4, 5}</code></pre>
+</div>
+</div>
+<div id="cell-27" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check proper subset</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_proper_subset(A, B):</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> A.issubset(B) <span class="kw">and</span> A <span class="op">!=</span> B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-28" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>is_proper_subset({<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}, {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div id="cell-29" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>is_proper_subset({<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>}, {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>False</code></pre>
+</div>
+</div>
+<div id="cell-30" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>is_proper_subset({<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">6</span>}, {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>False</code></pre>
+</div>
+</div>
+<div id="cell-31" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># empty set subset of every set</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>empty_set <span class="op">=</span> <span class="bu">set</span>()</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>empty_set.issubset(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div id="cell-32" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>is_proper_subset(empty_set, A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div id="cell-33" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># be careful with empty set definition. Below is not an empty set but </span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co"># a dictionary</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>empty_set<span class="op">=</span> {}</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(empty_set))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'dict'&gt;</code></pre>
+</div>
+</div>
+<div id="cell-34" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sets in NumPy</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="co"># is B a subset of A?</span></span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.in1d(B, A).<span class="bu">all</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/z8/gpvqr8mn3w9_f38byxhnsk780000gn/T/ipykernel_16373/3300908401.py:6: DeprecationWarning: `in1d` is deprecated. Use `np.isin` instead.
+  print(np.in1d(B, A).all())</code></pre>
+</div>
+</div>
+<div id="cell-35" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>np.in1d?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Signature:       np.in1d(ar1, ar2, assume_unique=False, invert=False, *, kind=None)
+Call signature:  np.in1d(*args, **kwargs)
+Type:            _ArrayFunctionDispatcher
+String form:     &lt;function in1d at 0x107c70fe0&gt;
+File:            ~/mambaforge/lib/python3.12/site-packages/numpy/lib/_arraysetops_impl.py
+Docstring:      
+Test whether each element of a 1-D array is also present in a second array.
+
+.. deprecated:: 2.0
+    Use :func:`isin` instead of `in1d` for new code.
+
+Returns a boolean array the same length as `ar1` that is True
+where an element of `ar1` is in `ar2` and False otherwise.
+
+Parameters
+----------
+ar1 : (M,) array_like
+    Input array.
+ar2 : array_like
+    The values against which to test each value of `ar1`.
+assume_unique : bool, optional
+    If True, the input arrays are both assumed to be unique, which
+    can speed up the calculation.  Default is False.
+invert : bool, optional
+    If True, the values in the returned array are inverted (that is,
+    False where an element of `ar1` is in `ar2` and True otherwise).
+    Default is False. ``np.in1d(a, b, invert=True)`` is equivalent
+    to (but is faster than) ``np.invert(in1d(a, b))``.
+kind : {None, 'sort', 'table'}, optional
+    The algorithm to use. This will not affect the final result,
+    but will affect the speed and memory use. The default, None,
+    will select automatically based on memory considerations.
+
+    * If 'sort', will use a mergesort-based approach. This will have
+      a memory usage of roughly 6 times the sum of the sizes of
+      `ar1` and `ar2`, not accounting for size of dtypes.
+    * If 'table', will use a lookup table approach similar
+      to a counting sort. This is only available for boolean and
+      integer arrays. This will have a memory usage of the
+      size of `ar1` plus the max-min value of `ar2`. `assume_unique`
+      has no effect when the 'table' option is used.
+    * If None, will automatically choose 'table' if
+      the required memory allocation is less than or equal to
+      6 times the sum of the sizes of `ar1` and `ar2`,
+      otherwise will use 'sort'. This is done to not use
+      a large amount of memory by default, even though
+      'table' may be faster in most cases. If 'table' is chosen,
+      `assume_unique` will have no effect.
+
+    .. versionadded:: 1.8.0
+
+Returns
+-------
+in1d : (M,) ndarray, bool
+    The values `ar1[in1d]` are in `ar2`.
+
+See Also
+--------
+isin                  : Version of this function that preserves the
+                        shape of ar1.
+
+Notes
+-----
+`in1d` can be considered as an element-wise function version of the
+python keyword `in`, for 1-D sequences. ``in1d(a, b)`` is roughly
+equivalent to ``np.array([item in b for item in a])``.
+However, this idea fails if `ar2` is a set, or similar (non-sequence)
+container:  As ``ar2`` is converted to an array, in those cases
+``asarray(ar2)`` is an object array rather than the expected array of
+contained values.
+
+Using ``kind='table'`` tends to be faster than `kind='sort'` if the
+following relationship is true:
+``log10(len(ar2)) &gt; (log10(max(ar2)-min(ar2)) - 2.27) / 0.927``,
+but may use greater memory. The default value for `kind` will
+be automatically selected based only on memory usage, so one may
+manually set ``kind='table'`` if memory constraints can be relaxed.
+
+.. versionadded:: 1.4.0
+
+Examples
+--------
+&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; test = np.array([0, 1, 2, 5, 0])
+&gt;&gt;&gt; states = [0, 2]
+&gt;&gt;&gt; mask = np.in1d(test, states)
+&gt;&gt;&gt; mask
+array([ True, False,  True, False,  True])
+&gt;&gt;&gt; test[mask]
+array([0, 2, 0])
+&gt;&gt;&gt; mask = np.in1d(test, states, invert=True)
+&gt;&gt;&gt; mask
+array([False,  True, False,  True, False])
+&gt;&gt;&gt; test[mask]
+array([1, 5])
+Class docstring:
+Class to wrap functions with checks for __array_function__ overrides.
+
+All arguments are required, and can only be passed by position.
+
+Parameters
+----------
+dispatcher : function or None
+    The dispatcher function that returns a single sequence-like object
+    of all arguments relevant.  It must have the same signature (except
+    the default values) as the actual implementation.
+    If ``None``, this is a ``like=`` dispatcher and the
+    ``_ArrayFunctionDispatcher`` must be called with ``like`` as the
+    first (additional and positional) argument.
+implementation : function
+    Function that implements the operation on NumPy arrays without
+    overrides.  Arguments passed calling the ``_ArrayFunctionDispatcher``
+    will be forwarded to this (and the ``dispatcher``) as if using
+    ``*args, **kwargs``.
+
+Attributes
+----------
+_implementation : function
+    The original implementation passed in.</code></pre>
+</div>
+</div>
+<div id="cell-36" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>np.isin?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Signature:      
+np.isin(
+    element,
+    test_elements,
+    assume_unique=False,
+    invert=False,
+    *,
+    kind=None,
+)
+Call signature:  np.isin(*args, **kwargs)
+Type:            _ArrayFunctionDispatcher
+String form:     &lt;function isin at 0x107c711c0&gt;
+File:            ~/mambaforge/lib/python3.12/site-packages/numpy/lib/_arraysetops_impl.py
+Docstring:      
+Calculates ``element in test_elements``, broadcasting over `element` only.
+Returns a boolean array of the same shape as `element` that is True
+where an element of `element` is in `test_elements` and False otherwise.
+
+Parameters
+----------
+element : array_like
+    Input array.
+test_elements : array_like
+    The values against which to test each value of `element`.
+    This argument is flattened if it is an array or array_like.
+    See notes for behavior with non-array-like parameters.
+assume_unique : bool, optional
+    If True, the input arrays are both assumed to be unique, which
+    can speed up the calculation.  Default is False.
+invert : bool, optional
+    If True, the values in the returned array are inverted, as if
+    calculating `element not in test_elements`. Default is False.
+    ``np.isin(a, b, invert=True)`` is equivalent to (but faster
+    than) ``np.invert(np.isin(a, b))``.
+kind : {None, 'sort', 'table'}, optional
+    The algorithm to use. This will not affect the final result,
+    but will affect the speed and memory use. The default, None,
+    will select automatically based on memory considerations.
+
+    * If 'sort', will use a mergesort-based approach. This will have
+      a memory usage of roughly 6 times the sum of the sizes of
+      `element` and `test_elements`, not accounting for size of dtypes.
+    * If 'table', will use a lookup table approach similar
+      to a counting sort. This is only available for boolean and
+      integer arrays. This will have a memory usage of the
+      size of `element` plus the max-min value of `test_elements`.
+      `assume_unique` has no effect when the 'table' option is used.
+    * If None, will automatically choose 'table' if
+      the required memory allocation is less than or equal to
+      6 times the sum of the sizes of `element` and `test_elements`,
+      otherwise will use 'sort'. This is done to not use
+      a large amount of memory by default, even though
+      'table' may be faster in most cases. If 'table' is chosen,
+      `assume_unique` will have no effect.
+
+
+Returns
+-------
+isin : ndarray, bool
+    Has the same shape as `element`. The values `element[isin]`
+    are in `test_elements`.
+
+Notes
+-----
+
+`isin` is an element-wise function version of the python keyword `in`.
+``isin(a, b)`` is roughly equivalent to
+``np.array([item in b for item in a])`` if `a` and `b` are 1-D sequences.
+
+`element` and `test_elements` are converted to arrays if they are not
+already. If `test_elements` is a set (or other non-sequence collection)
+it will be converted to an object array with one element, rather than an
+array of the values contained in `test_elements`. This is a consequence
+of the `array` constructor's way of handling non-sequence collections.
+Converting the set to a list usually gives the desired behavior.
+
+Using ``kind='table'`` tends to be faster than `kind='sort'` if the
+following relationship is true:
+``log10(len(test_elements)) &gt;
+(log10(max(test_elements)-min(test_elements)) - 2.27) / 0.927``,
+but may use greater memory. The default value for `kind` will
+be automatically selected based only on memory usage, so one may
+manually set ``kind='table'`` if memory constraints can be relaxed.
+
+.. versionadded:: 1.13.0
+
+Examples
+--------
+&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; element = 2*np.arange(4).reshape((2, 2))
+&gt;&gt;&gt; element
+array([[0, 2],
+       [4, 6]])
+&gt;&gt;&gt; test_elements = [1, 2, 4, 8]
+&gt;&gt;&gt; mask = np.isin(element, test_elements)
+&gt;&gt;&gt; mask
+array([[False,  True],
+       [ True, False]])
+&gt;&gt;&gt; element[mask]
+array([2, 4])
+
+The indices of the matched values can be obtained with `nonzero`:
+
+&gt;&gt;&gt; np.nonzero(mask)
+(array([0, 1]), array([1, 0]))
+
+The test can also be inverted:
+
+&gt;&gt;&gt; mask = np.isin(element, test_elements, invert=True)
+&gt;&gt;&gt; mask
+array([[ True, False],
+       [False,  True]])
+&gt;&gt;&gt; element[mask]
+array([0, 6])
+
+Because of how `array` handles sets, the following does not
+work as expected:
+
+&gt;&gt;&gt; test_set = {1, 2, 4, 8}
+&gt;&gt;&gt; np.isin(element, test_set)
+array([[False, False],
+       [False, False]])
+
+Casting the set to a list gives the expected result:
+
+&gt;&gt;&gt; np.isin(element, list(test_set))
+array([[False,  True],
+       [ True, False]])
+Class docstring:
+Class to wrap functions with checks for __array_function__ overrides.
+
+All arguments are required, and can only be passed by position.
+
+Parameters
+----------
+dispatcher : function or None
+    The dispatcher function that returns a single sequence-like object
+    of all arguments relevant.  It must have the same signature (except
+    the default values) as the actual implementation.
+    If ``None``, this is a ``like=`` dispatcher and the
+    ``_ArrayFunctionDispatcher`` must be called with ``like`` as the
+    first (additional and positional) argument.
+implementation : function
+    Function that implements the operation on NumPy arrays without
+    overrides.  Arguments passed calling the ``_ArrayFunctionDispatcher``
+    will be forwarded to this (and the ``dispatcher``) as if using
+    ``*args, **kwargs``.
+
+Attributes
+----------
+_implementation : function
+    The original implementation passed in.</code></pre>
+</div>
+</div>
+<div id="cell-37" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>A, B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<pre><code>(array([1, 2, 3, 4, 5]), array([1, 2, 3]))</code></pre>
+</div>
+</div>
+<div id="cell-38" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> np.in1d(B, A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/z8/gpvqr8mn3w9_f38byxhnsk780000gn/T/ipykernel_16373/1008538269.py:1: DeprecationWarning: `in1d` is deprecated. Use `np.isin` instead.
+  response = np.in1d(B, A)</code></pre>
+</div>
+</div>
+<div id="cell-39" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">False</span> <span class="kw">in</span> response:</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"B is not a subset of A"</span>)</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"B is a subset of A"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>B is a subset of A</code></pre>
+</div>
+</div>
+<div id="cell-40" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>response.<span class="bu">all</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<pre><code>np.True_</code></pre>
+</div>
+</div>
+<div id="cell-41" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>np.array([<span class="va">False</span>, <span class="va">True</span>]).astype(<span class="bu">int</span>).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<pre><code>np.int64(1)</code></pre>
+</div>
+</div>
+<div id="cell-42" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>response.astype(<span class="bu">int</span>).<span class="bu">sum</span>() <span class="op">==</span> <span class="bu">len</span>(B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<pre><code>np.True_</code></pre>
+</div>
+</div>
+<div id="cell-43" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>np.isin(B, A).<span class="bu">all</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="43">
+<pre><code>np.True_</code></pre>
+</div>
+</div>
+<div id="cell-44" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Case where B is not a subset of A</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">6</span>])</span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>np.isin(B, A).<span class="bu">all</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<pre><code>np.False_</code></pre>
+</div>
+</div>
+<div id="cell-45" class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>empty_set <span class="op">=</span> np.array([])</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a>np.isin(empty_set, A).<span class="bu">all</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<pre><code>np.True_</code></pre>
+</div>
+</div>
+<div id="cell-46" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualising sets using Venn diagrams</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib_venn <span class="im">import</span> venn2</span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the sets</span></span>
+<span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a>set1 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
+<span id="cb82-6"><a href="#cb82-6" aria-hidden="true" tabindex="-1"></a>set2 <span class="op">=</span> {<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>}</span>
+<span id="cb82-7"><a href="#cb82-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-8"><a href="#cb82-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the Venn diagram</span></span>
+<span id="cb82-9"><a href="#cb82-9" aria-hidden="true" tabindex="-1"></a>venn <span class="op">=</span> venn2([set1, set2], (<span class="st">'Set 1'</span>, <span class="st">'Set 2'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="set_files/figure-html/cell-47-output-1.png" width="470" height="390" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-47" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the sets</span></span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>setA <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
+<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>setB <span class="op">=</span> {<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>}</span>
+<span id="cb83-4"><a href="#cb83-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-5"><a href="#cb83-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the Venn diagram</span></span>
+<span id="cb83-6"><a href="#cb83-6" aria-hidden="true" tabindex="-1"></a>venn <span class="op">=</span> venn2([setA, setB], (<span class="st">'A'</span>, <span class="st">'B'</span>))</span>
+<span id="cb83-7"><a href="#cb83-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-8"><a href="#cb83-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the labels to show the elements and sizes</span></span>
+<span id="cb83-9"><a href="#cb83-9" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb83-10"><a href="#cb83-10" aria-hidden="true" tabindex="-1"></a>    venn.get_label_by_id(<span class="st">'10'</span>).set_text(</span>
+<span id="cb83-11"><a href="#cb83-11" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"A: </span><span class="sc">{</span><span class="st">', '</span><span class="sc">.</span>join(<span class="bu">map</span>(<span class="bu">str</span>, setA <span class="op">-</span> setB))<span class="sc">}</span><span class="ch">\n</span><span class="ss">(Size: </span><span class="sc">{</span><span class="bu">len</span>(setA <span class="op">-</span> setB)<span class="sc">}</span><span class="ss">)"</span></span>
+<span id="cb83-12"><a href="#cb83-12" aria-hidden="true" tabindex="-1"></a>    )  <span class="co"># Only in A</span></span>
+<span id="cb83-13"><a href="#cb83-13" aria-hidden="true" tabindex="-1"></a>    venn.get_label_by_id(<span class="st">'01'</span>).set_text(</span>
+<span id="cb83-14"><a href="#cb83-14" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"B: </span><span class="sc">{</span><span class="st">', '</span><span class="sc">.</span>join(<span class="bu">map</span>(<span class="bu">str</span>, setB <span class="op">-</span> setA))<span class="sc">}</span><span class="ch">\n</span><span class="ss">(Size: </span><span class="sc">{</span><span class="bu">len</span>(setB <span class="op">-</span> setA)<span class="sc">}</span><span class="ss">)"</span></span>
+<span id="cb83-15"><a href="#cb83-15" aria-hidden="true" tabindex="-1"></a>    )  <span class="co"># Only in B</span></span>
+<span id="cb83-16"><a href="#cb83-16" aria-hidden="true" tabindex="-1"></a>    venn.get_label_by_id(<span class="st">'11'</span>).set_text(</span>
+<span id="cb83-17"><a href="#cb83-17" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"A ∩ B: </span><span class="sc">{</span><span class="st">', '</span><span class="sc">.</span>join(<span class="bu">map</span>(<span class="bu">str</span>, setA <span class="op">&amp;</span> setB))<span class="sc">}</span><span class="ch">\n</span><span class="ss">(Size: </span><span class="sc">{</span><span class="bu">len</span>(setA <span class="op">&amp;</span> setB)<span class="sc">}</span><span class="ss">)"</span></span>
+<span id="cb83-18"><a href="#cb83-18" aria-hidden="true" tabindex="-1"></a>    )  <span class="co"># Intersection (A ∩ B)</span></span>
+<span id="cb83-19"><a href="#cb83-19" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span>:</span>
+<span id="cb83-20"><a href="#cb83-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb83-21"><a href="#cb83-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-22"><a href="#cb83-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the plot</span></span>
+<span id="cb83-23"><a href="#cb83-23" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Venn Diagram with Labels A, B, and A ∩ B"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+<pre><code>Text(0.5, 1.0, 'Venn Diagram with Labels A, B, and A ∩ B')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="set_files/figure-html/cell-48-output-2.png" width="470" height="411" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-48" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>Set_A <span class="op">=</span> <span class="bu">set</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>Set_B <span class="op">=</span> <span class="bu">set</span>([<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>])</span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Union</span></span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a>Union <span class="op">=</span> Set_A.union(Set_B)</span>
+<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Union:'</span>, Union)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Union: {1, 2, 3, 5}</code></pre>
+</div>
+</div>
+<div id="cell-49" class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># numpy</span></span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>Set_A <span class="op">=</span> np.array(<span class="bu">list</span>(Set_A))</span>
+<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>Set_B <span class="op">=</span> np.array(<span class="bu">list</span>(Set_B))</span>
+<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a>Union <span class="op">=</span> np.union1d(Set_A, Set_B)</span>
+<span id="cb87-6"><a href="#cb87-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Union:'</span>, Union)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Union: [1 2 3 5]</code></pre>
+</div>
+</div>
+<div id="cell-50" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From scratch</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>])</span>
+<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a>union <span class="op">=</span> a.copy()</span>
+<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> b:</span>
+<span id="cb89-7"><a href="#cb89-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="kw">not</span> <span class="kw">in</span> union:</span>
+<span id="cb89-8"><a href="#cb89-8" aria-hidden="true" tabindex="-1"></a>        union <span class="op">=</span> np.append(union, i)</span>
+<span id="cb89-9"><a href="#cb89-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Union:'</span>, union)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Union: [1 2 3 5]</code></pre>
+</div>
+</div>
+<div id="cell-51" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>union <span class="op">=</span> []</span>
+<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> a:</span>
+<span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> element <span class="kw">not</span> <span class="kw">in</span> union:</span>
+<span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>        union.append(element)</span>
+<span id="cb91-5"><a href="#cb91-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> element <span class="kw">in</span> b:</span>
+<span id="cb91-6"><a href="#cb91-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> element <span class="kw">not</span> <span class="kw">in</span> union:</span>
+<span id="cb91-7"><a href="#cb91-7" aria-hidden="true" tabindex="-1"></a>        union.append(element)</span>
+<span id="cb91-8"><a href="#cb91-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb91-9"><a href="#cb91-9" aria-hidden="true" tabindex="-1"></a>union <span class="op">=</span> np.array(union)</span>
+<span id="cb91-10"><a href="#cb91-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Union:'</span>, union)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Union: [1 2 3 5]</code></pre>
+</div>
+</div>
+<div id="cell-52" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>np.unique(np.concatenate([a, b]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="52">
+<pre><code>array([1, 2, 3, 5])</code></pre>
+</div>
+</div>
+<div id="cell-53" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersection</span></span>
+<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>Set_A <span class="op">=</span> <span class="bu">set</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
+<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>Set_B <span class="op">=</span> <span class="bu">set</span>([<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>])</span>
+<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a>Intersection <span class="op">=</span> Set_A.intersection(Set_B)</span>
+<span id="cb95-5"><a href="#cb95-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Intersection:'</span>, Intersection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Intersection: {2, 3}</code></pre>
+</div>
+</div>
+<div id="cell-54" class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intersection using numpy</span></span>
+<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>])</span>
+<span id="cb97-4"><a href="#cb97-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-5"><a href="#cb97-5" aria-hidden="true" tabindex="-1"></a>Intersection <span class="op">=</span> np.intersect1d(A, B)</span>
+<span id="cb97-6"><a href="#cb97-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Intersection:'</span>, Intersection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Intersection: [2 3]</code></pre>
+</div>
+</div>
+<div id="cell-55" class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From scratch</span></span>
+<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>intersection <span class="op">=</span> []</span>
+<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> a:</span>
+<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="kw">in</span> b:</span>
+<span id="cb99-5"><a href="#cb99-5" aria-hidden="true" tabindex="-1"></a>        intersection.append(i)</span>
+<span id="cb99-6"><a href="#cb99-6" aria-hidden="true" tabindex="-1"></a>intersection <span class="op">=</span> np.array(intersection)</span>
+<span id="cb99-7"><a href="#cb99-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Intersection:'</span>, intersection)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Intersection: [2 3]</code></pre>
+</div>
+</div>
+<div id="cell-56" class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Difference</span></span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>Difference <span class="op">=</span> Set_A.difference(Set_B)</span>
+<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Difference:'</span>, Difference)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Difference: {1}</code></pre>
+</div>
+</div>
+<div id="cell-57" class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>Set_B.difference(Set_A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
+<pre><code>{5}</code></pre>
+</div>
+</div>
+<div id="cell-58" class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Difference in numpy</span></span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>Difference_A_B <span class="op">=</span> np.setdiff1d(A, B)</span>
+<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Difference A/B:'</span>, Difference_A_B)</span>
+<span id="cb105-4"><a href="#cb105-4" aria-hidden="true" tabindex="-1"></a>Difference_B_A <span class="op">=</span> np.setdiff1d(B, A)</span>
+<span id="cb105-5"><a href="#cb105-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Difference B/A:'</span>, Difference_B_A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Difference A/B: [1]
+Difference B/A: [5]</code></pre>
+</div>
+</div>
+<div id="cell-59" class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From scratch</span></span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a>difference_A_B <span class="op">=</span> []</span>
+<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> a:</span>
+<span id="cb107-4"><a href="#cb107-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="kw">not</span> <span class="kw">in</span> b:</span>
+<span id="cb107-5"><a href="#cb107-5" aria-hidden="true" tabindex="-1"></a>        difference_A_B.append(i)</span>
+<span id="cb107-6"><a href="#cb107-6" aria-hidden="true" tabindex="-1"></a>difference_A_B <span class="op">=</span> np.array(difference_A_B)</span>
+<span id="cb107-7"><a href="#cb107-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Difference A/B:'</span>, difference_A_B)</span>
+<span id="cb107-8"><a href="#cb107-8" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Difference A/B: [1]</code></pre>
+</div>
+</div>
+<div id="cell-60" class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> difference(A, B):</span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Function to find the difference between two sets A and B</span></span>
+<span id="cb109-4"><a href="#cb109-4" aria-hidden="true" tabindex="-1"></a><span class="co">    A: numpy array 1d</span></span>
+<span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a><span class="co">    B: numpy array 1d</span></span>
+<span id="cb109-6"><a href="#cb109-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-7"><a href="#cb109-7" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb109-8"><a href="#cb109-8" aria-hidden="true" tabindex="-1"></a><span class="co">    difference_A_B: numpy array 1d</span></span>
+<span id="cb109-9"><a href="#cb109-9" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb109-10"><a href="#cb109-10" aria-hidden="true" tabindex="-1"></a>    difference_A_B <span class="op">=</span> []</span>
+<span id="cb109-11"><a href="#cb109-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> A:</span>
+<span id="cb109-12"><a href="#cb109-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="kw">not</span> <span class="kw">in</span> B:</span>
+<span id="cb109-13"><a href="#cb109-13" aria-hidden="true" tabindex="-1"></a>            difference_A_B.append(i)</span>
+<span id="cb109-14"><a href="#cb109-14" aria-hidden="true" tabindex="-1"></a>    difference_A_B <span class="op">=</span> np.array(difference_A_B)</span>
+<span id="cb109-15"><a href="#cb109-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> difference_A_B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-61" class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Complement</span></span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a>universal_set <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>])</span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-4"><a href="#cb110-4" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb110-5"><a href="#cb110-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-6"><a href="#cb110-6" aria-hidden="true" tabindex="-1"></a>complement_A <span class="op">=</span> np.setdiff1d(universal_set, A)</span>
+<span id="cb110-7"><a href="#cb110-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Complement of A:'</span>, complement_A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Complement of A: [ 4  5  6  7  8  9 10]</code></pre>
+</div>
+</div>
+<div id="cell-62" class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Disjoint sets</span></span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>Set_A <span class="op">=</span> <span class="bu">set</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
+<span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a>Set_B <span class="op">=</span> <span class="bu">set</span>([<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span>
+<span id="cb112-4"><a href="#cb112-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-5"><a href="#cb112-5" aria-hidden="true" tabindex="-1"></a>Intersection <span class="op">=</span> Set_A.intersection(Set_B)</span>
+<span id="cb112-6"><a href="#cb112-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Intersection:'</span>, Intersection)</span>
+<span id="cb112-7"><a href="#cb112-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-8"><a href="#cb112-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(Intersection) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb112-9"><a href="#cb112-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Sets are disjoint'</span>)</span>
+<span id="cb112-10"><a href="#cb112-10" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb112-11"><a href="#cb112-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Sets are not disjoint'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Intersection: set()
+Sets are disjoint</code></pre>
+</div>
+</div>
+<div id="cell-63" class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>collection_sets <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]])</span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>collection_sets</span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-4"><a href="#cb114-4" aria-hidden="true" tabindex="-1"></a><span class="co"># check if all sets are disjoint</span></span>
+<span id="cb114-5"><a href="#cb114-5" aria-hidden="true" tabindex="-1"></a>disjoint <span class="op">=</span> <span class="va">True</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-64" class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Associative property of union</span></span>
+<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="co"># (A ∪ B) ∪ C = A ∪ (B ∪ C)</span></span>
+<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-5"><a href="#cb115-5" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb115-6"><a href="#cb115-6" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
+<span id="cb115-7"><a href="#cb115-7" aria-hidden="true" tabindex="-1"></a>C <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb115-8"><a href="#cb115-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-9"><a href="#cb115-9" aria-hidden="true" tabindex="-1"></a><span class="co"># (A ∪ B) ∪ C</span></span>
+<span id="cb115-10"><a href="#cb115-10" aria-hidden="true" tabindex="-1"></a>lhs <span class="op">=</span> np.union1d(np.union1d(A, B), C)</span>
+<span id="cb115-11"><a href="#cb115-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'(A ∪ B) ∪ C:'</span>, lhs)</span>
+<span id="cb115-12"><a href="#cb115-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-13"><a href="#cb115-13" aria-hidden="true" tabindex="-1"></a><span class="co"># A ∪ (B ∪ C)</span></span>
+<span id="cb115-14"><a href="#cb115-14" aria-hidden="true" tabindex="-1"></a>rhs <span class="op">=</span> np.union1d(A, np.union1d(B, C))</span>
+<span id="cb115-15"><a href="#cb115-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'A ∪ (B ∪ C):'</span>, rhs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(A ∪ B) ∪ C: [1 2 3 4 5]
+A ∪ (B ∪ C): [1 2 3 4 5]</code></pre>
+</div>
+</div>
+<div id="cell-65" class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Associative property of intersection </span></span>
+<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-66" class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="co"># De Morgan's laws</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
