@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="cell-1" class="cell" data-execution_count="2">
+<div id="cell-1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch </span>
@@ -206,30 +206,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-2" class="cell" data-execution_count="82">
+<div id="cell-2" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">100</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.01</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-3" class="cell" data-execution_count="88">
+<div id="cell-3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># uncountable set</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.rand(<span class="dv">100000000</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#print(x)</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>np.unique(x).size</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="88">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>100000000</code></pre>
 </div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="89">
+<div id="cell-4" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set of lines in 2d</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> line_fx(x, m, c):</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> m<span class="op">*</span>x <span class="op">+</span> c</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>line_fx(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="89">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>5</code></pre>
 </div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="90">
+<div id="cell-5" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x_lin <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>y_lin_2_3 <span class="op">=</span> line_fx(x_lin, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -242,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-6" class="cell">
+<div id="cell-6" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interact</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ipywidgets <span class="im">as</span> widgets</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -270,19 +270,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>         c<span class="op">=</span>widgets.FloatSlider(value<span class="op">=</span><span class="dv">0</span>, <span class="bu">min</span><span class="op">=-</span><span class="dv">10</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">10</span>, step<span class="op">=</span><span class="fl">0.1</span>, description<span class="op">=</span><span class="st">'Intercept (c)'</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"1be5e4a9caf64921a93d32360b4adc82","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"aa3c33238ff24e7e87f42af4a40416c4","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="104">
+<div id="cell-7" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>samples_uniform <span class="op">=</span> np.random.rand(<span class="dv">50000</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.hist(samples_uniform)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="104">
-<pre><code>(array([5052., 5003., 4898., 4953., 4985., 4972., 5168., 5048., 4995.,
-        4926.]),
- array([2.10990213e-05, 1.00018664e-01, 2.00016229e-01, 3.00013794e-01,
-        4.00011359e-01, 5.00008924e-01, 6.00006489e-01, 7.00004054e-01,
-        8.00001619e-01, 8.99999184e-01, 9.99996749e-01]),
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>(array([4997., 4951., 4914., 5018., 4873., 5212., 5054., 4855., 5026.,
+        5100.]),
+ array([1.53853245e-05, 1.00010640e-01, 2.00005894e-01, 3.00001149e-01,
+        3.99996403e-01, 4.99991658e-01, 5.99986912e-01, 6.99982167e-01,
+        7.99977421e-01, 8.99972676e-01, 9.99967930e-01]),
  &lt;BarContainer object of 10 artists&gt;)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -293,22 +293,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-8" class="cell" data-execution_count="105">
+<div id="cell-8" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>samples_uniform</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="105">
-<pre><code>array([0.41712539, 0.07813842, 0.71688711, ..., 0.59229709, 0.73228883,
-       0.59211032])</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>array([0.36051428, 0.5228276 , 0.40698327, ..., 0.32825214, 0.22560456,
+       0.86283638])</code></pre>
 </div>
 </div>
-<div id="cell-9" class="cell" data-execution_count="106">
+<div id="cell-9" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>samples_normal <span class="op">=</span> np.random.randn(<span class="dv">50000</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.hist(samples_normal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="106">
-<pre><code>(array([   23.,   359.,  2341.,  8280., 14706., 14350.,  7548.,  2046.,
-          325.,    22.]),
- array([-4.0372689 , -3.22368357, -2.41009824, -1.59651291, -0.78292758,
-         0.03065774,  0.84424307,  1.6578284 ,  2.47141373,  3.28499906,
-         4.09858438]),
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>(array([1.4000e+01, 2.7900e+02, 1.8030e+03, 6.8030e+03, 1.3565e+04,
+        1.5061e+04, 9.0130e+03, 2.8720e+03, 5.4000e+02, 5.0000e+01]),
+ array([-4.10514101, -3.30761343, -2.51008585, -1.71255828, -0.9150307 ,
+        -0.11750312,  0.68002446,  1.47755204,  2.27507962,  3.0726072 ,
+         3.87013478]),
  &lt;BarContainer object of 10 artists&gt;)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -319,22 +319,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-10" class="cell" data-execution_count="108">
+<div id="cell-10" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>samples_normal[:<span class="dv">50</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="108">
-<pre><code>array([-2.31058669, -0.79714906, -0.21301392,  1.22113916,  1.98146526,
-        0.42204773, -0.54724348,  0.50835985, -0.2634123 , -0.83591474,
-       -0.49837997, -0.30704624, -0.72767871, -0.24563129,  1.5724571 ,
-       -1.03287692, -0.06814209, -1.50996318, -0.0949353 , -0.63395993,
-       -1.46535197,  0.67456067,  1.30095979, -0.13257839,  0.59426199,
-       -0.96411211,  0.4829196 , -0.68204543, -0.79151331,  1.50295182,
-        0.59165297, -0.59026297, -0.31318705, -1.53349941, -1.31823789,
-        0.95281806, -0.23830599,  1.12398481,  0.93111563, -1.03672487,
-       -0.16476399,  2.01896697,  1.20259229,  1.71239189, -0.83335455,
-       -1.40865063,  0.36185738, -0.71034706,  1.23774529,  1.18004862])</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>array([-0.47047191,  0.6526655 ,  0.01376231, -0.43144568, -0.56751739,
+        1.86046996, -0.78547076, -1.38958003, -0.9583516 , -0.41378251,
+       -1.77522434, -0.67704094,  0.39368991,  0.10492546, -0.18801198,
+       -0.79900202, -0.30704579, -0.05434027, -0.8481103 , -1.12993521,
+       -1.91924098,  1.60759057,  0.36055225, -0.49083657,  1.33687394,
+        0.91012486,  1.06562535,  0.72814474,  1.60368359,  0.72340906,
+        0.90917984,  0.24486392,  0.6263055 ,  1.00618301, -0.32371594,
+       -0.12681898,  0.65107234,  1.17338721, -1.61673872, -1.15878165,
+       -0.82408069, -1.36774616,  0.4624033 ,  0.88066368,  0.95061334,
+        0.56445145, -0.2013781 , -0.33254308,  0.66682821, -0.52832597])</code></pre>
 </div>
 </div>
-<div id="cell-11" class="cell">
+<div id="cell-11" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot some 20 lines for random m and c</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> np.random.rand(<span class="dv">20</span>)<span class="op">*</span><span class="dv">20</span> <span class="op">-</span> <span class="dv">10</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> np.random.rand(<span class="dv">20</span>)<span class="op">*</span><span class="dv">20</span> <span class="op">-</span> <span class="dv">10</span></span>
@@ -345,12 +345,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="set_files/figure-html/cell-12-output-1.png" width="554" height="413" class="figure-img"></p>
+<p><img src="set_files/figure-html/cell-12-output-1.png" width="563" height="413" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-12" class="cell" data-execution_count="112">
+<div id="cell-12" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>np.random.randn?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Signature: np.random.randn(*args)
@@ -417,7 +417,7 @@ array([[-4.49401501,  4.00950034, -1.81814867,  7.29718677],   # random
 Type:      method</code></pre>
 </div>
 </div>
-<div id="cell-13" class="cell" data-execution_count="113">
+<div id="cell-13" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot some 20 lines for random m and c</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">5000</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> np.random.randn(N)<span class="op">*</span><span class="fl">0.5</span></span>
@@ -430,17 +430,17 @@ Type:      method</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="set_files/figure-html/cell-14-output-1.png" width="554" height="413" class="figure-img"></p>
+<p><img src="set_files/figure-html/cell-14-output-1.png" width="554" height="418" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-14" class="cell" data-execution_count="18">
+<div id="cell-14" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set of cosines with varying phase (fixed amplitude and frequency)</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cosine_fx(x, A<span class="op">=</span><span class="dv">1</span>, f<span class="op">=</span><span class="dv">1</span>, phi<span class="op">=</span><span class="dv">0</span>):</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> A<span class="op">*</span>np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>f<span class="op">*</span>x <span class="op">+</span> phi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="97">
+<div id="cell-15" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>x_lin <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>y_cos_1_1_0 <span class="op">=</span> cosine_fx(x_lin, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -453,7 +453,7 @@ Type:      method</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="98">
+<div id="cell-16" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_cosine(A, f, phi):</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">500</span>)  <span class="co"># x range for visualization</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> cosine_fx(x, A, f, phi)</span>
@@ -476,7 +476,7 @@ Type:      method</code></pre>
 <span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>         phi<span class="op">=</span>widgets.FloatSlider(value<span class="op">=</span><span class="dv">0</span>, <span class="bu">min</span><span class="op">=</span><span class="dv">0</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">2</span><span class="op">*</span>np.pi, step<span class="op">=</span><span class="fl">0.1</span>, description<span class="op">=</span><span class="st">'Phase (φ)'</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"2559a0f0913f4ea6ad41a87cd806a038","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"acd30e847ca040019a795922b4c67751","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 <div class="cell-output cell-output-display">
@@ -493,36 +493,8 @@ Type:      method</code></pre>
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="set_files/figure-html/cell-17-output-4.png" width="702" height="546" class="figure-img"></p>
-</figure>
 </div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="set_files/figure-html/cell-17-output-5.png" width="702" height="546" class="figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="set_files/figure-html/cell-17-output-6.png" width="702" height="546" class="figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="set_files/figure-html/cell-17-output-7.png" width="702" height="546" class="figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="cell-17" class="cell" data-execution_count="114">
+<div id="cell-17" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set datastructure in Python</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
@@ -531,14 +503,14 @@ Type:      method</code></pre>
 <pre><code>{1, 2, 3, 4, 5} &lt;class 'set'&gt;</code></pre>
 </div>
 </div>
-<div id="cell-18" class="cell" data-execution_count="115">
+<div id="cell-18" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> <span class="bu">set</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A, <span class="bu">type</span>(A))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{1, 2, 3, 4, 5} &lt;class 'set'&gt;</code></pre>
 </div>
 </div>
-<div id="cell-19" class="cell" data-execution_count="116">
+<div id="cell-19" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># unique elements</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A, <span class="bu">len</span>(A))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -546,7 +518,7 @@ Type:      method</code></pre>
 <pre><code>{1, 2, 3, 4, 5} 5</code></pre>
 </div>
 </div>
-<div id="cell-20" class="cell" data-execution_count="117">
+<div id="cell-20" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Can set contain a set?</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>}</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> a <span class="kw">in</span> A:</span>
@@ -557,13 +529,13 @@ Type:      method</code></pre>
 3</code></pre>
 </div>
 </div>
-<div id="cell-21" class="cell" data-execution_count="118">
+<div id="cell-21" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># why below code doesn't work? homework</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>A_star <span class="op">=</span> {{<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>}, <span class="dv">6</span>, <span class="dv">7</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 ```{=html}
-<pre><p><span class="ansi-red-fg">—————————————————————————</span> <span class="ansi-red-fg">TypeError</span> Traceback (most recent call last) Cell <span class="ansi-green-fg">In[118], line 2</span> <span class="ansi-green-fg ansi-bold"> 1</span> <span style="font-style:italic;color:rgb(95,135,135)"># why below code doesn’t work? homework</span> <span class="ansi-green-fg">—-&gt; 2</span> A_star <span style="color:rgb(98,98,98)">=</span></p>
+<pre><p><span class="ansi-red-fg">—————————————————————————</span> <span class="ansi-red-fg">TypeError</span> Traceback (most recent call last) Cell <span class="ansi-green-fg">In[21], line 2</span> <span class="ansi-green-fg ansi-bold"> 1</span> <span style="font-style:italic;color:rgb(95,135,135)"># why below code doesn’t work? homework</span> <span class="ansi-green-fg">—-&gt; 2</span> A_star <span style="color:rgb(98,98,98)">=</span></p>
 </pre></div>
 </div>
 </div>
