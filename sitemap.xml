@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/set.html</loc>
-    <lastmod>2025-01-22T05:28:22.548Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/intro.html</loc>
-    <lastmod>2025-01-22T05:28:22.503Z</lastmod>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks.html</loc>
+    <lastmod>2025-01-22T11:35:49.216Z</lastmod>
   </url>
   <url>
     <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/intro-numpy.html</loc>
-    <lastmod>2025-01-22T05:28:22.502Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/random-variables.html</loc>
-    <lastmod>2025-01-22T05:28:22.542Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/index.html</loc>
-    <lastmod>2025-01-22T05:28:22.476Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/questions.html</loc>
-    <lastmod>2025-01-22T05:28:22.550Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks.html</loc>
-    <lastmod>2025-01-22T05:28:22.476Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/slides.html</loc>
-    <lastmod>2025-01-22T05:28:22.550Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/widgets.html</loc>
-    <lastmod>2025-01-22T05:28:22.550Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/introduction-pandas.html</loc>
-    <lastmod>2025-01-22T05:28:22.541Z</lastmod>
+    <lastmod>2025-01-22T11:35:49.242Z</lastmod>
   </url>
   <url>
     <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/introduction-matplotlib.html</loc>
-    <lastmod>2025-01-22T05:28:22.536Z</lastmod>
+    <lastmod>2025-01-22T11:35:49.276Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/set.html</loc>
+    <lastmod>2025-01-22T11:35:49.288Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/index.html</loc>
+    <lastmod>2025-01-22T11:35:49.216Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/slides.html</loc>
+    <lastmod>2025-01-22T11:35:49.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/questions.html</loc>
+    <lastmod>2025-01-22T11:35:49.289Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/intro.html</loc>
+    <lastmod>2025-01-22T11:35:49.243Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/introduction-pandas.html</loc>
+    <lastmod>2025-01-22T11:35:49.282Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/random-variables.html</loc>
+    <lastmod>2025-01-22T11:35:49.282Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/widgets.html</loc>
+    <lastmod>2025-01-22T11:35:49.289Z</lastmod>
   </url>
 </urlset>

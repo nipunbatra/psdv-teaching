@@ -73,8 +73,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-ed04999718f06b735b1f8009dce43b94.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-6843b6651b780da2153978adf2867439.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f414822f516a619e8338e94d2028feb5.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-c958c276febdcfeb3d4cc32f786a1f1d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-7bcc4918cf1cea5e04707dadab71f7f6.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -162,22 +162,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div id="28e86645-8b4c-4fc3-86f2-3928822aecb2" class="cell" data-execution_count="1">
+<div id="28e86645-8b4c-4fc3-86f2-3928822aecb2" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ipywidgets</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ipywidgets.__version__)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>8.1.5</code></pre>
 </div>
 </div>
-<div id="65d583b4-2269-468e-a7d2-9ed60b35a391" class="cell" data-execution_count="2">
+<div id="65d583b4-2269-468e-a7d2-9ed60b35a391" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interactive, interact, widgets</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interact, widgets</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> clear_output</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="8cc02b0d-4978-49db-a582-a37823cd5842" class="cell" data-execution_count="3">
+<div id="8cc02b0d-4978-49db-a582-a37823cd5842" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> [</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Aarav'</span>, <span class="st">'Aditi'</span>, <span class="st">'Arjun'</span>, <span class="st">'Ananya'</span>, <span class="st">'Dhruv'</span>, <span class="st">'Diya'</span>, </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Ishaan'</span>, <span class="st">'Isha'</span>, <span class="st">'Krishna'</span>, <span class="st">'Kavya'</span>, <span class="st">'Mira'</span>, <span class="st">'Mihir'</span>,</span>
@@ -191,7 +192,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Subject'</span>: np.random.choice([<span class="st">'Math'</span>, <span class="st">'Physics'</span>, <span class="st">'Chemistry'</span>], <span class="bu">len</span>(names))</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="651a4ecc-1bc2-48dc-a902-4c4afd088e78" class="cell" data-execution_count="4">
+<div id="651a4ecc-1bc2-48dc-a902-4c4afd088e78" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>display(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -212,127 +213,127 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td data-quarto-table-cell-role="th">0</td>
 <td>Aarav</td>
 <td>20</td>
-<td>66</td>
+<td>69</td>
 <td>Chemistry</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>Aditi</td>
-<td>20</td>
-<td>65</td>
-<td>Math</td>
+<td>21</td>
+<td>68</td>
+<td>Physics</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>Arjun</td>
 <td>19</td>
-<td>86</td>
-<td>Chemistry</td>
+<td>72</td>
+<td>Physics</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>Ananya</td>
-<td>20</td>
-<td>89</td>
-<td>Math</td>
+<td>21</td>
+<td>65</td>
+<td>Chemistry</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>Dhruv</td>
 <td>20</td>
-<td>70</td>
+<td>75</td>
 <td>Physics</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>Diya</td>
-<td>22</td>
-<td>65</td>
-<td>Math</td>
+<td>21</td>
+<td>88</td>
+<td>Physics</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>Ishaan</td>
-<td>19</td>
-<td>95</td>
-<td>Physics</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>Isha</td>
-<td>20</td>
-<td>95</td>
-<td>Physics</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>Krishna</td>
-<td>19</td>
-<td>91</td>
-<td>Chemistry</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>Kavya</td>
-<td>18</td>
-<td>71</td>
-<td>Math</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>Mira</td>
 <td>22</td>
 <td>84</td>
 <td>Math</td>
 </tr>
 <tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Isha</td>
+<td>18</td>
+<td>99</td>
+<td>Math</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Krishna</td>
+<td>19</td>
+<td>77</td>
+<td>Chemistry</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Kavya</td>
+<td>21</td>
+<td>87</td>
+<td>Physics</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Mira</td>
+<td>21</td>
+<td>69</td>
+<td>Chemistry</td>
+</tr>
+<tr class="even">
 <td data-quarto-table-cell-role="th">11</td>
 <td>Mihir</td>
-<td>20</td>
-<td>79</td>
+<td>19</td>
+<td>77</td>
 <td>Chemistry</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">12</td>
 <td>Neha</td>
-<td>19</td>
-<td>76</td>
-<td>Chemistry</td>
+<td>18</td>
+<td>66</td>
+<td>Math</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">13</td>
 <td>Nikhil</td>
-<td>22</td>
-<td>99</td>
-<td>Math</td>
+<td>18</td>
+<td>78</td>
+<td>Physics</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">14</td>
 <td>Priya</td>
-<td>18</td>
-<td>81</td>
-<td>Chemistry</td>
+<td>22</td>
+<td>89</td>
+<td>Physics</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">15</td>
 <td>Pranav</td>
-<td>19</td>
-<td>65</td>
-<td>Physics</td>
+<td>20</td>
+<td>99</td>
+<td>Math</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">16</td>
 <td>Riya</td>
-<td>22</td>
-<td>88</td>
+<td>18</td>
+<td>84</td>
 <td>Math</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">17</td>
 <td>Rohan</td>
 <td>21</td>
-<td>78</td>
-<td>Chemistry</td>
+<td>65</td>
+<td>Physics</td>
 </tr>
 </tbody>
 </table>
@@ -340,10 +341,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="e5886ba4-6ac0-4e04-8791-feded290abff" class="cell" data-execution_count="5">
+<div id="e5886ba4-6ac0-4e04-8791-feded290abff" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Basic Subsetting Examples:"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Math Students:"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>math_students <span class="op">=</span> df[df[<span class="st">'Subject'</span>] <span class="op">==</span> <span class="st">'Math'</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>math_students <span class="op">=</span> df.query(<span class="st">'Subject == "Math"'</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>math_students</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -351,7 +352,7 @@ Basic Subsetting Examples:
 
 Math Students:</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 
 
@@ -367,52 +368,38 @@ Math Students:</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">1</td>
-<td>Aditi</td>
-<td>20</td>
-<td>65</td>
-<td>Math</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Ananya</td>
-<td>20</td>
-<td>89</td>
-<td>Math</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">5</td>
-<td>Diya</td>
-<td>22</td>
-<td>65</td>
-<td>Math</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>Kavya</td>
-<td>18</td>
-<td>71</td>
-<td>Math</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>Mira</td>
+<td data-quarto-table-cell-role="th">6</td>
+<td>Ishaan</td>
 <td>22</td>
 <td>84</td>
 <td>Math</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>Nikhil</td>
-<td>22</td>
+<td data-quarto-table-cell-role="th">7</td>
+<td>Isha</td>
+<td>18</td>
+<td>99</td>
+<td>Math</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Neha</td>
+<td>18</td>
+<td>66</td>
+<td>Math</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Pranav</td>
+<td>20</td>
 <td>99</td>
 <td>Math</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">16</td>
 <td>Riya</td>
-<td>22</td>
-<td>88</td>
+<td>18</td>
+<td>84</td>
 <td>Math</td>
 </tr>
 </tbody>
@@ -421,9 +408,9 @@ Math Students:</code></pre>
 </div>
 </div>
 </div>
-<div id="f63084b5-2541-41c8-9a52-1cc63aa793af" class="cell" data-execution_count="6">
+<div id="f63084b5-2541-41c8-9a52-1cc63aa793af" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">High Performers (Grade &gt; 85):"</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>high_performers <span class="op">=</span> df[df[<span class="st">'Grade'</span>] <span class="op">&gt;</span> <span class="dv">85</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>high_performers <span class="op">=</span> df.query(<span class="st">"Grade &gt; 85"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>display(high_performers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -445,52 +432,38 @@ High Performers (Grade &gt; 85):</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>Arjun</td>
-<td>19</td>
-<td>86</td>
-<td>Chemistry</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Ananya</td>
-<td>20</td>
-<td>89</td>
-<td>Math</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>Ishaan</td>
-<td>19</td>
-<td>95</td>
+<td data-quarto-table-cell-role="th">5</td>
+<td>Diya</td>
+<td>21</td>
+<td>88</td>
 <td>Physics</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>Isha</td>
-<td>20</td>
-<td>95</td>
-<td>Physics</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>Krishna</td>
-<td>19</td>
-<td>91</td>
-<td>Chemistry</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>Nikhil</td>
-<td>22</td>
+<td>18</td>
 <td>99</td>
 <td>Math</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">16</td>
-<td>Riya</td>
+<td data-quarto-table-cell-role="th">9</td>
+<td>Kavya</td>
+<td>21</td>
+<td>87</td>
+<td>Physics</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Priya</td>
 <td>22</td>
-<td>88</td>
+<td>89</td>
+<td>Physics</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Pranav</td>
+<td>20</td>
+<td>99</td>
 <td>Math</td>
 </tr>
 </tbody>
@@ -499,7 +472,7 @@ High Performers (Grade &gt; 85):</code></pre>
 </div>
 </div>
 </div>
-<div id="7f8c8578-5ed8-4b7e-a439-a90924287fa0" class="cell" data-execution_count="7">
+<div id="7f8c8578-5ed8-4b7e-a439-a90924287fa0" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">@interact</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_by_subject(subject<span class="op">=</span>[<span class="st">'All'</span>] <span class="op">+</span> <span class="bu">list</span>(df[<span class="st">'Subject'</span>].unique())):</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Showing </span><span class="sc">{</span>subject<span class="sc">}</span><span class="ss"> students"</span>)</span>
@@ -509,64 +482,196 @@ High Performers (Grade &gt; 85):</code></pre>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df.query(<span class="st">'Subject == @subject'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"4998b2098cff4acd8fd5afcb6e1fe8e6","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"c7f8b8c496ef4f44b622bce671d2a45e","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
-<div id="95147f73-3327-4461-96cd-7c79baba05a5" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="at">@interact</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_students(subject<span class="op">=</span>[<span class="st">'All'</span>] <span class="op">+</span> <span class="bu">list</span>(df[<span class="st">'Subject'</span>].unique()), min_grade<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">5</span>)):</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""More controlled filtering using interactive"""</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Showing </span><span class="sc">{</span>subject<span class="sc">}</span><span class="ss"> students with grade &gt;= </span><span class="sc">{</span>min_grade<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    filtered <span class="op">=</span> df <span class="cf">if</span> subject <span class="op">==</span> <span class="st">'All'</span> <span class="cf">else</span> df.query(<span class="st">'Subject == @subject'</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> filtered.query(<span class="st">'Grade &gt;= @min_grade'</span>)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="95147f73-3327-4461-96cd-7c79baba05a5" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_students(subject<span class="op">=</span><span class="st">'All'</span>, min_grade<span class="op">=</span><span class="dv">0</span>):</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""More controlled filtering using interactive"""</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Showing </span><span class="sc">{</span>subject<span class="sc">}</span><span class="ss"> students with grade &gt;= </span><span class="sc">{</span>min_grade<span class="sc">:0.1f}</span><span class="ss">"</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    filtered <span class="op">=</span> df <span class="cf">if</span> subject <span class="op">==</span> <span class="st">'All'</span> <span class="cf">else</span> df.query(<span class="st">'Subject == @subject'</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> filtered.query(<span class="st">'Grade &gt;= @min_grade'</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="192c3972-bcb5-4b95-8860-7c4176cd0731" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>filter_students()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Showing All students with grade &gt;= 0.0</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Grade</th>
+<th data-quarto-table-cell-role="th">Subject</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Aarav</td>
+<td>20</td>
+<td>69</td>
+<td>Chemistry</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Aditi</td>
+<td>21</td>
+<td>68</td>
+<td>Physics</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Arjun</td>
+<td>19</td>
+<td>72</td>
+<td>Physics</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Ananya</td>
+<td>21</td>
+<td>65</td>
+<td>Chemistry</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Dhruv</td>
+<td>20</td>
+<td>75</td>
+<td>Physics</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Diya</td>
+<td>21</td>
+<td>88</td>
+<td>Physics</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Ishaan</td>
+<td>22</td>
+<td>84</td>
+<td>Math</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Isha</td>
+<td>18</td>
+<td>99</td>
+<td>Math</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Krishna</td>
+<td>19</td>
+<td>77</td>
+<td>Chemistry</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Kavya</td>
+<td>21</td>
+<td>87</td>
+<td>Physics</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Mira</td>
+<td>21</td>
+<td>69</td>
+<td>Chemistry</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Mihir</td>
+<td>19</td>
+<td>77</td>
+<td>Chemistry</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Neha</td>
+<td>18</td>
+<td>66</td>
+<td>Math</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Nikhil</td>
+<td>18</td>
+<td>78</td>
+<td>Physics</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Priya</td>
+<td>22</td>
+<td>89</td>
+<td>Physics</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Pranav</td>
+<td>20</td>
+<td>99</td>
+<td>Math</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>Riya</td>
+<td>18</td>
+<td>84</td>
+<td>Math</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Rohan</td>
+<td>21</td>
+<td>65</td>
+<td>Physics</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="5efaeced-ab13-417d-a983-1b72460dc141" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>student_filter_viz <span class="op">=</span> interact(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    filter_students,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    subject <span class="op">=</span> [<span class="st">'All'</span>] <span class="op">+</span> <span class="bu">list</span>(df[<span class="st">'Subject'</span>].unique()),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    min_grade<span class="op">=</span>(<span class="fl">0.0</span>, <span class="fl">99.5</span>, <span class="fl">5.0</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"3e26ea17cc884560bb221dc671666e5a","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"c9b40d099dbc4830af9904866cf06ba8","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
-<div id="5efaeced-ab13-417d-a983-1b72460dc141" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> filter_students_via_interactive(subject, min_grade):</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""More controlled filtering using interactive"""</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Showing </span><span class="sc">{</span>subject<span class="sc">}</span><span class="ss"> students with grade &gt;= </span><span class="sc">{</span>min_grade<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    filtered <span class="op">=</span> df <span class="cf">if</span> subject <span class="op">==</span> <span class="st">'All'</span> <span class="cf">else</span> df.query(<span class="st">'Subject == @subject'</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> filtered.query(<span class="st">'Grade &gt;= @min_grade'</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> out</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Use interactive to create the widget</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>student_filter_viz <span class="op">=</span> interactive(</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    filter_students_via_interactive,</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    subject<span class="op">=</span>[<span class="st">'All'</span>] <span class="op">+</span> <span class="bu">list</span>(df[<span class="st">'Subject'</span>].unique()),</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    min_grade<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">5</span>)</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="97feb0a2-e29e-4bcc-8f6f-5cf924348102" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>student_filter_viz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="35">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"2da27559b75341899773c9637e3ccff8","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
-</div>
-<div id="0e6499d3" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_wave(x_start<span class="op">=-</span><span class="dv">2</span><span class="op">*</span>np.pi, x_end<span class="op">=</span><span class="dv">2</span><span class="op">*</span>np.pi, num_points<span class="op">=</span><span class="dv">100</span>):</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Basic plotting function"""</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(x_start, x_end, num_points)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, np.sin(x), label<span class="op">=</span><span class="st">'sin(x)'</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, np.cos(x), label<span class="op">=</span><span class="st">'cos(x)'</span>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'Trigonometric Functions'</span>)</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Using Plotting Function Directly</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Basic Plot (Direct Function Call):"</span>)</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>plot_wave()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="0e6499d3" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_wave(freq<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Basic plotting function"""</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span><span class="op">*</span>np.pi, <span class="dv">1</span><span class="op">*</span>np.pi, <span class="dv">500</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, np.sin(np.pi<span class="op">*</span><span class="dv">2</span><span class="op">*</span>freq<span class="op">*</span>x), label<span class="op">=</span><span class="st">'sin(x)'</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, np.cos(np.pi<span class="op">*</span><span class="dv">2</span><span class="op">*</span>freq<span class="op">*</span>x), label<span class="op">=</span><span class="st">'cos(x)'</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'Trigonometric Functions'</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Basic Plot (Direct Function Call):"</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>plot_wave()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Basic Plot (Direct Function Call):</code></pre>
@@ -574,105 +679,86 @@ Basic Plot (Direct Function Call):</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="widgets_files/figure-html/cell-12-output-2.png" width="847" height="527" class="figure-img"></p>
+<p><img src="widgets_files/figure-html/cell-12-output-2.png" width="568" height="434" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="73cc7936" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Plotting with @interact:"</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="at">@interact</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_wave_interact(num_points<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">200</span>, <span class="dv">5</span>)):</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Simple interactive plotting with @interact"""</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    plot_wave(num_points<span class="op">=</span>num_points)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="73cc7936" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Plotting with @interact:"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="at">@interact</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_wave_interact(freq<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">1</span>)):</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Simple interactive plotting with @interact"""</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    plot_wave(freq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Plotting with @interact:</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"918343a77eb9465494c162524ec0ee11","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+{"model_id":"7632336a53f8486d8a37e6129ee2e43c","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
 </script>
 </div>
 </div>
-<div id="90393b06" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_wave_advanced(func_type<span class="op">=</span><span class="st">'sine'</span>, num_points<span class="op">=</span><span class="dv">100</span>, color<span class="op">=</span><span class="st">'blue'</span>, show_grid<span class="op">=</span><span class="va">True</span>):</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Advanced plotting with more control"""</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span><span class="op">*</span>np.pi, <span class="dv">2</span><span class="op">*</span>np.pi, num_points)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> func_type <span class="op">==</span> <span class="st">'sine'</span>:</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> np.sin(x)</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        title <span class="op">=</span> <span class="st">'Sine Wave'</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> func_type <span class="op">==</span> <span class="st">'cosine'</span>:</span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> np.cos(x)</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>        title <span class="op">=</span> <span class="st">'Cosine Wave'</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:  <span class="co"># both</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>        plt.plot(x, np.sin(x), label<span class="op">=</span><span class="st">'sin(x)'</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>        plt.plot(x, np.cos(x), label<span class="op">=</span><span class="st">'cos(x)'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>        title <span class="op">=</span> <span class="st">'Both Waves'</span></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>        plt.legend()</span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>        plt.title(title)</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>        plt.grid(show_grid)</span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>        plt.show()</span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span></span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, y, color<span class="op">=</span>color, label<span class="op">=</span>func_type)</span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    plt.title(title)</span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    plt.grid(show_grid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="dfb931d8" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>wave_widget <span class="op">=</span> interactive(</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    plot_wave_advanced,</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    func_type<span class="op">=</span>widgets.RadioButtons(</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        options<span class="op">=</span>[<span class="st">'sine'</span>, <span class="st">'cosine'</span>, <span class="st">'both'</span>],</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span><span class="st">'Function:'</span>,</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        style<span class="op">=</span>{<span class="st">'description_width'</span>: <span class="st">'initial'</span>},</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        layout<span class="op">=</span>widgets.Layout(width<span class="op">=</span><span class="st">'200px'</span>)</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    num_points<span class="op">=</span>widgets.IntSlider(</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        value<span class="op">=</span><span class="dv">100</span>,</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">min</span><span class="op">=</span><span class="dv">50</span>,</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">max</span><span class="op">=</span><span class="dv">200</span>,</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        step<span class="op">=</span><span class="dv">10</span>,</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span><span class="st">'Points:'</span>,</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>        style<span class="op">=</span>{<span class="st">'description_width'</span>: <span class="st">'initial'</span>},</span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>        layout<span class="op">=</span>widgets.Layout(width<span class="op">=</span><span class="st">'300px'</span>)</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>widgets.Dropdown(</span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>        options<span class="op">=</span>[<span class="st">'blue'</span>, <span class="st">'red'</span>, <span class="st">'green'</span>, <span class="st">'purple'</span>],</span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>        value<span class="op">=</span><span class="st">'blue'</span>,</span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span><span class="st">'Color:'</span>,</span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>        style<span class="op">=</span>{<span class="st">'description_width'</span>: <span class="st">'initial'</span>},</span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>        layout<span class="op">=</span>widgets.Layout(width<span class="op">=</span><span class="st">'200px'</span>),</span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>        disabled<span class="op">=</span><span class="va">False</span></span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    show_grid<span class="op">=</span>widgets.Checkbox(</span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>        value<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span><span class="st">'Show Grid'</span>,</span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>        style<span class="op">=</span>{<span class="st">'description_width'</span>: <span class="st">'initial'</span>}</span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Organize widgets in a vertical layout</span></span>
-<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>widgets.VBox([</span>
-<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>    widgets.HTML(value<span class="op">=</span><span class="st">"&lt;h3&gt;Interactive Plot Controls:&lt;/h3&gt;"</span>),</span>
-<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>    wave_widget</span>
-<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="37">
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"8ac038d2fbda462d848b29293459d59e","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
-</script>
-</div>
+<div id="0c87b678-1f0b-4d60-bc7c-1eab2c5b63c8" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_wave_advanced(func_type<span class="op">=</span><span class="st">'sine'</span>, frequency<span class="op">=</span><span class="dv">1</span>, color<span class="op">=</span><span class="st">'blue'</span>, show_grid<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Advanced plotting with more control"""</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    num_points <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">2</span> <span class="op">*</span> np.pi, <span class="dv">2</span> <span class="op">*</span> np.pi, num_points)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> func_type <span class="op">==</span> <span class="st">'sine'</span>:</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> np.sin(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> frequency <span class="op">*</span> x)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        title <span class="op">=</span> <span class="st">'Sine Wave'</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> func_type <span class="op">==</span> <span class="st">'cosine'</span>:</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> np.cos(<span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> frequency <span class="op">*</span> x)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        title <span class="op">=</span> <span class="st">'Cosine Wave'</span></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, y, color<span class="op">=</span>color, label<span class="op">=</span>func_type)</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    plt.title(title)</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    plt.grid(show_grid)</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the interact widget and store it in plot_viz</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>plot_viz <span class="op">=</span> interact(</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>    plot_wave_advanced,</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>    func_type<span class="op">=</span>widgets.RadioButtons(</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>        options<span class="op">=</span>[<span class="st">'sine'</span>, <span class="st">'cosine'</span>],</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span><span class="st">'Function:'</span>,</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>        style<span class="op">=</span>{<span class="st">'description_width'</span>: <span class="st">'initial'</span>},</span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>        layout<span class="op">=</span>{<span class="st">'width'</span>: <span class="st">'200px'</span>}</span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>    frequency<span class="op">=</span>widgets.FloatSlider(</span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>        value<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>        <span class="bu">min</span><span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>        <span class="bu">max</span><span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>        step<span class="op">=</span><span class="fl">0.1</span>,</span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span><span class="st">'Frequency:'</span>,</span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>        style<span class="op">=</span>{<span class="st">'description_width'</span>: <span class="st">'initial'</span>},</span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>        layout<span class="op">=</span>{<span class="st">'width'</span>: <span class="st">'300px'</span>}</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>widgets.Dropdown(</span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>        options<span class="op">=</span>[<span class="st">'blue'</span>, <span class="st">'red'</span>, <span class="st">'green'</span>, <span class="st">'purple'</span>],</span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>        value<span class="op">=</span><span class="st">'blue'</span>,</span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span><span class="st">'Color:'</span>,</span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>        style<span class="op">=</span>{<span class="st">'description_width'</span>: <span class="st">'initial'</span>},</span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>        layout<span class="op">=</span>{<span class="st">'width'</span>: <span class="st">'200px'</span>}</span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>    show_grid<span class="op">=</span>widgets.Checkbox(</span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>        value<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>        description<span class="op">=</span><span class="st">'Show Grid'</span>,</span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>        style<span class="op">=</span>{<span class="st">'description_width'</span>: <span class="st">'initial'</span>}</span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="widgets_files/figure-html/cell-15-output-2.png" width="847" height="527" class="figure-img"></p>
-</figure>
-</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"893b3d7cc6454496b9d88c3b4c0d4d07","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
+</script>
 </div>
 </div>
 
