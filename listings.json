@@ -3,6 +3,7 @@
     "listing": "/notebooks.html",
     "items": [
       "/notebooks/introduction-matplotlib.html",
+      "/notebooks/widgets.html",
       "/notebooks/introduction-pandas.html",
       "/notebooks/intro-numpy.html",
       "/notebooks/intro.html",
