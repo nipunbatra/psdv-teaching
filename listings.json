@@ -1,8 +1,13 @@
 [
   {
+    "listing": "/slides.html",
+    "items": []
+  },
+  {
     "listing": "/notebooks.html",
     "items": [
       "/notebooks/introduction-matplotlib.html",
+      "/notebooks/probability.html",
       "/notebooks/widgets.html",
       "/notebooks/introduction-pandas.html",
       "/notebooks/intro-numpy.html",
@@ -10,9 +15,5 @@
       "/notebooks/set.html",
       "/notebooks/random-variables.html"
     ]
-  },
-  {
-    "listing": "/slides.html",
-    "items": []
   }
 ]
