@@ -1,19 +1,23 @@
 [
   {
-    "listing": "/slides.html",
-    "items": []
-  },
-  {
     "listing": "/notebooks.html",
     "items": [
       "/notebooks/introduction-matplotlib.html",
       "/notebooks/probability.html",
+      "/notebooks/quiz1.html",
       "/notebooks/widgets.html",
+      "/notebooks/pmf-discrete.html",
+      "/notebooks/cdf-discrete.html",
+      "/notebooks/logistic-regression-generative.html",
       "/notebooks/introduction-pandas.html",
       "/notebooks/intro-numpy.html",
       "/notebooks/intro.html",
       "/notebooks/set.html",
       "/notebooks/random-variables.html"
     ]
+  },
+  {
+    "listing": "/slides.html",
+    "items": []
   }
 ]
