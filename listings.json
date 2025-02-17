@@ -2,6 +2,7 @@
   {
     "listing": "/notebooks.html",
     "items": [
+      "/notebooks/expectation.html",
       "/notebooks/introduction-matplotlib.html",
       "/notebooks/probability.html",
       "/notebooks/quiz1.html",
