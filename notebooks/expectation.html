@@ -161,7 +161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div id="cell-0" class="cell" data-execution_count="1">
+<div id="cell-0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.distributions <span class="im">as</span> dist</span>
@@ -183,14 +183,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="cell-2" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>rolls[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>tensor([5, 1, 3, 5, 2, 4, 3, 1, 1, 1])</code></pre>
+<pre><code>tensor([2, 1, 6, 4, 5, 3, 3, 3, 1, 3])</code></pre>
 </div>
 </div>
-<div id="cell-3" class="cell" data-execution_count="6">
+<div id="cell-3" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ax.plot(rolls, lw<span class="op">=</span><span class="fl">0.5</span>, marker<span class="op">=</span><span class="st">'o'</span>, markersize<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Roll number'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>Text(0.5, 0, 'Roll number')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -201,23 +201,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="8">
+<div id="cell-4" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pd.Series(rolls).value_counts().sort_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>1    144
-2    168
-3    178
-4    180
-5    172
-6    158
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>1    180
+2    160
+3    187
+4    146
+5    159
+6    168
 Name: count, dtype: int64</code></pre>
 </div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="9">
+<div id="cell-5" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Running average</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>runing_avg <span class="op">=</span> torch.cumsum(rolls, dim<span class="op">=</span><span class="dv">0</span>) <span class="op">/</span> torch.arange(<span class="dv">1</span>, N<span class="op">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-6" class="cell" data-execution_count="10">
+<div id="cell-6" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plt.plot(runing_avg, lw<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Roll number'</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Running average'</span>)</span>
@@ -230,25 +230,148 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="18">
+<div id="cell-7" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_running_avg(N):</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    rolls <span class="op">=</span> dice.sample((N,)) <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    runing_avg <span class="op">=</span> torch.cumsum(rolls, dim<span class="op">=</span><span class="dv">0</span>) <span class="op">/</span> torch.arange(<span class="dv">1</span>, N<span class="op">+</span><span class="dv">1</span>)</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> runing_avg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-8" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>out <span class="op">=</span> {}</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> N <span class="kw">in</span> [<span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>]:</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    out[N] <span class="op">=</span> {}</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> expt <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        out[N][expt] <span class="op">=</span> compute_running_avg(N)[<span class="op">-</span><span class="dv">1</span>].item()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-8" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Bernoulli(probs<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> dist.sample((<span class="dv">100</span>,))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-9" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(out)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-9" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>samples.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>tensor(0.4900)</code></pre>
 </div>
-<div id="cell-10" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
+</div>
+<div id="cell-10" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>pd.Series(samples.numpy()).value_counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>0.0    51
+1.0    49
+Name: count, dtype: int64</code></pre>
+</div>
+</div>
+<div id="cell-11" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Game of winning and losing money based on a coin flip</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-12" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>win_amt <span class="op">=</span> <span class="dv">2000</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>loss_amt <span class="op">=</span> <span class="op">-</span><span class="dv">2000</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>total_count_N <span class="op">=</span> <span class="dv">100</span> <span class="co"># Number of coin flips</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Binomial(total_count_N, probs<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-13" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>num_samples <span class="op">=</span> <span class="dv">5000</span> <span class="co"># number of players/Number of times we perform total_count_N coin flips</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-14" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>num_times_wins_across_samples <span class="op">=</span> dist.sample((num_samples,))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-15" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>num_times_wins_across_samples[:<span class="dv">100</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>tensor([50., 54., 51., 50., 55., 48., 46., 57., 47., 48., 50., 57., 52., 44.,
+        52., 48., 45., 56., 49., 51., 45., 54., 51., 50., 48., 58., 43., 43.,
+        55., 50., 50., 52., 47., 42., 45., 50., 56., 55., 57., 46., 65., 52.,
+        50., 58., 53., 50., 61., 46., 54., 51., 49., 46., 43., 53., 56., 55.,
+        53., 48., 49., 45., 60., 52., 54., 50., 59., 52., 51., 41., 51., 59.,
+        40., 56., 55., 55., 50., 49., 47., 54., 51., 51., 49., 51., 58., 54.,
+        52., 64., 60., 51., 55., 45., 45., 42., 50., 43., 42., 51., 43., 55.,
+        48., 60.])</code></pre>
+</div>
+</div>
+<div id="cell-16" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> num_samples<span class="op">&lt;=</span><span class="dv">50</span>:</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    pd.Series(num_times_wins_across_samples.numpy()).plot(kind<span class="op">=</span><span class="st">'bar'</span>, rot<span class="op">=</span><span class="dv">0</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Sample number'</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Number of wins'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-17" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>net_money_won <span class="op">=</span> num_times_wins_across_samples <span class="op">*</span> win_amt <span class="op">+</span> (total_count_N <span class="op">-</span> num_times_wins_across_samples) <span class="op">*</span> loss_amt</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>net_money_won_series <span class="op">=</span> pd.Series(net_money_won.numpy())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-18" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>net_money_won_series</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>0           0.0
+1       16000.0
+2        4000.0
+3           0.0
+4       20000.0
+         ...   
+4995   -24000.0
+4996    16000.0
+4997   -16000.0
+4998   -40000.0
+4999        0.0
+Length: 5000, dtype: float32</code></pre>
+</div>
+</div>
+<div id="cell-19" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> num_samples<span class="op">&lt;=</span><span class="dv">50</span>:</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    net_money_won_series.plot(kind<span class="op">=</span><span class="st">'bar'</span>, rot<span class="op">=</span><span class="dv">0</span>, ax<span class="op">=</span>ax)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'red'</span>, lw<span class="op">=</span><span class="dv">1</span>, ls<span class="op">=</span><span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-20" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>net_money_won_series.hist(grid<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="expectation_files/figure-html/cell-22-output-1.png" width="560" height="413" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-21" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>net_money_won_series.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>np.float32(409.6)</code></pre>
+</div>
+</div>
+<div id="cell-22" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>net_money_won_series.var()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>np.float32(399822600.0)</code></pre>
+</div>
+</div>
+<div id="cell-23" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>net_money_won_series.var()<span class="op">/</span>((win_amt<span class="op">**</span><span class="dv">2</span>) <span class="op">*</span> total_count_N)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>np.float32(0.9995565)</code></pre>
+</div>
+</div>
+<div id="cell-24" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># same analysis but starting from Bernoulli distribution</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-25" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>win_amt <span class="op">=</span> <span class="dv">2000</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>loss_amt <span class="op">=</span> <span class="op">-</span><span class="dv">2000</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>total_count_N <span class="op">=</span> <span class="dv">100</span> <span class="co"># Number of coin flips</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-26" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate game</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Bernoulli(probs<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-27" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>overall_samples <span class="op">=</span> dist.sample(torch.Size([num_samples, total_count_N]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-28" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>overall_samples.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>torch.Size([5000, 100])</code></pre>
+</div>
+</div>
+<div id="cell-29" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>overall_samples_df <span class="op">=</span> pd.DataFrame(overall_samples.numpy())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-30" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>overall_samples_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
 <div>
 
 
@@ -256,121 +379,586 @@ Name: count, dtype: int64</code></pre>
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">10</th>
-<th data-quarto-table-cell-role="th">100</th>
-<th data-quarto-table-cell-role="th">1000</th>
-<th data-quarto-table-cell-role="th">10000</th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">6</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">8</th>
+<th data-quarto-table-cell-role="th">9</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">90</th>
+<th data-quarto-table-cell-role="th">91</th>
+<th data-quarto-table-cell-role="th">92</th>
+<th data-quarto-table-cell-role="th">93</th>
+<th data-quarto-table-cell-role="th">94</th>
+<th data-quarto-table-cell-role="th">95</th>
+<th data-quarto-table-cell-role="th">96</th>
+<th data-quarto-table-cell-role="th">97</th>
+<th data-quarto-table-cell-role="th">98</th>
+<th data-quarto-table-cell-role="th">99</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>4.3</td>
-<td>3.64</td>
-<td>3.450</td>
-<td>3.4836</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>...</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>4.0</td>
-<td>3.64</td>
-<td>3.505</td>
-<td>3.4902</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>...</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>3.7</td>
-<td>3.68</td>
-<td>3.451</td>
-<td>3.5069</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>...</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.0</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>3.1</td>
-<td>3.48</td>
-<td>3.530</td>
-<td>3.4925</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>...</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>5.0</td>
-<td>3.57</td>
-<td>3.577</td>
-<td>3.4874</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>3.4</td>
-<td>3.56</td>
-<td>3.522</td>
-<td>3.4834</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>3.2</td>
-<td>3.53</td>
-<td>3.447</td>
-<td>3.5080</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>3.0</td>
-<td>3.62</td>
-<td>3.499</td>
-<td>3.5039</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>2.5</td>
-<td>3.61</td>
-<td>3.506</td>
-<td>3.4945</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>3.1</td>
-<td>3.47</td>
-<td>3.536</td>
-<td>3.5158</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>...</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>1.0</td>
 </tr>
 </tbody>
 </table>
 
+<p>5 rows × 100 columns</p>
 </div>
 </div>
 </div>
-<div id="cell-11" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df.mean(axis<span class="op">=</span><span class="dv">0</span>).plot(kind<span class="op">=</span><span class="st">'bar'</span>, yerr<span class="op">=</span>df.std(axis<span class="op">=</span><span class="dv">0</span>), capsize<span class="op">=</span><span class="dv">5</span>, rot<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-31" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># win and loss -- replace 0 with -2000 and 1 with 2000</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>win_amount_df <span class="op">=</span> overall_samples_df.replace({<span class="dv">0</span>: loss_amt, <span class="dv">1</span>: win_amt})</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>win_amount_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">6</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">8</th>
+<th data-quarto-table-cell-role="th">9</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">90</th>
+<th data-quarto-table-cell-role="th">91</th>
+<th data-quarto-table-cell-role="th">92</th>
+<th data-quarto-table-cell-role="th">93</th>
+<th data-quarto-table-cell-role="th">94</th>
+<th data-quarto-table-cell-role="th">95</th>
+<th data-quarto-table-cell-role="th">96</th>
+<th data-quarto-table-cell-role="th">97</th>
+<th data-quarto-table-cell-role="th">98</th>
+<th data-quarto-table-cell-role="th">99</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>...</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>...</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>...</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>...</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>...</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>-2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+<td>2000.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 100 columns</p>
+</div>
+</div>
+</div>
+<div id="cell-32" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Net money won</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>net_money_won <span class="op">=</span> win_amount_df.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>net_money_won</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>0      -16000.0
+1       -4000.0
+2      -16000.0
+3           0.0
+4       16000.0
+         ...   
+4995    12000.0
+4996    -8000.0
+4997    -4000.0
+4998   -20000.0
+4999    -8000.0
+Length: 5000, dtype: float32</code></pre>
+</div>
+</div>
+<div id="cell-33" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>net_money_won.hist(grid<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="expectation_files/figure-html/cell-13-output-1.png" width="547" height="413" class="figure-img"></p>
+<p><img src="expectation_files/figure-html/cell-35-output-1.png" width="560" height="417" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-12" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1000</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>plt.plot(p, p<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p), label<span class="op">=</span><span class="st">'p(1-p)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-34" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>net_money_won.var()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>np.float32(402282200.0)</code></pre>
+</div>
+</div>
+<div id="cell-35" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>net_money_won.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<pre><code>np.float32(-329.6)</code></pre>
+</div>
+</div>
+<div id="cell-37" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting cumulative sum of net money won for first 5 players</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">#win_amount_df.iloc[i].values.cumsum()</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>    ax.plot(win_amount_df.iloc[i].values.cumsum(), lw<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="expectation_files/figure-html/cell-14-output-1.png" width="556" height="413" class="figure-img"></p>
+<p><img src="expectation_files/figure-html/cell-39-output-1.png" width="1015" height="351" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-13" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fl">0.5</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Binomial(total_count<span class="op">=</span><span class="dv">2</span>, probs<span class="op">=</span>p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-38" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>cumsum_df <span class="op">=</span> win_amount_df.cumsum(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>cumsum_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">6</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">8</th>
+<th data-quarto-table-cell-role="th">9</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">90</th>
+<th data-quarto-table-cell-role="th">91</th>
+<th data-quarto-table-cell-role="th">92</th>
+<th data-quarto-table-cell-role="th">93</th>
+<th data-quarto-table-cell-role="th">94</th>
+<th data-quarto-table-cell-role="th">95</th>
+<th data-quarto-table-cell-role="th">96</th>
+<th data-quarto-table-cell-role="th">97</th>
+<th data-quarto-table-cell-role="th">98</th>
+<th data-quarto-table-cell-role="th">99</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2000.0</td>
+<td>0.0</td>
+<td>-2000.0</td>
+<td>-4000.0</td>
+<td>-6000.0</td>
+<td>-8000.0</td>
+<td>-6000.0</td>
+<td>-4000.0</td>
+<td>-6000.0</td>
+<td>-4000.0</td>
+<td>...</td>
+<td>-18000.0</td>
+<td>-20000.0</td>
+<td>-18000.0</td>
+<td>-16000.0</td>
+<td>-18000.0</td>
+<td>-16000.0</td>
+<td>-14000.0</td>
+<td>-16000.0</td>
+<td>-18000.0</td>
+<td>-16000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2000.0</td>
+<td>0.0</td>
+<td>-2000.0</td>
+<td>0.0</td>
+<td>2000.0</td>
+<td>0.0</td>
+<td>-2000.0</td>
+<td>-4000.0</td>
+<td>-2000.0</td>
+<td>0.0</td>
+<td>...</td>
+<td>-10000.0</td>
+<td>-12000.0</td>
+<td>-10000.0</td>
+<td>-8000.0</td>
+<td>-6000.0</td>
+<td>-8000.0</td>
+<td>-6000.0</td>
+<td>-4000.0</td>
+<td>-2000.0</td>
+<td>-4000.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>-2000.0</td>
+<td>-4000.0</td>
+<td>-6000.0</td>
+<td>-8000.0</td>
+<td>-10000.0</td>
+<td>-12000.0</td>
+<td>-14000.0</td>
+<td>-12000.0</td>
+<td>-14000.0</td>
+<td>-12000.0</td>
+<td>...</td>
+<td>-2000.0</td>
+<td>-4000.0</td>
+<td>-6000.0</td>
+<td>-8000.0</td>
+<td>-10000.0</td>
+<td>-12000.0</td>
+<td>-14000.0</td>
+<td>-16000.0</td>
+<td>-18000.0</td>
+<td>-16000.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>-2000.0</td>
+<td>-4000.0</td>
+<td>-2000.0</td>
+<td>-4000.0</td>
+<td>-6000.0</td>
+<td>-8000.0</td>
+<td>-10000.0</td>
+<td>-8000.0</td>
+<td>-10000.0</td>
+<td>-12000.0</td>
+<td>...</td>
+<td>-6000.0</td>
+<td>-8000.0</td>
+<td>-10000.0</td>
+<td>-8000.0</td>
+<td>-10000.0</td>
+<td>-8000.0</td>
+<td>-6000.0</td>
+<td>-4000.0</td>
+<td>-2000.0</td>
+<td>0.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2000.0</td>
+<td>0.0</td>
+<td>-2000.0</td>
+<td>0.0</td>
+<td>2000.0</td>
+<td>0.0</td>
+<td>-2000.0</td>
+<td>0.0</td>
+<td>-2000.0</td>
+<td>0.0</td>
+<td>...</td>
+<td>6000.0</td>
+<td>4000.0</td>
+<td>6000.0</td>
+<td>8000.0</td>
+<td>6000.0</td>
+<td>8000.0</td>
+<td>10000.0</td>
+<td>12000.0</td>
+<td>14000.0</td>
+<td>16000.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 100 columns</p>
 </div>
-<div id="cell-14" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">100000000</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> dist.sample((N,))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>samples.mean().item()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-39" class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">6</span>))</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>gs <span class="op">=</span> fig.add_gridspec(<span class="dv">1</span>, <span class="dv">2</span>, width_ratios<span class="op">=</span>[<span class="dv">4</span>, <span class="dv">1</span>])  <span class="co"># 4:1 ratio for main plot and histogram</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Main plot (left plot for cumulative sum)</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(gs[<span class="dv">0</span>])</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>cumsum_df <span class="op">=</span> win_amount_df.cumsum(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>cumsum_df.T.plot(legend<span class="op">=</span><span class="va">False</span>, lw<span class="op">=</span><span class="dv">1</span>, alpha<span class="op">=</span><span class="fl">0.1</span>, color<span class="op">=</span><span class="st">'k'</span>, ax<span class="op">=</span>ax1)</span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Number of coin flips"</span>)</span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Net money won"</span>)</span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Right plot (histogram)</span></span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> fig.add_subplot(gs[<span class="dv">1</span>])</span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a>ax2.hist(net_money_won, color<span class="op">=</span><span class="st">'gray'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, orientation<span class="op">=</span><span class="st">'horizontal'</span>, bins<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"Frequency"</span>)</span>
+<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Adjust layout</span></span>
+<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">'coin_flip_game.png'</span>, dpi<span class="op">=</span><span class="dv">600</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="expectation_files/figure-html/cell-41-output-1.png" width="1389" height="590" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-40" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1000</span>)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>plt.plot(p, p<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p), label<span class="op">=</span><span class="st">'p(1-p)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="expectation_files/figure-html/cell-42-output-1.png" width="556" height="413" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-41" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Binomial(total_count<span class="op">=</span><span class="dv">2</span>, probs<span class="op">=</span>p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-42" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">100000000</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> dist.sample((N,))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-43" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>samples.mean().item()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>0.9999343752861023</code></pre>
 </div>
