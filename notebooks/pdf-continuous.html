@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.41">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,8 +71,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed04999718f06b735b1f8009dce43b94.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-ed04999718f06b735b1f8009dce43b94.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-49927ad6ac989989b068a441603fbd97.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-49927ad6ac989989b068a441603fbd97.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-adb28d7fcf6b112e59c58e7b06a875e4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -194,7 +194,13 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#heights-and-weights-data" id="toc-heights-and-weights-data" class="nav-link" data-scroll-target="#heights-and-weights-data">Heights and weights data</a></li>
   <li><a href="#log-normal-distribution" id="toc-log-normal-distribution" class="nav-link" data-scroll-target="#log-normal-distribution">Log Normal Distribution</a></li>
+  </ul></li>
+  <li><a href="#gamma-distribution" id="toc-gamma-distribution" class="nav-link" data-scroll-target="#gamma-distribution">Gamma distribution</a>
+  <ul class="collapse">
   <li><a href="#uniform-distribution" id="toc-uniform-distribution" class="nav-link" data-scroll-target="#uniform-distribution">Uniform Distribution</a></li>
+  </ul></li>
+  <li><a href="#beta-distribution" id="toc-beta-distribution" class="nav-link" data-scroll-target="#beta-distribution">Beta Distribution</a>
+  <ul class="collapse">
   <li><a href="#exponential-distribution" id="toc-exponential-distribution" class="nav-link" data-scroll-target="#exponential-distribution">Exponential Distribution</a></li>
   </ul></li>
   </ul>
@@ -255,34 +261,34 @@ window.Quarto = {
 f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right).
 \]</span></p>
 <p>Let <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span> denote that <span class="math inline">\(X\)</span> is drawn from a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>.</p>
-<div id="cell-3" class="cell" data-execution_count="37">
+<div id="cell-3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="38">
+<div id="cell-4" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="38">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>Real()</code></pre>
 </div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="39">
+<div id="cell-5" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="39">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>tensor(0.)</code></pre>
 </div>
 </div>
-<div id="cell-6" class="cell" data-execution_count="40">
+<div id="cell-6" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dist.variance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="40">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>tensor(1.)</code></pre>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="41">
+<div id="cell-7" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dist.mode</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="41">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>tensor(0.)</code></pre>
 </div>
 </div>
-<div id="cell-8" class="cell" data-execution_count="42">
+<div id="cell-8" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Plotting the PDF</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_pdf_normal(mu, sigma):</span>
@@ -292,7 +298,7 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, y)</span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"PDF N(</span><span class="sc">{</span>mu<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-9" class="cell" data-execution_count="43">
+<div id="cell-9" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plot_pdf_normal(<span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plot_pdf_normal(<span class="dv">0</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -303,7 +309,7 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 </div>
 </div>
 </div>
-<div id="cell-10" class="cell" data-execution_count="44">
+<div id="cell-10" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulating data with normal distributed noise</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>x_true <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">1000</span>)</span>
@@ -329,10 +335,10 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 <h3 class="anchored" data-anchor-id="heights-and-weights-data">Heights and weights data</h3>
 <p><a href="https://www.kaggle.com/datasets/burnoutminer/heights-and-weights-dataset">Dataset link</a></p>
 <p>The dataset contains 25,000 rows and 3 columns. Each row represents a person and the columns represent the person’s index, height, and weight.</p>
-<div id="cell-12" class="cell" data-execution_count="14">
+<div id="cell-12" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_html(<span class="st">"http://socr.ucla.edu/docs/resources/SOCR_Data/SOCR_Data_Dinov_020108_HeightsWeights.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-13" class="cell" data-execution_count="18">
+<div id="cell-13" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>store_df <span class="op">=</span> df[<span class="dv">0</span>]</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>store_df.columns <span class="op">=</span> store_df.iloc[<span class="dv">0</span>]</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>store_df <span class="op">=</span> store_df.iloc[<span class="dv">1</span>:]</span>
@@ -340,9 +346,9 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>store_df <span class="op">=</span> store_df.drop(columns<span class="op">=</span>[<span class="st">"Index"</span>])</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>store_df <span class="op">=</span> store_df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-14" class="cell" data-execution_count="21">
+<div id="cell-14" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>store_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
@@ -386,7 +392,7 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 </div>
 </div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="22">
+<div id="cell-15" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>store_df[<span class="st">"Height(Inches)"</span>].plot(kind<span class="op">=</span><span class="st">'density'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -396,7 +402,7 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 </div>
 </div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="27">
+<div id="cell-16" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a normal distribution to the data</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> store_df[<span class="st">"Height(Inches)"</span>].mean().item()</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> store_df[<span class="st">"Height(Inches)"</span>].std().item()</span>
@@ -416,7 +422,7 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 </div>
 </div>
 </div>
-<div id="cell-17" class="cell" data-execution_count="28">
+<div id="cell-17" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>store_df[<span class="st">"Weight(Pounds)"</span>].plot(kind<span class="op">=</span><span class="st">'density'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -438,47 +444,50 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 f_X(x) = \frac{1}{x\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(\log(x)-\mu)^2}{2\sigma^2}\right).
 \]</span></p>
 <p>We can derive the PDF of <span class="math inline">\(X\)</span> using the change of variables formula. (will be covered later in the course)</p>
-<div id="cell-19" class="cell" data-execution_count="45">
+<div id="cell-19" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="fl">1.0</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="fl">1.0</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>log_normal <span class="op">=</span> torch.distributions.LogNormal(mu, sigma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-20" class="cell" data-execution_count="48">
+<div id="cell-20" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>log_normal.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="48">
+<div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>GreaterThan(lower_bound=0.0)</code></pre>
 </div>
 </div>
-<div id="cell-21" class="cell" data-execution_count="46">
+<div id="cell-21" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>log_normal.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="46">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>tensor(4.4817)</code></pre>
 </div>
 </div>
-<div id="cell-22" class="cell" data-execution_count="47">
+<div id="cell-22" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>log_normal.mode</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="47">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>tensor(1.)</code></pre>
 </div>
 </div>
-<div id="cell-23" class="cell" data-execution_count="49">
+<div id="cell-23" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>log_normal.variance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="49">
+<div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>tensor(34.5126)</code></pre>
 </div>
 </div>
-<div id="cell-24" class="cell">
+<div id="cell-24" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> log_normal.log_prob(x).exp()</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"PDF LogNormal(1, 1)"</span>)</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>normal <span class="op">=</span> torch.distributions.Normal(mu, sigma)</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>plt.plot(x, normal.log_prob(x).exp(), label<span class="op">=</span><span class="st">"PDF Normal(1, 1)"</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>x_non_neg_mask <span class="op">=</span> x <span class="op">&gt;</span> <span class="fl">0.001</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> torch.zeros_like(x)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>y[x_non_neg_mask] <span class="op">=</span> log_normal.log_prob(x[x_non_neg_mask]).exp()</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"PDF LogNormal(1, 1)"</span>)</span>
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>normal <span class="op">=</span> torch.distributions.Normal(mu, sigma)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>plt.plot(x, normal.log_prob(x).exp(), label<span class="op">=</span><span class="st">"PDF Normal(1, 1)"</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -487,7 +496,278 @@ f_X(x) = \frac{1}{x\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(\log(x)-\mu)^2}{2\sigm
 </div>
 </div>
 </div>
+<p>Applications</p>
+<p>See: https://en.wikipedia.org/wiki/Log-normal_distribution</p>
+<p>See https://chess.stackexchange.com/questions/2506/what-is-the-average-length-of-a-game-of-chess/4899#4899</p>
+<div id="cell-26" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> kagglehub</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Download latest version</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> kagglehub.dataset_download(<span class="st">"datasnaek/chess"</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Path to dataset files:"</span>, path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Downloading from https://www.kaggle.com/api/v1/datasets/download/datasnaek/chess?dataset_version_number=1...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>100%|██████████| 2.77M/2.77M [00:01&lt;00:00, 1.47MB/s]</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Extracting files...</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Path to dataset files: /Users/nipun/.cache/kagglehub/datasets/datasnaek/chess/versions/1</code></pre>
+</div>
+</div>
+<div id="cell-27" class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(os.path.join(path, <span class="st">"games.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-28" class="cell" data-execution_count="89">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="89">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">rated</th>
+<th data-quarto-table-cell-role="th">created_at</th>
+<th data-quarto-table-cell-role="th">last_move_at</th>
+<th data-quarto-table-cell-role="th">turns</th>
+<th data-quarto-table-cell-role="th">victory_status</th>
+<th data-quarto-table-cell-role="th">winner</th>
+<th data-quarto-table-cell-role="th">increment_code</th>
+<th data-quarto-table-cell-role="th">white_id</th>
+<th data-quarto-table-cell-role="th">white_rating</th>
+<th data-quarto-table-cell-role="th">black_id</th>
+<th data-quarto-table-cell-role="th">black_rating</th>
+<th data-quarto-table-cell-role="th">moves</th>
+<th data-quarto-table-cell-role="th">opening_eco</th>
+<th data-quarto-table-cell-role="th">opening_name</th>
+<th data-quarto-table-cell-role="th">opening_ply</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>TZJHLljE</td>
+<td>False</td>
+<td>1.504210e+12</td>
+<td>1.504210e+12</td>
+<td>13</td>
+<td>outoftime</td>
+<td>white</td>
+<td>15+2</td>
+<td>bourgris</td>
+<td>1500</td>
+<td>a-00</td>
+<td>1191</td>
+<td>d4 d5 c4 c6 cxd5 e6 dxe6 fxe6 Nf3 Bb4+ Nc3 Ba5...</td>
+<td>D10</td>
+<td>Slav Defense: Exchange Variation</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>l1NXvwaE</td>
+<td>True</td>
+<td>1.504130e+12</td>
+<td>1.504130e+12</td>
+<td>16</td>
+<td>resign</td>
+<td>black</td>
+<td>5+10</td>
+<td>a-00</td>
+<td>1322</td>
+<td>skinnerua</td>
+<td>1261</td>
+<td>d4 Nc6 e4 e5 f4 f6 dxe5 fxe5 fxe5 Nxe5 Qd4 Nc6...</td>
+<td>B00</td>
+<td>Nimzowitsch Defense: Kennedy Variation</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>mIICvQHh</td>
+<td>True</td>
+<td>1.504130e+12</td>
+<td>1.504130e+12</td>
+<td>61</td>
+<td>mate</td>
+<td>white</td>
+<td>5+10</td>
+<td>ischia</td>
+<td>1496</td>
+<td>a-00</td>
+<td>1500</td>
+<td>e4 e5 d3 d6 Be3 c6 Be2 b5 Nd2 a5 a4 c5 axb5 Nc...</td>
+<td>C20</td>
+<td>King's Pawn Game: Leonardis Variation</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>kWKvrqYL</td>
+<td>True</td>
+<td>1.504110e+12</td>
+<td>1.504110e+12</td>
+<td>61</td>
+<td>mate</td>
+<td>white</td>
+<td>20+0</td>
+<td>daniamurashov</td>
+<td>1439</td>
+<td>adivanov2009</td>
+<td>1454</td>
+<td>d4 d5 Nf3 Bf5 Nc3 Nf6 Bf4 Ng4 e3 Nc6 Be2 Qd7 O...</td>
+<td>D02</td>
+<td>Queen's Pawn Game: Zukertort Variation</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>9tXo1AUZ</td>
+<td>True</td>
+<td>1.504030e+12</td>
+<td>1.504030e+12</td>
+<td>95</td>
+<td>mate</td>
+<td>white</td>
+<td>30+3</td>
+<td>nik221107</td>
+<td>1523</td>
+<td>adivanov2009</td>
+<td>1469</td>
+<td>e4 e5 Nf3 d6 d4 Nc6 d5 Nb4 a3 Na6 Nc3 Be7 b4 N...</td>
+<td>C41</td>
+<td>Philidor Defense</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="cell-29" class="cell" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribution of the number of turns in the games</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"turns"</span>].plot(kind<span class="op">=</span><span class="st">'hist'</span>, bins<span class="op">=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pdf-continuous_files/figure-html/cell-26-output-1.png" width="580" height="413" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-30" class="cell" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Logarithm of the number of turns</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"turns"</span>].<span class="bu">apply</span>(np.log1p).plot(kind<span class="op">=</span><span class="st">'hist'</span>, bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Log of turns seems to be normally distributed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pdf-continuous_files/figure-html/cell-27-output-1.png" width="580" height="413" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-31" class="cell" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>mu, sigma <span class="op">=</span> df[<span class="st">"turns"</span>].<span class="bu">apply</span>(np.log1p).mean(), df[<span class="st">"turns"</span>].<span class="bu">apply</span>(np.log1p).std()</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mu, sigma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3.9360063177486277 0.6822030192719669</code></pre>
+</div>
+</div>
+<div id="cell-32" class="cell" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot PDF of the fitted log-normal distribution</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="dv">300</span>, <span class="dv">1000</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    log_normal <span class="op">=</span> torch.distributions.LogNormal(mu, sigma)</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> log_normal.log_prob(x).exp()</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"Fitted PDF"</span>)</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>plt.hist(df[<span class="st">"turns"</span>], bins<span class="op">=</span><span class="dv">50</span>, density<span class="op">=</span><span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"KDE"</span>)</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pdf-continuous_files/figure-html/cell-29-output-1.png" width="565" height="413" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
+</section>
+<section id="gamma-distribution" class="level1">
+<h1>Gamma distribution</h1>
+<p>Let <span class="math inline">\(X\)</span> be a random variable that follows a gamma distribution with shape parameter <span class="math inline">\(k\)</span> and scale parameter <span class="math inline">\(\theta\)</span>. The probability density function (PDF) of <span class="math inline">\(X\)</span> is given by:</p>
+<p><span class="math display">\[
+f_X(x) = \frac{1}{\Gamma(k)\theta^k} x^{k-1} \exp\left(-\frac{x}{\theta}\right).
+\]</span></p>
+<p>where <span class="math inline">\(\Gamma(k)\)</span> is the gamma function defined as:</p>
+<p><span class="math display">\[
+\Gamma(k) = \int_0^\infty x^{k-1} e^{-x} dx.
+\]</span></p>
+<div id="cell-34" class="cell" data-execution_count="94">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>gamma_dist <span class="op">=</span> torch.distributions.Gamma(<span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> gamma_dist.log_prob(x).exp()</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"PDF Gamma(2, 1)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pdf-continuous_files/figure-html/cell-30-output-1.png" width="556" height="413" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-35" class="cell" data-execution_count="97">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a gamma distribution to the data</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>alpha, beta <span class="op">=</span> torch.tensor([<span class="fl">1.0</span>], requires_grad<span class="op">=</span><span class="va">True</span>), torch.tensor([<span class="fl">1.0</span>], requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>gamma_dist <span class="op">=</span> torch.distributions.Gamma(alpha, beta)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.Adam([alpha, beta], lr<span class="op">=</span><span class="fl">0.01</span>)</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.tensor(df[<span class="st">"turns"</span>].values, dtype<span class="op">=</span>torch.float32)</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>    optimizer.zero_grad()</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>    loss <span class="op">=</span> <span class="op">-</span>gamma_dist.log_prob(x).mean()</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>    loss.backward()</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>    optimizer.step()</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(alpha.item(), beta.item())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2.315873384475708 0.03829348832368851</code></pre>
+</div>
+</div>
+<div id="cell-36" class="cell" data-execution_count="100">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>learnt_gamma_dist <span class="op">=</span> torch.distributions.Gamma(alpha.detach(), beta.detach())</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="dv">300</span>, <span class="dv">1000</span>)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> learnt_gamma_dist.log_prob(x).exp()</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"Fitted PDF"</span>)</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>plt.hist(df[<span class="st">"turns"</span>], bins<span class="op">=</span><span class="dv">50</span>, density<span class="op">=</span><span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"KDE"</span>)</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pdf-continuous_files/figure-html/cell-32-output-1.png" width="565" height="413" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 <section id="uniform-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="uniform-distribution">Uniform Distribution</h2>
 <p>Let <span class="math inline">\(X\)</span> be a random variable that follows a uniform distribution on the interval <span class="math inline">\([a, b]\)</span>. The probability density function (PDF) of <span class="math inline">\(X\)</span> is given by:</p>
@@ -498,41 +778,41 @@ $$ f_X(x) =
 \end{cases}\]</span>
 <p>$$</p>
 <p>We can say that <span class="math inline">\(X \sim \text{Uniform}(a, b)\)</span>.</p>
-<div id="cell-27" class="cell" data-execution_count="59">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">2.0</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Uniform(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-38" class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">2.0</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Uniform(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-28" class="cell" data-execution_count="60">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="60">
+<div id="cell-39" class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="63">
 <pre><code>Interval(lower_bound=0.0, upper_bound=2.0)</code></pre>
 </div>
 </div>
-<div id="cell-29" class="cell" data-execution_count="61">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>dist.high, dist.low</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="61">
+<div id="cell-40" class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>dist.high, dist.low</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
 <pre><code>(tensor(2.), tensor(0.))</code></pre>
 </div>
 </div>
-<div id="cell-30" class="cell" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="62">
+<div id="cell-41" class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="65">
 <pre><code>tensor(1.)</code></pre>
 </div>
 </div>
-<div id="cell-31" class="cell" data-execution_count="63">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>dist.variance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="63">
+<div id="cell-42" class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>dist.variance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="66">
 <pre><code>tensor(0.3333)</code></pre>
 </div>
 </div>
-<div id="cell-32" class="cell" data-execution_count="65">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>x_range <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1000</span>)</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> dist.log_prob(x_range).exp()</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-43" class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>x_range <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1000</span>)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> dist.log_prob(x_range).exp()</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Expected value argument (Tensor of shape (1000,)) to be within the support (Interval(lower_bound=0.0, upper_bound=2.0)) of the distribution Uniform(low: 0.0, high: 2.0), but found invalid values:
 tensor([-1.0000e+00, -9.9600e-01, -9.9199e-01, -9.8799e-01, -9.8398e-01,
@@ -737,21 +1017,98 @@ tensor([-1.0000e+00, -9.9600e-01, -9.9199e-01, -9.8799e-01, -9.8398e-01,
          2.9840e+00,  2.9880e+00,  2.9920e+00,  2.9960e+00,  3.0000e+00])</code></pre>
 </div>
 </div>
-<div id="cell-33" class="cell" data-execution_count="67">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>x_range_mask <span class="op">=</span> (x_range <span class="op">&gt;=</span> a) <span class="op">&amp;</span> (x_range <span class="op">&lt;=</span> b)</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> torch.zeros_like(x_range)</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>y[x_range_mask] <span class="op">=</span> dist.log_prob(x_range[x_range_mask]).exp()</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x_range, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-44" class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>x_range_mask <span class="op">=</span> (x_range <span class="op">&gt;=</span> a) <span class="op">&amp;</span> (x_range <span class="op">&lt;=</span> b)</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> torch.zeros_like(x_range)</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>y[x_range_mask] <span class="op">=</span> dist.log_prob(x_range[x_range_mask]).exp()</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x_range, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pdf-continuous_files/figure-html/cell-30-output-1.png" width="547" height="413" class="figure-img"></p>
+<p><img src="pdf-continuous_files/figure-html/cell-39-output-1.png" width="547" height="413" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
+<div id="cell-45" class="cell" data-execution_count="121">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>wget https:<span class="op">//</span>upload.wikimedia.org<span class="op">/</span>wikipedia<span class="op">/</span>commons<span class="op">/</span>thumb<span class="op">/</span>d<span class="op">/</span>df<span class="op">/</span>Close_wing_Basking_of_Athyma_perius_<span class="op">%</span><span class="dv">28L</span><span class="er">innaeus</span><span class="op">%</span><span class="dv">2</span><span class="er">C_1758</span><span class="op">%</span><span class="dv">29</span><span class="er">_</span><span class="op">-</span>_Common_Sergeant_<span class="op">%</span><span class="dv">284</span><span class="op">%</span><span class="dv">29</span><span class="er">_WLB</span>.jpg<span class="op">/</span><span class="dv">2560</span><span class="er">px</span><span class="op">-</span>Close_wing_Basking_of_Athyma_perius_<span class="op">%</span><span class="dv">28L</span><span class="er">innaeus</span><span class="op">%</span><span class="dv">2</span><span class="er">C_1758</span><span class="op">%</span><span class="dv">29</span><span class="er">_</span><span class="op">-</span>_Common_Sergeant_<span class="op">%</span><span class="dv">284</span><span class="op">%</span><span class="dv">29</span><span class="er">_WLB</span>.jpg <span class="op">-</span>O butterfly.jpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>--2025-02-23 17:13:50--  https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Close_wing_Basking_of_Athyma_perius_%28Linnaeus%2C_1758%29_-_Common_Sergeant_%284%29_WLB.jpg/2560px-Close_wing_Basking_of_Athyma_perius_%28Linnaeus%2C_1758%29_-_Common_Sergeant_%284%29_WLB.jpg
+Resolving upload.wikimedia.org (upload.wikimedia.org)... 103.102.166.240
+Connecting to upload.wikimedia.org (upload.wikimedia.org)|103.102.166.240|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 645136 (630K) [image/jpeg]
+Saving to: ‘butterfly.jpg’
+
+butterfly.jpg       100%[===================&gt;] 630.02K   808KB/s    in 0.8s    
+
+2025-02-23 17:13:51 (808 KB/s) - ‘butterfly.jpg’ saved [645136/645136]
+</code></pre>
+</div>
+</div>
+<div id="cell-46" class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision.transforms <span class="im">as</span> transforms</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> Image.<span class="bu">open</span>(<span class="st">"butterfly.jpg"</span>)</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to grayscale</span></span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> im.convert(<span class="st">"L"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-47" class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>tensor <span class="op">=</span> transforms.ToTensor()(im)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>tensor.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="126">
+<pre><code>torch.Size([1, 1, 1679, 2560])</code></pre>
+</div>
+</div>
 </section>
+</section>
+<section id="beta-distribution" class="level1">
+<h1>Beta Distribution</h1>
+<p>Let <span class="math inline">\(X\)</span> be a random variable that follows a beta distribution with parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. The probability density function (PDF) of <span class="math inline">\(X\)</span> is given by:</p>
+<p><span class="math display">\[
+f_X(x) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} x^{\alpha-1} (1-x)^{\beta-1},
+\]</span></p>
+<p>where <span class="math inline">\(\Gamma(\cdot)\)</span> is the gamma function given as:</p>
+<p><span class="math display">\[
+\Gamma(z) = \int_0^\infty t^{z-1} e^{-t} dt.
+\]</span></p>
+<p>We can say that <span class="math inline">\(X \sim \text{Beta}(\alpha, \beta)\)</span>.</p>
+<div id="cell-49" class="cell" data-execution_count="83">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>beta_dist <span class="op">=</span> torch.distributions.Beta(<span class="dv">2</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-50" class="cell" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>beta_dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="84">
+<pre><code>Interval(lower_bound=0.0, upper_bound=1.0)</code></pre>
+</div>
+</div>
+<div id="cell-51" class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>beta_dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="85">
+<pre><code>tensor(0.5000)</code></pre>
+</div>
+</div>
+<p>Beta distribution is used to model random variables that are constrained to lie within a fixed interval. For example, the probability of success in a Bernoulli trial is a random variable that lies in the interval <span class="math inline">\([0, 1]\)</span>. We can model this probability using a beta distribution.</p>
+<div id="cell-53" class="cell" data-execution_count="104">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>x_lin <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="dv">1000</span>)</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> alpha <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">3</span>):</span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> beta <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">3</span>):</span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>        beta_dist <span class="op">=</span> torch.distributions.Beta(alpha, beta)</span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> beta_dist.log_prob(x_lin).exp()</span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>        plt.plot(x_lin, y, label<span class="op">=</span><span class="ss">f"PDF Beta(</span><span class="sc">{</span>alpha<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>beta<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pdf-continuous_files/figure-html/cell-46-output-1.png" width="556" height="413" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 <section id="exponential-distribution" class="level2">
 <h2 class="anchored" data-anchor-id="exponential-distribution">Exponential Distribution</h2>
 <p>Let <span class="math inline">\(X\)</span> be a random variable that follows an exponential distribution with rate parameter <span class="math inline">\(\lambda\)</span>. The probability density function (PDF) of <span class="math inline">\(X\)</span> is given by:</p>
@@ -763,32 +1120,265 @@ $$ f_X(x) =
 \end{cases}\]</span>
 <p>$$</p>
 <p>We can say that <span class="math inline">\(X \sim \text{Exponential}(\lambda)\)</span>.</p>
-<div id="cell-35" class="cell" data-execution_count="68">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>l <span class="op">=</span> <span class="fl">5.0</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Exponential(l)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<blockquote class="blockquote">
+<p>The exponential distribution may be viewed as a continuous counterpart of the geometric distribution, which describes the number of Bernoulli trials necessary for a discrete process to change state. In contrast, the exponential distribution describes the time for a continuous process to change state.</p>
+</blockquote>
+<div id="cell-56" class="cell" data-execution_count="105">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>l <span class="op">=</span> <span class="fl">5.0</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Exponential(l)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-36" class="cell" data-execution_count="69">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="69">
+<div id="cell-57" class="cell" data-execution_count="106">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="106">
 <pre><code>GreaterThanEq(lower_bound=0.0)</code></pre>
 </div>
 </div>
-<div id="cell-37" class="cell" data-execution_count="70">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>dist.rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="70">
+<div id="cell-58" class="cell" data-execution_count="107">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>dist.rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="107">
 <pre><code>tensor(5.)</code></pre>
 </div>
 </div>
-<div id="cell-38" class="cell" data-execution_count="71">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="71">
+<div id="cell-59" class="cell" data-execution_count="108">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="108">
 <pre><code>tensor(0.2000)</code></pre>
 </div>
 </div>
-<div id="cell-39" class="cell" data-execution_count="72">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>dist.mode</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="72">
+<div id="cell-60" class="cell" data-execution_count="109">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>dist.mode</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="109">
 <pre><code>tensor(0.)</code></pre>
+</div>
+</div>
+<div id="cell-61" class="cell" data-execution_count="110">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the PDF</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>x_range <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> dist.log_prob(x_range).exp()</span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x_range, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pdf-continuous_files/figure-html/cell-52-output-1.png" width="534" height="413" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-62" class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://people.csail.mit.edu/jcpatton/data/er-arrivals.csv"</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(url, parse_dates<span class="op">=</span>[<span class="st">"arrival_time"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">HTTPError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[80], line 2</span>
+<span class="ansi-green-fg ansi-bold">      1</span> url <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">https://people.csail.mit.edu/jcpatton/data/er-arrivals.csv</span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg">----&gt; 2</span> df <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">pd</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">read_csv</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">parse_dates</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">arrival_time</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">]</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/miniconda3/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1026</span>, in <span class="ansi-cyan-fg">read_csv</span><span class="ansi-blue-fg">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="ansi-green-fg ansi-bold">   1013</span> kwds_defaults <span style="color:rgb(98,98,98)">=</span> _refine_defaults_read(
+<span class="ansi-green-fg ansi-bold">   1014</span>     dialect,
+<span class="ansi-green-fg ansi-bold">   1015</span>     delimiter,
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-fg ansi-bold">   1022</span>     dtype_backend<span style="color:rgb(98,98,98)">=</span>dtype_backend,
+<span class="ansi-green-fg ansi-bold">   1023</span> )
+<span class="ansi-green-fg ansi-bold">   1024</span> kwds<span style="color:rgb(98,98,98)">.</span>update(kwds_defaults)
+<span class="ansi-green-fg">-&gt; 1026</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">_read</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">filepath_or_buffer</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">kwds</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/miniconda3/lib/python3.9/site-packages/pandas/io/parsers/readers.py:620</span>, in <span class="ansi-cyan-fg">_read</span><span class="ansi-blue-fg">(filepath_or_buffer, kwds)</span>
+<span class="ansi-green-fg ansi-bold">    617</span> _validate_names(kwds<span style="color:rgb(98,98,98)">.</span>get(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">names</span><span style="color:rgb(175,0,0)">"</span>, <span style="font-weight:bold;color:rgb(0,135,0)">None</span>))
+<span class="ansi-green-fg ansi-bold">    619</span> <span style="font-style:italic;color:rgb(95,135,135)"># Create the parser.</span>
+<span class="ansi-green-fg">--&gt; 620</span> parser <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">TextFileReader</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">filepath_or_buffer</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">kwds</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">    622</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> chunksize <span style="font-weight:bold;color:rgb(175,0,255)">or</span> iterator:
+<span class="ansi-green-fg ansi-bold">    623</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> parser
+
+File <span class="ansi-green-fg">~/miniconda3/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1620</span>, in <span class="ansi-cyan-fg">TextFileReader.__init__</span><span class="ansi-blue-fg">(self, f, engine, **kwds)</span>
+<span class="ansi-green-fg ansi-bold">   1617</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>options[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">has_index_names</span><span style="color:rgb(175,0,0)">"</span>] <span style="color:rgb(98,98,98)">=</span> kwds[<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">has_index_names</span><span style="color:rgb(175,0,0)">"</span>]
+<span class="ansi-green-fg ansi-bold">   1619</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>handles: IOHandles <span style="color:rgb(98,98,98)">|</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span> <span style="color:rgb(98,98,98)">=</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>
+<span class="ansi-green-fg">-&gt; 1620</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_engine <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_make_engine</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">f</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">engine</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/miniconda3/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1880</span>, in <span class="ansi-cyan-fg">TextFileReader._make_engine</span><span class="ansi-blue-fg">(self, f, engine)</span>
+<span class="ansi-green-fg ansi-bold">   1878</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">b</span><span style="color:rgb(175,0,0)">"</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(175,0,255)">in</span> mode:
+<span class="ansi-green-fg ansi-bold">   1879</span>         mode <span style="color:rgb(98,98,98)">+</span><span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">b</span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg">-&gt; 1880</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>handles <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">get_handle</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg ansi-bold">   1881</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">f</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   1882</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">mode</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   1883</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">encoding</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">encoding</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">None</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   1884</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">compression</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">compression</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">None</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   1885</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">memory_map</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">memory_map</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">False</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   1886</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">is_text</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">is_text</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   1887</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">errors</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">encoding_errors</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">strict</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   1888</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">storage_options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">get</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">storage_options</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">"</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="font-weight:bold;color:rgb(0,135,0)" class="ansi-yellow-bg">None</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">   1889</span> <span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">   1890</span> <span style="font-weight:bold;color:rgb(0,135,0)">assert</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>handles <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>
+<span class="ansi-green-fg ansi-bold">   1891</span> f <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>handles<span style="color:rgb(98,98,98)">.</span>handle
+
+File <span class="ansi-green-fg">~/miniconda3/lib/python3.9/site-packages/pandas/io/common.py:728</span>, in <span class="ansi-cyan-fg">get_handle</span><span class="ansi-blue-fg">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="ansi-green-fg ansi-bold">    725</span>     codecs<span style="color:rgb(98,98,98)">.</span>lookup_error(errors)
+<span class="ansi-green-fg ansi-bold">    727</span> <span style="font-style:italic;color:rgb(95,135,135)"># open URLs</span>
+<span class="ansi-green-fg">--&gt; 728</span> ioargs <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">_get_filepath_or_buffer</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg ansi-bold">    729</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">path_or_buf</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">    730</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">encoding</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">encoding</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">    731</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">compression</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">compression</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">    732</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">mode</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">mode</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">    733</span> <span class="ansi-yellow-bg">    </span><span class="ansi-yellow-bg">storage_options</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">storage_options</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-fg ansi-bold">    734</span> <span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">    736</span> handle <span style="color:rgb(98,98,98)">=</span> ioargs<span style="color:rgb(98,98,98)">.</span>filepath_or_buffer
+<span class="ansi-green-fg ansi-bold">    737</span> handles: <span style="color:rgb(0,135,0)">list</span>[BaseBuffer]
+
+File <span class="ansi-green-fg">~/miniconda3/lib/python3.9/site-packages/pandas/io/common.py:384</span>, in <span class="ansi-cyan-fg">_get_filepath_or_buffer</span><span class="ansi-blue-fg">(filepath_or_buffer, encoding, compression, mode, storage_options)</span>
+<span class="ansi-green-fg ansi-bold">    382</span> <span style="font-style:italic;color:rgb(95,135,135)"># assuming storage_options is to be interpreted as headers</span>
+<span class="ansi-green-fg ansi-bold">    383</span> req_info <span style="color:rgb(98,98,98)">=</span> urllib<span style="color:rgb(98,98,98)">.</span>request<span style="color:rgb(98,98,98)">.</span>Request(filepath_or_buffer, headers<span style="color:rgb(98,98,98)">=</span>storage_options)
+<span class="ansi-green-fg">--&gt; 384</span> <span style="font-weight:bold;color:rgb(0,135,0)">with</span> <span class="ansi-yellow-bg">urlopen</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">req_info</span><span class="ansi-yellow-bg">)</span> <span style="font-weight:bold;color:rgb(0,135,0)">as</span> req:
+<span class="ansi-green-fg ansi-bold">    385</span>     content_encoding <span style="color:rgb(98,98,98)">=</span> req<span style="color:rgb(98,98,98)">.</span>headers<span style="color:rgb(98,98,98)">.</span>get(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Content-Encoding</span><span style="color:rgb(175,0,0)">"</span>, <span style="font-weight:bold;color:rgb(0,135,0)">None</span>)
+<span class="ansi-green-fg ansi-bold">    386</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> content_encoding <span style="color:rgb(98,98,98)">==</span> <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">gzip</span><span style="color:rgb(175,0,0)">"</span>:
+<span class="ansi-green-fg ansi-bold">    387</span>         <span style="font-style:italic;color:rgb(95,135,135)"># Override compression based on Content-Encoding header</span>
+
+File <span class="ansi-green-fg">~/miniconda3/lib/python3.9/site-packages/pandas/io/common.py:289</span>, in <span class="ansi-cyan-fg">urlopen</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-fg ansi-bold">    283</span> <span style="font-style:italic;color:rgb(175,0,0)">"""</span>
+<span class="ansi-green-fg ansi-bold">    284</span> <span style="font-style:italic;color:rgb(175,0,0)">Lazy-import wrapper for stdlib urlopen, as that imports a big chunk of</span>
+<span class="ansi-green-fg ansi-bold">    285</span> <span style="font-style:italic;color:rgb(175,0,0)">the stdlib.</span>
+<span class="ansi-green-fg ansi-bold">    286</span> <span style="font-style:italic;color:rgb(175,0,0)">"""</span>
+<span class="ansi-green-fg ansi-bold">    287</span> <span style="font-weight:bold;color:rgb(0,135,0)">import</span> <span style="font-weight:bold;color:rgb(0,0,255)">urllib</span><span style="font-weight:bold;color:rgb(0,0,255)">.</span><span style="font-weight:bold;color:rgb(0,0,255)">request</span>
+<span class="ansi-green-fg">--&gt; 289</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">urllib</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">request</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">urlopen</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/miniconda3/lib/python3.9/urllib/request.py:214</span>, in <span class="ansi-cyan-fg">urlopen</span><span class="ansi-blue-fg">(url, data, timeout, cafile, capath, cadefault, context)</span>
+<span class="ansi-green-fg ansi-bold">    212</span> <span style="font-weight:bold;color:rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg ansi-bold">    213</span>     opener <span style="color:rgb(98,98,98)">=</span> _opener
+<span class="ansi-green-fg">--&gt; 214</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">opener</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">open</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">url</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">data</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">timeout</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/miniconda3/lib/python3.9/urllib/request.py:523</span>, in <span class="ansi-cyan-fg">OpenerDirector.open</span><span class="ansi-blue-fg">(self, fullurl, data, timeout)</span>
+<span class="ansi-green-fg ansi-bold">    521</span> <span style="font-weight:bold;color:rgb(0,135,0)">for</span> processor <span style="font-weight:bold;color:rgb(175,0,255)">in</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>process_response<span style="color:rgb(98,98,98)">.</span>get(protocol, []):
+<span class="ansi-green-fg ansi-bold">    522</span>     meth <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">getattr</span>(processor, meth_name)
+<span class="ansi-green-fg">--&gt; 523</span>     response <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">meth</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">req</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">response</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">    525</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> response
+
+File <span class="ansi-green-fg">~/miniconda3/lib/python3.9/urllib/request.py:632</span>, in <span class="ansi-cyan-fg">HTTPErrorProcessor.http_response</span><span class="ansi-blue-fg">(self, request, response)</span>
+<span class="ansi-green-fg ansi-bold">    629</span> <span style="font-style:italic;color:rgb(95,135,135)"># According to RFC 2616, "2xx" code indicates that the client's</span>
+<span class="ansi-green-fg ansi-bold">    630</span> <span style="font-style:italic;color:rgb(95,135,135)"># request was successfully received, understood, and accepted.</span>
+<span class="ansi-green-fg ansi-bold">    631</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> (<span style="color:rgb(98,98,98)">200</span> <span style="color:rgb(98,98,98)">&lt;</span><span style="color:rgb(98,98,98)">=</span> code <span style="color:rgb(98,98,98)">&lt;</span> <span style="color:rgb(98,98,98)">300</span>):
+<span class="ansi-green-fg">--&gt; 632</span>     response <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">parent</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">error</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-fg ansi-bold">    633</span> <span class="ansi-yellow-bg">        </span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">http</span><span style="color:rgb(175,0,0)" class="ansi-yellow-bg">'</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">request</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">response</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">code</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">msg</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">hdrs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">    635</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> response
+
+File <span class="ansi-green-fg">~/miniconda3/lib/python3.9/urllib/request.py:561</span>, in <span class="ansi-cyan-fg">OpenerDirector.error</span><span class="ansi-blue-fg">(self, proto, *args)</span>
+<span class="ansi-green-fg ansi-bold">    559</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> http_err:
+<span class="ansi-green-fg ansi-bold">    560</span>     args <span style="color:rgb(98,98,98)">=</span> (<span style="color:rgb(0,135,0)">dict</span>, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">default</span><span style="color:rgb(175,0,0)">'</span>, <span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">http_error_default</span><span style="color:rgb(175,0,0)">'</span>) <span style="color:rgb(98,98,98)">+</span> orig_args
+<span class="ansi-green-fg">--&gt; 561</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">_call_chain</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/miniconda3/lib/python3.9/urllib/request.py:494</span>, in <span class="ansi-cyan-fg">OpenerDirector._call_chain</span><span class="ansi-blue-fg">(self, chain, kind, meth_name, *args)</span>
+<span class="ansi-green-fg ansi-bold">    492</span> <span style="font-weight:bold;color:rgb(0,135,0)">for</span> handler <span style="font-weight:bold;color:rgb(175,0,255)">in</span> handlers:
+<span class="ansi-green-fg ansi-bold">    493</span>     func <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">getattr</span>(handler, meth_name)
+<span class="ansi-green-fg">--&gt; 494</span>     result <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">func</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">    495</span>     <span style="font-weight:bold;color:rgb(0,135,0)">if</span> result <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(175,0,255)">not</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg ansi-bold">    496</span>         <span style="font-weight:bold;color:rgb(0,135,0)">return</span> result
+
+File <span class="ansi-green-fg">~/miniconda3/lib/python3.9/urllib/request.py:641</span>, in <span class="ansi-cyan-fg">HTTPDefaultErrorHandler.http_error_default</span><span class="ansi-blue-fg">(self, req, fp, code, msg, hdrs)</span>
+<span class="ansi-green-fg ansi-bold">    640</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> <span style="color:rgb(0,0,255)">http_error_default</span>(<span style="color:rgb(0,135,0)">self</span>, req, fp, code, msg, hdrs):
+<span class="ansi-green-fg">--&gt; 641</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> HTTPError(req<span style="color:rgb(98,98,98)">.</span>full_url, code, msg, hdrs, fp)
+
+<span class="ansi-red-fg">HTTPError</span>: HTTP Error 403: Forbidden</pre>
+</div>
+</div>
+</div>
+<div id="cell-63" class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="77">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">duration</th>
+<th data-quarto-table-cell-role="th">waiting</th>
+<th data-quarto-table-cell-role="th">kind</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>3.600</td>
+<td>79</td>
+<td>long</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1.800</td>
+<td>54</td>
+<td>short</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3.333</td>
+<td>74</td>
+<td>long</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2.283</td>
+<td>62</td>
+<td>short</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>4.533</td>
+<td>85</td>
+<td>long</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">267</td>
+<td>4.117</td>
+<td>81</td>
+<td>long</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">268</td>
+<td>2.150</td>
+<td>46</td>
+<td>short</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">269</td>
+<td>4.417</td>
+<td>90</td>
+<td>long</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">270</td>
+<td>1.817</td>
+<td>46</td>
+<td>short</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">271</td>
+<td>4.467</td>
+<td>74</td>
+<td>long</td>
+</tr>
+</tbody>
+</table>
+
+<p>272 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<div id="cell-64" class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the waiting time between eruptions</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"waiting"</span>].plot(kind<span class="op">=</span><span class="st">'hist'</span>, bins<span class="op">=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pdf-continuous_files/figure-html/cell-55-output-1.png" width="562" height="413" class="figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 
