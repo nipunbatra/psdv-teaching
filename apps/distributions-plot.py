@@ -18,8 +18,10 @@ def plot_distribution(distribution, params, x_range=(-5, 5)):
     elif distribution == "Uniform":
         a, b = params
         dist = torch.distributions.Uniform(a, b)
-        x = torch.linspace(a, b, 1000)
-        y = dist.log_prob(x).exp()
+        x = torch.linspace(a-2, b+2, 1000)
+        mask = (x >= a) & (x <= b)
+        y = torch.zeros_like(x)
+        y[mask] = dist.log_prob(x[mask]).exp()
     elif distribution == "Beta":
         alpha, beta = params
         x = torch.linspace(0, 1, 1000)
