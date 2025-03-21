@@ -1,0 +1,65 @@
+\documentclass{beamer}
+\usetheme{metropolis}
+\usepackage{amsmath, amssymb}
+
+\title{Integration of Joint PDF in a Region}
+\author{Nipun Batra}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Joint PDF Definition}
+    Let \( (X, Y) \) have a uniform joint PDF:
+    \[
+        f_{X,Y}(x, y) = \frac{1}{4}, \quad 0 \leq x \leq 2, 0 \leq y \leq 2.
+    \]
+    Otherwise, \( f_{X,Y}(x, y) = 0 \).
+\end{frame}
+
+\begin{frame}{Defining the Region \( A \)}
+    Consider the region:
+    \[
+        A = \{(x, y) \mid x + y \leq 2\}
+    \]
+    This forms a right triangle with vertices \( (0,0), (2,0), (0,2) \).
+\end{frame}
+
+\begin{frame}{Computing \( P(A) \)}
+    The probability is given by:
+    \[
+        P(A) = \int_0^2 \int_0^{2-y} f_{X,Y}(x, y) \, dx \, dy.
+    \]
+    Substituting \( f_{X,Y}(x, y) = \frac{1}{4} \):
+    \[
+        P(A) = \int_0^2 \int_0^{2-y} \frac{1}{4} \, dx \, dy.
+    \]
+\end{frame}
+
+\begin{frame}{Evaluating the Integral}
+    Compute the inner integral:
+    \[
+        \int_0^{2-y} \frac{1}{4} \, dx = \frac{1}{4} (2-y).
+    \]
+    Compute the outer integral:
+    \[
+        P(A) = \int_0^2 \frac{1}{4} (2-y) \, dy.
+    \]
+    \[
+        P(A) = \frac{1}{4} \left[ 2y - \frac{y^2}{2} \right]_0^2.
+    \]
+    \[
+        P(A) = \frac{1}{4} \times \left( 4 - 2 \right) = \frac{1}{4} \times 2 = \frac{1}{2}.
+    \]
+\end{frame}
+
+\begin{frame}{Conclusion}
+    \begin{itemize}
+        \item The probability of \( A \) is \( P(A) = \frac{1}{2} \).
+        \item This matches the geometric interpretation: The area of the triangle is \( \frac{1}{2} \times 2 \times 2 = 2 \), and \( P(A) \) follows from uniform probability.
+        \item The integral visualization in GeoGebra/Desmos helps understand the computation.
+    \end{itemize}
+\end{frame}
+
+\end{document}
