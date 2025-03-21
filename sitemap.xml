@@ -2,90 +2,94 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nipunbatra.github.io/psdv-teaching/questions.html</loc>
-    <lastmod>2025-03-18T04:18:56.211Z</lastmod>
+    <lastmod>2025-03-21T06:19:42.155Z</lastmod>
   </url>
   <url>
     <loc>https://nipunbatra.github.io/psdv-teaching/index.html</loc>
-    <lastmod>2025-03-18T04:18:56.037Z</lastmod>
+    <lastmod>2025-03-21T06:19:41.971Z</lastmod>
   </url>
   <url>
     <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/set.html</loc>
-    <lastmod>2025-03-18T04:18:56.203Z</lastmod>
+    <lastmod>2025-03-21T06:19:42.147Z</lastmod>
   </url>
   <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/2d-distributions.html</loc>
-    <lastmod>2025-03-18T04:18:56.052Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/intro-numpy.html</loc>
-    <lastmod>2025-03-18T04:18:56.116Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/iid.html</loc>
-    <lastmod>2025-03-18T04:18:56.088Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/expectation.html</loc>
-    <lastmod>2025-03-18T04:18:56.088Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/widgets.html</loc>
-    <lastmod>2025-03-18T04:18:56.211Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/random-variables.html</loc>
-    <lastmod>2025-03-18T04:18:56.197Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/introduction-pandas.html</loc>
-    <lastmod>2025-03-18T04:18:56.156Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/pdf-continuous.html</loc>
-    <lastmod>2025-03-18T04:18:56.191Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/slides.html</loc>
-    <lastmod>2025-03-18T04:18:56.211Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/quiz1.html</loc>
-    <lastmod>2025-03-18T04:18:56.194Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/images-joint-distribution.html</loc>
-    <lastmod>2025-03-18T04:18:56.090Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/cdf-discrete.html</loc>
-    <lastmod>2025-03-18T04:18:56.057Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/probability.html</loc>
-    <lastmod>2025-03-18T04:18:56.194Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/intro.html</loc>
-    <lastmod>2025-03-18T04:18:56.117Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/introduction-matplotlib.html</loc>
-    <lastmod>2025-03-18T04:18:56.150Z</lastmod>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/geogebra.html</loc>
+    <lastmod>2025-03-21T06:19:42.027Z</lastmod>
   </url>
   <url>
     <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/pmf-discrete.html</loc>
-    <lastmod>2025-03-18T04:18:56.194Z</lastmod>
+    <lastmod>2025-03-21T06:19:42.138Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/introduction-matplotlib.html</loc>
+    <lastmod>2025-03-21T06:19:42.092Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/intro.html</loc>
+    <lastmod>2025-03-21T06:19:42.057Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/probability.html</loc>
+    <lastmod>2025-03-21T06:19:42.138Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/cdf-discrete.html</loc>
+    <lastmod>2025-03-21T06:19:41.995Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/images-joint-distribution.html</loc>
+    <lastmod>2025-03-21T06:19:42.029Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/quiz1.html</loc>
+    <lastmod>2025-03-21T06:19:42.138Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/slides.html</loc>
+    <lastmod>2025-03-21T06:19:42.155Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/pdf-continuous.html</loc>
+    <lastmod>2025-03-21T06:19:42.135Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/introduction-pandas.html</loc>
+    <lastmod>2025-03-21T06:19:42.098Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/random-variables.html</loc>
+    <lastmod>2025-03-21T06:19:42.140Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/widgets.html</loc>
+    <lastmod>2025-03-21T06:19:42.155Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/expectation.html</loc>
+    <lastmod>2025-03-21T06:19:42.027Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/iid.html</loc>
+    <lastmod>2025-03-21T06:19:42.027Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/intro-numpy.html</loc>
+    <lastmod>2025-03-21T06:19:42.057Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/2d-distributions.html</loc>
+    <lastmod>2025-03-21T06:19:41.989Z</lastmod>
   </url>
   <url>
     <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/logistic-regression-generative.html</loc>
-    <lastmod>2025-03-18T04:18:56.160Z</lastmod>
+    <lastmod>2025-03-21T06:19:42.102Z</lastmod>
   </url>
   <url>
     <loc>https://nipunbatra.github.io/psdv-teaching/notebooks/cdf.html</loc>
-    <lastmod>2025-03-18T04:18:56.058Z</lastmod>
+    <lastmod>2025-03-21T06:19:41.996Z</lastmod>
   </url>
   <url>
     <loc>https://nipunbatra.github.io/psdv-teaching/notebooks.html</loc>
-    <lastmod>2025-03-18T04:18:56.037Z</lastmod>
+    <lastmod>2025-03-21T06:19:41.971Z</lastmod>
   </url>
 </urlset>
