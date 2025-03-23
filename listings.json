@@ -6,6 +6,7 @@
   {
     "listing": "/notebooks.html",
     "items": [
+      "/notebooks/embeddings-angle.html",
       "/notebooks/expectation.html",
       "/notebooks/introduction-matplotlib.html",
       "/notebooks/probability.html",
