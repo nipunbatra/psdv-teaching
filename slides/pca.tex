@@ -1,0 +1,116 @@
+\documentclass{beamer}
+\usetheme{metropolis}
+\usecolortheme{dolphin}
+\usepackage{amsmath, amsfonts}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{bm}
+
+\title{Principal Component Analysis (PCA)}
+\author{}
+\date{}
+
+\begin{document}
+
+%-------------------------------------------
+\frame{\titlepage}
+%-------------------------------------------
+
+\begin{frame}{Motivating Examples}
+\begin{itemize}
+    \item Images of digits (e.g., MNIST): Each image is 784-dimensional
+    \item Sensors on wearables: 10s–100s of channels, high redundancy
+    \item Environmental data: temperature, humidity, air quality across locations
+\end{itemize}
+\vspace{1em}
+\pause
+\textbf{Goal:} Reduce dimensions while preserving key structure
+\end{frame}
+
+%-------------------------------------------
+
+\begin{frame}{Why PCA? Intuition}
+\begin{itemize}
+    \item Data lives in high dimensions but often varies in a low-dimensional subspace
+    \item PCA finds new axes (principal directions) capturing maximum variance
+    \item Reduces noise, saves space, helps visualize
+\end{itemize}
+\vspace{1em}
+\pause
+\begin{block}{Key Idea}
+Project data onto top-\(k\) directions of highest variance
+\end{block}
+\end{frame}
+
+%-------------------------------------------
+
+\begin{frame}{Visual Intuition: Elliptical Gaussians}
+\centering
+\includegraphics[width=0.75\linewidth]{pca_ellipse.png} % Optional: add your plot
+\vspace{1em}
+\begin{itemize}
+    \item Stretch along eigenvectors of covariance
+    \item Ellipse axes \( \propto \sqrt{\lambda_1}, \sqrt{\lambda_2} \)
+    \item Principal directions = eigenvectors of covariance matrix
+\end{itemize}
+\end{frame}
+
+%-------------------------------------------
+
+\begin{frame}{Minimal Math}
+\textbf{Given:} Data matrix \( X \in \mathbb{R}^{n \times d} \)
+
+\begin{enumerate}
+    \item Center the data: \( \mathbf{X}_{\text{centered}} = X - \mu \)
+    \item Compute covariance: 
+    \[
+    \Sigma = \frac{1}{n} X^\top X
+    \]
+    \item Eigendecompose:
+    \[
+    \Sigma = U \Lambda U^\top
+    \]
+    \item Project onto top-\(k\) components:
+    \[
+    Z = X U_k
+    \]
+\end{enumerate}
+\pause
+\textbf{Reconstruction:} \( \hat{X} = Z U_k^\top + \mu \)
+\end{frame}
+
+%-------------------------------------------
+
+\begin{frame}{In Code (PyTorch)}
+\begin{itemize}
+    \item Center data: \texttt{X\_centered = X - X.mean(0)}
+    \item Covariance: \texttt{cov = X\_centered.T @ X\_centered / N}
+    \item Eigenvectors: \texttt{eigvals, eigvecs = torch.linalg.eigh(cov)}
+    \item Project: \texttt{X\_proj = (X @ eigvecs[:, -k:])}
+\end{itemize}
+\end{frame}
+
+%-------------------------------------------
+
+\begin{frame}{Example: MNIST Digits}
+\centering
+\includegraphics[width=0.85\linewidth]{mnist_pca_recon.png} % Optional: reconstruction
+\vspace{1em}
+
+\textbf{Top component captures most variation.}
+\end{frame}
+
+%-------------------------------------------
+
+\begin{frame}{Summary}
+\begin{itemize}
+    \item PCA finds orthogonal directions of max variance
+    \item Works via eigendecomposition of the covariance
+    \item Useful for compression, denoising, visualization
+\end{itemize}
+\pause
+\vspace{1em}
+\textbf{Next:} PCA for downstream ML tasks
+\end{frame}
+
+\end{document}

@@ -1,0 +1,126 @@
+\documentclass{beamer}
+\usetheme{metropolis}
+\usepackage{amsmath, amssymb, bm}
+
+\title{Derivation of Bivariate Normal Distribution}
+\author{Nipun Batra}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+%-------------------------
+\begin{frame}{Univariate Normal}
+Let \( X \sim \mathcal{N}(\mu, \sigma^2) \). Then,
+\[
+f_X(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left( -\frac{(x - \mu)^2}{2\sigma^2} \right)
+\]
+\end{frame}
+
+%-------------------------
+\begin{frame}{Two Independent Normals}
+Let:
+\[
+X \sim \mathcal{N}(\mu_1, \sigma_1^2), \quad Y \sim \mathcal{N}(\mu_2, \sigma_2^2)
+\]
+Assuming independence:
+\[
+f_{X,Y}(x, y) = f_X(x) \cdot f_Y(y)
+\]
+\[
+= \frac{1}{2\pi \sigma_1 \sigma_2} 
+\exp\left( -\frac{(x - \mu_1)^2}{2\sigma_1^2} -\frac{(y - \mu_2)^2}{2\sigma_2^2} \right)
+\]
+\end{frame}
+
+%-------------------------
+\begin{frame}{Vector Notation}
+Define:
+\[
+\bm{x} = \begin{bmatrix} x \\ y \end{bmatrix}, \quad 
+\bm{\mu} = \begin{bmatrix} \mu_1 \\ \mu_2 \end{bmatrix}
+\]
+Covariance matrix (independent case):
+\[
+\Sigma = \begin{bmatrix}
+\sigma_1^2 & 0 \\
+0 & \sigma_2^2
+\end{bmatrix}
+\]
+\end{frame}
+
+%-------------------------
+\begin{frame}{Determinant of \( \Sigma \)}
+Since diagonal:
+\[
+|\Sigma| = \sigma_1^2 \cdot \sigma_2^2
+\]
+\end{frame}
+
+%-------------------------
+\begin{frame}{Inverse of \( \Sigma \)}
+\[
+\Sigma^{-1} = \begin{bmatrix}
+\frac{1}{\sigma_1^2} & 0 \\
+0 & \frac{1}{\sigma_2^2}
+\end{bmatrix}
+\]
+\end{frame}
+
+%-------------------------
+\begin{frame}{Mahalanobis Term}
+Let:
+\[
+\bm{d} = \bm{x} - \bm{\mu} = \begin{bmatrix} x - \mu_1 \\ y - \mu_2 \end{bmatrix}
+\]
+Then:
+\[
+\bm{d}^\top \Sigma^{-1} \bm{d}
+= \frac{(x - \mu_1)^2}{\sigma_1^2} + \frac{(y - \mu_2)^2}{\sigma_2^2}
+\]
+\end{frame}
+
+%-------------------------
+\begin{frame}{Putting it all together}
+\[
+f_{\bm{X}}(\bm{x}) = \frac{1}{2\pi \sqrt{|\Sigma|}} 
+\exp\left( -\frac{1}{2} (\bm{x} - \bm{\mu})^\top \Sigma^{-1} (\bm{x} - \bm{\mu}) \right)
+\]
+Substitute:
+\[
+= \frac{1}{2\pi \sigma_1 \sigma_2} 
+\exp\left( -\frac{1}{2} 
+\left[ 
+\frac{(x - \mu_1)^2}{\sigma_1^2} + \frac{(y - \mu_2)^2}{\sigma_2^2} 
+\right] \right)
+\]
+\end{frame}
+
+%-------------------------
+\begin{frame}{Generalization: Correlated Case}
+If \( \text{Cov}(X, Y) = \rho \sigma_1 \sigma_2 \), then:
+\[
+\Sigma = \begin{bmatrix}
+\sigma_1^2 & \rho \sigma_1 \sigma_2 \\
+\rho \sigma_1 \sigma_2 & \sigma_2^2
+\end{bmatrix}
+\]
+Determinant:
+\[
+|\Sigma| = \sigma_1^2 \sigma_2^2 (1 - \rho^2)
+\]
+\end{frame}
+
+%-------------------------
+\begin{frame}{Bivariate Normal (Correlated)}
+\[
+f(\bm{x}) = \frac{1}{2\pi \sqrt{|\Sigma|}} 
+\exp\left( 
+- \frac{1}{2} (\bm{x} - \bm{\mu})^\top \Sigma^{-1} (\bm{x} - \bm{\mu})
+\right)
+\]
+Valid for any symmetric, positive-definite \( \Sigma \).
+\end{frame}
+
+\end{document}
