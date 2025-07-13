@@ -107,6 +107,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -330,7 +359,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-1" class="cell" data-execution_count="3">
+<section id="word-embeddings-and-vector-angles-introductionthis-notebook-explores-the-fascinating-relationship-between-vector-angles-and-semantic-similarity-in-word-embeddings.-well-demonstrate-how-geometric-concepts-from-linear-algebra-apply-to-natural-language-processing-particularly-in-measuring-word-similarities.-learning-objectivesby-the-end-of-this-notebook-you-will-understand--how-to-calculate-angles-between-vectors-using-dot-products--the-concept-of-cosine-similarity-in-vector-spaces--how-word-embeddings-capture-semantic-relationships--the-practical-application-of-vector-geometry-in-nlp-prerequisites--basic-linear-algebra-vectors-dot-products--understanding-of-python-and-numpy--familiarity-with-the-concept-of-word-embeddings" class="level1">
+<h1>Word Embeddings and Vector Angles## IntroductionThis notebook explores the fascinating relationship between vector angles and semantic similarity in word embeddings. We’ll demonstrate how geometric concepts from linear algebra apply to natural language processing, particularly in measuring word similarities.### Learning ObjectivesBy the end of this notebook, you will understand:- How to calculate angles between vectors using dot products- The concept of cosine similarity in vector spaces- How word embeddings capture semantic relationships- The practical application of vector geometry in NLP### Prerequisites- Basic linear algebra (vectors, dot products)- Understanding of Python and NumPy- Familiarity with the concept of word embeddings—</h1>
+<section id="vector-angles-mathematical-foundationwe-begin-with-a-simple-example-of-computing-angles-between-2d-vectors.-the-angle-between-two-vectors-can-be-calculated-using-the-dot-product-formulacostheta-fracmathbfv_1-cdot-mathbfv_2mathbfv_1-cdot-mathbfv_2where-theta-is-the-angle-between-vectors-mathbfv_1-and-mathbfv_2." class="level2">
+<h2 class="anchored" data-anchor-id="vector-angles-mathematical-foundationwe-begin-with-a-simple-example-of-computing-angles-between-2d-vectors.-the-angle-between-two-vectors-can-be-calculated-using-the-dot-product-formulacostheta-fracmathbfv_1-cdot-mathbfv_2mathbfv_1-cdot-mathbfv_2where-theta-is-the-angle-between-vectors-mathbfv_1-and-mathbfv_2.">Vector Angles: Mathematical FoundationWe begin with a simple example of computing angles between 2D vectors. The angle between two vectors can be calculated using the dot product formula:<span class="math display">\[\cos(\theta) = \frac{\mathbf{v_1} \cdot \mathbf{v_2}}{|\mathbf{v_1}| \cdot |\mathbf{v_2}|}\]</span>Where <span class="math inline">\(\theta\)</span> is the angle between vectors <span class="math inline">\(\mathbf{v_1}\)</span> and <span class="math inline">\(\mathbf{v_2}\)</span>.</h2>
+<section id="exploring-different-vector-combinationsnotice-how-the-angle-changes-as-we-modify-the-vectors.-perpendicular-vectors-have-a-90-angle-while-parallel-vectors-have-0-angle." class="level3">
+<h3 class="anchored" data-anchor-id="exploring-different-vector-combinationsnotice-how-the-angle-changes-as-we-modify-the-vectors.-perpendicular-vectors-have-a-90-angle-while-parallel-vectors-have-0-angle.">Exploring Different Vector CombinationsNotice how the angle changes as we modify the vectors. Perpendicular vectors have a 90° angle, while parallel vectors have 0° angle.</h3>
+</section>
+</section>
+<section id="word-embeddings-from-words-to-vectorsnow-we-transition-to-the-main-topic-word-embeddings.-word-embeddings-are-dense-vector-representations-of-words-that-capture-semantic-relationships.-well-use-pre-trained-glove-embeddings-to-explore-how-words-relate-to-each-other-in-vector-space.-loading-pre-trained-word-embeddingswell-use-the-glove-global-vectors-for-word-representation-model-which-creates-word-embeddings-by-analyzing-word-co-occurrence-statistics-from-large-text-corpora." class="level2">
+<h2 class="anchored" data-anchor-id="word-embeddings-from-words-to-vectorsnow-we-transition-to-the-main-topic-word-embeddings.-word-embeddings-are-dense-vector-representations-of-words-that-capture-semantic-relationships.-well-use-pre-trained-glove-embeddings-to-explore-how-words-relate-to-each-other-in-vector-space.-loading-pre-trained-word-embeddingswell-use-the-glove-global-vectors-for-word-representation-model-which-creates-word-embeddings-by-analyzing-word-co-occurrence-statistics-from-large-text-corpora.">Word Embeddings: From Words to VectorsNow we transition to the main topic: word embeddings. Word embeddings are dense vector representations of words that capture semantic relationships. We’ll use pre-trained GloVe embeddings to explore how words relate to each other in vector space.### Loading Pre-trained Word EmbeddingsWe’ll use the GloVe (Global Vectors for Word Representation) model, which creates word embeddings by analyzing word co-occurrence statistics from large text corpora.</h2>
+<section id="example-1-simple-2d-vector-angleslets-start-with-basic-examples-to-understand-how-angles-work-with-simple-vectors." class="level3">
+<h3 class="anchored" data-anchor-id="example-1-simple-2d-vector-angleslets-start-with-basic-examples-to-understand-how-angles-work-with-simple-vectors.">Example 1: Simple 2D Vector AnglesLet’s start with basic examples to understand how angles work with simple vectors.</h3>
+</section>
+<section id="examining-word-vectorslets-look-at-the-actual-vector-representation-of-the-word-king.-each-word-is-represented-as-a-50-dimensional-vector-where-each-dimension-captures-different-semantic-features." class="level3">
+<h3 class="anchored" data-anchor-id="examining-word-vectorslets-look-at-the-actual-vector-representation-of-the-word-king.-each-word-is-represented-as-a-50-dimensional-vector-where-each-dimension-captures-different-semantic-features.">Examining Word VectorsLet’s look at the actual vector representation of the word “king”. Each word is represented as a 50-dimensional vector where each dimension captures different semantic features.</h3>
+<p>—author: Nipun Batrabadges: truecategories:- Data Science- Machine Learning- Linear Algebra- Mathematicsdate: ’2025-01-13’description: Understanding vector similarities and angles in word embeddings using cosine similarity and vector operationskeywords: embeddings, word2vec, cosine similarity, vector angles, natural language processing, similarity measurestitle: Word Embeddings and Vector Anglestoc: true—</p>
+<div id="cell-8" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> angle_between(v1, v2):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    cos_theta <span class="op">=</span> np.dot(v1, v2) <span class="op">/</span> (np.linalg.norm(v1) <span class="op">*</span> np.linalg.norm(v2))</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.arccos(np.clip(cos_theta, <span class="op">-</span><span class="fl">1.0</span>, <span class="fl">1.0</span>)) <span class="op">*</span> <span class="dv">180</span> <span class="op">/</span> np.pi</span>
@@ -354,7 +399,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-2" class="cell" data-execution_count="4">
+</section>
+</section>
+<section id="measuring-semantic-similarity-with-angles-king-and-queen-a-classic-examplethe-angle-between-king-and-queen-vectors-demonstrates-how-semantically-related-words-have-smaller-angles-between-their-vector-representations.-this-is-a-fundamental-principle-in-word-embeddings." class="level2">
+<h2 class="anchored" data-anchor-id="measuring-semantic-similarity-with-angles-king-and-queen-a-classic-examplethe-angle-between-king-and-queen-vectors-demonstrates-how-semantically-related-words-have-smaller-angles-between-their-vector-representations.-this-is-a-fundamental-principle-in-word-embeddings.">Measuring Semantic Similarity with Angles### King and Queen: A Classic ExampleThe angle between “king” and “queen” vectors demonstrates how semantically related words have smaller angles between their vector representations. This is a fundamental principle in word embeddings.</h2>
+<section id="family-relationships-in-vector-spacefamily-relationship-words-like-uncle-and-aunt-should-have-relatively-small-angles-since-they-represent-similar-family-concepts." class="level3">
+<h3 class="anchored" data-anchor-id="family-relationships-in-vector-spacefamily-relationship-words-like-uncle-and-aunt-should-have-relatively-small-angles-since-they-represent-similar-family-concepts.">Family Relationships in Vector SpaceFamily relationship words like “uncle” and “aunt” should have relatively small angles since they represent similar family concepts.</h3>
+</section>
+<section id="dissimilar-words-larger-angleswhen-we-compare-semantically-unrelated-words-like-king-and-python-the-programming-language-we-expect-to-see-much-larger-angles-indicating-low-semantic-similarity." class="level3">
+<h3 class="anchored" data-anchor-id="dissimilar-words-larger-angleswhen-we-compare-semantically-unrelated-words-like-king-and-python-the-programming-language-we-expect-to-see-much-larger-angles-indicating-low-semantic-similarity.">Dissimilar Words: Larger AnglesWhen we compare semantically unrelated words like “king” and “python” (the programming language), we expect to see much larger angles, indicating low semantic similarity.</h3>
+</section>
+</section>
+<section id="exploring-word-neighborhoods-finding-similar-wordsthe-most_similar-function-finds-words-with-the-smallest-angles-highest-cosine-similarity-to-a-given-word.-this-demonstrates-how-vector-space-geometry-captures-semantic-relationships." class="level2">
+<h2 class="anchored" data-anchor-id="exploring-word-neighborhoods-finding-similar-wordsthe-most_similar-function-finds-words-with-the-smallest-angles-highest-cosine-similarity-to-a-given-word.-this-demonstrates-how-vector-space-geometry-captures-semantic-relationships.">Exploring Word Neighborhoods### Finding Similar WordsThe <code>most_similar</code> function finds words with the smallest angles (highest cosine similarity) to a given word. This demonstrates how vector space geometry captures semantic relationships.</h2>
+<section id="finding-dissimilar-wordsconversely-we-can-find-words-that-are-most-dissimilar-largest-angles-to-understand-what-the-model-considers-semantically-distant." class="level3">
+<h3 class="anchored" data-anchor-id="finding-dissimilar-wordsconversely-we-can-find-words-that-are-most-dissimilar-largest-angles-to-understand-what-the-model-considers-semantically-distant.">Finding Dissimilar WordsConversely, we can find words that are most dissimilar (largest angles) to understand what the model considers semantically distant.</h3>
+</section>
+<section id="verification-computing-angles-with-dissimilar-wordslets-verify-our-findings-by-computing-the-actual-angle-between-king-and-one-of-the-most-dissimilar-words." class="level3">
+<h3 class="anchored" data-anchor-id="verification-computing-angles-with-dissimilar-wordslets-verify-our-findings-by-computing-the-actual-angle-between-king-and-one-of-the-most-dissimilar-words.">Verification: Computing Angles with Dissimilar WordsLet’s verify our findings by computing the actual angle between “king” and one of the most dissimilar words.</h3>
+</section>
+</section>
+<section id="key-insights-and-conclusions-what-weve-learned1.-vector-angles-and-similarity-smaller-angles-between-word-vectors-indicate-greater-semantic-similarity2.-cosine-similarity-this-metric-cosine-of-the-angle-is-widely-used-in-nlp-for-measuring-word-similarity3.-geometric-intuition-word-embeddings-transform-linguistic-relationships-into-geometric-relationships-in-high-dimensional-space4.-practical-applications-these-concepts-are-fundamental-to-search-engines-recommendation-systems-and-many-nlp-tasks-mathematical-relationshipthe-relationship-between-angle-theta-and-cosine-similarity-is--theta-0-costheta-1-perfect-similarity--theta-90-costheta-0-no-correlation---theta-180-costheta--1-perfect-opposition-real-world-applicationsunderstanding-vector-angles-in-embeddings-is-crucial-for--information-retrieval-finding-relevant-documents--recommendation-systems-suggesting-similar-items--machine-translation-aligning-words-across-languages--sentiment-analysis-understanding-emotional-relationships-between-words" class="level2">
+<h2 class="anchored" data-anchor-id="key-insights-and-conclusions-what-weve-learned1.-vector-angles-and-similarity-smaller-angles-between-word-vectors-indicate-greater-semantic-similarity2.-cosine-similarity-this-metric-cosine-of-the-angle-is-widely-used-in-nlp-for-measuring-word-similarity3.-geometric-intuition-word-embeddings-transform-linguistic-relationships-into-geometric-relationships-in-high-dimensional-space4.-practical-applications-these-concepts-are-fundamental-to-search-engines-recommendation-systems-and-many-nlp-tasks-mathematical-relationshipthe-relationship-between-angle-theta-and-cosine-similarity-is--theta-0-costheta-1-perfect-similarity--theta-90-costheta-0-no-correlation---theta-180-costheta--1-perfect-opposition-real-world-applicationsunderstanding-vector-angles-in-embeddings-is-crucial-for--information-retrieval-finding-relevant-documents--recommendation-systems-suggesting-similar-items--machine-translation-aligning-words-across-languages--sentiment-analysis-understanding-emotional-relationships-between-words">Key Insights and Conclusions### What We’ve Learned1. <strong>Vector Angles and Similarity</strong>: Smaller angles between word vectors indicate greater semantic similarity2. <strong>Cosine Similarity</strong>: This metric (cosine of the angle) is widely used in NLP for measuring word similarity3. <strong>Geometric Intuition</strong>: Word embeddings transform linguistic relationships into geometric relationships in high-dimensional space4. <strong>Practical Applications</strong>: These concepts are fundamental to search engines, recommendation systems, and many NLP tasks### Mathematical RelationshipThe relationship between angle <span class="math inline">\(\theta\)</span> and cosine similarity is:- <span class="math inline">\(\theta = 0°\)</span> → <span class="math inline">\(\cos(\theta) = 1\)</span> → Perfect similarity- <span class="math inline">\(\theta = 90°\)</span> → <span class="math inline">\(\cos(\theta) = 0\)</span> → No correlation - <span class="math inline">\(\theta = 180°\)</span> → <span class="math inline">\(\cos(\theta) = -1\)</span> → Perfect opposition### Real-world ApplicationsUnderstanding vector angles in embeddings is crucial for:- <strong>Information Retrieval</strong>: Finding relevant documents- <strong>Recommendation Systems</strong>: Suggesting similar items- <strong>Machine Translation</strong>: Aligning words across languages- <strong>Sentiment Analysis</strong>: Understanding emotional relationships between words</h2>
+<div id="cell-16" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Angle: </span><span class="sc">{</span>angle_between(v1, np.array([<span class="dv">0</span>, <span class="dv">1</span>]))<span class="sc">:.2f}</span><span class="ss">°"</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.quiver([<span class="dv">0</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="dv">0</span>], [v1[<span class="dv">0</span>], <span class="dv">0</span>], [v1[<span class="dv">1</span>], <span class="dv">1</span>], angles<span class="op">=</span><span class="st">'xy'</span>, scale_units<span class="op">=</span><span class="st">'xy'</span>, scale<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="dv">1</span>, <span class="dv">2</span>)</span>
@@ -370,23 +437,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-3" class="cell" data-execution_count="5">
+<div id="cell-17" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gensim.downloader <span class="im">as</span> api</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.spatial.distance <span class="im">import</span> cosine</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> api.load(<span class="st">"glove-wiki-gigaword-50"</span>)  <span class="co"># Small 50D GloVe model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="6">
+<div id="cell-18" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_cosine_similarity(word1, word2):</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    v1 <span class="op">=</span> model[word1]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    v2 <span class="op">=</span> model[word2]</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> angle_between(v1, v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="7">
+<div id="cell-19" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>word1 <span class="op">=</span> <span class="st">"king"</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="op">=</span> model[word1]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-6" class="cell" data-execution_count="8">
+<div id="cell-20" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>v1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>array([ 0.50451 ,  0.68607 , -0.59517 , -0.022801,  0.60046 , -0.13498 ,
@@ -400,7 +467,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
        -0.64426 , -0.51042 ], dtype=float32)</code></pre>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="9">
+<div id="cell-21" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>word2 <span class="op">=</span> <span class="st">"queen"</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="op">=</span> model[word2]</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -416,26 +483,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   0.0092753 -0.60284  ]</code></pre>
 </div>
 </div>
-<div id="cell-8" class="cell" data-execution_count="10">
+<div id="cell-22" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>angle_between(v1, v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>38.3805515334704</code></pre>
 </div>
 </div>
-<div id="cell-9" class="cell" data-execution_count="12">
+<div id="cell-23" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>angle_between(model[<span class="st">"uncle"</span>], model[<span class="st">"aunt"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>40.26145236751397</code></pre>
 </div>
 </div>
-<div id="cell-10" class="cell" data-execution_count="13">
+<div id="cell-24" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now some dissimilar words</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>angle_between(model[<span class="st">"king"</span>], model[<span class="st">"python"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>79.36413285046953</code></pre>
 </div>
 </div>
-<div id="cell-11" class="cell" data-execution_count="14">
+<div id="cell-25" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>model.most_similar(<span class="st">"king"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>[('prince', 0.8236179351806641),
@@ -450,7 +517,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  ('ruler', 0.7434254288673401)]</code></pre>
 </div>
 </div>
-<div id="cell-12" class="cell" data-execution_count="15">
+<div id="cell-26" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># most dissimilar words to "king"</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>model.most_similar(negative<span class="op">=</span>[<span class="st">"king"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
@@ -466,7 +533,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  ('metabolomics', 0.682388961315155)]</code></pre>
 </div>
 </div>
-<div id="cell-13" class="cell" data-execution_count="16">
+<div id="cell-27" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>angle_between(model[<span class="st">"king"</span>], model[<span class="st">"rules-based"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>135.42952204160463</code></pre>
@@ -474,6 +541,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

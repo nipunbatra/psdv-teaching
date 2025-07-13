@@ -7,9 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Nipun Batra">
-<meta name="dcterms.date" content="2025-02-11">
+<meta name="dcterms.date" content="2025-01-13">
+<meta name="keywords" content="probability mass function, PMF, discrete distributions, bernoulli distribution, categorical distribution, binomial distribution, poisson distribution, geometric distribution, quality control, logistic regression">
+<meta name="description" content="A comprehensive exploration of discrete probability distributions including Bernoulli, Categorical, Binomial, Poisson, and Geometric distributions. Covers theoretical foundations, practical applications, and real-world modeling scenarios.">
 
-<title>PMF and some common discrete distributions – Probability Statistics Data Visualization Resources</title>
+<title>Probability Mass Functions and Common Discrete Distributions – Probability Statistics Data Visualization Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -356,21 +358,43 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pmf-of-bernoulli-distribution" id="toc-pmf-of-bernoulli-distribution" class="nav-link active" data-scroll-target="#pmf-of-bernoulli-distribution">PMF of Bernoulli distribution</a>
+  <li><a href="#probability-mass-functions-and-common-discrete-distributions-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-probability-mass-functions-pmf-mathematical-definition-and-properties2.-common-discrete-distributions-bernoulli-categorical-binomial-poisson-and-geometric3.-real-world-applications-quality-control-classification-and-count-modeling4.-parameter-estimation-fitting-distributions-to-data-using-pytorch5.-model-selection-choosing-appropriate-distributions-for-different-scenarios6.-practical-implementation-working-with-pytorch-distributions-for-data-science-introductiondiscrete-random-variables-take-on-countable-values-like-integers-and-their-behavior-is-completely-described-by-their-probability-mass-function-pmf.-the-pmf-tells-us-the-probability-of-each-possible-outcome-providing-a-complete-probabilistic-picture-of-the-random-variable.-mathematical-foundationfor-a-discrete-random-variable-x-the-pmf-is-defined-asp_xx-px-xthe-pmf-must-satisfy-two-fundamental-properties1.-non-negativity-p_xx-geq-0-for-all-x2.-normalization-sum_x-p_xx-1-why-discrete-distributions-matterdiscrete-distributions-are-everywhere-in-data-science-and-statistics--classification-problems-bernoulli-for-binary-categorical-for-multi-class--count-data-poisson-for-rare-events-binomial-for-fixed-trials--quality-control-binomial-for-defect-rates--waiting-times-geometric-for-time-to-first-success--natural-language-processing-categorical-for-word-distributions-common-discrete-distributions-overviewwell-explore-these-essential-distributions-distribution-use-case-parameters-example----bernoulli-binary-outcomes-p-success-prob-coin-flip-passfail-categorical-multi-class-outcomes-boldsymboltheta-prob-vector-die-roll-image-classification-binomial-fixed-trials-binary-outcome-n-p-quality-control-survey-responses-poisson-count-of-rare-events-lambda-rate-email-arrivals-defects-per-unit-geometric-trials-to-first-success-p-success-prob-sales-calls-equipment-failure-lets-dive-into-each-distribution-with-theory-implementation-and-real-world-applications" id="toc-probability-mass-functions-and-common-discrete-distributions-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-probability-mass-functions-pmf-mathematical-definition-and-properties2.-common-discrete-distributions-bernoulli-categorical-binomial-poisson-and-geometric3.-real-world-applications-quality-control-classification-and-count-modeling4.-parameter-estimation-fitting-distributions-to-data-using-pytorch5.-model-selection-choosing-appropriate-distributions-for-different-scenarios6.-practical-implementation-working-with-pytorch-distributions-for-data-science-introductiondiscrete-random-variables-take-on-countable-values-like-integers-and-their-behavior-is-completely-described-by-their-probability-mass-function-pmf.-the-pmf-tells-us-the-probability-of-each-possible-outcome-providing-a-complete-probabilistic-picture-of-the-random-variable.-mathematical-foundationfor-a-discrete-random-variable-x-the-pmf-is-defined-asp_xx-px-xthe-pmf-must-satisfy-two-fundamental-properties1.-non-negativity-p_xx-geq-0-for-all-x2.-normalization-sum_x-p_xx-1-why-discrete-distributions-matterdiscrete-distributions-are-everywhere-in-data-science-and-statistics--classification-problems-bernoulli-for-binary-categorical-for-multi-class--count-data-poisson-for-rare-events-binomial-for-fixed-trials--quality-control-binomial-for-defect-rates--waiting-times-geometric-for-time-to-first-success--natural-language-processing-categorical-for-word-distributions-common-discrete-distributions-overviewwell-explore-these-essential-distributions-distribution-use-case-parameters-example----bernoulli-binary-outcomes-p-success-prob-coin-flip-passfail-categorical-multi-class-outcomes-boldsymboltheta-prob-vector-die-roll-image-classification-binomial-fixed-trials-binary-outcome-n-p-quality-control-survey-responses-poisson-count-of-rare-events-lambda-rate-email-arrivals-defects-per-unit-geometric-trials-to-first-success-p-success-prob-sales-calls-equipment-failure-lets-dive-into-each-distribution-with-theory-implementation-and-real-world-applications" class="nav-link active" data-scroll-target="#probability-mass-functions-and-common-discrete-distributions-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-probability-mass-functions-pmf-mathematical-definition-and-properties2.-common-discrete-distributions-bernoulli-categorical-binomial-poisson-and-geometric3.-real-world-applications-quality-control-classification-and-count-modeling4.-parameter-estimation-fitting-distributions-to-data-using-pytorch5.-model-selection-choosing-appropriate-distributions-for-different-scenarios6.-practical-implementation-working-with-pytorch-distributions-for-data-science-introductiondiscrete-random-variables-take-on-countable-values-like-integers-and-their-behavior-is-completely-described-by-their-probability-mass-function-pmf.-the-pmf-tells-us-the-probability-of-each-possible-outcome-providing-a-complete-probabilistic-picture-of-the-random-variable.-mathematical-foundationfor-a-discrete-random-variable-x-the-pmf-is-defined-asp_xx-px-xthe-pmf-must-satisfy-two-fundamental-properties1.-non-negativity-p_xx-geq-0-for-all-x2.-normalization-sum_x-p_xx-1-why-discrete-distributions-matterdiscrete-distributions-are-everywhere-in-data-science-and-statistics--classification-problems-bernoulli-for-binary-categorical-for-multi-class--count-data-poisson-for-rare-events-binomial-for-fixed-trials--quality-control-binomial-for-defect-rates--waiting-times-geometric-for-time-to-first-success--natural-language-processing-categorical-for-word-distributions-common-discrete-distributions-overviewwell-explore-these-essential-distributions-distribution-use-case-parameters-example----bernoulli-binary-outcomes-p-success-prob-coin-flip-passfail-categorical-multi-class-outcomes-boldsymboltheta-prob-vector-die-roll-image-classification-binomial-fixed-trials-binary-outcome-n-p-quality-control-survey-responses-poisson-count-of-rare-events-lambda-rate-email-arrivals-defects-per-unit-geometric-trials-to-first-success-p-success-prob-sales-calls-equipment-failure-lets-dive-into-each-distribution-with-theory-implementation-and-real-world-applications">Probability Mass Functions and Common Discrete Distributions## Learning ObjectivesBy the end of this notebook, you will understand:1. <strong>Probability Mass Functions (PMF)</strong>: Mathematical definition and properties2. <strong>Common Discrete Distributions</strong>: Bernoulli, Categorical, Binomial, Poisson, and Geometric3. <strong>Real-World Applications</strong>: Quality control, classification, and count modeling4. <strong>Parameter Estimation</strong>: Fitting distributions to data using PyTorch5. <strong>Model Selection</strong>: Choosing appropriate distributions for different scenarios6. <strong>Practical Implementation</strong>: Working with PyTorch distributions for data science## Introduction<strong>Discrete random variables</strong> take on countable values (like integers), and their behavior is completely described by their <strong>Probability Mass Function (PMF)</strong>. The PMF tells us the probability of each possible outcome, providing a complete probabilistic picture of the random variable.### Mathematical FoundationFor a discrete random variable <span class="math inline">\(X\)</span>, the PMF is defined as:<span class="math display">\[p_X(x) = P(X = x)\]</span>The PMF must satisfy two fundamental properties:1. <strong>Non-negativity</strong>: <span class="math inline">\(p_X(x) \geq 0\)</span> for all $x$2. <strong>Normalization</strong>: <span class="math inline">\(\sum_{x} p_X(x) = 1\)</span>### Why Discrete Distributions MatterDiscrete distributions are everywhere in data science and statistics:- <strong>Classification problems</strong> (Bernoulli for binary, Categorical for multi-class)- <strong>Count data</strong> (Poisson for rare events, Binomial for fixed trials)- <strong>Quality control</strong> (Binomial for defect rates)- <strong>Waiting times</strong> (Geometric for time to first success)- <strong>Natural language processing</strong> (Categorical for word distributions)### Common Discrete Distributions OverviewWe’ll explore these essential distributions:| Distribution | Use Case | Parameters | Example ||————-|———-|————|———|| Bernoulli | Binary outcomes | <span class="math inline">\(p\)</span> (success prob) | Coin flip, Pass/Fail || Categorical | Multi-class outcomes | <span class="math inline">\(\boldsymbol{\theta}\)</span> (prob vector) | Die roll, Image classification || Binomial | Fixed trials, binary outcome | <span class="math inline">\(n, p\)</span> | Quality control, Survey responses || Poisson | Count of rare events | <span class="math inline">\(\lambda\)</span> (rate) | Email arrivals, Defects per unit || Geometric | Trials to first success | <span class="math inline">\(p\)</span> (success prob) | Sales calls, Equipment failure |Let’s dive into each distribution with theory, implementation, and real-world applications!</a>
   <ul class="collapse">
-  <li><a href="#bernoulli-distribution-in-pytorch" id="toc-bernoulli-distribution-in-pytorch" class="nav-link" data-scroll-target="#bernoulli-distribution-in-pytorch">Bernoulli Distribution in PyTorch</a></li>
+  <li><a href="#setting-up-the-environmentwell-use-pytorch-for-probability-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations" id="toc-setting-up-the-environmentwell-use-pytorch-for-probability-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations" class="nav-link" data-scroll-target="#setting-up-the-environmentwell-use-pytorch-for-probability-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations">Setting Up the EnvironmentWe’ll use PyTorch for probability distributions, NumPy for numerical operations, and Matplotlib for visualizations:</a></li>
+  <li><a href="#bernoulli-distributionthe-bernoulli-distribution-is-the-simplest-discrete-distribution-modeling-a-single-binary-trial-with-two-possible-outcomes-success-1-or-failure-0.-mathematical-definitionlet-x-be-a-bernoulli-random-variable-with-parameter-p-in-01.-the-pmf-isp_xx-begincases1-p-textif-x-0-p-textif-x-1endcasesequivalently-p_xx-px1-p1-x-for-x-in-0-1-properties--mean-ex-p--variance-textvarx-p1-p--maximum-variance-occurs-when-p-0.5-visualization" id="toc-bernoulli-distributionthe-bernoulli-distribution-is-the-simplest-discrete-distribution-modeling-a-single-binary-trial-with-two-possible-outcomes-success-1-or-failure-0.-mathematical-definitionlet-x-be-a-bernoulli-random-variable-with-parameter-p-in-01.-the-pmf-isp_xx-begincases1-p-textif-x-0-p-textif-x-1endcasesequivalently-p_xx-px1-p1-x-for-x-in-0-1-properties--mean-ex-p--variance-textvarx-p1-p--maximum-variance-occurs-when-p-0.5-visualization" class="nav-link" data-scroll-target="#bernoulli-distributionthe-bernoulli-distribution-is-the-simplest-discrete-distribution-modeling-a-single-binary-trial-with-two-possible-outcomes-success-1-or-failure-0.-mathematical-definitionlet-x-be-a-bernoulli-random-variable-with-parameter-p-in-01.-the-pmf-isp_xx-begincases1-p-textif-x-0-p-textif-x-1endcasesequivalently-p_xx-px1-p1-x-for-x-in-0-1-properties--mean-ex-p--variance-textvarx-p1-p--maximum-variance-occurs-when-p-0.5-visualization">1. Bernoulli DistributionThe <strong>Bernoulli distribution</strong> is the simplest discrete distribution, modeling a single binary trial with two possible outcomes: success (1) or failure (0).### Mathematical DefinitionLet <span class="math inline">\(X\)</span> be a Bernoulli random variable with parameter <span class="math inline">\(p \in [0,1]\)</span>. The PMF is:<span class="math display">\[p_X(x) = \begin{cases}1-p, &amp; \text{if } x = 0 \\p, &amp; \text{if } x = 1\end{cases}\]</span>Equivalently: <span class="math inline">\(p_X(x) = p^x(1-p)^{1-x}\)</span> for <span class="math inline">\(x \in \{0, 1\}\)</span>### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = p\)</span>- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = p(1-p)\)</span>- <strong>Maximum variance</strong>: Occurs when <span class="math inline">\(p = 0.5\)</span>### Visualization</a></li>
+  </ul></li>
+  <li><a href="#pmf-of-bernoulli-distribution" id="toc-pmf-of-bernoulli-distribution" class="nav-link" data-scroll-target="#pmf-of-bernoulli-distribution">PMF of Bernoulli distribution</a>
+  <ul class="collapse">
+  <li><a href="#working-with-pytorch-distributionslets-explore-the-bernoulli-distribution-using-pytorchs-built-in-functionality" id="toc-working-with-pytorch-distributionslets-explore-the-bernoulli-distribution-using-pytorchs-built-in-functionality" class="nav-link" data-scroll-target="#working-with-pytorch-distributionslets-explore-the-bernoulli-distribution-using-pytorchs-built-in-functionality">Working with PyTorch DistributionsLet’s explore the Bernoulli distribution using PyTorch’s built-in functionality:</a></li>
+  <li><a href="#bernoulli-distribution-in-pytorch" id="toc-bernoulli-distribution-in-pytorch" class="nav-link" data-scroll-target="#bernoulli-distribution-in-pytorch">Bernoulli Distribution in PyTorch</a>
+  <ul class="collapse">
+  <li><a href="#problem-setup-lime-vs-lemon-classificationwe-want-to-classify-fruits-as-limes-0-or-lemons-1-based-on-their-radius.-this-is-a-classic-logistic-regression-problem-where-we-modelptextlemontextradius-textsigmoidw-cdot-textradius-bthe-sigmoid-function-ensures-probabilities-stay-between-0-and-1-making-it-perfect-for-bernoulli-distributions." id="toc-problem-setup-lime-vs-lemon-classificationwe-want-to-classify-fruits-as-limes-0-or-lemons-1-based-on-their-radius.-this-is-a-classic-logistic-regression-problem-where-we-modelptextlemontextradius-textsigmoidw-cdot-textradius-bthe-sigmoid-function-ensures-probabilities-stay-between-0-and-1-making-it-perfect-for-bernoulli-distributions." class="nav-link" data-scroll-target="#problem-setup-lime-vs-lemon-classificationwe-want-to-classify-fruits-as-limes-0-or-lemons-1-based-on-their-radius.-this-is-a-classic-logistic-regression-problem-where-we-modelptextlemontextradius-textsigmoidw-cdot-textradius-bthe-sigmoid-function-ensures-probabilities-stay-between-0-and-1-making-it-perfect-for-bernoulli-distributions.">Problem Setup: Lime vs Lemon ClassificationWe want to classify fruits as limes (0) or lemons (1) based on their radius. This is a classic logistic regression problem where we model:<span class="math display">\[P(\text{Lemon}|\text{radius}) = \text{sigmoid}(w \cdot \text{radius} + b)\]</span>The sigmoid function ensures probabilities stay between 0 and 1, making it perfect for Bernoulli distributions.</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#lime-vs-lemon" id="toc-lime-vs-lemon" class="nav-link" data-scroll-target="#lime-vs-lemon">Lime vs Lemon</a>
   <ul class="collapse">
   <li><a href="#main-question" id="toc-main-question" class="nav-link" data-scroll-target="#main-question">Main question</a></li>
   <li><a href="#generative-process" id="toc-generative-process" class="nav-link" data-scroll-target="#generative-process">Generative process</a></li>
-  <li><a href="#generate-a-dataset" id="toc-generate-a-dataset" class="nav-link" data-scroll-target="#generate-a-dataset">Generate a dataset</a></li>
+  <li><a href="#generate-a-dataset" id="toc-generate-a-dataset" class="nav-link" data-scroll-target="#generate-a-dataset">Generate a dataset</a>
+  <ul class="collapse">
+  <li><a href="#model-training-and-resultsour-logistic-regression-successfully-learned-the-underlying-relationship-the-learned-parameters-closely-match-the-true-parameters-used-to-generate-the-data." id="toc-model-training-and-resultsour-logistic-regression-successfully-learned-the-underlying-relationship-the-learned-parameters-closely-match-the-true-parameters-used-to-generate-the-data." class="nav-link" data-scroll-target="#model-training-and-resultsour-logistic-regression-successfully-learned-the-underlying-relationship-the-learned-parameters-closely-match-the-true-parameters-used-to-generate-the-data.">Model Training and ResultsOur logistic regression successfully learned the underlying relationship! The learned parameters closely match the true parameters used to generate the data.</a></li>
+  <li><a href="#mathematical-definitionlet-x-be-a-categorical-random-variable-with-k-possible-outcomes-1-2-ldots-k-and-parameter-vector-boldsymboltheta-theta_1-theta_2-ldots-theta_k.-the-pmf-isp_xx-k-theta_k-quad-textfor-k-in-1-2-ldots-kconstraints-theta_k-geq-0-and-sum_k1k-theta_k-1-applications--image-classification-cat-dog-bird---sentiment-analysis-positive-negative-neutral--die-rolling-1-2-3-4-5-6--market-research-product-preferences" id="toc-mathematical-definitionlet-x-be-a-categorical-random-variable-with-k-possible-outcomes-1-2-ldots-k-and-parameter-vector-boldsymboltheta-theta_1-theta_2-ldots-theta_k.-the-pmf-isp_xx-k-theta_k-quad-textfor-k-in-1-2-ldots-kconstraints-theta_k-geq-0-and-sum_k1k-theta_k-1-applications--image-classification-cat-dog-bird---sentiment-analysis-positive-negative-neutral--die-rolling-1-2-3-4-5-6--market-research-product-preferences" class="nav-link" data-scroll-target="#mathematical-definitionlet-x-be-a-categorical-random-variable-with-k-possible-outcomes-1-2-ldots-k-and-parameter-vector-boldsymboltheta-theta_1-theta_2-ldots-theta_k.-the-pmf-isp_xx-k-theta_k-quad-textfor-k-in-1-2-ldots-kconstraints-theta_k-geq-0-and-sum_k1k-theta_k-1-applications--image-classification-cat-dog-bird---sentiment-analysis-positive-negative-neutral--die-rolling-1-2-3-4-5-6--market-research-product-preferences">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be a categorical random variable with <span class="math inline">\(K\)</span> possible outcomes <span class="math inline">\(\{1, 2, \ldots, K\}\)</span> and parameter vector <span class="math inline">\(\boldsymbol{\theta} = (\theta_1, \theta_2, \ldots, \theta_K)\)</span>. The PMF is:<span class="math display">\[p_X(x = k) = \theta_k \quad \text{for } k \in \{1, 2, \ldots, K\}\]</span><strong>Constraints</strong>: <span class="math inline">\(\theta_k \geq 0\)</span> and <span class="math inline">\(\sum_{k=1}^K \theta_k = 1\)</span>### Applications- <strong>Image classification</strong> (cat, dog, bird, …)- <strong>Sentiment analysis</strong> (positive, negative, neutral)- <strong>Die rolling</strong> (1, 2, 3, 4, 5, 6)- <strong>Market research</strong> (product preferences)</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#categorical-distribution" id="toc-categorical-distribution" class="nav-link" data-scroll-target="#categorical-distribution">Categorical distribution</a>
   <ul class="collapse">
-  <li><a href="#imagenet" id="toc-imagenet" class="nav-link" data-scroll-target="#imagenet">Imagenet</a></li>
+  <li><a href="#imagenet" id="toc-imagenet" class="nav-link" data-scroll-target="#imagenet">Imagenet</a>
+  <ul class="collapse">
+  <li><a href="#mathematical-definitionlet-x-be-the-number-of-successes-in-n-independent-bernoulli-trials-each-with-success-probability-p.-then-x-sim-textbinomialn-p-with-pmfp_xx-binomnx-px-1-pn-x-quad-textfor-x-in-0-1-2-ldots-nwhere-binomnx-fracnxn-x-is-the-binomial-coefficient.-properties--mean-ex-np--variance-textvarx-np1-p--mode-lfloor-n1p-rfloor-real-world-example-quality-controla-factory-produces-electronic-chips-with-a-10-defect-rate.-quality-control-randomly-selects-10-chips.-how-many-defects-should-we-expect" id="toc-mathematical-definitionlet-x-be-the-number-of-successes-in-n-independent-bernoulli-trials-each-with-success-probability-p.-then-x-sim-textbinomialn-p-with-pmfp_xx-binomnx-px-1-pn-x-quad-textfor-x-in-0-1-2-ldots-nwhere-binomnx-fracnxn-x-is-the-binomial-coefficient.-properties--mean-ex-np--variance-textvarx-np1-p--mode-lfloor-n1p-rfloor-real-world-example-quality-controla-factory-produces-electronic-chips-with-a-10-defect-rate.-quality-control-randomly-selects-10-chips.-how-many-defects-should-we-expect" class="nav-link" data-scroll-target="#mathematical-definitionlet-x-be-the-number-of-successes-in-n-independent-bernoulli-trials-each-with-success-probability-p.-then-x-sim-textbinomialn-p-with-pmfp_xx-binomnx-px-1-pn-x-quad-textfor-x-in-0-1-2-ldots-nwhere-binomnx-fracnxn-x-is-the-binomial-coefficient.-properties--mean-ex-np--variance-textvarx-np1-p--mode-lfloor-n1p-rfloor-real-world-example-quality-controla-factory-produces-electronic-chips-with-a-10-defect-rate.-quality-control-randomly-selects-10-chips.-how-many-defects-should-we-expect">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be the number of successes in <span class="math inline">\(n\)</span> independent Bernoulli trials, each with success probability <span class="math inline">\(p\)</span>. Then <span class="math inline">\(X \sim \text{Binomial}(n, p)\)</span> with PMF:<span class="math display">\[p_X(x) = \binom{n}{x} p^x (1-p)^{n-x} \quad \text{for } x \in \{0, 1, 2, \ldots, n\}\]</span>where <span class="math inline">\(\binom{n}{x} = \frac{n!}{x!(n-x)!}\)</span> is the binomial coefficient.### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = np\)</span>- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = np(1-p)\)</span>- <strong>Mode</strong>: <span class="math inline">\(\lfloor (n+1)p \rfloor\)</span>### Real-World Example: Quality ControlA factory produces electronic chips with a 10% defect rate. Quality control randomly selects 10 chips. How many defects should we expect?</a></li>
   </ul></li>
-  <li><a href="#quality-control-in-factories" id="toc-quality-control-in-factories" class="nav-link" data-scroll-target="#quality-control-in-factories">Quality control in factories</a></li>
+  <li><a href="#poisson-distributionthe-poisson-distribution-models-the-number-of-events-occurring-in-a-fixed-interval-when-events-happen-independently-at-a-constant-average-rate." id="toc-poisson-distributionthe-poisson-distribution-models-the-number-of-events-occurring-in-a-fixed-interval-when-events-happen-independently-at-a-constant-average-rate." class="nav-link" data-scroll-target="#poisson-distributionthe-poisson-distribution-models-the-number-of-events-occurring-in-a-fixed-interval-when-events-happen-independently-at-a-constant-average-rate.">4. Poisson DistributionThe <strong>Poisson distribution</strong> models the number of events occurring in a fixed interval when events happen independently at a constant average rate.</a></li>
+  </ul></li>
+  <li><a href="#quality-control-in-factories" id="toc-quality-control-in-factories" class="nav-link" data-scroll-target="#quality-control-in-factories">Quality control in factories</a>
+  <ul class="collapse">
+  <li><a href="#mathematical-definitionlet-x-be-the-number-of-events-in-a-fixed-interval.-if-events-occur-at-rate-lambda-0-then-x-sim-textpoissonlambda-with-pmfp_xx-fraclambdax-e-lambdax-quad-textfor-x-in-0-1-2-ldots-properties--mean-ex-lambda--variance-textvarx-lambda---unique-property-mean-equals-variance-applications--email-arrivals-per-hour--customer-arrivals-at-a-store--defects-per-manufactured-unit--website-clicks-per-minute--radioactive-decay-events-real-world-example-sms-message-arrivalslets-analyze-sms-message-data-to-see-if-it-follows-a-poisson-distribution" id="toc-mathematical-definitionlet-x-be-the-number-of-events-in-a-fixed-interval.-if-events-occur-at-rate-lambda-0-then-x-sim-textpoissonlambda-with-pmfp_xx-fraclambdax-e-lambdax-quad-textfor-x-in-0-1-2-ldots-properties--mean-ex-lambda--variance-textvarx-lambda---unique-property-mean-equals-variance-applications--email-arrivals-per-hour--customer-arrivals-at-a-store--defects-per-manufactured-unit--website-clicks-per-minute--radioactive-decay-events-real-world-example-sms-message-arrivalslets-analyze-sms-message-data-to-see-if-it-follows-a-poisson-distribution" class="nav-link" data-scroll-target="#mathematical-definitionlet-x-be-the-number-of-events-in-a-fixed-interval.-if-events-occur-at-rate-lambda-0-then-x-sim-textpoissonlambda-with-pmfp_xx-fraclambdax-e-lambdax-quad-textfor-x-in-0-1-2-ldots-properties--mean-ex-lambda--variance-textvarx-lambda---unique-property-mean-equals-variance-applications--email-arrivals-per-hour--customer-arrivals-at-a-store--defects-per-manufactured-unit--website-clicks-per-minute--radioactive-decay-events-real-world-example-sms-message-arrivalslets-analyze-sms-message-data-to-see-if-it-follows-a-poisson-distribution">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be the number of events in a fixed interval. If events occur at rate <span class="math inline">\(\lambda &gt; 0\)</span>, then <span class="math inline">\(X \sim \text{Poisson}(\lambda)\)</span> with PMF:<span class="math display">\[p_X(x) = \frac{\lambda^x e^{-\lambda}}{x!} \quad \text{for } x \in \{0, 1, 2, \ldots\}\]</span>### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = \lambda\)</span>- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = \lambda\)</span> - <strong>Unique property</strong>: Mean equals variance!### Applications- <strong>Email arrivals</strong> per hour- <strong>Customer arrivals</strong> at a store- <strong>Defects per manufactured unit</strong>- <strong>Website clicks</strong> per minute- <strong>Radioactive decay</strong> events### Real-World Example: SMS Message ArrivalsLet’s analyze SMS message data to see if it follows a Poisson distribution:</a></li>
+  <li><a href="#mathematical-definitionlet-x-be-the-number-of-trials-needed-to-get-the-first-success-where-each-trial-has-success-probability-p.-then-x-sim-textgeometricp-with-pmfp_xx-1-px-1-p-quad-textfor-x-in-1-2-3-ldotsnote-pytorch-uses-a-different-parameterization-where-x-counts-the-number-of-failures-before-the-first-success-so-x-in-0-1-2-ldots.-properties--mean-ex-frac1p-trials-to-first-success--variance-textvarx-frac1-pp2--memoryless-property-px-mn-x-m-px-n-applications--sales-calls-until-first-sale--equipment-testing-until-first-failure--quality-control-until-first-defect--customer-service-until-problem-resolution-example-sales-representativea-sales-representative-has-a-30-success-rate-per-call.-how-many-calls-until-the-first-sale" id="toc-mathematical-definitionlet-x-be-the-number-of-trials-needed-to-get-the-first-success-where-each-trial-has-success-probability-p.-then-x-sim-textgeometricp-with-pmfp_xx-1-px-1-p-quad-textfor-x-in-1-2-3-ldotsnote-pytorch-uses-a-different-parameterization-where-x-counts-the-number-of-failures-before-the-first-success-so-x-in-0-1-2-ldots.-properties--mean-ex-frac1p-trials-to-first-success--variance-textvarx-frac1-pp2--memoryless-property-px-mn-x-m-px-n-applications--sales-calls-until-first-sale--equipment-testing-until-first-failure--quality-control-until-first-defect--customer-service-until-problem-resolution-example-sales-representativea-sales-representative-has-a-30-success-rate-per-call.-how-many-calls-until-the-first-sale" class="nav-link" data-scroll-target="#mathematical-definitionlet-x-be-the-number-of-trials-needed-to-get-the-first-success-where-each-trial-has-success-probability-p.-then-x-sim-textgeometricp-with-pmfp_xx-1-px-1-p-quad-textfor-x-in-1-2-3-ldotsnote-pytorch-uses-a-different-parameterization-where-x-counts-the-number-of-failures-before-the-first-success-so-x-in-0-1-2-ldots.-properties--mean-ex-frac1p-trials-to-first-success--variance-textvarx-frac1-pp2--memoryless-property-px-mn-x-m-px-n-applications--sales-calls-until-first-sale--equipment-testing-until-first-failure--quality-control-until-first-defect--customer-service-until-problem-resolution-example-sales-representativea-sales-representative-has-a-30-success-rate-per-call.-how-many-calls-until-the-first-sale">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be the number of trials needed to get the first success, where each trial has success probability <span class="math inline">\(p\)</span>. Then <span class="math inline">\(X \sim \text{Geometric}(p)\)</span> with PMF:<span class="math display">\[p_X(x) = (1-p)^{x-1} p \quad \text{for } x \in \{1, 2, 3, \ldots\}\]</span><strong>Note</strong>: PyTorch uses a different parameterization where <span class="math inline">\(X\)</span> counts the number of failures before the first success, so <span class="math inline">\(X \in \{0, 1, 2, \ldots\}\)</span>.### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = \frac{1}{p}\)</span> (trials to first success)- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = \frac{1-p}{p^2}\)</span>- <strong>Memoryless property</strong>: <span class="math inline">\(P(X &gt; m+n | X &gt; m) = P(X &gt; n)\)</span>### Applications- <strong>Sales calls</strong> until first sale- <strong>Equipment testing</strong> until first failure- <strong>Quality control</strong> until first defect- <strong>Customer service</strong> until problem resolution### Example: Sales RepresentativeA sales representative has a 30% success rate per call. How many calls until the first sale?</a></li>
+  <li><a href="#geometric-distributionthe-geometric-distribution-models-the-number-of-trials-needed-to-achieve-the-first-success-in-a-sequence-of-independent-bernoulli-trials." id="toc-geometric-distributionthe-geometric-distribution-models-the-number-of-trials-needed-to-achieve-the-first-success-in-a-sequence-of-independent-bernoulli-trials." class="nav-link" data-scroll-target="#geometric-distributionthe-geometric-distribution-models-the-number-of-trials-needed-to-achieve-the-first-success-in-a-sequence-of-independent-bernoulli-trials.">5. Geometric DistributionThe <strong>Geometric distribution</strong> models the number of trials needed to achieve the first success in a sequence of independent Bernoulli trials.</a></li>
+  </ul></li>
   <li><a href="#number-of-sms-rceived-per-day" id="toc-number-of-sms-rceived-per-day" class="nav-link" data-scroll-target="#number-of-sms-rceived-per-day">Number of SMS rceived per day</a></li>
   <li><a href="#sales-calls-before-a-successful-sale" id="toc-sales-calls-before-a-successful-sale" class="nav-link" data-scroll-target="#sales-calls-before-a-successful-sale">Sales Calls Before a Successful Sale</a></li>
   </ul>
@@ -382,12 +406,21 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">PMF and some common discrete distributions</h1>
+<h1 class="title">Probability Mass Functions and Common Discrete Distributions</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">ML</div>
+    <div class="quarto-category">Probability</div>
+    <div class="quarto-category">Statistics</div>
+    <div class="quarto-category">Mathematics</div>
+    <div class="quarto-category">Random Variables</div>
+    <div class="quarto-category">Distributions</div>
   </div>
   </div>
 
+<div>
+  <div class="description">
+    A comprehensive exploration of discrete probability distributions including Bernoulli, Categorical, Binomial, Poisson, and Geometric distributions. Covers theoretical foundations, practical applications, and real-world modeling scenarios.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -402,7 +435,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 11, 2025</p>
+      <p class="date">January 13, 2025</p>
     </div>
   </div>
   
@@ -410,11 +443,25 @@ window.Quarto = {
   </div>
   
 
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>probability mass function, PMF, discrete distributions, bernoulli distribution, categorical distribution, binomial distribution, poisson distribution, geometric distribution, quality control, logistic regression</p>
+  </div>
+</div>
 
 </header>
 
 
-<div id="cell-1" class="cell" data-execution_count="1">
+<p>—author: Nipun Batratitle: Probability Mass Functions and Common Discrete Distributionsdescription: A comprehensive exploration of discrete probability distributions including Bernoulli, Categorical, Binomial, Poisson, and Geometric distributions. Covers theoretical foundations, practical applications, and real-world modeling scenarios.categories: - Probability - Statistics - Mathematics - Random Variables - Distributionskeywords: - probability mass function - PMF - discrete distributions - bernoulli distribution - categorical distribution - binomial distribution - poisson distribution - geometric distribution - quality control - logistic regressiondate: ’2025-01-13’badges: truetoc: true—</p>
+<section id="probability-mass-functions-and-common-discrete-distributions-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-probability-mass-functions-pmf-mathematical-definition-and-properties2.-common-discrete-distributions-bernoulli-categorical-binomial-poisson-and-geometric3.-real-world-applications-quality-control-classification-and-count-modeling4.-parameter-estimation-fitting-distributions-to-data-using-pytorch5.-model-selection-choosing-appropriate-distributions-for-different-scenarios6.-practical-implementation-working-with-pytorch-distributions-for-data-science-introductiondiscrete-random-variables-take-on-countable-values-like-integers-and-their-behavior-is-completely-described-by-their-probability-mass-function-pmf.-the-pmf-tells-us-the-probability-of-each-possible-outcome-providing-a-complete-probabilistic-picture-of-the-random-variable.-mathematical-foundationfor-a-discrete-random-variable-x-the-pmf-is-defined-asp_xx-px-xthe-pmf-must-satisfy-two-fundamental-properties1.-non-negativity-p_xx-geq-0-for-all-x2.-normalization-sum_x-p_xx-1-why-discrete-distributions-matterdiscrete-distributions-are-everywhere-in-data-science-and-statistics--classification-problems-bernoulli-for-binary-categorical-for-multi-class--count-data-poisson-for-rare-events-binomial-for-fixed-trials--quality-control-binomial-for-defect-rates--waiting-times-geometric-for-time-to-first-success--natural-language-processing-categorical-for-word-distributions-common-discrete-distributions-overviewwell-explore-these-essential-distributions-distribution-use-case-parameters-example----bernoulli-binary-outcomes-p-success-prob-coin-flip-passfail-categorical-multi-class-outcomes-boldsymboltheta-prob-vector-die-roll-image-classification-binomial-fixed-trials-binary-outcome-n-p-quality-control-survey-responses-poisson-count-of-rare-events-lambda-rate-email-arrivals-defects-per-unit-geometric-trials-to-first-success-p-success-prob-sales-calls-equipment-failure-lets-dive-into-each-distribution-with-theory-implementation-and-real-world-applications" class="level1">
+<h1>Probability Mass Functions and Common Discrete Distributions## Learning ObjectivesBy the end of this notebook, you will understand:1. <strong>Probability Mass Functions (PMF)</strong>: Mathematical definition and properties2. <strong>Common Discrete Distributions</strong>: Bernoulli, Categorical, Binomial, Poisson, and Geometric3. <strong>Real-World Applications</strong>: Quality control, classification, and count modeling4. <strong>Parameter Estimation</strong>: Fitting distributions to data using PyTorch5. <strong>Model Selection</strong>: Choosing appropriate distributions for different scenarios6. <strong>Practical Implementation</strong>: Working with PyTorch distributions for data science## Introduction<strong>Discrete random variables</strong> take on countable values (like integers), and their behavior is completely described by their <strong>Probability Mass Function (PMF)</strong>. The PMF tells us the probability of each possible outcome, providing a complete probabilistic picture of the random variable.### Mathematical FoundationFor a discrete random variable <span class="math inline">\(X\)</span>, the PMF is defined as:<span class="math display">\[p_X(x) = P(X = x)\]</span>The PMF must satisfy two fundamental properties:1. <strong>Non-negativity</strong>: <span class="math inline">\(p_X(x) \geq 0\)</span> for all $x$2. <strong>Normalization</strong>: <span class="math inline">\(\sum_{x} p_X(x) = 1\)</span>### Why Discrete Distributions MatterDiscrete distributions are everywhere in data science and statistics:- <strong>Classification problems</strong> (Bernoulli for binary, Categorical for multi-class)- <strong>Count data</strong> (Poisson for rare events, Binomial for fixed trials)- <strong>Quality control</strong> (Binomial for defect rates)- <strong>Waiting times</strong> (Geometric for time to first success)- <strong>Natural language processing</strong> (Categorical for word distributions)### Common Discrete Distributions OverviewWe’ll explore these essential distributions:| Distribution | Use Case | Parameters | Example ||————-|———-|————|———|| Bernoulli | Binary outcomes | <span class="math inline">\(p\)</span> (success prob) | Coin flip, Pass/Fail || Categorical | Multi-class outcomes | <span class="math inline">\(\boldsymbol{\theta}\)</span> (prob vector) | Die roll, Image classification || Binomial | Fixed trials, binary outcome | <span class="math inline">\(n, p\)</span> | Quality control, Survey responses || Poisson | Count of rare events | <span class="math inline">\(\lambda\)</span> (rate) | Email arrivals, Defects per unit || Geometric | Trials to first success | <span class="math inline">\(p\)</span> (success prob) | Sales calls, Equipment failure |Let’s dive into each distribution with theory, implementation, and real-world applications!</h1>
+<section id="setting-up-the-environmentwell-use-pytorch-for-probability-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-the-environmentwell-use-pytorch-for-probability-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations">Setting Up the EnvironmentWe’ll use PyTorch for probability distributions, NumPy for numerical operations, and Matplotlib for visualizations:</h2>
+</section>
+<section id="bernoulli-distributionthe-bernoulli-distribution-is-the-simplest-discrete-distribution-modeling-a-single-binary-trial-with-two-possible-outcomes-success-1-or-failure-0.-mathematical-definitionlet-x-be-a-bernoulli-random-variable-with-parameter-p-in-01.-the-pmf-isp_xx-begincases1-p-textif-x-0-p-textif-x-1endcasesequivalently-p_xx-px1-p1-x-for-x-in-0-1-properties--mean-ex-p--variance-textvarx-p1-p--maximum-variance-occurs-when-p-0.5-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="bernoulli-distributionthe-bernoulli-distribution-is-the-simplest-discrete-distribution-modeling-a-single-binary-trial-with-two-possible-outcomes-success-1-or-failure-0.-mathematical-definitionlet-x-be-a-bernoulli-random-variable-with-parameter-p-in-01.-the-pmf-isp_xx-begincases1-p-textif-x-0-p-textif-x-1endcasesequivalently-p_xx-px1-p1-x-for-x-in-0-1-properties--mean-ex-p--variance-textvarx-p1-p--maximum-variance-occurs-when-p-0.5-visualization">1. Bernoulli DistributionThe <strong>Bernoulli distribution</strong> is the simplest discrete distribution, modeling a single binary trial with two possible outcomes: success (1) or failure (0).### Mathematical DefinitionLet <span class="math inline">\(X\)</span> be a Bernoulli random variable with parameter <span class="math inline">\(p \in [0,1]\)</span>. The PMF is:<span class="math display">\[p_X(x) = \begin{cases}1-p, &amp; \text{if } x = 0 \\p, &amp; \text{if } x = 1\end{cases}\]</span>Equivalently: <span class="math inline">\(p_X(x) = p^x(1-p)^{1-x}\)</span> for <span class="math inline">\(x \in \{0, 1\}\)</span>### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = p\)</span>- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = p(1-p)\)</span>- <strong>Maximum variance</strong>: Occurs when <span class="math inline">\(p = 0.5\)</span>### Visualization</h2>
+<div id="cell-4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch </span>
@@ -425,6 +472,8 @@ window.Quarto = {
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+</section>
 <section id="pmf-of-bernoulli-distribution" class="level1">
 <h1>PMF of Bernoulli distribution</h1>
 <p>Let <span class="math inline">\(X\)</span> be a Bernoulli random variable. <span class="math inline">\(X\)</span> can take on one of two values, 0 or 1, with probabilities <span class="math inline">\(1-p\)</span> and <span class="math inline">\(p\)</span>, respectively.</p>
@@ -455,7 +504,7 @@ p &amp; \text{if } x = 1 \\
 \end{equation}
 \]</span></p>
 <p>where <span class="math inline">\(p\)</span> is the probability of success.</p>
-<div id="cell-4" class="cell" data-execution_count="195">
+<div id="cell-7" class="cell" data-execution_count="195">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Plotting the PMF</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_pmf_bernoilli(p, title):</span>
@@ -467,7 +516,7 @@ p &amp; \text{if } x = 1 \\
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'P(X=x)'</span>)</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    plt.xticks([<span class="dv">0</span>, <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="196">
+<div id="cell-8" class="cell" data-execution_count="196">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plot_pmf_bernoilli(<span class="fl">0.3</span>, <span class="st">'Bernoulli PMF with p=0.3'</span>)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -477,7 +526,9 @@ p &amp; \text{if } x = 1 \\
 </div>
 </div>
 </div>
-<div id="cell-6" class="cell" data-execution_count="87">
+<section id="working-with-pytorch-distributionslets-explore-the-bernoulli-distribution-using-pytorchs-built-in-functionality" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-pytorch-distributionslets-explore-the-bernoulli-distribution-using-pytorchs-built-in-functionality">Working with PyTorch DistributionsLet’s explore the Bernoulli distribution using PyTorch’s built-in functionality:</h3>
+<div id="cell-10" class="cell" data-execution_count="87">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot_pmf_bernoilli(<span class="fl">0.8</span>, <span class="st">'Bernoulli PMF with p=0.3'</span>)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -487,7 +538,7 @@ p &amp; \text{if } x = 1 \\
 </div>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="197">
+<div id="cell-11" class="cell" data-execution_count="197">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Bernoulli?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <div class="ansi-escaped-output">
@@ -535,19 +586,20 @@ Args:
 </div>
 </div>
 </div>
+</section>
 <section id="bernoulli-distribution-in-pytorch" class="level2">
 <h2 class="anchored" data-anchor-id="bernoulli-distribution-in-pytorch">Bernoulli Distribution in PyTorch</h2>
-<div id="cell-9" class="cell" data-execution_count="198">
+<div id="cell-13" class="cell" data-execution_count="198">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Bernoulli distribution with p=0.9</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Bernoulli(probs<span class="op">=</span><span class="fl">0.9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-10" class="cell" data-execution_count="199">
+<div id="cell-14" class="cell" data-execution_count="199">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="199">
 <pre><code>Bernoulli(probs: 0.8999999761581421)</code></pre>
 </div>
 </div>
-<div id="cell-11" class="cell" data-execution_count="93">
+<div id="cell-15" class="cell" data-execution_count="93">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print all attributes of the Bernoulli distribution -- do not have __ or _ in the beginning</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>attrs <span class="op">=</span> [attr <span class="cf">for</span> attr <span class="kw">in</span> <span class="bu">dir</span>(dist) <span class="cf">if</span> <span class="kw">not</span> attr.startswith(<span class="st">'_'</span>)]</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>pd.Series(attrs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -579,37 +631,37 @@ Args:
 dtype: object</code></pre>
 </div>
 </div>
-<div id="cell-12" class="cell" data-execution_count="201">
+<div id="cell-16" class="cell" data-execution_count="201">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="201">
 <pre><code>tensor(0.9000)</code></pre>
 </div>
 </div>
-<div id="cell-13" class="cell" data-execution_count="202">
+<div id="cell-17" class="cell" data-execution_count="202">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dist.probs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="202">
 <pre><code>tensor(0.9000)</code></pre>
 </div>
 </div>
-<div id="cell-14" class="cell" data-execution_count="203">
+<div id="cell-18" class="cell" data-execution_count="203">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="203">
 <pre><code>Boolean()</code></pre>
 </div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="204">
+<div id="cell-19" class="cell" data-execution_count="204">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>dist.log_prob(torch.tensor(<span class="fl">1.0</span>)).exp()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="204">
 <pre><code>tensor(0.9000)</code></pre>
 </div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="131">
+<div id="cell-20" class="cell" data-execution_count="131">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>dist.log_prob(torch.tensor(<span class="fl">0.0</span>)).exp()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="131">
 <pre><code>tensor(0.1000)</code></pre>
 </div>
 </div>
-<div id="cell-17" class="cell" data-execution_count="205">
+<div id="cell-21" class="cell" data-execution_count="205">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    dist.log_prob(torch.tensor(<span class="fl">0.5</span>)).exp()</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
@@ -619,27 +671,31 @@ dtype: object</code></pre>
 0.5</code></pre>
 </div>
 </div>
-<div id="cell-18" class="cell" data-execution_count="218">
+<p>Notice that even though the expected frequency is 0.9, individual samples can vary significantly due to randomness.## Real-World Application: Fruit ClassificationLet’s explore a practical machine learning application using the Bernoulli distribution for binary classification.</p>
+<div id="cell-23" class="cell" data-execution_count="218">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dist.sample()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="218">
 <pre><code>tensor(0.)</code></pre>
 </div>
 </div>
-<div id="cell-19" class="cell" data-execution_count="219">
+<div id="cell-24" class="cell" data-execution_count="219">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> dist.sample(torch.Size([<span class="dv">1000</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-20" class="cell" data-execution_count="220">
+<div id="cell-25" class="cell" data-execution_count="220">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>samples[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="220">
 <pre><code>tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])</code></pre>
 </div>
 </div>
-<div id="cell-21" class="cell" data-execution_count="221">
+<section id="problem-setup-lime-vs-lemon-classificationwe-want-to-classify-fruits-as-limes-0-or-lemons-1-based-on-their-radius.-this-is-a-classic-logistic-regression-problem-where-we-modelptextlemontextradius-textsigmoidw-cdot-textradius-bthe-sigmoid-function-ensures-probabilities-stay-between-0-and-1-making-it-perfect-for-bernoulli-distributions." class="level3">
+<h3 class="anchored" data-anchor-id="problem-setup-lime-vs-lemon-classificationwe-want-to-classify-fruits-as-limes-0-or-lemons-1-based-on-their-radius.-this-is-a-classic-logistic-regression-problem-where-we-modelptextlemontextradius-textsigmoidw-cdot-textradius-bthe-sigmoid-function-ensures-probabilities-stay-between-0-and-1-making-it-perfect-for-bernoulli-distributions.">Problem Setup: Lime vs Lemon ClassificationWe want to classify fruits as limes (0) or lemons (1) based on their radius. This is a classic logistic regression problem where we model:<span class="math display">\[P(\text{Lemon}|\text{radius}) = \text{sigmoid}(w \cdot \text{radius} + b)\]</span>The sigmoid function ensures probabilities stay between 0 and 1, making it perfect for Bernoulli distributions.</h3>
+<div id="cell-27" class="cell" data-execution_count="221">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>samples.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="221">
 <pre><code>tensor(0.9110)</code></pre>
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="lime-vs-lemon" class="level1">
@@ -666,24 +722,24 @@ dtype: object</code></pre>
 </section>
 <section id="generative-process" class="level2">
 <h2 class="anchored" data-anchor-id="generative-process">Generative process</h2>
-<div id="cell-27" class="cell" data-execution_count="223">
+<div id="cell-33" class="cell" data-execution_count="223">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set random seed</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>torch.manual_seed(<span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="223">
 <pre><code>&lt;torch._C.Generator at 0x12ab80ab0&gt;</code></pre>
 </div>
 </div>
-<div id="cell-28" class="cell" data-execution_count="224">
+<div id="cell-34" class="cell" data-execution_count="224">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>radius_array <span class="op">=</span> torch.distributions.Uniform(<span class="dv">0</span>, <span class="dv">3</span>).sample((<span class="dv">1000</span>,))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-29" class="cell" data-execution_count="225">
+<div id="cell-35" class="cell" data-execution_count="225">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>radius_array[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="225">
 <pre><code>tensor([2.6468, 2.7450, 1.1486, 2.8779, 1.1713, 1.8027, 0.7697, 2.3809, 2.8223,
         0.3996])</code></pre>
 </div>
 </div>
-<div id="cell-30" class="cell" data-execution_count="11">
+<div id="cell-36" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> plt.hist(radius_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -696,7 +752,7 @@ dtype: object</code></pre>
 <p>We start by modeling the generative process of the data.</p>
 <p>We assume if w*r + b &gt; 0, then the fruit is a lemon, otherwise it is a lime.</p>
 <p>Let us assume that <code>w_true</code> = 1.2 and <code>b_true</code> = -2.0.</p>
-<div id="cell-32" class="cell" data-execution_count="226">
+<div id="cell-38" class="cell" data-execution_count="226">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> linear(r, w, b):</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> w <span class="op">*</span> r <span class="op">+</span> b</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -705,7 +761,7 @@ dtype: object</code></pre>
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>logits <span class="op">=</span> linear(radius_array, w_true, b_true)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-33" class="cell" data-execution_count="227">
+<div id="cell-39" class="cell" data-execution_count="227">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>pd.Series(logits.numpy()).describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="227">
 <pre><code>count    1000.000000
@@ -725,20 +781,20 @@ dtype: float64</code></pre>
 <p><span class="math display">\[
 \sigma(x) = \frac{1}{1 + e^{-x}}
 \]</span></p>
-<div id="cell-35" class="cell" data-execution_count="228">
+<div id="cell-41" class="cell" data-execution_count="228">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sigmoid(x):</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="op">/</span> (<span class="dv">1</span> <span class="op">+</span> torch.exp(<span class="op">-</span>x))</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>probs <span class="op">=</span> sigmoid(logits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-36" class="cell" data-execution_count="229">
+<div id="cell-42" class="cell" data-execution_count="229">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'radius'</span>: radius_array.numpy(),</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'logits'</span>: logits.numpy(),</span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'probabilities'</span>: probs.numpy()</span>
 <span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-37" class="cell" data-execution_count="230">
+<div id="cell-43" class="cell" data-execution_count="230">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="230">
 <div>
@@ -790,7 +846,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-38" class="cell" data-execution_count="231">
+<div id="cell-44" class="cell" data-execution_count="231">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>df.query(<span class="st">'radius &lt; 0.2'</span>).head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="231">
 <div>
@@ -846,13 +902,15 @@ dtype: float64</code></pre>
 </section>
 <section id="generate-a-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="generate-a-dataset">Generate a dataset</h2>
-<div id="cell-41" class="cell" data-execution_count="232">
+<div id="cell-47" class="cell" data-execution_count="232">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>y_true <span class="op">=</span> torch.distributions.Bernoulli(probs<span class="op">=</span>probs).sample()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-42" class="cell" data-execution_count="233">
+<div id="cell-48" class="cell" data-execution_count="233">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'y_true'</span>] <span class="op">=</span> y_true.numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-43" class="cell" data-execution_count="236">
+<section id="model-training-and-resultsour-logistic-regression-successfully-learned-the-underlying-relationship-the-learned-parameters-closely-match-the-true-parameters-used-to-generate-the-data." class="level3">
+<h3 class="anchored" data-anchor-id="model-training-and-resultsour-logistic-regression-successfully-learned-the-underlying-relationship-the-learned-parameters-closely-match-the-true-parameters-used-to-generate-the-data.">Model Training and ResultsOur logistic regression successfully learned the underlying relationship! The learned parameters closely match the true parameters used to generate the data.</h3>
+<div id="cell-50" class="cell" data-execution_count="236">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>df.query(<span class="st">'y_true == 0'</span>).head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="236">
 <div>
@@ -945,7 +1003,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-44" class="cell" data-execution_count="235">
+<div id="cell-51" class="cell" data-execution_count="235">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df.query(<span class="st">'y_true == 1'</span>).head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="235">
 <div>
@@ -1039,7 +1097,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 <p>We can notice that even though the probability of the event is very low, it still happens. This is the nature of the Bernoulli distribution.</p>
-<div id="cell-46" class="cell" data-execution_count="112">
+<div id="cell-53" class="cell" data-execution_count="112">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>df.query(<span class="st">'y_true == 0'</span>).head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="112">
 <div>
@@ -1132,7 +1190,7 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-47" class="cell" data-execution_count="237">
+<div id="cell-54" class="cell" data-execution_count="237">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(radius_array, y_true, alpha<span class="op">=</span><span class="fl">0.1</span>, marker<span class="op">=</span><span class="st">'|'</span>, color<span class="op">=</span><span class="st">'k'</span>)</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Radius'</span>)</span>
@@ -1151,7 +1209,11 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-48" class="cell" data-execution_count="238">
+<p>The decision boundary is at radius ≈ 1.67, where P(Lemon) = 0.5.## 2. Categorical DistributionThe <strong>Categorical distribution</strong> generalizes the Bernoulli distribution to more than two outcomes. It’s fundamental for multi-class classification problems.</p>
+</section>
+<section id="mathematical-definitionlet-x-be-a-categorical-random-variable-with-k-possible-outcomes-1-2-ldots-k-and-parameter-vector-boldsymboltheta-theta_1-theta_2-ldots-theta_k.-the-pmf-isp_xx-k-theta_k-quad-textfor-k-in-1-2-ldots-kconstraints-theta_k-geq-0-and-sum_k1k-theta_k-1-applications--image-classification-cat-dog-bird---sentiment-analysis-positive-negative-neutral--die-rolling-1-2-3-4-5-6--market-research-product-preferences" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-definitionlet-x-be-a-categorical-random-variable-with-k-possible-outcomes-1-2-ldots-k-and-parameter-vector-boldsymboltheta-theta_1-theta_2-ldots-theta_k.-the-pmf-isp_xx-k-theta_k-quad-textfor-k-in-1-2-ldots-kconstraints-theta_k-geq-0-and-sum_k1k-theta_k-1-applications--image-classification-cat-dog-bird---sentiment-analysis-positive-negative-neutral--die-rolling-1-2-3-4-5-6--market-research-product-preferences">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be a categorical random variable with <span class="math inline">\(K\)</span> possible outcomes <span class="math inline">\(\{1, 2, \ldots, K\}\)</span> and parameter vector <span class="math inline">\(\boldsymbol{\theta} = (\theta_1, \theta_2, \ldots, \theta_K)\)</span>. The PMF is:<span class="math display">\[p_X(x = k) = \theta_k \quad \text{for } k \in \{1, 2, \ldots, K\}\]</span><strong>Constraints</strong>: <span class="math inline">\(\theta_k \geq 0\)</span> and <span class="math inline">\(\sum_{k=1}^K \theta_k = 1\)</span>### Applications- <strong>Image classification</strong> (cat, dog, bird, …)- <strong>Sentiment analysis</strong> (positive, negative, neutral)- <strong>Die rolling</strong> (1, 2, 3, 4, 5, 6)- <strong>Market research</strong> (product preferences)</h3>
+<div id="cell-57" class="cell" data-execution_count="238">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Logistic regression model</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LogisticRegression(nn.Module):</span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
@@ -1207,7 +1269,7 @@ Epoch: 800, Loss: 0.5727986693382263
 Epoch: 900, Loss: 0.5727971196174622</code></pre>
 </div>
 </div>
-<div id="cell-49" class="cell" data-execution_count="239">
+<div id="cell-58" class="cell" data-execution_count="239">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Learned weights and bias</span></span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>w_learned <span class="op">=</span> model.linear.weight.item()</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>b_learned <span class="op">=</span> model.linear.bias.item()</span>
@@ -1220,7 +1282,7 @@ Epoch: 900, Loss: 0.5727971196174622</code></pre>
 True bias: -2.0, Learned bias: -2.0183537006378174</code></pre>
 </div>
 </div>
-<div id="cell-50" class="cell" data-execution_count="240">
+<div id="cell-59" class="cell" data-execution_count="240">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test if a new fruit is a lime or a lemon</span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict_fruit(radius, model):</span>
@@ -1232,25 +1294,25 @@ True bias: -2.0, Learned bias: -2.0183537006378174</code></pre>
 <span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fruit, prob</span>
 <span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-51" class="cell" data-execution_count="241">
+<div id="cell-60" class="cell" data-execution_count="241">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>predict_fruit(<span class="fl">0.5</span>, model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="241">
 <pre><code>('Lime', 0.19898711144924164)</code></pre>
 </div>
 </div>
-<div id="cell-52" class="cell" data-execution_count="242">
+<div id="cell-61" class="cell" data-execution_count="242">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>predict_fruit(<span class="fl">1.5</span>, model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="242">
 <pre><code>('Lime', 0.46475765109062195)</code></pre>
 </div>
 </div>
-<div id="cell-53" class="cell" data-execution_count="243">
+<div id="cell-62" class="cell" data-execution_count="243">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>predict_fruit(<span class="fl">2.0</span>, model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="243">
 <pre><code>('Lemon', 0.6188130378723145)</code></pre>
 </div>
 </div>
-<div id="cell-54" class="cell" data-execution_count="265">
+<div id="cell-63" class="cell" data-execution_count="265">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Decision surface</span></span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>radius_values <span class="op">=</span> torch.linspace(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">100</span>).unsqueeze(<span class="dv">1</span>)</span>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>probs <span class="op">=</span> sigmoid(model(radius_values)).detach()</span>
@@ -1270,6 +1332,7 @@ True bias: -2.0, Learned bias: -2.0183537006378174</code></pre>
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="categorical-distribution" class="level1">
@@ -1299,8 +1362,11 @@ p_X(x) = \frac{1}{6}, \quad x \in \{1, 2, 3, 4, 5, 6\}.
 <section id="imagenet" class="level2">
 <h2 class="anchored" data-anchor-id="imagenet">Imagenet</h2>
 <p>The ImageNet project is a large visual database designed for use in visual object recognition research.</p>
+<p>The empirical frequencies closely match our theoretical probabilities, validating our implementation.## 3. Binomial DistributionThe <strong>Binomial distribution</strong> models the number of successes in a fixed number of independent Bernoulli trials.</p>
+<section id="mathematical-definitionlet-x-be-the-number-of-successes-in-n-independent-bernoulli-trials-each-with-success-probability-p.-then-x-sim-textbinomialn-p-with-pmfp_xx-binomnx-px-1-pn-x-quad-textfor-x-in-0-1-2-ldots-nwhere-binomnx-fracnxn-x-is-the-binomial-coefficient.-properties--mean-ex-np--variance-textvarx-np1-p--mode-lfloor-n1p-rfloor-real-world-example-quality-controla-factory-produces-electronic-chips-with-a-10-defect-rate.-quality-control-randomly-selects-10-chips.-how-many-defects-should-we-expect" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-definitionlet-x-be-the-number-of-successes-in-n-independent-bernoulli-trials-each-with-success-probability-p.-then-x-sim-textbinomialn-p-with-pmfp_xx-binomnx-px-1-pn-x-quad-textfor-x-in-0-1-2-ldots-nwhere-binomnx-fracnxn-x-is-the-binomial-coefficient.-properties--mean-ex-np--variance-textvarx-np1-p--mode-lfloor-n1p-rfloor-real-world-example-quality-controla-factory-produces-electronic-chips-with-a-10-defect-rate.-quality-control-randomly-selects-10-chips.-how-many-defects-should-we-expect">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be the number of successes in <span class="math inline">\(n\)</span> independent Bernoulli trials, each with success probability <span class="math inline">\(p\)</span>. Then <span class="math inline">\(X \sim \text{Binomial}(n, p)\)</span> with PMF:<span class="math display">\[p_X(x) = \binom{n}{x} p^x (1-p)^{n-x} \quad \text{for } x \in \{0, 1, 2, \ldots, n\}\]</span>where <span class="math inline">\(\binom{n}{x} = \frac{n!}{x!(n-x)!}\)</span> is the binomial coefficient.### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = np\)</span>- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = np(1-p)\)</span>- <strong>Mode</strong>: <span class="math inline">\(\lfloor (n+1)p \rfloor\)</span>### Real-World Example: Quality ControlA factory produces electronic chips with a 10% defect rate. Quality control randomly selects 10 chips. How many defects should we expect?</h3>
 <p><img src="https://blog.roboflow.com/content/images/2021/06/image-18.png" class="img-fluid"></p>
-<div id="cell-58" class="cell" data-execution_count="266">
+<div id="cell-69" class="cell" data-execution_count="266">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>theta_vec <span class="op">=</span> torch.tensor([<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>])</span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
@@ -1319,26 +1385,26 @@ p_X(x) = \frac{1}{6}, \quad x \in \{1, 2, 3, 4, 5, 6\}.
 </div>
 </div>
 </div>
-<div id="cell-59" class="cell" data-execution_count="267">
+<div id="cell-70" class="cell" data-execution_count="267">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Categorical(probs<span class="op">=</span>theta_vec)</span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Categorical(probs: torch.Size([4]))</code></pre>
 </div>
 </div>
-<div id="cell-60" class="cell" data-execution_count="268">
+<div id="cell-71" class="cell" data-execution_count="268">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="268">
 <pre><code>IntegerInterval(lower_bound=0, upper_bound=3)</code></pre>
 </div>
 </div>
-<div id="cell-61" class="cell" data-execution_count="269">
+<div id="cell-72" class="cell" data-execution_count="269">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>dist.log_prob(torch.tensor(<span class="fl">0.0</span>)).exp()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="269">
 <pre><code>tensor(0.1000)</code></pre>
 </div>
 </div>
-<div id="cell-62" class="cell" data-execution_count="270">
+<div id="cell-73" class="cell" data-execution_count="270">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>    dist.log_prob(torch.tensor(<span class="fl">4.0</span>)).exp()</span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
@@ -1348,16 +1414,21 @@ p_X(x) = \frac{1}{6}, \quad x \in \{1, 2, 3, 4, 5, 6\}.
 4.0</code></pre>
 </div>
 </div>
-<div id="cell-63" class="cell" data-execution_count="271">
+<div id="cell-74" class="cell" data-execution_count="271">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> dist.sample(torch.Size([<span class="dv">1000</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-64" class="cell" data-execution_count="272">
+<p>The distribution shows that finding 0 or 1 defects is most likely, with very low probability of finding 5+ defects in a sample of 10.### Simulation Validation</p>
+<div id="cell-76" class="cell" data-execution_count="272">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>samples[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="272">
 <pre><code>tensor([2, 3, 2, 1, 0, 3, 3, 3, 2, 3])</code></pre>
 </div>
 </div>
-<div id="cell-65" class="cell" data-execution_count="273">
+</section>
+</section>
+<section id="poisson-distributionthe-poisson-distribution-models-the-number-of-events-occurring-in-a-fixed-interval-when-events-happen-independently-at-a-constant-average-rate." class="level2">
+<h2 class="anchored" data-anchor-id="poisson-distributionthe-poisson-distribution-models-the-number-of-events-occurring-in-a-fixed-interval-when-events-happen-independently-at-a-constant-average-rate.">4. Poisson DistributionThe <strong>Poisson distribution</strong> models the number of events occurring in a fixed interval when events happen independently at a constant average rate.</h2>
+<div id="cell-78" class="cell" data-execution_count="273">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>pd.value_counts(samples.numpy(), normalize<span class="op">=</span><span class="va">True</span>).sort_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/var/folders/z8/gpvqr8mn3w9_f38byxhnsk780000gn/T/ipykernel_11326/3899675828.py:1: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.
@@ -1383,24 +1454,26 @@ Name: proportion, dtype: float64</code></pre>
 p_X(x) = \binom{n}{x} p^x(1-p)^{n-x}, \quad x \in \{0, 1, 2, \ldots, 10\}.
 \]</span></p>
 <p>where <span class="math inline">\(n\)</span> is the number of chips in the sample, <span class="math inline">\(0 &lt; p &lt; 1\)</span> is the probability of a chip being defective, and <span class="math inline">\(\binom{n}{x}\)</span> is the binomial coefficient, which is the number of ways to choose <span class="math inline">\(x\)</span> defective chips from <span class="math inline">\(n\)</span> chips.</p>
-<div id="cell-67" class="cell" data-execution_count="274">
+<div id="cell-80" class="cell" data-execution_count="274">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>p_failure <span class="op">=</span> <span class="fl">0.1</span></span>
 <span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>n_chips <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Binomial(n_chips, p_failure)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-68" class="cell" data-execution_count="275">
+<div id="cell-81" class="cell" data-execution_count="275">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="275">
 <pre><code>Binomial(total_count: 10.0, probs: 0.10000000149011612)</code></pre>
 </div>
 </div>
-<div id="cell-69" class="cell" data-execution_count="276">
+<section id="mathematical-definitionlet-x-be-the-number-of-events-in-a-fixed-interval.-if-events-occur-at-rate-lambda-0-then-x-sim-textpoissonlambda-with-pmfp_xx-fraclambdax-e-lambdax-quad-textfor-x-in-0-1-2-ldots-properties--mean-ex-lambda--variance-textvarx-lambda---unique-property-mean-equals-variance-applications--email-arrivals-per-hour--customer-arrivals-at-a-store--defects-per-manufactured-unit--website-clicks-per-minute--radioactive-decay-events-real-world-example-sms-message-arrivalslets-analyze-sms-message-data-to-see-if-it-follows-a-poisson-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-definitionlet-x-be-the-number-of-events-in-a-fixed-interval.-if-events-occur-at-rate-lambda-0-then-x-sim-textpoissonlambda-with-pmfp_xx-fraclambdax-e-lambdax-quad-textfor-x-in-0-1-2-ldots-properties--mean-ex-lambda--variance-textvarx-lambda---unique-property-mean-equals-variance-applications--email-arrivals-per-hour--customer-arrivals-at-a-store--defects-per-manufactured-unit--website-clicks-per-minute--radioactive-decay-events-real-world-example-sms-message-arrivalslets-analyze-sms-message-data-to-see-if-it-follows-a-poisson-distribution">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be the number of events in a fixed interval. If events occur at rate <span class="math inline">\(\lambda &gt; 0\)</span>, then <span class="math inline">\(X \sim \text{Poisson}(\lambda)\)</span> with PMF:<span class="math display">\[p_X(x) = \frac{\lambda^x e^{-\lambda}}{x!} \quad \text{for } x \in \{0, 1, 2, \ldots\}\]</span>### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = \lambda\)</span>- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = \lambda\)</span> - <strong>Unique property</strong>: Mean equals variance!### Applications- <strong>Email arrivals</strong> per hour- <strong>Customer arrivals</strong> at a store- <strong>Defects per manufactured unit</strong>- <strong>Website clicks</strong> per minute- <strong>Radioactive decay</strong> events### Real-World Example: SMS Message ArrivalsLet’s analyze SMS message data to see if it follows a Poisson distribution:</h3>
+<div id="cell-83" class="cell" data-execution_count="276">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="276">
 <pre><code>IntegerInterval(lower_bound=0, upper_bound=10.0)</code></pre>
 </div>
 </div>
-<div id="cell-70" class="cell" data-execution_count="278">
+<div id="cell-84" class="cell" data-execution_count="278">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.arange(<span class="dv">0</span>, n_chips<span class="op">+</span><span class="dv">1</span>)</span>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> dist.log_prob(x).exp()</span>
 <span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a>df_prob_binomial <span class="op">=</span> pd.DataFrame({</span>
@@ -1483,7 +1556,7 @@ p_X(x) = \binom{n}{x} p^x(1-p)^{n-x}, \quad x \in \{0, 1, 2, \ldots, 10\}.
 </div>
 </div>
 </div>
-<div id="cell-71" class="cell" data-execution_count="279">
+<div id="cell-85" class="cell" data-execution_count="279">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>df_prob_binomial.plot(kind<span class="op">=</span><span class="st">'bar'</span>, x<span class="op">=</span><span class="st">'x'</span>, y<span class="op">=</span><span class="st">'P(X=x)'</span>, rot<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
 <span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'P(X=x)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1498,16 +1571,22 @@ p_X(x) = \binom{n}{x} p^x(1-p)^{n-x}, \quad x \in \{0, 1, 2, \ldots, 10\}.
 </div>
 </div>
 </div>
-<div id="cell-72" class="cell" data-execution_count="280">
+<div id="cell-86" class="cell" data-execution_count="280">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> dist.sample(torch.Size([<span class="dv">1000</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-73" class="cell" data-execution_count="281">
+<div id="cell-87" class="cell" data-execution_count="281">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>samples[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="281">
 <pre><code>tensor([2., 0., 1., 3., 0.])</code></pre>
 </div>
 </div>
-<div id="cell-74" class="cell" data-execution_count="282">
+</section>
+<section id="mathematical-definitionlet-x-be-the-number-of-trials-needed-to-get-the-first-success-where-each-trial-has-success-probability-p.-then-x-sim-textgeometricp-with-pmfp_xx-1-px-1-p-quad-textfor-x-in-1-2-3-ldotsnote-pytorch-uses-a-different-parameterization-where-x-counts-the-number-of-failures-before-the-first-success-so-x-in-0-1-2-ldots.-properties--mean-ex-frac1p-trials-to-first-success--variance-textvarx-frac1-pp2--memoryless-property-px-mn-x-m-px-n-applications--sales-calls-until-first-sale--equipment-testing-until-first-failure--quality-control-until-first-defect--customer-service-until-problem-resolution-example-sales-representativea-sales-representative-has-a-30-success-rate-per-call.-how-many-calls-until-the-first-sale" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-definitionlet-x-be-the-number-of-trials-needed-to-get-the-first-success-where-each-trial-has-success-probability-p.-then-x-sim-textgeometricp-with-pmfp_xx-1-px-1-p-quad-textfor-x-in-1-2-3-ldotsnote-pytorch-uses-a-different-parameterization-where-x-counts-the-number-of-failures-before-the-first-success-so-x-in-0-1-2-ldots.-properties--mean-ex-frac1p-trials-to-first-success--variance-textvarx-frac1-pp2--memoryless-property-px-mn-x-m-px-n-applications--sales-calls-until-first-sale--equipment-testing-until-first-failure--quality-control-until-first-defect--customer-service-until-problem-resolution-example-sales-representativea-sales-representative-has-a-30-success-rate-per-call.-how-many-calls-until-the-first-sale">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be the number of trials needed to get the first success, where each trial has success probability <span class="math inline">\(p\)</span>. Then <span class="math inline">\(X \sim \text{Geometric}(p)\)</span> with PMF:<span class="math display">\[p_X(x) = (1-p)^{x-1} p \quad \text{for } x \in \{1, 2, 3, \ldots\}\]</span><strong>Note</strong>: PyTorch uses a different parameterization where <span class="math inline">\(X\)</span> counts the number of failures before the first success, so <span class="math inline">\(X \in \{0, 1, 2, \ldots\}\)</span>.### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = \frac{1}{p}\)</span> (trials to first success)- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = \frac{1-p}{p^2}\)</span>- <strong>Memoryless property</strong>: <span class="math inline">\(P(X &gt; m+n | X &gt; m) = P(X &gt; n)\)</span>### Applications- <strong>Sales calls</strong> until first sale- <strong>Equipment testing</strong> until first failure- <strong>Quality control</strong> until first defect- <strong>Customer service</strong> until problem resolution### Example: Sales RepresentativeA sales representative has a 30% success rate per call. How many calls until the first sale?</h3>
+</section>
+<section id="geometric-distributionthe-geometric-distribution-models-the-number-of-trials-needed-to-achieve-the-first-success-in-a-sequence-of-independent-bernoulli-trials." class="level2">
+<h2 class="anchored" data-anchor-id="geometric-distributionthe-geometric-distribution-models-the-number-of-trials-needed-to-achieve-the-first-success-in-a-sequence-of-independent-bernoulli-trials.">5. Geometric DistributionThe <strong>Geometric distribution</strong> models the number of trials needed to achieve the first success in a sequence of independent Bernoulli trials.</h2>
+<div id="cell-90" class="cell" data-execution_count="282">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>pd.Series(samples.numpy()).value_counts().sort_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="282">
 <pre><code>0.0    354
@@ -1521,18 +1600,20 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 </section>
+</section>
 <section id="number-of-sms-rceived-per-day" class="level1">
 <h1>Number of SMS rceived per day</h1>
 <p>Hat tip: Bayesian Methods for Hackers book</p>
-<div id="cell-77" class="cell" data-execution_count="170">
+<p>Remember that PyTorch’s Geometric distribution counts failures before success, so these represent the number of failed calls before the first successful sale.## Summary and Key InsightsIn this comprehensive notebook, we’ve explored the fundamental discrete probability distributions that form the backbone of statistical modeling and machine learning:### Distributions Covered1. <strong>Bernoulli</strong>: Binary outcomes (classification, A/B testing)2. <strong>Categorical</strong>: Multi-class outcomes (image classification, NLP)3. <strong>Binomial</strong>: Fixed trials with binary outcomes (quality control, surveys) 4. <strong>Poisson</strong>: Count of rare events (arrivals, defects, clicks)5. <strong>Geometric</strong>: Trials to first success (sales, reliability testing)### Key Mathematical Insights- <strong>PMF Properties</strong>: Non-negativity and normalization are universal- <strong>Parameter Relationships</strong>: Mean and variance depend on distribution parameters- <strong>Support</strong>: Each distribution has a specific domain of possible values- <strong>Applications</strong>: Choice depends on the underlying data-generating process### Practical Implementation Skills- <strong>PyTorch Integration</strong>: Using built-in distributions for modeling- <strong>Sampling and Validation</strong>: Generating samples and verifying against theory- <strong>Real-World Modeling</strong>: Applying distributions to practical problems- <strong>Parameter Estimation</strong>: Learning distribution parameters from data### When to Use Each Distribution| Situation | Distribution | Key Question ||———–|————-|————–|| Binary classification | Bernoulli | Success/failure with fixed probability? || Multi-class classification | Categorical | Multiple exclusive outcomes? || Fixed number of trials | Binomial | How many successes in n trials? || Count of rare events | Poisson | How many events in fixed time/space? || Time to first success | Geometric | How long until first success? |### Advanced Topics for Further Study- <strong>Maximum Likelihood Estimation</strong> for parameter fitting- <strong>Bayesian approaches</strong> to parameter uncertainty- <strong>Mixture models</strong> combining multiple distributions- <strong>Zero-inflated models</strong> for count data with excess zeros- <strong>Truncated distributions</strong> for bounded domains### Machine Learning ConnectionsThese distributions are essential for:- <strong>Generative models</strong> (VAEs, GANs)- <strong>Classification</strong> (logistic regression, neural networks)- <strong>Reinforcement learning</strong> (policy gradients)- <strong>Bayesian machine learning</strong> (priors and posteriors)- <strong>Natural language processing</strong> (language models)Understanding discrete distributions provides the foundation for advanced statistical modeling and machine learning applications!</p>
+<div id="cell-94" class="cell" data-execution_count="170">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/refs/heads/master/Chapter1_Introduction/data/txtdata.csv"</span></span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(url, header<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-78" class="cell" data-execution_count="172">
+<div id="cell-95" class="cell" data-execution_count="172">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>data.index.name <span class="op">=</span> <span class="st">'Day'</span></span>
 <span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>data.columns <span class="op">=</span> [<span class="st">'Count'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-79" class="cell" data-execution_count="173">
+<div id="cell-96" class="cell" data-execution_count="173">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="173">
 <div>
@@ -1601,7 +1682,7 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-80" class="cell" data-execution_count="176">
+<div id="cell-97" class="cell" data-execution_count="176">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">21</span>, <span class="dv">7</span>))</span>
 <span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>data.plot(kind<span class="op">=</span><span class="st">'bar'</span>, rot<span class="op">=</span><span class="dv">0</span>, ax<span class="op">=</span>ax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1619,23 +1700,23 @@ Name: count, dtype: int64</code></pre>
 p_X(x) = \frac{\lambda^x e^{-\lambda}}{x!}, \quad x \in \{0, 1, 2, \ldots\}.
 \]</span></p>
 <p>where <span class="math inline">\(\lambda &gt; 0\)</span> is the average number of SMS messages you receive per day.</p>
-<div id="cell-82" class="cell" data-execution_count="283">
+<div id="cell-99" class="cell" data-execution_count="283">
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>rate_param <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Poisson(rate_param)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-83" class="cell" data-execution_count="284">
+<div id="cell-100" class="cell" data-execution_count="284">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="284">
 <pre><code>Poisson(rate: 6.0)</code></pre>
 </div>
 </div>
-<div id="cell-84" class="cell" data-execution_count="185">
+<div id="cell-101" class="cell" data-execution_count="185">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="185">
 <pre><code>IntegerGreaterThan(lower_bound=0)</code></pre>
 </div>
 </div>
-<div id="cell-85" class="cell" data-execution_count="285">
+<div id="cell-102" class="cell" data-execution_count="285">
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>x_range <span class="op">=</span> torch.arange(<span class="dv">0</span>, <span class="dv">20</span>)</span>
 <span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> dist.log_prob(x_range).exp()</span>
 <span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a>df_prob_poisson <span class="op">=</span> pd.DataFrame({</span>
@@ -1763,7 +1844,7 @@ p_X(x) = \frac{\lambda^x e^{-\lambda}}{x!}, \quad x \in \{0, 1, 2, \ldots\}.
 </div>
 </div>
 </div>
-<div id="cell-86" class="cell" data-execution_count="286">
+<div id="cell-103" class="cell" data-execution_count="286">
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>df_prob_poisson.plot(kind<span class="op">=</span><span class="st">'bar'</span>, x<span class="op">=</span><span class="st">'x'</span>, y<span class="op">=</span><span class="st">'P(X=x)'</span>, rot<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1783,23 +1864,23 @@ p_X(x) = \frac{\lambda^x e^{-\lambda}}{x!}, \quad x \in \{0, 1, 2, \ldots\}.
 p_X(x) = (1-p)^{x-1}p, \quad x \in \{1, 2, 3, \ldots\}.
 \]</span></p>
 <p>where <span class="math inline">\(0 &lt; p &lt; 1\)</span> is the probability of a successful sale on each call.</p>
-<div id="cell-88" class="cell" data-execution_count="287">
+<div id="cell-105" class="cell" data-execution_count="287">
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fl">0.3</span></span>
 <span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Geometric(p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-89" class="cell" data-execution_count="288">
+<div id="cell-106" class="cell" data-execution_count="288">
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>dist</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="288">
 <pre><code>Geometric(probs: 0.30000001192092896)</code></pre>
 </div>
 </div>
-<div id="cell-90" class="cell" data-execution_count="289">
+<div id="cell-107" class="cell" data-execution_count="289">
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>dist.support   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="289">
 <pre><code>IntegerGreaterThan(lower_bound=0)</code></pre>
 </div>
 </div>
-<div id="cell-91" class="cell" data-execution_count="290">
+<div id="cell-108" class="cell" data-execution_count="290">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>dist.sample(torch.Size([<span class="dv">10</span>]))   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="290">
 <pre><code>tensor([5., 7., 1., 4., 5., 0., 3., 0., 5., 3.])</code></pre>

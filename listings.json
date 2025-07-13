@@ -7,12 +7,11 @@
     "listing": "/notebooks.html",
     "items": [
       "/notebooks/embeddings-angle.html",
-      "/notebooks/expectation.html",
+      "/notebooks/intro.html",
       "/notebooks/introduction-matplotlib.html",
       "/notebooks/law-large-numbers.html",
       "/notebooks/probability.html",
       "/notebooks/quiz1.html",
-      "/notebooks/sum-random-vars.html",
       "/notebooks/widgets.html",
       "/notebooks/pca.html",
       "/notebooks/random-vector.html",
@@ -20,16 +19,17 @@
       "/notebooks/2d-distributions.html",
       "/notebooks/iid.html",
       "/notebooks/images-joint-distribution.html",
-      "/notebooks/cdf.html",
-      "/notebooks/pdf-continuous.html",
-      "/notebooks/pmf-discrete.html",
       "/notebooks/cdf-discrete.html",
       "/notebooks/logistic-regression-generative.html",
+      "/notebooks/cdf.html",
+      "/notebooks/expectation.html",
       "/notebooks/introduction-pandas.html",
+      "/notebooks/pdf-continuous.html",
+      "/notebooks/pmf-discrete.html",
+      "/notebooks/random-variables.html",
       "/notebooks/intro-numpy.html",
-      "/notebooks/intro.html",
       "/notebooks/set.html",
-      "/notebooks/random-variables.html"
+      "/notebooks/sum-random-vars.html"
     ]
   }
 ]

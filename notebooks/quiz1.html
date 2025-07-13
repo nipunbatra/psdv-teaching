@@ -341,19 +341,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
        'Finance', 'Sales'], dtype='&lt;U7')</code></pre>
 </div>
 </div>
-<div id="cell-1" class="cell" data-execution_count="22">
+<section id="data-analysis-quiz---pandas-groupby-operations-introductionthis-notebook-contains-practical-exercises-focusing-on-pandas-groupby-operations---one-of-the-most-powerful-features-in-pandas-for-data-aggregation-and-analysis.-these-exercises-will-test-your-understanding-of-grouping-data-applying-functions-and-extracting-insights-from-grouped-datasets.-learning-objectivesthis-quiz-will-assess-your-ability-to--create-and-manipulate-sample-datasets-with-pandas--apply-groupby-operations-effectively--use-various-aggregation-functions-max-min-mean-etc.--access-specific-groups-and-their-properties--understand-method-chaining-in-pandas-operations-key-concepts-covered--groupby-mechanics-how-pandas-splits-data-into-groups--aggregation-functions-computing-summary-statistics-per-group--group-selection-accessing-specific-groups-and-their-data--method-syntax-different-ways-to-call-aggregation-methods-problem-setupwell-work-with-a-simulated-employee-dataset-containing-information-about-departments-employee-ids-salaries-and-office-locations." class="level1">
+<h1>Data Analysis Quiz - Pandas GroupBy Operations## IntroductionThis notebook contains practical exercises focusing on <strong>pandas GroupBy operations</strong> - one of the most powerful features in pandas for data aggregation and analysis. These exercises will test your understanding of grouping data, applying functions, and extracting insights from grouped datasets.### Learning ObjectivesThis quiz will assess your ability to:- Create and manipulate sample datasets with pandas- Apply GroupBy operations effectively- Use various aggregation functions (max, min, mean, etc.)- Access specific groups and their properties- Understand method chaining in pandas operations### Key Concepts Covered- <strong>GroupBy Mechanics</strong>: How pandas splits data into groups- <strong>Aggregation Functions</strong>: Computing summary statistics per group- <strong>Group Selection</strong>: Accessing specific groups and their data- <strong>Method Syntax</strong>: Different ways to call aggregation methods—## Problem SetupWe’ll work with a simulated employee dataset containing information about departments, employee IDs, salaries, and office locations.</h1>
+<p>—author: Nipun Batrabadges: truecategories:- Data Science- Python- Pandas- Data Analysisdate: ’2025-01-13’description: Practical exercises and quiz problems focusing on pandas groupby operations and data aggregation techniqueskeywords: pandas, groupby, data aggregation, quiz, exercises, data manipulation, pythontitle: Data Analysis Quiz - Pandas GroupBy Operationstoc: true—</p>
+<div id="cell-3" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>location <span class="op">=</span> np.random.choice([<span class="st">'Bangalore'</span>, <span class="st">'Chennai'</span>, <span class="st">'Hyderabad'</span>,<span class="st">'Pune'</span>], num_rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-2" class="cell" data-execution_count="4">
+<div id="cell-4" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>employee_id <span class="op">=</span> np.random.choice(<span class="bu">range</span>(<span class="dv">1000</span>, <span class="dv">2000</span>), num_rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-3" class="cell" data-execution_count="5">
+<div id="cell-5" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>employee_id</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>array([1372, 1109, 1981, 1185, 1502, 1073, 1291, 1058, 1648, 1401])</code></pre>
 </div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="7">
+<div id="cell-6" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>salary <span class="op">=</span> np.random.normal(<span class="dv">50000</span>, <span class="dv">10000</span>, num_rows).astype(<span class="bu">int</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>salary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -361,13 +364,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
        52789])</code></pre>
 </div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="23">
+<section id="understanding-the-datasetlets-examine-our-employee-dataset.-notice-the-different-departments-varying-salaries-and-multiple-office-locations.-this-diversity-makes-it-perfect-for-practicing-groupby-operations." class="level2">
+<h2 class="anchored" data-anchor-id="understanding-the-datasetlets-examine-our-employee-dataset.-notice-the-different-departments-varying-salaries-and-multiple-office-locations.-this-diversity-makes-it-perfect-for-practicing-groupby-operations.">Understanding the DatasetLet’s examine our employee dataset. Notice the different departments, varying salaries, and multiple office locations. This diversity makes it perfect for practicing GroupBy operations.</h2>
+</section>
+<section id="groupby-fundamentals-creating-a-groupby-objectwhen-we-call-df.groupbydepartment-pandas-creates-a-groupby-object-that-represents-the-data-split-into-groups-based-on-the-specified-column." class="level2">
+<h2 class="anchored" data-anchor-id="groupby-fundamentals-creating-a-groupby-objectwhen-we-call-df.groupbydepartment-pandas-creates-a-groupby-object-that-represents-the-data-split-into-groups-based-on-the-specified-column.">GroupBy Fundamentals### Creating a GroupBy ObjectWhen we call <code>df.groupby('department')</code>, pandas creates a GroupBy object that represents the data split into groups based on the specified column.</h2>
+<section id="accessing-individual-groupsthe-get_group-method-allows-us-to-extract-data-for-a-specific-group.-this-is-useful-for-examining-subsets-of-your-data." class="level3">
+<h3 class="anchored" data-anchor-id="accessing-individual-groupsthe-get_group-method-allows-us-to-extract-data-for-a-specific-group.-this-is-useful-for-examining-subsets-of-your-data.">Accessing Individual GroupsThe <code>get_group()</code> method allows us to extract data for a specific group. This is useful for examining subsets of your data.</h3>
+<div id="cell-10" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'department'</span>: department, </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'employee_id'</span>: employee_id, </span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'salary'</span>: salary,</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'location'</span>: location})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-6" class="cell" data-execution_count="24">
+<div id="cell-11" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <div>
@@ -460,10 +470,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="25">
+</section>
+</section>
+<section id="aggregation-methods-understanding-different-aggregation-approachespandas-provides-multiple-ways-to-apply-aggregation-functions-to-grouped-data.-lets-explore-the-different-syntaxes-and-their-implications." class="level2">
+<h2 class="anchored" data-anchor-id="aggregation-methods-understanding-different-aggregation-approachespandas-provides-multiple-ways-to-apply-aggregation-functions-to-grouped-data.-lets-explore-the-different-syntaxes-and-their-implications.">Aggregation Methods### Understanding Different Aggregation ApproachesPandas provides multiple ways to apply aggregation functions to grouped data. Let’s explore the different syntaxes and their implications.</h2>
+<section id="controlling-numeric-vs.-all-columnsthe-numeric_only-parameter-helps-control-which-columns-are-included-in-aggregation-operations." class="level3">
+<h3 class="anchored" data-anchor-id="controlling-numeric-vs.-all-columnsthe-numeric_only-parameter-helps-control-which-columns-are-included-in-aggregation-operations.">Controlling Numeric vs.&nbsp;All ColumnsThe <code>numeric_only</code> parameter helps control which columns are included in aggregation operations.</h3>
+<div id="cell-14" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> df.groupby(<span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-8" class="cell" data-execution_count="26">
+</section>
+<section id="column-specific-aggregationdifferent-syntax-approaches-for-focusing-on-specific-columns-during-aggregation." class="level3">
+<h3 class="anchored" data-anchor-id="column-specific-aggregationdifferent-syntax-approaches-for-focusing-on-specific-columns-during-aggregation.">Column-Specific AggregationDifferent syntax approaches for focusing on specific columns during aggregation.</h3>
+<div id="cell-16" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>g.get_group(<span class="st">'HR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <div>
@@ -500,7 +519,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-9" class="cell" data-execution_count="27">
+</section>
+<section id="exploring-method-documentationunderstanding-the-parameters-and-options-available-for-aggregation-methods-is-crucial-for-effective-data-analysis." class="level3">
+<h3 class="anchored" data-anchor-id="exploring-method-documentationunderstanding-the-parameters-and-options-available-for-aggregation-methods-is-crucial-for-effective-data-analysis.">Exploring Method DocumentationUnderstanding the parameters and options available for aggregation methods is crucial for effective data analysis.</h3>
+</section>
+</section>
+<section id="key-learning-points-groupby-operation-summaryfrom-this-exercise-weve-learned-several-important-concepts1.-groupby-object-creation-df.groupbycolumn-splits-data-into-groups2.-group-access-get_groupgroup_name-retrieves-specific-group-data-3.-aggregation-methods-multiple-ways-to-apply-functions-like-max-min-mean4.-column-selection-different-syntax-for-targeting-specific-columns5.-parameter-control-using-numeric_only-to-control-which-columns-are-processed-practical-applicationsgroupby-operations-are-fundamental-for--business-analytics-analyzing-performance-by-department-region-or-time-period--scientific-research-grouping-experimental-data-by-conditions-or-categories---financial-analysis-summarizing-transactions-by-account-date-or-category--marketing-analyzing-customer-behavior-by-demographics-or-segments-best-practices1.-understand-your-data-know-the-structure-before-grouping2.-choose-appropriate-aggregations-select-functions-that-make-sense-for-your-analysis3.-handle-missing-data-consider-how-nan-values-affect-your-groupings4.-performance-for-large-datasets-consider-using-vectorized-operations5.-readability-use-clear-descriptive-group-column-names-further-explorationto-deepen-your-groupby-skills-explore--multiple-column-grouping-df.groupbycol1-col2--custom-aggregation-functions-with-agg--transformation-operations-with-transform--filtering-groups-with-filter--advanced-indexing-with-grouped-data" class="level2">
+<h2 class="anchored" data-anchor-id="key-learning-points-groupby-operation-summaryfrom-this-exercise-weve-learned-several-important-concepts1.-groupby-object-creation-df.groupbycolumn-splits-data-into-groups2.-group-access-get_groupgroup_name-retrieves-specific-group-data-3.-aggregation-methods-multiple-ways-to-apply-functions-like-max-min-mean4.-column-selection-different-syntax-for-targeting-specific-columns5.-parameter-control-using-numeric_only-to-control-which-columns-are-processed-practical-applicationsgroupby-operations-are-fundamental-for--business-analytics-analyzing-performance-by-department-region-or-time-period--scientific-research-grouping-experimental-data-by-conditions-or-categories---financial-analysis-summarizing-transactions-by-account-date-or-category--marketing-analyzing-customer-behavior-by-demographics-or-segments-best-practices1.-understand-your-data-know-the-structure-before-grouping2.-choose-appropriate-aggregations-select-functions-that-make-sense-for-your-analysis3.-handle-missing-data-consider-how-nan-values-affect-your-groupings4.-performance-for-large-datasets-consider-using-vectorized-operations5.-readability-use-clear-descriptive-group-column-names-further-explorationto-deepen-your-groupby-skills-explore--multiple-column-grouping-df.groupbycol1-col2--custom-aggregation-functions-with-agg--transformation-operations-with-transform--filtering-groups-with-filter--advanced-indexing-with-grouped-data">Key Learning Points### GroupBy Operation SummaryFrom this exercise, we’ve learned several important concepts:1. <strong>GroupBy Object Creation</strong>: <code>df.groupby('column')</code> splits data into groups2. <strong>Group Access</strong>: <code>get_group('group_name')</code> retrieves specific group data 3. <strong>Aggregation Methods</strong>: Multiple ways to apply functions like <code>max()</code>, <code>min()</code>, <code>mean()</code>4. <strong>Column Selection</strong>: Different syntax for targeting specific columns5. <strong>Parameter Control</strong>: Using <code>numeric_only</code> to control which columns are processed### Practical ApplicationsGroupBy operations are fundamental for:- <strong>Business Analytics</strong>: Analyzing performance by department, region, or time period- <strong>Scientific Research</strong>: Grouping experimental data by conditions or categories - <strong>Financial Analysis</strong>: Summarizing transactions by account, date, or category- <strong>Marketing</strong>: Analyzing customer behavior by demographics or segments### Best Practices1. <strong>Understand Your Data</strong>: Know the structure before grouping2. <strong>Choose Appropriate Aggregations</strong>: Select functions that make sense for your analysis3. <strong>Handle Missing Data</strong>: Consider how NaN values affect your groupings4. <strong>Performance</strong>: For large datasets, consider using vectorized operations5. <strong>Readability</strong>: Use clear, descriptive group column names### Further ExplorationTo deepen your GroupBy skills, explore:- Multiple column grouping: <code>df.groupby(['col1', 'col2'])</code>- Custom aggregation functions with <code>agg()</code>- Transformation operations with <code>transform()</code>- Filtering groups with <code>filter()</code>- Advanced indexing with grouped data</h2>
+<div id="cell-19" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>g.get_group(<span class="st">'Sales'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <div>
@@ -551,7 +577,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-10" class="cell" data-execution_count="28">
+<div id="cell-20" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>g.get_group(<span class="st">'IT'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <div>
@@ -588,7 +614,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-11" class="cell" data-execution_count="30">
+<div id="cell-21" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <div>
@@ -640,7 +666,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-12" class="cell" data-execution_count="31">
+<div id="cell-22" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">max</span>(numeric_only<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <div>
@@ -686,7 +712,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-13" class="cell" data-execution_count="32">
+<div id="cell-23" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">max</span>(<span class="st">'salary'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <div>
@@ -732,7 +758,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-14" class="cell">
+<div id="cell-24" class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>g[<span class="st">'salary'</span>].<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>department
@@ -743,7 +769,7 @@ Sales      53113
 Name: salary, dtype: int64</code></pre>
 </div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="33">
+<div id="cell-25" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">max</span>()[<span class="st">'salary'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>department
@@ -754,7 +780,7 @@ Sales      53113
 Name: salary, dtype: int64</code></pre>
 </div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="21">
+<div id="cell-26" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>g.<span class="bu">max</span>?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <div class="ansi-escaped-output">
@@ -916,6 +942,8 @@ a
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

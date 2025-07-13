@@ -7,9 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Nipun Batra">
-<meta name="dcterms.date" content="2025-03-05">
+<meta name="dcterms.date" content="2025-01-13">
+<meta name="keywords" content="cumulative distribution function, CDF, inverse transform sampling, random number generation, categorical distribution, exponential distribution, gaussian distribution">
+<meta name="description" content="A comprehensive exploration of cumulative distribution functions (CDFs), their properties, and applications in random number generation through inverse transform sampling. Covers both discrete and continuous distributions with practical implementations.">
 
-<title>Cumulative Distribution Function (CDF) – Probability Statistics Data Visualization Resources</title>
+<title>Cumulative Distribution Functions and Inverse Sampling – Probability Statistics Data Visualization Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,6 +111,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -324,7 +355,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#generating-random-numbers-from-a-categorical-distribution" id="toc-generating-random-numbers-from-a-categorical-distribution" class="nav-link active" data-scroll-target="#generating-random-numbers-from-a-categorical-distribution">Generating random numbers from a categorical distribution</a></li>
+  <li><a href="#cumulative-distribution-functions-and-inverse-sampling-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-cumulative-distribution-functions-cdfs-mathematical-definition-and-properties2.-inverse-transform-sampling-using-cdfs-to-generate-random-numbers3.-discrete-cdfs-working-with-categorical-and-discrete-distributions4.-continuous-cdfs-applications-to-exponential-normal-and-other-continuous-distributions5.-practical-implementation-building-random-number-generators-from-scratch6.-verification-methods-validating-generated-samples-against-theoretical-distributions-introductionthe-cumulative-distribution-function-cdf-is-one-of-the-most-important-concepts-in-probability-theory.-while-the-probability-mass-function-pmf-tells-us-the-probability-of-specific-values-the-cdf-tells-us-the-probability-of-getting-values-up-to-a-certain-point.-mathematical-definitionfor-a-random-variable-x-the-cdf-is-defined-asf_xx-px-leq-xthis-simple-definition-has-profound-implications--monotonic-cdfs-are-always-non-decreasing--bounded-cdfs-range-from-0-to-1--right-continuous-cdfs-are-continuous-from-the-right--universal-every-random-variable-has-a-cdf-why-cdfs-mattercdfs-are-crucial-because-they1.-provide-complete-probabilistic-information-about-a-random-variable2.-enable-random-number-generation-through-inverse-sampling3.-allow-easy-probability-calculations-for-ranges-of-values4.-form-the-basis-for-statistical-tests-and-confidence-intervals5.-bridge-discrete-and-continuous-probability-theory-the-inverse-transform-methodone-of-the-most-elegant-applications-of-cdfs-is-the-inverse-transform-sampling-method.-the-key-insight-is-beautifully-simple-if-u-is-uniform-on-01-and-f-is-a-cdf-then-f-1u-has-distribution-f.this-allows-us-to-generate-samples-from-any-distribution-using-just-uniform-random-numbers-and-the-inverse-cdflets-explore-these-concepts-through-practical-implementations-and-visualizations." id="toc-cumulative-distribution-functions-and-inverse-sampling-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-cumulative-distribution-functions-cdfs-mathematical-definition-and-properties2.-inverse-transform-sampling-using-cdfs-to-generate-random-numbers3.-discrete-cdfs-working-with-categorical-and-discrete-distributions4.-continuous-cdfs-applications-to-exponential-normal-and-other-continuous-distributions5.-practical-implementation-building-random-number-generators-from-scratch6.-verification-methods-validating-generated-samples-against-theoretical-distributions-introductionthe-cumulative-distribution-function-cdf-is-one-of-the-most-important-concepts-in-probability-theory.-while-the-probability-mass-function-pmf-tells-us-the-probability-of-specific-values-the-cdf-tells-us-the-probability-of-getting-values-up-to-a-certain-point.-mathematical-definitionfor-a-random-variable-x-the-cdf-is-defined-asf_xx-px-leq-xthis-simple-definition-has-profound-implications--monotonic-cdfs-are-always-non-decreasing--bounded-cdfs-range-from-0-to-1--right-continuous-cdfs-are-continuous-from-the-right--universal-every-random-variable-has-a-cdf-why-cdfs-mattercdfs-are-crucial-because-they1.-provide-complete-probabilistic-information-about-a-random-variable2.-enable-random-number-generation-through-inverse-sampling3.-allow-easy-probability-calculations-for-ranges-of-values4.-form-the-basis-for-statistical-tests-and-confidence-intervals5.-bridge-discrete-and-continuous-probability-theory-the-inverse-transform-methodone-of-the-most-elegant-applications-of-cdfs-is-the-inverse-transform-sampling-method.-the-key-insight-is-beautifully-simple-if-u-is-uniform-on-01-and-f-is-a-cdf-then-f-1u-has-distribution-f.this-allows-us-to-generate-samples-from-any-distribution-using-just-uniform-random-numbers-and-the-inverse-cdflets-explore-these-concepts-through-practical-implementations-and-visualizations." class="nav-link active" data-scroll-target="#cumulative-distribution-functions-and-inverse-sampling-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-cumulative-distribution-functions-cdfs-mathematical-definition-and-properties2.-inverse-transform-sampling-using-cdfs-to-generate-random-numbers3.-discrete-cdfs-working-with-categorical-and-discrete-distributions4.-continuous-cdfs-applications-to-exponential-normal-and-other-continuous-distributions5.-practical-implementation-building-random-number-generators-from-scratch6.-verification-methods-validating-generated-samples-against-theoretical-distributions-introductionthe-cumulative-distribution-function-cdf-is-one-of-the-most-important-concepts-in-probability-theory.-while-the-probability-mass-function-pmf-tells-us-the-probability-of-specific-values-the-cdf-tells-us-the-probability-of-getting-values-up-to-a-certain-point.-mathematical-definitionfor-a-random-variable-x-the-cdf-is-defined-asf_xx-px-leq-xthis-simple-definition-has-profound-implications--monotonic-cdfs-are-always-non-decreasing--bounded-cdfs-range-from-0-to-1--right-continuous-cdfs-are-continuous-from-the-right--universal-every-random-variable-has-a-cdf-why-cdfs-mattercdfs-are-crucial-because-they1.-provide-complete-probabilistic-information-about-a-random-variable2.-enable-random-number-generation-through-inverse-sampling3.-allow-easy-probability-calculations-for-ranges-of-values4.-form-the-basis-for-statistical-tests-and-confidence-intervals5.-bridge-discrete-and-continuous-probability-theory-the-inverse-transform-methodone-of-the-most-elegant-applications-of-cdfs-is-the-inverse-transform-sampling-method.-the-key-insight-is-beautifully-simple-if-u-is-uniform-on-01-and-f-is-a-cdf-then-f-1u-has-distribution-f.this-allows-us-to-generate-samples-from-any-distribution-using-just-uniform-random-numbers-and-the-inverse-cdflets-explore-these-concepts-through-practical-implementations-and-visualizations.">Cumulative Distribution Functions and Inverse Sampling## Learning ObjectivesBy the end of this notebook, you will understand:1. <strong>Cumulative Distribution Functions (CDFs)</strong>: Mathematical definition and properties2. <strong>Inverse Transform Sampling</strong>: Using CDFs to generate random numbers3. <strong>Discrete CDFs</strong>: Working with categorical and discrete distributions4. <strong>Continuous CDFs</strong>: Applications to exponential, normal, and other continuous distributions5. <strong>Practical Implementation</strong>: Building random number generators from scratch6. <strong>Verification Methods</strong>: Validating generated samples against theoretical distributions## IntroductionThe <strong>Cumulative Distribution Function (CDF)</strong> is one of the most important concepts in probability theory. While the Probability Mass Function (PMF) tells us the probability of specific values, the CDF tells us the probability of getting values <em>up to</em> a certain point.### Mathematical DefinitionFor a random variable <span class="math inline">\(X\)</span>, the CDF is defined as:<span class="math display">\[F_X(x) = P(X \leq x)\]</span>This simple definition has profound implications:- <strong>Monotonic</strong>: CDFs are always non-decreasing- <strong>Bounded</strong>: CDFs range from 0 to 1- <strong>Right-continuous</strong>: CDFs are continuous from the right- <strong>Universal</strong>: Every random variable has a CDF### Why CDFs MatterCDFs are crucial because they:1. <strong>Provide complete probabilistic information</strong> about a random variable2. <strong>Enable random number generation</strong> through inverse sampling3. <strong>Allow easy probability calculations</strong> for ranges of values4. <strong>Form the basis</strong> for statistical tests and confidence intervals5. <strong>Bridge discrete and continuous</strong> probability theory### The Inverse Transform MethodOne of the most elegant applications of CDFs is the <strong>inverse transform sampling</strong> method. The key insight is beautifully simple:&gt; If <span class="math inline">\(U\)</span> is uniform on <span class="math inline">\([0,1]\)</span> and <span class="math inline">\(F\)</span> is a CDF, then <span class="math inline">\(F^{-1}(U)\)</span> has distribution <span class="math inline">\(F\)</span>.This allows us to generate samples from any distribution using just uniform random numbers and the inverse CDF!Let’s explore these concepts through practical implementations and visualizations.</a>
+  <ul class="collapse">
+  <li><a href="#setting-up-the-environmentwell-use-pytorch-for-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations" id="toc-setting-up-the-environmentwell-use-pytorch-for-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations" class="nav-link" data-scroll-target="#setting-up-the-environmentwell-use-pytorch-for-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations">Setting Up the EnvironmentWe’ll use PyTorch for distributions, NumPy for numerical operations, and Matplotlib for visualizations:</a></li>
+  <li><a href="#example-1-categorical-distribution-from-scratchlets-implement-inverse-transform-sampling-for-a-categorical-distribution.-this-will-demonstrate-the-core-concepts-before-moving-to-continuous-distributions.-problem-setupwe-have-a-categorical-distribution-with-4-outcomes-and-probabilities--outcome-1-px-1-0.1--outcome-2-px-2-0.2---outcome-3-px-3-0.3--outcome-4-px-4-0.4" id="toc-example-1-categorical-distribution-from-scratchlets-implement-inverse-transform-sampling-for-a-categorical-distribution.-this-will-demonstrate-the-core-concepts-before-moving-to-continuous-distributions.-problem-setupwe-have-a-categorical-distribution-with-4-outcomes-and-probabilities--outcome-1-px-1-0.1--outcome-2-px-2-0.2---outcome-3-px-3-0.3--outcome-4-px-4-0.4" class="nav-link" data-scroll-target="#example-1-categorical-distribution-from-scratchlets-implement-inverse-transform-sampling-for-a-categorical-distribution.-this-will-demonstrate-the-core-concepts-before-moving-to-continuous-distributions.-problem-setupwe-have-a-categorical-distribution-with-4-outcomes-and-probabilities--outcome-1-px-1-0.1--outcome-2-px-2-0.2---outcome-3-px-3-0.3--outcome-4-px-4-0.4">Example 1: Categorical Distribution from ScratchLet’s implement inverse transform sampling for a categorical distribution. This will demonstrate the core concepts before moving to continuous distributions.### Problem SetupWe have a categorical distribution with 4 outcomes and probabilities:- Outcome 1: <span class="math inline">\(P(X = 1) = 0.1\)</span>- Outcome 2: <span class="math inline">\(P(X = 2) = 0.2\)</span> - Outcome 3: <span class="math inline">\(P(X = 3) = 0.3\)</span>- Outcome 4: <span class="math inline">\(P(X = 4) = 0.4\)</span></a>
+  <ul class="collapse">
+  <li><a href="#computing-the-cdfthe-cdf-is-the-cumulative-sum-of-probabilities" id="toc-computing-the-cdfthe-cdf-is-the-cumulative-sum-of-probabilities" class="nav-link" data-scroll-target="#computing-the-cdfthe-cdf-is-the-cumulative-sum-of-probabilities">Computing the CDFThe CDF is the cumulative sum of probabilities:</a></li>
+  <li><a href="#inverse-transform-sampling-algorithmthe-inverse-transform-method-works-as-follows1.-generate-a-uniform-random-number-u-2.-find-the-smallest-x-such-that-fx-u3.-return-x-as-the-samplelets-implement-this-step-by-step" id="toc-inverse-transform-sampling-algorithmthe-inverse-transform-method-works-as-follows1.-generate-a-uniform-random-number-u-2.-find-the-smallest-x-such-that-fx-u3.-return-x-as-the-samplelets-implement-this-step-by-step" class="nav-link" data-scroll-target="#inverse-transform-sampling-algorithmthe-inverse-transform-method-works-as-follows1.-generate-a-uniform-random-number-u-2.-find-the-smallest-x-such-that-fx-u3.-return-x-as-the-samplelets-implement-this-step-by-step">Inverse Transform Sampling AlgorithmThe inverse transform method works as follows:1. Generate a uniform random number $u $2. Find the smallest <span class="math inline">\(x\)</span> such that $F(x) u$3. Return <span class="math inline">\(x\)</span> as the sampleLet’s implement this step by step:</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#generating-random-numbers-from-a-categorical-distribution" id="toc-generating-random-numbers-from-a-categorical-distribution" class="nav-link" data-scroll-target="#generating-random-numbers-from-a-categorical-distribution">Generating random numbers from a categorical distribution</a>
+  <ul class="collapse">
+  <li><a href="#efficient-implementation-with-searchsortedpytorch-provides-searchsorted-for-efficient-inverse-cdf-lookup" id="toc-efficient-implementation-with-searchsortedpytorch-provides-searchsorted-for-efficient-inverse-cdf-lookup" class="nav-link" data-scroll-target="#efficient-implementation-with-searchsortedpytorch-provides-searchsorted-for-efficient-inverse-cdf-lookup">Efficient Implementation with SearchsortedPyTorch provides <code>searchsorted</code> for efficient inverse CDF lookup:</a></li>
+  <li><a href="#vectorized-samplingwe-can-generate-many-samples-at-once-using-vectorization" id="toc-vectorized-samplingwe-can-generate-many-samples-at-once-using-vectorization" class="nav-link" data-scroll-target="#vectorized-samplingwe-can-generate-many-samples-at-once-using-vectorization">Vectorized SamplingWe can generate many samples at once using vectorization:</a></li>
+  <li><a href="#validation-comparing-with-theorylets-validate-our-implementation-by-comparing-the-empirical-frequencies-with-the-theoretical-probabilities" id="toc-validation-comparing-with-theorylets-validate-our-implementation-by-comparing-the-empirical-frequencies-with-the-theoretical-probabilities" class="nav-link" data-scroll-target="#validation-comparing-with-theorylets-validate-our-implementation-by-comparing-the-empirical-frequencies-with-the-theoretical-probabilities">Validation: Comparing with TheoryLet’s validate our implementation by comparing the empirical frequencies with the theoretical probabilities:</a></li>
+  <li><a href="#mathematical-backgroundfor-an-exponential-distribution-with-rate-parameter-lambda--pdf-fx-lambda-e-lambda-x-for-x-geq-0--cdf-fx-1---e-lambda-x-for-x-geq-0--inverse-cdf-f-1u--fracln1-ulambda-implementation" id="toc-mathematical-backgroundfor-an-exponential-distribution-with-rate-parameter-lambda--pdf-fx-lambda-e-lambda-x-for-x-geq-0--cdf-fx-1---e-lambda-x-for-x-geq-0--inverse-cdf-f-1u--fracln1-ulambda-implementation" class="nav-link" data-scroll-target="#mathematical-backgroundfor-an-exponential-distribution-with-rate-parameter-lambda--pdf-fx-lambda-e-lambda-x-for-x-geq-0--cdf-fx-1---e-lambda-x-for-x-geq-0--inverse-cdf-f-1u--fracln1-ulambda-implementation">Mathematical BackgroundFor an exponential distribution with rate parameter <span class="math inline">\(\lambda\)</span>:- <strong>PDF</strong>: <span class="math inline">\(f(x) = \lambda e^{-\lambda x}\)</span> for <span class="math inline">\(x \geq 0\)</span>- <strong>CDF</strong>: <span class="math inline">\(F(x) = 1 - e^{-\lambda x}\)</span> for <span class="math inline">\(x \geq 0\)</span>- <strong>Inverse CDF</strong>: <span class="math inline">\(F^{-1}(u) = -\frac{\ln(1-u)}{\lambda}\)</span>### Implementation</a></li>
+  <li><a href="#general-framework-using-built-in-inverse-cdfsmany-probability-distributions-in-pytorch-provide-an-icdf-inverse-cdf-method.-lets-create-a-general-framework" id="toc-general-framework-using-built-in-inverse-cdfsmany-probability-distributions-in-pytorch-provide-an-icdf-inverse-cdf-method.-lets-create-a-general-framework" class="nav-link" data-scroll-target="#general-framework-using-built-in-inverse-cdfsmany-probability-distributions-in-pytorch-provide-an-icdf-inverse-cdf-method.-lets-create-a-general-framework">General Framework: Using Built-in Inverse CDFsMany probability distributions in PyTorch provide an <code>icdf</code> (inverse CDF) method. Let’s create a general framework:</a>
+  <ul class="collapse">
+  <li><a href="#example-normal-distributionlets-apply-our-framework-to-generate-samples-from-a-standard-normal-distribution" id="toc-example-normal-distributionlets-apply-our-framework-to-generate-samples-from-a-standard-normal-distribution" class="nav-link" data-scroll-target="#example-normal-distributionlets-apply-our-framework-to-generate-samples-from-a-standard-normal-distribution">Example: Normal DistributionLet’s apply our framework to generate samples from a standard normal distribution:</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -334,12 +384,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cumulative Distribution Function (CDF)</h1>
+<h1 class="title">Cumulative Distribution Functions and Inverse Sampling</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">ML</div>
+    <div class="quarto-category">Probability</div>
+    <div class="quarto-category">Statistics</div>
+    <div class="quarto-category">Mathematics</div>
+    <div class="quarto-category">Random Variables</div>
+    <div class="quarto-category">Distributions</div>
   </div>
   </div>
 
+<div>
+  <div class="description">
+    A comprehensive exploration of cumulative distribution functions (CDFs), their properties, and applications in random number generation through inverse transform sampling. Covers both discrete and continuous distributions with practical implementations.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -354,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 5, 2025</p>
+      <p class="date">January 13, 2025</p>
     </div>
   </div>
   
@@ -362,11 +421,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>cumulative distribution function, CDF, inverse transform sampling, random number generation, categorical distribution, exponential distribution, gaussian distribution</p>
+  </div>
+</div>
 
 </header>
 
 
-<div id="cell-1" class="cell" data-execution_count="1">
+<p>—author: Nipun Batratitle: Cumulative Distribution Functions and Inverse Samplingdescription: A comprehensive exploration of cumulative distribution functions (CDFs), their properties, and applications in random number generation through inverse transform sampling. Covers both discrete and continuous distributions with practical implementations.categories: - Probability - Statistics - Mathematics - Random Variables - Distributionskeywords: - cumulative distribution function - CDF - inverse transform sampling - random number generation - categorical distribution - exponential distribution - gaussian distributiondate: ’2025-01-13’badges: truetoc: true—</p>
+<section id="cumulative-distribution-functions-and-inverse-sampling-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-cumulative-distribution-functions-cdfs-mathematical-definition-and-properties2.-inverse-transform-sampling-using-cdfs-to-generate-random-numbers3.-discrete-cdfs-working-with-categorical-and-discrete-distributions4.-continuous-cdfs-applications-to-exponential-normal-and-other-continuous-distributions5.-practical-implementation-building-random-number-generators-from-scratch6.-verification-methods-validating-generated-samples-against-theoretical-distributions-introductionthe-cumulative-distribution-function-cdf-is-one-of-the-most-important-concepts-in-probability-theory.-while-the-probability-mass-function-pmf-tells-us-the-probability-of-specific-values-the-cdf-tells-us-the-probability-of-getting-values-up-to-a-certain-point.-mathematical-definitionfor-a-random-variable-x-the-cdf-is-defined-asf_xx-px-leq-xthis-simple-definition-has-profound-implications--monotonic-cdfs-are-always-non-decreasing--bounded-cdfs-range-from-0-to-1--right-continuous-cdfs-are-continuous-from-the-right--universal-every-random-variable-has-a-cdf-why-cdfs-mattercdfs-are-crucial-because-they1.-provide-complete-probabilistic-information-about-a-random-variable2.-enable-random-number-generation-through-inverse-sampling3.-allow-easy-probability-calculations-for-ranges-of-values4.-form-the-basis-for-statistical-tests-and-confidence-intervals5.-bridge-discrete-and-continuous-probability-theory-the-inverse-transform-methodone-of-the-most-elegant-applications-of-cdfs-is-the-inverse-transform-sampling-method.-the-key-insight-is-beautifully-simple-if-u-is-uniform-on-01-and-f-is-a-cdf-then-f-1u-has-distribution-f.this-allows-us-to-generate-samples-from-any-distribution-using-just-uniform-random-numbers-and-the-inverse-cdflets-explore-these-concepts-through-practical-implementations-and-visualizations." class="level1">
+<h1>Cumulative Distribution Functions and Inverse Sampling## Learning ObjectivesBy the end of this notebook, you will understand:1. <strong>Cumulative Distribution Functions (CDFs)</strong>: Mathematical definition and properties2. <strong>Inverse Transform Sampling</strong>: Using CDFs to generate random numbers3. <strong>Discrete CDFs</strong>: Working with categorical and discrete distributions4. <strong>Continuous CDFs</strong>: Applications to exponential, normal, and other continuous distributions5. <strong>Practical Implementation</strong>: Building random number generators from scratch6. <strong>Verification Methods</strong>: Validating generated samples against theoretical distributions## IntroductionThe <strong>Cumulative Distribution Function (CDF)</strong> is one of the most important concepts in probability theory. While the Probability Mass Function (PMF) tells us the probability of specific values, the CDF tells us the probability of getting values <em>up to</em> a certain point.### Mathematical DefinitionFor a random variable <span class="math inline">\(X\)</span>, the CDF is defined as:<span class="math display">\[F_X(x) = P(X \leq x)\]</span>This simple definition has profound implications:- <strong>Monotonic</strong>: CDFs are always non-decreasing- <strong>Bounded</strong>: CDFs range from 0 to 1- <strong>Right-continuous</strong>: CDFs are continuous from the right- <strong>Universal</strong>: Every random variable has a CDF### Why CDFs MatterCDFs are crucial because they:1. <strong>Provide complete probabilistic information</strong> about a random variable2. <strong>Enable random number generation</strong> through inverse sampling3. <strong>Allow easy probability calculations</strong> for ranges of values4. <strong>Form the basis</strong> for statistical tests and confidence intervals5. <strong>Bridge discrete and continuous</strong> probability theory### The Inverse Transform MethodOne of the most elegant applications of CDFs is the <strong>inverse transform sampling</strong> method. The key insight is beautifully simple:&gt; If <span class="math inline">\(U\)</span> is uniform on <span class="math inline">\([0,1]\)</span> and <span class="math inline">\(F\)</span> is a CDF, then <span class="math inline">\(F^{-1}(U)\)</span> has distribution <span class="math inline">\(F\)</span>.This allows us to generate samples from any distribution using just uniform random numbers and the inverse CDF!Let’s explore these concepts through practical implementations and visualizations.</h1>
+<section id="setting-up-the-environmentwell-use-pytorch-for-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-the-environmentwell-use-pytorch-for-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations">Setting Up the EnvironmentWe’ll use PyTorch for distributions, NumPy for numerical operations, and Matplotlib for visualizations:</h2>
+</section>
+<section id="example-1-categorical-distribution-from-scratchlets-implement-inverse-transform-sampling-for-a-categorical-distribution.-this-will-demonstrate-the-core-concepts-before-moving-to-continuous-distributions.-problem-setupwe-have-a-categorical-distribution-with-4-outcomes-and-probabilities--outcome-1-px-1-0.1--outcome-2-px-2-0.2---outcome-3-px-3-0.3--outcome-4-px-4-0.4" class="level2">
+<h2 class="anchored" data-anchor-id="example-1-categorical-distribution-from-scratchlets-implement-inverse-transform-sampling-for-a-categorical-distribution.-this-will-demonstrate-the-core-concepts-before-moving-to-continuous-distributions.-problem-setupwe-have-a-categorical-distribution-with-4-outcomes-and-probabilities--outcome-1-px-1-0.1--outcome-2-px-2-0.2---outcome-3-px-3-0.3--outcome-4-px-4-0.4">Example 1: Categorical Distribution from ScratchLet’s implement inverse transform sampling for a categorical distribution. This will demonstrate the core concepts before moving to continuous distributions.### Problem SetupWe have a categorical distribution with 4 outcomes and probabilities:- Outcome 1: <span class="math inline">\(P(X = 1) = 0.1\)</span>- Outcome 2: <span class="math inline">\(P(X = 2) = 0.2\)</span> - Outcome 3: <span class="math inline">\(P(X = 3) = 0.3\)</span>- Outcome 4: <span class="math inline">\(P(X = 4) = 0.4\)</span></h2>
+<div id="cell-4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.__version__)</span>
@@ -381,30 +454,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>2.2.4</code></pre>
 </div>
 </div>
+<section id="computing-the-cdfthe-cdf-is-the-cumulative-sum-of-probabilities" class="level3">
+<h3 class="anchored" data-anchor-id="computing-the-cdfthe-cdf-is-the-cumulative-sum-of-probabilities">Computing the CDFThe CDF is the cumulative sum of probabilities:</h3>
+<p>The CDF values are [0.1, 0.3, 0.6, 1.0], representing cumulative probabilities up to each outcome.</p>
+</section>
+<section id="inverse-transform-sampling-algorithmthe-inverse-transform-method-works-as-follows1.-generate-a-uniform-random-number-u-2.-find-the-smallest-x-such-that-fx-u3.-return-x-as-the-samplelets-implement-this-step-by-step" class="level3">
+<h3 class="anchored" data-anchor-id="inverse-transform-sampling-algorithmthe-inverse-transform-method-works-as-follows1.-generate-a-uniform-random-number-u-2.-find-the-smallest-x-such-that-fx-u3.-return-x-as-the-samplelets-implement-this-step-by-step">Inverse Transform Sampling AlgorithmThe inverse transform method works as follows:1. Generate a uniform random number $u $2. Find the smallest <span class="math inline">\(x\)</span> such that $F(x) u$3. Return <span class="math inline">\(x\)</span> as the sampleLet’s implement this step by step:</h3>
+</section>
+</section>
+</section>
 <section id="generating-random-numbers-from-a-categorical-distribution" class="level1">
 <h1>Generating random numbers from a categorical distribution</h1>
-<div id="cell-3" class="cell" data-execution_count="2">
+<p>For a uniform sample of 0.6947, we find the first CDF value ≥ 0.6947, which corresponds to outcome 4.</p>
+<section id="efficient-implementation-with-searchsortedpytorch-provides-searchsorted-for-efficient-inverse-cdf-lookup" class="level3">
+<h3 class="anchored" data-anchor-id="efficient-implementation-with-searchsortedpytorch-provides-searchsorted-for-efficient-inverse-cdf-lookup">Efficient Implementation with SearchsortedPyTorch provides <code>searchsorted</code> for efficient inverse CDF lookup:</h3>
+</section>
+<section id="vectorized-samplingwe-can-generate-many-samples-at-once-using-vectorization" class="level3">
+<h3 class="anchored" data-anchor-id="vectorized-samplingwe-can-generate-many-samples-at-once-using-vectorization">Vectorized SamplingWe can generate many samples at once using vectorization:</h3>
+</section>
+<section id="validation-comparing-with-theorylets-validate-our-implementation-by-comparing-the-empirical-frequencies-with-the-theoretical-probabilities" class="level3">
+<h3 class="anchored" data-anchor-id="validation-comparing-with-theorylets-validate-our-implementation-by-comparing-the-empirical-frequencies-with-the-theoretical-probabilities">Validation: Comparing with TheoryLet’s validate our implementation by comparing the empirical frequencies with the theoretical probabilities:</h3>
+<p>The red dashed lines show the theoretical probabilities. As expected, our generated samples closely match the theoretical distribution!## Example 2: Continuous Distributions - ExponentialNow let’s apply inverse transform sampling to a continuous distribution. The exponential distribution is perfect because its inverse CDF has a closed form.</p>
+</section>
+<section id="mathematical-backgroundfor-an-exponential-distribution-with-rate-parameter-lambda--pdf-fx-lambda-e-lambda-x-for-x-geq-0--cdf-fx-1---e-lambda-x-for-x-geq-0--inverse-cdf-f-1u--fracln1-ulambda-implementation" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-backgroundfor-an-exponential-distribution-with-rate-parameter-lambda--pdf-fx-lambda-e-lambda-x-for-x-geq-0--cdf-fx-1---e-lambda-x-for-x-geq-0--inverse-cdf-f-1u--fracln1-ulambda-implementation">Mathematical BackgroundFor an exponential distribution with rate parameter <span class="math inline">\(\lambda\)</span>:- <strong>PDF</strong>: <span class="math inline">\(f(x) = \lambda e^{-\lambda x}\)</span> for <span class="math inline">\(x \geq 0\)</span>- <strong>CDF</strong>: <span class="math inline">\(F(x) = 1 - e^{-\lambda x}\)</span> for <span class="math inline">\(x \geq 0\)</span>- <strong>Inverse CDF</strong>: <span class="math inline">\(F^{-1}(u) = -\frac{\ln(1-u)}{\lambda}\)</span>### Implementation</h3>
+<div id="cell-15" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>probs <span class="op">=</span> torch.tensor([<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>])</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(probs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tensor([0.1000, 0.2000, 0.3000, 0.4000])</code></pre>
 </div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="3">
+<p>The histogram shows our generated samples closely match the theoretical exponential PDF (orange line)!</p>
+</section>
+<section id="general-framework-using-built-in-inverse-cdfsmany-probability-distributions-in-pytorch-provide-an-icdf-inverse-cdf-method.-lets-create-a-general-framework" class="level2">
+<h2 class="anchored" data-anchor-id="general-framework-using-built-in-inverse-cdfsmany-probability-distributions-in-pytorch-provide-an-icdf-inverse-cdf-method.-lets-create-a-general-framework">General Framework: Using Built-in Inverse CDFsMany probability distributions in PyTorch provide an <code>icdf</code> (inverse CDF) method. Let’s create a general framework:</h2>
+<section id="example-normal-distributionlets-apply-our-framework-to-generate-samples-from-a-standard-normal-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="example-normal-distributionlets-apply-our-framework-to-generate-samples-from-a-standard-normal-distribution">Example: Normal DistributionLet’s apply our framework to generate samples from a standard normal distribution:</h3>
+<div id="cell-19" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>unif <span class="op">=</span> torch.distributions.uniform.Uniform(<span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(unif.sample())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tensor(0.3224)</code></pre>
 </div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="4">
+<p>Perfect! Our inverse transform sampling generates samples that match the standard normal distribution.### Exploring the Inverse CDF MethodLet’s examine the <code>icdf</code> method more closely to understand what we’re using:</p>
+<div id="cell-21" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cum_sum_prob <span class="op">=</span> torch.cumsum(probs, dim<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cum_sum_prob)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tensor([0.1000, 0.3000, 0.6000, 1.0000])</code></pre>
 </div>
 </div>
-<div id="cell-6" class="cell" data-execution_count="5">
+<p>The <code>icdf</code> method is exactly what we need for inverse transform sampling - it takes probabilities and returns the corresponding quantiles.## SummaryIn this notebook, we’ve explored the powerful connection between CDFs and random number generation:### Key Concepts Covered1. <strong>CDF Definition</strong>: <span class="math inline">\(F_X(x) = P(X \leq x)\)</span> - the probability of values up to $x$2. <strong>Inverse Transform Sampling</strong>: Using <span class="math inline">\(F^{-1}(U)\)</span> where $U (0,1)$3. <strong>Discrete Implementation</strong>: Step-by-step categorical distribution sampling4. <strong>Continuous Applications</strong>: Exponential and normal distribution examples5. <strong>Validation Methods</strong>: Comparing empirical results with theory### Mathematical FoundationsThe inverse transform method works because:- If <span class="math inline">\(U \sim \text{Uniform}(0,1)\)</span>- And <span class="math inline">\(F\)</span> is any CDF- Then <span class="math inline">\(X = F^{-1}(U)\)</span> has distribution <span class="math inline">\(F\)</span>This is a fundamental result in probability theory!### Practical ApplicationsInverse transform sampling is used in:- <strong>Monte Carlo simulations</strong> for complex probability models- <strong>Bayesian inference</strong> for sampling from posterior distributions- <strong>Computer graphics</strong> for realistic random phenomena- <strong>Financial modeling</strong> for risk assessment and pricing- <strong>Machine learning</strong> for generative models and data augmentation### Advantages and Limitations<strong>Advantages:</strong>- Mathematically exact (no approximation errors)- Works for any distribution with known inverse CDF- Efficient for single samples- Preserves correlations in multivariate extensions<strong>Limitations:</strong>- Requires analytical or numerical inverse CDF- Can be computationally expensive for complex distributions- Some distributions don’t have closed-form inverse CDFs### Next StepsNow that you understand CDFs and inverse sampling, you’re ready to explore:- <strong>Joint distributions</strong> and multivariate CDFs- <strong>Conditional distributions</strong> and their CDFs- <strong>Order statistics</strong> and their relationship to CDFs- <strong>Advanced sampling methods</strong> like rejection sampling and MCMCThe CDF is truly one of the most versatile tools in probability and statistics!</p>
+<div id="cell-23" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>symbols  <span class="op">=</span> torch.tensor([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>])</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(symbols)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sample <span class="op">=</span> unif.sample()</span>
@@ -423,19 +526,19 @@ tensor(0.6947)
 tensor(4)</code></pre>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="6">
+<div id="cell-24" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sample <span class="op">&lt;=</span> cum_sum_prob</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>tensor([False, False, False,  True])</code></pre>
 </div>
 </div>
-<div id="cell-8" class="cell" data-execution_count="7">
+<div id="cell-25" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>symbols[sample <span class="op">&lt;</span> cum_sum_prob][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>tensor(4)</code></pre>
 </div>
 </div>
-<div id="cell-9" class="cell" data-execution_count="8">
+<div id="cell-26" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Even more efficient</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>index <span class="op">=</span> torch.searchsorted(cum_sum_prob, sample)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(symbols[index])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -443,7 +546,7 @@ tensor(4)</code></pre>
 <pre><code>tensor(4)</code></pre>
 </div>
 </div>
-<div id="cell-10" class="cell" data-execution_count="9">
+<div id="cell-27" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Vectorized</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>num_samples <span class="op">=</span> <span class="dv">100000</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>unif_samples <span class="op">=</span> unif.sample((num_samples,))</span>
@@ -455,7 +558,7 @@ tensor(4)</code></pre>
 <pre><code>tensor([4, 4, 4,  ..., 3, 4, 2])</code></pre>
 </div>
 </div>
-<div id="cell-11" class="cell" data-execution_count="10">
+<div id="cell-28" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>samples_series <span class="op">=</span> pd.Series(our_samples)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>samples_series_norm <span class="op">=</span> samples_series.value_counts(normalize<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>samples_series_norm.sort_index(inplace<span class="op">=</span><span class="va">True</span>)</span>
@@ -471,7 +574,7 @@ tensor(4)</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-12" class="cell" data-execution_count="16">
+<div id="cell-29" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Generating samples from exponential distribution</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>rate <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>exp <span class="op">=</span> torch.distributions.exponential.Exponential(rate)</span>
@@ -487,16 +590,16 @@ tensor(4)</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-13" class="cell" data-execution_count="17">
+<div id="cell-30" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> inv_cdf_exp(rate, u):</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">-</span>torch.log(<span class="dv">1</span><span class="op">-</span>u)<span class="op">/</span>rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-14" class="cell" data-execution_count="18">
+<div id="cell-31" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>U <span class="op">=</span> torch.distributions.uniform.Uniform(<span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>u_vec <span class="op">=</span> U.sample((num_samples,))</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>x_vec <span class="op">=</span> inv_cdf_exp(rate, u_vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="19">
+<div id="cell-32" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>plt.hist(x_vec.numpy(), bins<span class="op">=</span><span class="dv">100</span>, density<span class="op">=</span><span class="va">True</span>, label<span class="op">=</span><span class="st">'Empirical'</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>plt.plot(x_range, y, label<span class="op">=</span><span class="st">'True'</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -508,7 +611,7 @@ tensor(4)</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="20">
+<div id="cell-33" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Generalised implementation when .icdf() is available</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> inverse_cdf_sampling(distribution, sample_size<span class="op">=</span><span class="dv">10000</span>):</span>
@@ -517,18 +620,18 @@ tensor(4)</code></pre>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> distribution.icdf(U)     <span class="co"># Apply inverse CDF (quantile function)</span></span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-17" class="cell" data-execution_count="21">
+<div id="cell-34" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> inverse_cdf_sampling(X, <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-18" class="cell" data-execution_count="22">
+<div id="cell-35" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Use CDF function</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>our_dist <span class="op">=</span> torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>unif_samples <span class="op">=</span> inverse_cdf_sampling(our_dist, <span class="dv">1000</span>)</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-19" class="cell" data-execution_count="23">
+<div id="cell-36" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>plt.hist(samples.numpy(), bins<span class="op">=</span><span class="dv">50</span>, density<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>(array([0.00844681, 0.        , 0.01689361, 0.00844682, 0.02534042,
@@ -562,7 +665,7 @@ tensor(4)</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-20" class="cell" data-execution_count="25">
+<div id="cell-37" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>exp.icdf?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <div class="ansi-escaped-output">
@@ -588,6 +691,8 @@ Args:
 </div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

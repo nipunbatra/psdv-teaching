@@ -7,9 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Nipun Batra">
-<meta name="dcterms.date" content="2024-12-05">
+<meta name="dcterms.date" content="2025-01-13">
+<meta name="keywords" content="random variables, probability mass function, discrete distributions, sample space, outcomes, histogram vs pmf, dice simulation">
+<meta name="description" content="A comprehensive introduction to random variables, their mathematical foundations, and practical applications. Covers discrete random variables, probability mass functions, and the relationship between histograms and theoretical distributions.">
 
-<title>Random Variables – Probability Statistics Data Visualization Resources</title>
+<title>Introduction to Random Variables – Probability Statistics Data Visualization Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,6 +115,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 <script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -323,8 +354,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-random-variables-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-mathematical-definition-what-random-variables-are-and-how-they-map-outcomes-to-numerical-values2.-sample-spaces-understanding-the-domain-of-random-variables-and-possible-outcomes3.-discrete-random-variables-working-with-countable-outcomes-and-their-probabilities4.-probability-mass-functions-pmf-the-mathematical-description-of-discrete-random-variable-distributions5.-practical-applications-real-world-examples-including-dice-games-and-two-dice-scenarios6.-simulation-vs-theory-understanding-the-relationship-between-histograms-and-theoretical-pmfs-introductiona-random-variable-is-one-of-the-most-fundamental-concepts-in-probability-theory.-despite-its-name-a-random-variable-is-not-actually-a-variable-in-the-traditional-sense-nor-is-it-random.-instead-its-a-mathematical-function-that-assigns-numerical-values-to-the-outcomes-of-a-random-experiment.-formal-definitionmathematically-a-random-variable-x-is-a-function-that-maps-each-outcome-in-a-sample-space-omega-to-a-real-numberx-omega-rightarrow-mathbbrthis-mapping-allows-us-to--convert-non-numerical-outcomes-like-coin-flips-into-numbers--apply-mathematical-operations-and-statistical-analysis--calculate-probabilities-for-ranges-of-values--build-predictive-models-why-random-variables-matterrandom-variables-are-essential-because-they1.-bridge-the-gap-between-abstract-probability-theory-and-practical-applications2.-enable-mathematical-analysis-of-uncertain-events3.-provide-a-framework-for-statistical-inference4.-allow-us-to-model-real-world-phenomena-quantitativelylets-explore-these-concepts-through-hands-on-examples-and-interactive-simulations" id="toc-introduction-to-random-variables-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-mathematical-definition-what-random-variables-are-and-how-they-map-outcomes-to-numerical-values2.-sample-spaces-understanding-the-domain-of-random-variables-and-possible-outcomes3.-discrete-random-variables-working-with-countable-outcomes-and-their-probabilities4.-probability-mass-functions-pmf-the-mathematical-description-of-discrete-random-variable-distributions5.-practical-applications-real-world-examples-including-dice-games-and-two-dice-scenarios6.-simulation-vs-theory-understanding-the-relationship-between-histograms-and-theoretical-pmfs-introductiona-random-variable-is-one-of-the-most-fundamental-concepts-in-probability-theory.-despite-its-name-a-random-variable-is-not-actually-a-variable-in-the-traditional-sense-nor-is-it-random.-instead-its-a-mathematical-function-that-assigns-numerical-values-to-the-outcomes-of-a-random-experiment.-formal-definitionmathematically-a-random-variable-x-is-a-function-that-maps-each-outcome-in-a-sample-space-omega-to-a-real-numberx-omega-rightarrow-mathbbrthis-mapping-allows-us-to--convert-non-numerical-outcomes-like-coin-flips-into-numbers--apply-mathematical-operations-and-statistical-analysis--calculate-probabilities-for-ranges-of-values--build-predictive-models-why-random-variables-matterrandom-variables-are-essential-because-they1.-bridge-the-gap-between-abstract-probability-theory-and-practical-applications2.-enable-mathematical-analysis-of-uncertain-events3.-provide-a-framework-for-statistical-inference4.-allow-us-to-model-real-world-phenomena-quantitativelylets-explore-these-concepts-through-hands-on-examples-and-interactive-simulations" class="nav-link active" data-scroll-target="#introduction-to-random-variables-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-mathematical-definition-what-random-variables-are-and-how-they-map-outcomes-to-numerical-values2.-sample-spaces-understanding-the-domain-of-random-variables-and-possible-outcomes3.-discrete-random-variables-working-with-countable-outcomes-and-their-probabilities4.-probability-mass-functions-pmf-the-mathematical-description-of-discrete-random-variable-distributions5.-practical-applications-real-world-examples-including-dice-games-and-two-dice-scenarios6.-simulation-vs-theory-understanding-the-relationship-between-histograms-and-theoretical-pmfs-introductiona-random-variable-is-one-of-the-most-fundamental-concepts-in-probability-theory.-despite-its-name-a-random-variable-is-not-actually-a-variable-in-the-traditional-sense-nor-is-it-random.-instead-its-a-mathematical-function-that-assigns-numerical-values-to-the-outcomes-of-a-random-experiment.-formal-definitionmathematically-a-random-variable-x-is-a-function-that-maps-each-outcome-in-a-sample-space-omega-to-a-real-numberx-omega-rightarrow-mathbbrthis-mapping-allows-us-to--convert-non-numerical-outcomes-like-coin-flips-into-numbers--apply-mathematical-operations-and-statistical-analysis--calculate-probabilities-for-ranges-of-values--build-predictive-models-why-random-variables-matterrandom-variables-are-essential-because-they1.-bridge-the-gap-between-abstract-probability-theory-and-practical-applications2.-enable-mathematical-analysis-of-uncertain-events3.-provide-a-framework-for-statistical-inference4.-allow-us-to-model-real-world-phenomena-quantitativelylets-explore-these-concepts-through-hands-on-examples-and-interactive-simulations">Introduction to Random Variables## Learning ObjectivesBy the end of this notebook, you will understand:1. <strong>Mathematical Definition</strong>: What random variables are and how they map outcomes to numerical values2. <strong>Sample Spaces</strong>: Understanding the domain of random variables and possible outcomes3. <strong>Discrete Random Variables</strong>: Working with countable outcomes and their probabilities4. <strong>Probability Mass Functions (PMF)</strong>: The mathematical description of discrete random variable distributions5. <strong>Practical Applications</strong>: Real-world examples including dice games and two-dice scenarios6. <strong>Simulation vs Theory</strong>: Understanding the relationship between histograms and theoretical PMFs## IntroductionA <strong>random variable</strong> is one of the most fundamental concepts in probability theory. Despite its name, a random variable is not actually a variable in the traditional sense, nor is it random. Instead, it’s a mathematical function that assigns numerical values to the outcomes of a random experiment.### Formal DefinitionMathematically, a random variable <span class="math inline">\(X\)</span> is a function that maps each outcome in a sample space <span class="math inline">\(\Omega\)</span> to a real number:<span class="math display">\[X: \Omega \rightarrow \mathbb{R}\]</span>This mapping allows us to:- Convert non-numerical outcomes (like coin flips) into numbers- Apply mathematical operations and statistical analysis- Calculate probabilities for ranges of values- Build predictive models### Why Random Variables MatterRandom variables are essential because they:1. <strong>Bridge the gap</strong> between abstract probability theory and practical applications2. <strong>Enable mathematical analysis</strong> of uncertain events3. <strong>Provide a framework</strong> for statistical inference4. <strong>Allow us to model</strong> real-world phenomena quantitativelyLet’s explore these concepts through hands-on examples and interactive simulations!</a>
+  <ul class="collapse">
+  <li><a href="#setting-up-the-environmentwell-use-standard-python-libraries-for-our-probability-and-statistical-computations" id="toc-setting-up-the-environmentwell-use-standard-python-libraries-for-our-probability-and-statistical-computations" class="nav-link" data-scroll-target="#setting-up-the-environmentwell-use-standard-python-libraries-for-our-probability-and-statistical-computations">Setting Up the EnvironmentWe’ll use standard Python libraries for our probability and statistical computations:</a></li>
+  <li><a href="#example-1-coin-flipping-experimentlets-start-with-a-fundamental-example---flipping-a-coin-twice.-this-will-illustrate-how-random-variables-work-in-practice.-sample-spacefor-two-coin-flips-our-sample-space-consists-of-all-possible-outcomes" id="toc-example-1-coin-flipping-experimentlets-start-with-a-fundamental-example---flipping-a-coin-twice.-this-will-illustrate-how-random-variables-work-in-practice.-sample-spacefor-two-coin-flips-our-sample-space-consists-of-all-possible-outcomes" class="nav-link" data-scroll-target="#example-1-coin-flipping-experimentlets-start-with-a-fundamental-example---flipping-a-coin-twice.-this-will-illustrate-how-random-variables-work-in-practice.-sample-spacefor-two-coin-flips-our-sample-space-consists-of-all-possible-outcomes">Example 1: Coin Flipping ExperimentLet’s start with a fundamental example - flipping a coin twice. This will illustrate how random variables work in practice.### Sample SpaceFor two coin flips, our sample space consists of all possible outcomes:</a>
+  <ul class="collapse">
+  <li><a href="#defining-a-random-variablenow-lets-define-a-random-variable-x-that-counts-the-number-of-heads-in-each-outcome" id="toc-defining-a-random-variablenow-lets-define-a-random-variable-x-that-counts-the-number-of-heads-in-each-outcome" class="nav-link" data-scroll-target="#defining-a-random-variablenow-lets-define-a-random-variable-x-that-counts-the-number-of-heads-in-each-outcome">Defining a Random VariableNow let’s define a random variable <span class="math inline">\(X\)</span> that counts the number of heads in each outcome:</a></li>
+  <li><a href="#creating-the-mappinglets-create-a-systematic-mapping-from-outcomes-to-random-variable-values" id="toc-creating-the-mappinglets-create-a-systematic-mapping-from-outcomes-to-random-variable-values" class="nav-link" data-scroll-target="#creating-the-mappinglets-create-a-systematic-mapping-from-outcomes-to-random-variable-values">Creating the MappingLet’s create a systematic mapping from outcomes to random variable values:</a></li>
+  <li><a href="#finding-specific-outcomeswe-can-use-our-random-variable-to-find-which-outcomes-correspond-to-specific-values.-for-example-lets-find-all-outcomes-where-x-1-exactly-one-head" id="toc-finding-specific-outcomeswe-can-use-our-random-variable-to-find-which-outcomes-correspond-to-specific-values.-for-example-lets-find-all-outcomes-where-x-1-exactly-one-head" class="nav-link" data-scroll-target="#finding-specific-outcomeswe-can-use-our-random-variable-to-find-which-outcomes-correspond-to-specific-values.-for-example-lets-find-all-outcomes-where-x-1-exactly-one-head">Finding Specific OutcomesWe can use our random variable to find which outcomes correspond to specific values. For example, let’s find all outcomes where <span class="math inline">\(X = 1\)</span> (exactly one head):</a></li>
+  <li><a href="#computing-probabilitiesnow-we-can-calculate-the-probability-distribution-of-our-random-variable.-for-a-fair-coin-each-outcome-is-equally-likely-with-probability-14" id="toc-computing-probabilitiesnow-we-can-calculate-the-probability-distribution-of-our-random-variable.-for-a-fair-coin-each-outcome-is-equally-likely-with-probability-14" class="nav-link" data-scroll-target="#computing-probabilitiesnow-we-can-calculate-the-probability-distribution-of-our-random-variable.-for-a-fair-coin-each-outcome-is-equally-likely-with-probability-14">Computing ProbabilitiesNow we can calculate the probability distribution of our random variable. For a fair coin, each outcome is equally likely with probability 1/4:</a></li>
+  </ul></li>
+  <li><a href="#example-2-two-dice-rolllets-explore-a-more-complex-example-with-two-six-sided-dice.-this-will-introduce-multiple-random-variables-defined-on-the-same-sample-space." id="toc-example-2-two-dice-rolllets-explore-a-more-complex-example-with-two-six-sided-dice.-this-will-introduce-multiple-random-variables-defined-on-the-same-sample-space." class="nav-link" data-scroll-target="#example-2-two-dice-rolllets-explore-a-more-complex-example-with-two-six-sided-dice.-this-will-introduce-multiple-random-variables-defined-on-the-same-sample-space.">Example 2: Two Dice RollLet’s explore a more complex example with two six-sided dice. This will introduce multiple random variables defined on the same sample space.</a>
+  <ul class="collapse">
+  <li><a href="#multiple-random-variablesfrom-the-same-sample-space-we-can-define-several-different-random-variables--x_1-sum-of-the-two-dice--x_2-product-of-the-two-dice---x_3-maximum-of-the-two-diceeach-provides-a-different-numerical-perspective-on-the-same-outcomes" id="toc-multiple-random-variablesfrom-the-same-sample-space-we-can-define-several-different-random-variables--x_1-sum-of-the-two-dice--x_2-product-of-the-two-dice---x_3-maximum-of-the-two-diceeach-provides-a-different-numerical-perspective-on-the-same-outcomes" class="nav-link" data-scroll-target="#multiple-random-variablesfrom-the-same-sample-space-we-can-define-several-different-random-variables--x_1-sum-of-the-two-dice--x_2-product-of-the-two-dice---x_3-maximum-of-the-two-diceeach-provides-a-different-numerical-perspective-on-the-same-outcomes">Multiple Random VariablesFrom the same sample space, we can define several different random variables:- <span class="math inline">\(X_1\)</span>: Sum of the two dice- <span class="math inline">\(X_2\)</span>: Product of the two dice - <span class="math inline">\(X_3\)</span>: Maximum of the two diceEach provides a different numerical perspective on the same outcomes:</a></li>
+  <li><a href="#data-analysis-with-random-variableslets-create-a-comprehensive-dataset-and-analyze-specific-values" id="toc-data-analysis-with-random-variableslets-create-a-comprehensive-dataset-and-analyze-specific-values" class="nav-link" data-scroll-target="#data-analysis-with-random-variableslets-create-a-comprehensive-dataset-and-analyze-specific-values">Data Analysis with Random VariablesLet’s create a comprehensive dataset and analyze specific values:</a></li>
+  <li><a href="#interactive-explorationthis-interactive-widget-allows-you-to-explore-how-many-ways-different-sums-can-occur" id="toc-interactive-explorationthis-interactive-widget-allows-you-to-explore-how-many-ways-different-sums-can-occur" class="nav-link" data-scroll-target="#interactive-explorationthis-interactive-widget-allows-you-to-explore-how-many-ways-different-sums-can-occur">Interactive ExplorationThis interactive widget allows you to explore how many ways different sums can occur:</a></li>
+  </ul></li>
+  <li><a href="#understanding-pmf-vs-histograma-crucial-concept-in-probability-is-understanding-the-difference-between--probability-mass-function-pmf-the-theoretical-probability-distribution--histogram-the-empirical-distribution-from-actual-data-theoretical-pmf-of-a-fair-diefor-a-fair-six-sided-die-the-theoretical-pmf-assigns-equal-probability-to-each-outcome" id="toc-understanding-pmf-vs-histograma-crucial-concept-in-probability-is-understanding-the-difference-between--probability-mass-function-pmf-the-theoretical-probability-distribution--histogram-the-empirical-distribution-from-actual-data-theoretical-pmf-of-a-fair-diefor-a-fair-six-sided-die-the-theoretical-pmf-assigns-equal-probability-to-each-outcome" class="nav-link" data-scroll-target="#understanding-pmf-vs-histograma-crucial-concept-in-probability-is-understanding-the-difference-between--probability-mass-function-pmf-the-theoretical-probability-distribution--histogram-the-empirical-distribution-from-actual-data-theoretical-pmf-of-a-fair-diefor-a-fair-six-sided-die-the-theoretical-pmf-assigns-equal-probability-to-each-outcome">Understanding PMF vs HistogramA crucial concept in probability is understanding the difference between:- <strong>Probability Mass Function (PMF)</strong>: The theoretical probability distribution- <strong>Histogram</strong>: The empirical distribution from actual data### Theoretical PMF of a Fair DieFor a fair six-sided die, the theoretical PMF assigns equal probability to each outcome:</a>
+  <ul class="collapse">
+  <li><a href="#comparing-theory-with-simulationnow-lets-see-how-histograms-from-actual-die-rolls-compare-to-the-theoretical-pmf.-as-we-increase-the-number-of-rolls-the-histogram-should-converge-to-the-pmf" id="toc-comparing-theory-with-simulationnow-lets-see-how-histograms-from-actual-die-rolls-compare-to-the-theoretical-pmf.-as-we-increase-the-number-of-rolls-the-histogram-should-converge-to-the-pmf" class="nav-link" data-scroll-target="#comparing-theory-with-simulationnow-lets-see-how-histograms-from-actual-die-rolls-compare-to-the-theoretical-pmf.-as-we-increase-the-number-of-rolls-the-histogram-should-converge-to-the-pmf">Comparing Theory with SimulationNow let’s see how histograms from actual die rolls compare to the theoretical PMF. As we increase the number of rolls, the histogram should converge to the PMF:</a></li>
+  </ul></li>
+  <li><a href="#summaryin-this-notebook-weve-explored-the-fundamental-concept-of-random-variables-through-key-concepts-covered1.-mathematical-foundation-random-variables-as-functions-mapping-outcomes-to-numbers2.-sample-spaces-understanding-the-domain-of-random-experiments-3.-probability-calculations-computing-pmfs-from-inverse-mappings4.-multiple-variables-different-random-variables-on-the-same-sample-space5.-theory-vs-practice-comparing-theoretical-pmfs-with-empirical-histograms-important-insights--random-variables-transform-qualitative-outcomes-into-quantitative-analysis--the-same-sample-space-can-support-multiple-random-variables--pmfs-provide-the-theoretical-foundation-for-probability-calculations--histograms-converge-to-pmfs-as-sample-size-increases-law-of-large-numbers--interactive-tools-help-build-intuition-about-probability-distributions-mathematical-relationshipsfor-any-discrete-random-variable-x--sum_x-px-x-1-probabilities-sum-to-1--px-x-geq-0-for-all-x-probabilities-are-non-negative--px-in-a-sum_x-in-a-px-x-probability-of-sets-next-stepsnow-that-you-understand-random-variables-youre-ready-to-explore--continuous-random-variables-and-probability-density-functions--cumulative-distribution-functions-for-both-discrete-and-continuous-variables--common-probability-distributions-and-their-applications--joint-distributions-and-relationships-between-multiple-random-variablesrandom-variables-are-the-building-blocks-of-probability-theory---master-them-and-youll-have-a-solid-foundation-for-all-of-statistics-and-data-science" id="toc-summaryin-this-notebook-weve-explored-the-fundamental-concept-of-random-variables-through-key-concepts-covered1.-mathematical-foundation-random-variables-as-functions-mapping-outcomes-to-numbers2.-sample-spaces-understanding-the-domain-of-random-experiments-3.-probability-calculations-computing-pmfs-from-inverse-mappings4.-multiple-variables-different-random-variables-on-the-same-sample-space5.-theory-vs-practice-comparing-theoretical-pmfs-with-empirical-histograms-important-insights--random-variables-transform-qualitative-outcomes-into-quantitative-analysis--the-same-sample-space-can-support-multiple-random-variables--pmfs-provide-the-theoretical-foundation-for-probability-calculations--histograms-converge-to-pmfs-as-sample-size-increases-law-of-large-numbers--interactive-tools-help-build-intuition-about-probability-distributions-mathematical-relationshipsfor-any-discrete-random-variable-x--sum_x-px-x-1-probabilities-sum-to-1--px-x-geq-0-for-all-x-probabilities-are-non-negative--px-in-a-sum_x-in-a-px-x-probability-of-sets-next-stepsnow-that-you-understand-random-variables-youre-ready-to-explore--continuous-random-variables-and-probability-density-functions--cumulative-distribution-functions-for-both-discrete-and-continuous-variables--common-probability-distributions-and-their-applications--joint-distributions-and-relationships-between-multiple-random-variablesrandom-variables-are-the-building-blocks-of-probability-theory---master-them-and-youll-have-a-solid-foundation-for-all-of-statistics-and-data-science" class="nav-link" data-scroll-target="#summaryin-this-notebook-weve-explored-the-fundamental-concept-of-random-variables-through-key-concepts-covered1.-mathematical-foundation-random-variables-as-functions-mapping-outcomes-to-numbers2.-sample-spaces-understanding-the-domain-of-random-experiments-3.-probability-calculations-computing-pmfs-from-inverse-mappings4.-multiple-variables-different-random-variables-on-the-same-sample-space5.-theory-vs-practice-comparing-theoretical-pmfs-with-empirical-histograms-important-insights--random-variables-transform-qualitative-outcomes-into-quantitative-analysis--the-same-sample-space-can-support-multiple-random-variables--pmfs-provide-the-theoretical-foundation-for-probability-calculations--histograms-converge-to-pmfs-as-sample-size-increases-law-of-large-numbers--interactive-tools-help-build-intuition-about-probability-distributions-mathematical-relationshipsfor-any-discrete-random-variable-x--sum_x-px-x-1-probabilities-sum-to-1--px-x-geq-0-for-all-x-probabilities-are-non-negative--px-in-a-sum_x-in-a-px-x-probability-of-sets-next-stepsnow-that-you-understand-random-variables-youre-ready-to-explore--continuous-random-variables-and-probability-density-functions--cumulative-distribution-functions-for-both-discrete-and-continuous-variables--common-probability-distributions-and-their-applications--joint-distributions-and-relationships-between-multiple-random-variablesrandom-variables-are-the-building-blocks-of-probability-theory---master-them-and-youll-have-a-solid-foundation-for-all-of-statistics-and-data-science">SummaryIn this notebook, we’ve explored the fundamental concept of random variables through:### Key Concepts Covered1. <strong>Mathematical Foundation</strong>: Random variables as functions mapping outcomes to numbers2. <strong>Sample Spaces</strong>: Understanding the domain of random experiments 3. <strong>Probability Calculations</strong>: Computing PMFs from inverse mappings4. <strong>Multiple Variables</strong>: Different random variables on the same sample space5. <strong>Theory vs Practice</strong>: Comparing theoretical PMFs with empirical histograms### Important Insights- <strong>Random variables transform qualitative outcomes into quantitative analysis</strong>- <strong>The same sample space can support multiple random variables</strong>- <strong>PMFs provide the theoretical foundation for probability calculations</strong>- <strong>Histograms converge to PMFs as sample size increases (Law of Large Numbers)</strong>- <strong>Interactive tools help build intuition about probability distributions</strong>### Mathematical RelationshipsFor any discrete random variable <span class="math inline">\(X\)</span>:- <span class="math inline">\(\sum_{x} P(X = x) = 1\)</span> (probabilities sum to 1)- <span class="math inline">\(P(X = x) \geq 0\)</span> for all <span class="math inline">\(x\)</span> (probabilities are non-negative)- <span class="math inline">\(P(X \in A) = \sum_{x \in A} P(X = x)\)</span> (probability of sets)### Next StepsNow that you understand random variables, you’re ready to explore:- <strong>Continuous random variables</strong> and probability density functions- <strong>Cumulative distribution functions</strong> for both discrete and continuous variables- <strong>Common probability distributions</strong> and their applications- <strong>Joint distributions</strong> and relationships between multiple random variablesRandom variables are the building blocks of probability theory - master them, and you’ll have a solid foundation for all of statistics and data science!</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -332,12 +390,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Random Variables</h1>
+<h1 class="title">Introduction to Random Variables</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">ML</div>
+    <div class="quarto-category">Probability</div>
+    <div class="quarto-category">Statistics</div>
+    <div class="quarto-category">Mathematics</div>
+    <div class="quarto-category">Random Variables</div>
   </div>
   </div>
 
+<div>
+  <div class="description">
+    A comprehensive introduction to random variables, their mathematical foundations, and practical applications. Covers discrete random variables, probability mass functions, and the relationship between histograms and theoretical distributions.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -352,7 +418,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 5, 2024</p>
+      <p class="date">January 13, 2025</p>
     </div>
   </div>
   
@@ -360,11 +426,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>random variables, probability mass function, discrete distributions, sample space, outcomes, histogram vs pmf, dice simulation</p>
+  </div>
+</div>
 
 </header>
 
 
-<div id="cell-1" class="cell" data-execution_count="3">
+<p>—author: Nipun Batratitle: Introduction to Random Variablesdescription: A comprehensive introduction to random variables, their mathematical foundations, and practical applications. Covers discrete random variables, probability mass functions, and the relationship between histograms and theoretical distributions.categories: - Probability - Statistics - Mathematics - Random Variableskeywords: - random variables - probability mass function - discrete distributions - sample space - outcomes - histogram vs pmf - dice simulationdate: ’2025-01-13’badges: truetoc: true—</p>
+<section id="introduction-to-random-variables-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-mathematical-definition-what-random-variables-are-and-how-they-map-outcomes-to-numerical-values2.-sample-spaces-understanding-the-domain-of-random-variables-and-possible-outcomes3.-discrete-random-variables-working-with-countable-outcomes-and-their-probabilities4.-probability-mass-functions-pmf-the-mathematical-description-of-discrete-random-variable-distributions5.-practical-applications-real-world-examples-including-dice-games-and-two-dice-scenarios6.-simulation-vs-theory-understanding-the-relationship-between-histograms-and-theoretical-pmfs-introductiona-random-variable-is-one-of-the-most-fundamental-concepts-in-probability-theory.-despite-its-name-a-random-variable-is-not-actually-a-variable-in-the-traditional-sense-nor-is-it-random.-instead-its-a-mathematical-function-that-assigns-numerical-values-to-the-outcomes-of-a-random-experiment.-formal-definitionmathematically-a-random-variable-x-is-a-function-that-maps-each-outcome-in-a-sample-space-omega-to-a-real-numberx-omega-rightarrow-mathbbrthis-mapping-allows-us-to--convert-non-numerical-outcomes-like-coin-flips-into-numbers--apply-mathematical-operations-and-statistical-analysis--calculate-probabilities-for-ranges-of-values--build-predictive-models-why-random-variables-matterrandom-variables-are-essential-because-they1.-bridge-the-gap-between-abstract-probability-theory-and-practical-applications2.-enable-mathematical-analysis-of-uncertain-events3.-provide-a-framework-for-statistical-inference4.-allow-us-to-model-real-world-phenomena-quantitativelylets-explore-these-concepts-through-hands-on-examples-and-interactive-simulations" class="level1">
+<h1>Introduction to Random Variables## Learning ObjectivesBy the end of this notebook, you will understand:1. <strong>Mathematical Definition</strong>: What random variables are and how they map outcomes to numerical values2. <strong>Sample Spaces</strong>: Understanding the domain of random variables and possible outcomes3. <strong>Discrete Random Variables</strong>: Working with countable outcomes and their probabilities4. <strong>Probability Mass Functions (PMF)</strong>: The mathematical description of discrete random variable distributions5. <strong>Practical Applications</strong>: Real-world examples including dice games and two-dice scenarios6. <strong>Simulation vs Theory</strong>: Understanding the relationship between histograms and theoretical PMFs## IntroductionA <strong>random variable</strong> is one of the most fundamental concepts in probability theory. Despite its name, a random variable is not actually a variable in the traditional sense, nor is it random. Instead, it’s a mathematical function that assigns numerical values to the outcomes of a random experiment.### Formal DefinitionMathematically, a random variable <span class="math inline">\(X\)</span> is a function that maps each outcome in a sample space <span class="math inline">\(\Omega\)</span> to a real number:<span class="math display">\[X: \Omega \rightarrow \mathbb{R}\]</span>This mapping allows us to:- Convert non-numerical outcomes (like coin flips) into numbers- Apply mathematical operations and statistical analysis- Calculate probabilities for ranges of values- Build predictive models### Why Random Variables MatterRandom variables are essential because they:1. <strong>Bridge the gap</strong> between abstract probability theory and practical applications2. <strong>Enable mathematical analysis</strong> of uncertain events3. <strong>Provide a framework</strong> for statistical inference4. <strong>Allow us to model</strong> real-world phenomena quantitativelyLet’s explore these concepts through hands-on examples and interactive simulations!</h1>
+<section id="setting-up-the-environmentwell-use-standard-python-libraries-for-our-probability-and-statistical-computations" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-the-environmentwell-use-standard-python-libraries-for-our-probability-and-statistical-computations">Setting Up the EnvironmentWe’ll use standard Python libraries for our probability and statistical computations:</h2>
+</section>
+<section id="example-1-coin-flipping-experimentlets-start-with-a-fundamental-example---flipping-a-coin-twice.-this-will-illustrate-how-random-variables-work-in-practice.-sample-spacefor-two-coin-flips-our-sample-space-consists-of-all-possible-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="example-1-coin-flipping-experimentlets-start-with-a-fundamental-example---flipping-a-coin-twice.-this-will-illustrate-how-random-variables-work-in-practice.-sample-spacefor-two-coin-flips-our-sample-space-consists-of-all-possible-outcomes">Example 1: Coin Flipping ExperimentLet’s start with a fundamental example - flipping a coin twice. This will illustrate how random variables work in practice.### Sample SpaceFor two coin flips, our sample space consists of all possible outcomes:</h2>
+<section id="defining-a-random-variablenow-lets-define-a-random-variable-x-that-counts-the-number-of-heads-in-each-outcome" class="level3">
+<h3 class="anchored" data-anchor-id="defining-a-random-variablenow-lets-define-a-random-variable-x-that-counts-the-number-of-heads-in-each-outcome">Defining a Random VariableNow let’s define a random variable <span class="math inline">\(X\)</span> that counts the number of heads in each outcome:</h3>
+<div id="cell-5" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch </span>
@@ -373,32 +455,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-2" class="cell" data-execution_count="3">
+</section>
+<section id="creating-the-mappinglets-create-a-systematic-mapping-from-outcomes-to-random-variable-values" class="level3">
+<h3 class="anchored" data-anchor-id="creating-the-mappinglets-create-a-systematic-mapping-from-outcomes-to-random-variable-values">Creating the MappingLet’s create a systematic mapping from outcomes to random variable values:</h3>
+<div id="cell-7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample space for flipping a coin 2 times</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sample_space <span class="op">=</span> [<span class="st">"HH"</span>, <span class="st">"HT"</span>, <span class="st">"TH"</span>, <span class="st">"TT"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-3" class="cell" data-execution_count="4">
+<p>This table clearly shows how our random variable <span class="math inline">\(X\)</span> maps each outcome to a numerical value representing the count of heads.</p>
+</section>
+<section id="finding-specific-outcomeswe-can-use-our-random-variable-to-find-which-outcomes-correspond-to-specific-values.-for-example-lets-find-all-outcomes-where-x-1-exactly-one-head" class="level3">
+<h3 class="anchored" data-anchor-id="finding-specific-outcomeswe-can-use-our-random-variable-to-find-which-outcomes-correspond-to-specific-values.-for-example-lets-find-all-outcomes-where-x-1-exactly-one-head">Finding Specific OutcomesWe can use our random variable to find which outcomes correspond to specific values. For example, let’s find all outcomes where <span class="math inline">\(X = 1\)</span> (exactly one head):</h3>
+<div id="cell-10" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a random variable X as the number of Heads in the outcomes</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> random_variable_X(outcome):</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> outcome.count(<span class="st">"H"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="5">
+</section>
+<section id="computing-probabilitiesnow-we-can-calculate-the-probability-distribution-of-our-random-variable.-for-a-fair-coin-each-outcome-is-equally-likely-with-probability-14" class="level3">
+<h3 class="anchored" data-anchor-id="computing-probabilitiesnow-we-can-calculate-the-probability-distribution-of-our-random-variable.-for-a-fair-coin-each-outcome-is-equally-likely-with-probability-14">Computing ProbabilitiesNow we can calculate the probability distribution of our random variable. For a fair coin, each outcome is equally likely with probability 1/4:</h3>
+<div id="cell-12" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>random_variable_X(<span class="st">"HT"</span>), random_variable_X(<span class="st">"TT"</span>), random_variable_X(<span class="st">"HH"</span>), random_variable_X(<span class="st">"TH"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>(1, 0, 2, 1)</code></pre>
 </div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="6">
+<p>This creates an <strong>inverse mapping</strong> that will be useful for probability calculations. Notice how multiple outcomes can map to the same random variable value.</p>
+<p>These probabilities form the <strong>Probability Mass Function (PMF)</strong> of our random variable:- <span class="math inline">\(P(X = 0) = 0.25\)</span> (no heads)- <span class="math inline">\(P(X = 1) = 0.50\)</span> (one head) - <span class="math inline">\(P(X = 2) = 0.25\)</span> (two heads)Notice that these probabilities sum to 1, as required for any probability distribution.</p>
+</section>
+</section>
+<section id="example-2-two-dice-rolllets-explore-a-more-complex-example-with-two-six-sided-dice.-this-will-introduce-multiple-random-variables-defined-on-the-same-sample-space." class="level2">
+<h2 class="anchored" data-anchor-id="example-2-two-dice-rolllets-explore-a-more-complex-example-with-two-six-sided-dice.-this-will-introduce-multiple-random-variables-defined-on-the-same-sample-space.">Example 2: Two Dice RollLet’s explore a more complex example with two six-sided dice. This will introduce multiple random variables defined on the same sample space.</h2>
+<section id="multiple-random-variablesfrom-the-same-sample-space-we-can-define-several-different-random-variables--x_1-sum-of-the-two-dice--x_2-product-of-the-two-dice---x_3-maximum-of-the-two-diceeach-provides-a-different-numerical-perspective-on-the-same-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="multiple-random-variablesfrom-the-same-sample-space-we-can-define-several-different-random-variables--x_1-sum-of-the-two-dice--x_2-product-of-the-two-dice---x_3-maximum-of-the-two-diceeach-provides-a-different-numerical-perspective-on-the-same-outcomes">Multiple Random VariablesFrom the same sample space, we can define several different random variables:- <span class="math inline">\(X_1\)</span>: Sum of the two dice- <span class="math inline">\(X_2\)</span>: Product of the two dice - <span class="math inline">\(X_3\)</span>: Maximum of the two diceEach provides a different numerical perspective on the same outcomes:</h3>
+<div id="cell-17" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mapping of outcomes to the random variable values</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>mapping <span class="op">=</span> {outcome: random_variable_X(outcome) <span class="cf">for</span> outcome <span class="kw">in</span> sample_space}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-6" class="cell" data-execution_count="7">
+</section>
+<section id="data-analysis-with-random-variableslets-create-a-comprehensive-dataset-and-analyze-specific-values" class="level3">
+<h3 class="anchored" data-anchor-id="data-analysis-with-random-variableslets-create-a-comprehensive-dataset-and-analyze-specific-values">Data Analysis with Random VariablesLet’s create a comprehensive dataset and analyze specific values:</h3>
+<p>These are all the ways to get a sum of 10 with two dice. Notice there are exactly 3 ways out of 36 possible outcomes, giving a probability of 3/36 = 1/12 ≈ 0.083.</p>
+</section>
+<section id="interactive-explorationthis-interactive-widget-allows-you-to-explore-how-many-ways-different-sums-can-occur" class="level3">
+<h3 class="anchored" data-anchor-id="interactive-explorationthis-interactive-widget-allows-you-to-explore-how-many-ways-different-sums-can-occur">Interactive ExplorationThis interactive widget allows you to explore how many ways different sums can occur:</h3>
+</section>
+</section>
+<section id="understanding-pmf-vs-histograma-crucial-concept-in-probability-is-understanding-the-difference-between--probability-mass-function-pmf-the-theoretical-probability-distribution--histogram-the-empirical-distribution-from-actual-data-theoretical-pmf-of-a-fair-diefor-a-fair-six-sided-die-the-theoretical-pmf-assigns-equal-probability-to-each-outcome" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-pmf-vs-histograma-crucial-concept-in-probability-is-understanding-the-difference-between--probability-mass-function-pmf-the-theoretical-probability-distribution--histogram-the-empirical-distribution-from-actual-data-theoretical-pmf-of-a-fair-diefor-a-fair-six-sided-die-the-theoretical-pmf-assigns-equal-probability-to-each-outcome">Understanding PMF vs HistogramA crucial concept in probability is understanding the difference between:- <strong>Probability Mass Function (PMF)</strong>: The theoretical probability distribution- <strong>Histogram</strong>: The empirical distribution from actual data### Theoretical PMF of a Fair DieFor a fair six-sided die, the theoretical PMF assigns equal probability to each outcome:</h2>
+<section id="comparing-theory-with-simulationnow-lets-see-how-histograms-from-actual-die-rolls-compare-to-the-theoretical-pmf.-as-we-increase-the-number-of-rolls-the-histogram-should-converge-to-the-pmf" class="level3">
+<h3 class="anchored" data-anchor-id="comparing-theory-with-simulationnow-lets-see-how-histograms-from-actual-die-rolls-compare-to-the-theoretical-pmf.-as-we-increase-the-number-of-rolls-the-histogram-should-converge-to-the-pmf">Comparing Theory with SimulationNow let’s see how histograms from actual die rolls compare to the theoretical PMF. As we increase the number of rolls, the histogram should converge to the PMF:</h3>
+<div id="cell-23" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mapping</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>{'HH': 2, 'HT': 1, 'TH': 1, 'TT': 0}</code></pre>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="9">
+<div id="cell-24" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(mapping, index<span class="op">=</span>[<span class="st">"X"</span>]).T</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df.index.name <span class="op">=</span> <span class="st">"Outcome"</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -440,7 +553,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-8" class="cell" data-execution_count="10">
+<div id="cell-25" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find records/samples where X = 1</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"X"</span>] <span class="op">==</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
@@ -452,7 +565,7 @@ TT    False
 Name: X, dtype: bool</code></pre>
 </div>
 </div>
-<div id="cell-9" class="cell" data-execution_count="11">
+<div id="cell-26" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">"X"</span>] <span class="op">==</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <div>
@@ -484,7 +597,7 @@ Name: X, dtype: bool</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-10" class="cell" data-execution_count="12">
+<div id="cell-27" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate probabilities for X = 0, 1, 2</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_probability_X(x, df):</span>
@@ -493,13 +606,17 @@ Name: X, dtype: bool</code></pre>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    len_df <span class="op">=</span> <span class="bu">len</span>(df)</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> len_subset <span class="op">/</span> len_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-11" class="cell" data-execution_count="13">
+</section>
+</section>
+<section id="summaryin-this-notebook-weve-explored-the-fundamental-concept-of-random-variables-through-key-concepts-covered1.-mathematical-foundation-random-variables-as-functions-mapping-outcomes-to-numbers2.-sample-spaces-understanding-the-domain-of-random-experiments-3.-probability-calculations-computing-pmfs-from-inverse-mappings4.-multiple-variables-different-random-variables-on-the-same-sample-space5.-theory-vs-practice-comparing-theoretical-pmfs-with-empirical-histograms-important-insights--random-variables-transform-qualitative-outcomes-into-quantitative-analysis--the-same-sample-space-can-support-multiple-random-variables--pmfs-provide-the-theoretical-foundation-for-probability-calculations--histograms-converge-to-pmfs-as-sample-size-increases-law-of-large-numbers--interactive-tools-help-build-intuition-about-probability-distributions-mathematical-relationshipsfor-any-discrete-random-variable-x--sum_x-px-x-1-probabilities-sum-to-1--px-x-geq-0-for-all-x-probabilities-are-non-negative--px-in-a-sum_x-in-a-px-x-probability-of-sets-next-stepsnow-that-you-understand-random-variables-youre-ready-to-explore--continuous-random-variables-and-probability-density-functions--cumulative-distribution-functions-for-both-discrete-and-continuous-variables--common-probability-distributions-and-their-applications--joint-distributions-and-relationships-between-multiple-random-variablesrandom-variables-are-the-building-blocks-of-probability-theory---master-them-and-youll-have-a-solid-foundation-for-all-of-statistics-and-data-science" class="level2">
+<h2 class="anchored" data-anchor-id="summaryin-this-notebook-weve-explored-the-fundamental-concept-of-random-variables-through-key-concepts-covered1.-mathematical-foundation-random-variables-as-functions-mapping-outcomes-to-numbers2.-sample-spaces-understanding-the-domain-of-random-experiments-3.-probability-calculations-computing-pmfs-from-inverse-mappings4.-multiple-variables-different-random-variables-on-the-same-sample-space5.-theory-vs-practice-comparing-theoretical-pmfs-with-empirical-histograms-important-insights--random-variables-transform-qualitative-outcomes-into-quantitative-analysis--the-same-sample-space-can-support-multiple-random-variables--pmfs-provide-the-theoretical-foundation-for-probability-calculations--histograms-converge-to-pmfs-as-sample-size-increases-law-of-large-numbers--interactive-tools-help-build-intuition-about-probability-distributions-mathematical-relationshipsfor-any-discrete-random-variable-x--sum_x-px-x-1-probabilities-sum-to-1--px-x-geq-0-for-all-x-probabilities-are-non-negative--px-in-a-sum_x-in-a-px-x-probability-of-sets-next-stepsnow-that-you-understand-random-variables-youre-ready-to-explore--continuous-random-variables-and-probability-density-functions--cumulative-distribution-functions-for-both-discrete-and-continuous-variables--common-probability-distributions-and-their-applications--joint-distributions-and-relationships-between-multiple-random-variablesrandom-variables-are-the-building-blocks-of-probability-theory---master-them-and-youll-have-a-solid-foundation-for-all-of-statistics-and-data-science">SummaryIn this notebook, we’ve explored the fundamental concept of random variables through:### Key Concepts Covered1. <strong>Mathematical Foundation</strong>: Random variables as functions mapping outcomes to numbers2. <strong>Sample Spaces</strong>: Understanding the domain of random experiments 3. <strong>Probability Calculations</strong>: Computing PMFs from inverse mappings4. <strong>Multiple Variables</strong>: Different random variables on the same sample space5. <strong>Theory vs Practice</strong>: Comparing theoretical PMFs with empirical histograms### Important Insights- <strong>Random variables transform qualitative outcomes into quantitative analysis</strong>- <strong>The same sample space can support multiple random variables</strong>- <strong>PMFs provide the theoretical foundation for probability calculations</strong>- <strong>Histograms converge to PMFs as sample size increases (Law of Large Numbers)</strong>- <strong>Interactive tools help build intuition about probability distributions</strong>### Mathematical RelationshipsFor any discrete random variable <span class="math inline">\(X\)</span>:- <span class="math inline">\(\sum_{x} P(X = x) = 1\)</span> (probabilities sum to 1)- <span class="math inline">\(P(X = x) \geq 0\)</span> for all <span class="math inline">\(x\)</span> (probabilities are non-negative)- <span class="math inline">\(P(X \in A) = \sum_{x \in A} P(X = x)\)</span> (probability of sets)### Next StepsNow that you understand random variables, you’re ready to explore:- <strong>Continuous random variables</strong> and probability density functions- <strong>Cumulative distribution functions</strong> for both discrete and continuous variables- <strong>Common probability distributions</strong> and their applications- <strong>Joint distributions</strong> and relationships between multiple random variablesRandom variables are the building blocks of probability theory - master them, and you’ll have a solid foundation for all of statistics and data science!</h2>
+<div id="cell-29" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>calculate_probability_X(<span class="dv">0</span>, df), calculate_probability_X(<span class="dv">1</span>, df), calculate_probability_X(<span class="dv">2</span>, df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>(0.25, 0.5, 0.25)</code></pre>
 </div>
 </div>
-<div id="cell-12" class="cell" data-execution_count="14">
+<div id="cell-30" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store inverse mapping</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>inverse_mapping <span class="op">=</span> {x: [] <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>)}</span>
@@ -511,7 +628,7 @@ Name: X, dtype: bool</code></pre>
 <pre><code>{0: ['TT'], 1: ['HT', 'TH'], 2: ['HH']}</code></pre>
 </div>
 </div>
-<div id="cell-13" class="cell" data-execution_count="15">
+<div id="cell-31" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_probability_X(x, inverse_mapping):</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    outcomes <span class="op">=</span> inverse_mapping[x]</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    len_outcomes <span class="op">=</span> <span class="bu">len</span>(outcomes)</span>
@@ -523,7 +640,7 @@ Name: X, dtype: bool</code></pre>
 <pre><code>(0.25, 0.5, 0.25)</code></pre>
 </div>
 </div>
-<div id="cell-14" class="cell" data-execution_count="21">
+<div id="cell-32" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Two dice example</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct the sample space</span></span>
@@ -534,7 +651,7 @@ Name: X, dtype: bool</code></pre>
 <pre><code>[(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (3, 1), (3, 2), (3, 3), (3, 4), (3, 5), (3, 6), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (5, 1), (5, 2), (5, 3), (5, 4), (5, 5), (5, 6), (6, 1), (6, 2), (6, 3), (6, 4), (6, 5), (6, 6)]</code></pre>
 </div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="23">
+<div id="cell-33" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a random variable X1 as the sum of the outcomes</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a random variable X2 as the product of the outcomes</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a random variable X3 as the maximum of the outcomes</span></span>
@@ -548,20 +665,20 @@ Name: X, dtype: bool</code></pre>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> random_variable_X3(outcome):</span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">max</span>(outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="24">
+<div id="cell-34" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>random_variable_X1([<span class="dv">1</span>, <span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>3</code></pre>
 </div>
 </div>
-<div id="cell-17" class="cell" data-execution_count="32">
+<div id="cell-35" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a heatmap for the sum of the outcomes</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(sample_space, columns<span class="op">=</span>[<span class="st">"D1"</span>, <span class="st">"D2"</span>])</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"X1"</span>] <span class="op">=</span> df.<span class="bu">apply</span>(<span class="kw">lambda</span> row: random_variable_X1(row), axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>df.index.name <span class="op">=</span> <span class="st">"Serial No."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-18" class="cell" data-execution_count="36">
+<div id="cell-36" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df[df[<span class="st">"X1"</span>] <span class="op">==</span> <span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <div>
@@ -607,7 +724,7 @@ Name: X, dtype: bool</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-19" class="cell" data-execution_count="40">
+<div id="cell-37" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create interactive ipywidgets for the sum of the outcomes</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ipywidgets <span class="im">as</span> widgets</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interact</span>
@@ -622,7 +739,7 @@ Name: X, dtype: bool</code></pre>
 </script>
 </div>
 </div>
-<div id="cell-20" class="cell" data-execution_count="4">
+<div id="cell-38" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Difference between histrogram and PMF</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>die_pmf <span class="op">=</span> pd.Series([<span class="dv">1</span><span class="op">/</span><span class="dv">6</span>]<span class="op">*</span><span class="dv">6</span>, index<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>])</span>
@@ -641,7 +758,7 @@ Name: X, dtype: bool</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-21" class="cell" data-execution_count="5">
+<div id="cell-39" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Now, histogram over "N" rolls of the die</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> die_hist(N):</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    rolls <span class="op">=</span> np.random.randint(<span class="dv">1</span>, <span class="dv">7</span>, N)</span>
@@ -657,7 +774,7 @@ Name: X, dtype: bool</code></pre>
 <span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    ax.legend()</span>
 <span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-22" class="cell" data-execution_count="6">
+<div id="cell-40" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>die_hist(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -667,7 +784,7 @@ Name: X, dtype: bool</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-23" class="cell" data-execution_count="7">
+<div id="cell-41" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>die_hist(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -677,7 +794,7 @@ Name: X, dtype: bool</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-24" class="cell" data-execution_count="8">
+<div id="cell-42" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>die_hist(<span class="dv">50000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -687,7 +804,7 @@ Name: X, dtype: bool</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-25" class="cell" data-execution_count="9">
+<div id="cell-43" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>die_hist(<span class="dv">500000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -697,7 +814,7 @@ Name: X, dtype: bool</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-26" class="cell" data-execution_count="10">
+<div id="cell-44" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>die_hist(<span class="dv">500000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -709,6 +826,8 @@ Name: X, dtype: bool</code></pre>
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

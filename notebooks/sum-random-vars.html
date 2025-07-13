@@ -6,8 +6,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Nipun Batra">
+<meta name="dcterms.date" content="2024-12-05">
+<meta name="keywords" content="random variables, sum, normal distribution, categorical distribution, convolution">
+<meta name="description" content="Understanding the distribution of sums of random variables through simulation and theory">
 
-<title>sum-random-vars – Probability Statistics Data Visualization Resources</title>
+<title>Sum of Random Variables – Probability Statistics Data Visualization Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -110,7 +114,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -317,15 +321,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sum-of-random-variablesthis-notebook-explores-what-happens-when-we-add-random-variables-together.-well-examine-both-continuous-and-discrete-cases-comparing-simulation-results-with-theoretical-predictions.-learning-objectives--understand-how-sums-of-random-variables-behave--compare-empirical-distributions-with-theoretical-results--explore-the-convolution-property-for-independent-random-variables--visualize-distributions-using-kernel-density-estimationlets-start-by-importing-the-necessary-libraries" id="toc-sum-of-random-variablesthis-notebook-explores-what-happens-when-we-add-random-variables-together.-well-examine-both-continuous-and-discrete-cases-comparing-simulation-results-with-theoretical-predictions.-learning-objectives--understand-how-sums-of-random-variables-behave--compare-empirical-distributions-with-theoretical-results--explore-the-convolution-property-for-independent-random-variables--visualize-distributions-using-kernel-density-estimationlets-start-by-importing-the-necessary-libraries" class="nav-link active" data-scroll-target="#sum-of-random-variablesthis-notebook-explores-what-happens-when-we-add-random-variables-together.-well-examine-both-continuous-and-discrete-cases-comparing-simulation-results-with-theoretical-predictions.-learning-objectives--understand-how-sums-of-random-variables-behave--compare-empirical-distributions-with-theoretical-results--explore-the-convolution-property-for-independent-random-variables--visualize-distributions-using-kernel-density-estimationlets-start-by-importing-the-necessary-libraries">Sum of Random VariablesThis notebook explores what happens when we add random variables together. We’ll examine both continuous and discrete cases, comparing simulation results with theoretical predictions.## Learning Objectives- Understand how sums of random variables behave- Compare empirical distributions with theoretical results- Explore the convolution property for independent random variables- Visualize distributions using kernel density estimationLet’s start by importing the necessary libraries:</a>
+  <ul class="collapse">
+  <li><a href="#case-1-sum-of-normal-random-variableswhen-we-add-independent-normal-random-variables-the-result-is-also-normally-distributed.-lets-verify-this-through-simulation.we-have--x-n0-1-standard-normal--y-n0-2-normal-with-standard-deviation-2theory-tells-us-that-x-y-n0-1²-2²-n0-5" id="toc-case-1-sum-of-normal-random-variableswhen-we-add-independent-normal-random-variables-the-result-is-also-normally-distributed.-lets-verify-this-through-simulation.we-have--x-n0-1-standard-normal--y-n0-2-normal-with-standard-deviation-2theory-tells-us-that-x-y-n0-1²-2²-n0-5" class="nav-link" data-scroll-target="#case-1-sum-of-normal-random-variableswhen-we-add-independent-normal-random-variables-the-result-is-also-normally-distributed.-lets-verify-this-through-simulation.we-have--x-n0-1-standard-normal--y-n0-2-normal-with-standard-deviation-2theory-tells-us-that-x-y-n0-1²-2²-n0-5">Case 1: Sum of Normal Random VariablesWhen we add independent normal random variables, the result is also normally distributed. Let’s verify this through simulation.We have:- X ~ N(0, 1) (standard normal)- Y ~ N(0, 2) (normal with standard deviation 2)Theory tells us that X + Y ~ N(0, √(1² + 2²)) = N(0, √5):</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
 
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Sum of Random Variables</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Probability</div>
+    <div class="quarto-category">Statistics</div>
+    <div class="quarto-category">Random Variables</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Understanding the distribution of sums of random variables through simulation and theory
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
 
-<div id="cell-0" class="cell" data-execution_count="4">
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nipun Batra </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 5, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>random variables, sum, normal distribution, categorical distribution, convolution</p>
+  </div>
+</div>
+
+</header>
+
+
+<p>—author: Nipun Batrabadges: truecategories:- Probability- Statistics- Random Variablesdate: ’2024-12-5’title: Sum of Random Variablestoc: truedescription: Understanding the distribution of sums of random variables through simulation and theorykeywords: [random variables, sum, normal distribution, categorical distribution, convolution]—</p>
+<div id="cell-1" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -333,7 +393,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-1" class="cell" data-execution_count="5">
+<section id="sum-of-random-variablesthis-notebook-explores-what-happens-when-we-add-random-variables-together.-well-examine-both-continuous-and-discrete-cases-comparing-simulation-results-with-theoretical-predictions.-learning-objectives--understand-how-sums-of-random-variables-behave--compare-empirical-distributions-with-theoretical-results--explore-the-convolution-property-for-independent-random-variables--visualize-distributions-using-kernel-density-estimationlets-start-by-importing-the-necessary-libraries" class="level1">
+<h1>Sum of Random VariablesThis notebook explores what happens when we add random variables together. We’ll examine both continuous and discrete cases, comparing simulation results with theoretical predictions.## Learning Objectives- Understand how sums of random variables behave- Compare empirical distributions with theoretical results- Explore the convolution property for independent random variables- Visualize distributions using kernel density estimationLet’s start by importing the necessary libraries:</h1>
+<section id="case-1-sum-of-normal-random-variableswhen-we-add-independent-normal-random-variables-the-result-is-also-normally-distributed.-lets-verify-this-through-simulation.we-have--x-n0-1-standard-normal--y-n0-2-normal-with-standard-deviation-2theory-tells-us-that-x-y-n0-1²-2²-n0-5" class="level2">
+<h2 class="anchored" data-anchor-id="case-1-sum-of-normal-random-variableswhen-we-add-independent-normal-random-variables-the-result-is-also-normally-distributed.-lets-verify-this-through-simulation.we-have--x-n0-1-standard-normal--y-n0-2-normal-with-standard-deviation-2theory-tells-us-that-x-y-n0-1²-2²-n0-5">Case 1: Sum of Normal Random VariablesWhen we add independent normal random variables, the result is also normally distributed. Let’s verify this through simulation.We have:- X ~ N(0, 1) (standard normal)- Y ~ N(0, 2) (normal with standard deviation 2)Theory tells us that X + Y ~ N(0, √(1² + 2²)) = N(0, √5):</h2>
+<p>Let’s sample from these distributions and visualize them:</p>
+<p>Now let’s compute the sum S = X + Y and visualize all three distributions:</p>
+<div id="cell-6" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">2</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -355,7 +421,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-2" class="cell" data-execution_count="6">
+<div id="cell-7" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x_samples <span class="op">=</span> X.sample((<span class="dv">10000</span>,))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y_samples <span class="op">=</span> Y.sample((<span class="dv">10000</span>,))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
@@ -373,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-3" class="cell" data-execution_count="7">
+<div id="cell-8" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>s_samples <span class="op">=</span> x_samples <span class="op">+</span> y_samples</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">9</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].hist(x_samples.numpy(), bins<span class="op">=</span><span class="dv">30</span>, density<span class="op">=</span><span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
@@ -392,7 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="8">
+<div id="cell-9" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>torch.distributions.Normal?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <div class="ansi-escaped-output">
@@ -436,7 +502,7 @@ Args:
 </div>
 </div>
 </div>
-<div id="cell-5" class="cell" data-execution_count="9">
+<div id="cell-10" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(x_samples.numpy(), label<span class="op">=</span><span class="st">'X ~ N(0, 1)'</span>, color<span class="op">=</span><span class="st">'blue'</span>, bw_adjust<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(y_samples.numpy(), label<span class="op">=</span><span class="st">'Y ~ N(0, 2)'</span>, color<span class="op">=</span><span class="st">'orange'</span>, bw_adjust<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(s_samples.numpy(), label<span class="op">=</span><span class="st">'Z = X + Y'</span>, color<span class="op">=</span><span class="st">'green'</span>, bw_adjust<span class="op">=</span><span class="dv">2</span>)</span>
@@ -451,26 +517,26 @@ Args:
 </div>
 </div>
 </div>
-<div id="cell-6" class="cell" data-execution_count="10">
+<div id="cell-11" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>s_samples.std()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>tensor(2.2586)</code></pre>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="11">
+<div id="cell-12" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>s_samples.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>tensor(-0.0113)</code></pre>
 </div>
 </div>
-<div id="cell-8" class="cell" data-execution_count="12">
+<div id="cell-13" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>s_analytic <span class="op">=</span> torch.distributions.Normal(<span class="dv">0</span>, np.sqrt(<span class="dv">1</span><span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">**</span><span class="dv">2</span>))</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>s_analytic.mean, s_analytic.stddev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>(tensor(0.), tensor(2.2361))</code></pre>
 </div>
 </div>
-<div id="cell-9" class="cell" data-execution_count="14">
+<div id="cell-14" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(s_samples.numpy(), label<span class="op">=</span><span class="st">'Z = X + Y'</span>, color<span class="op">=</span><span class="st">'green'</span>, bw_adjust<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>s_range <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>s_pdf <span class="op">=</span> s_analytic.log_prob(s_range).exp()</span>
@@ -484,7 +550,7 @@ Args:
 </div>
 </div>
 </div>
-<div id="cell-10" class="cell" data-execution_count="15">
+<div id="cell-15" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Example 2</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> torch.distributions.Categorical(torch.tensor([<span class="fl">0.25</span>, <span class="fl">0.25</span>, <span class="fl">0.25</span>, <span class="fl">0.25</span>]))</span>
@@ -493,7 +559,7 @@ Args:
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>x_samples <span class="op">=</span> X.sample((<span class="dv">10000</span>,))</span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>y_samples <span class="op">=</span> Y.sample((<span class="dv">10000</span>,))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-11" class="cell" data-execution_count="16">
+<div id="cell-16" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>x_samples_normed <span class="op">=</span> pd.Series(x_samples.numpy()).value_counts(normalize<span class="op">=</span><span class="va">True</span>).sort_index()</span>
@@ -515,7 +581,7 @@ Args:
 </div>
 </div>
 </div>
-<div id="cell-12" class="cell" data-execution_count="17">
+<div id="cell-17" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>s_samples <span class="op">=</span> x_samples <span class="op">+</span> y_samples</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">9</span>), sharex<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>s_samples_normed <span class="op">=</span> pd.Series(s_samples.numpy()).value_counts(normalize<span class="op">=</span><span class="va">True</span>).sort_index()</span>
@@ -540,6 +606,8 @@ Args:
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
