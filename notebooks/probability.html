@@ -6,6 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Nipun Batra">
+<meta name="dcterms.date" content="2025-01-13">
+<meta name="keywords" content="probability, sample space, events, combinatorics, probability law, event space">
+<meta name="description" content="Introduction to fundamental probability concepts including sample spaces, events, and probability laws with practical Python implementations">
 
 <title>Probability Theory Fundamentals – Probability Statistics Data Visualization Resources</title>
 <style>
@@ -113,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -320,7 +324,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#probability-theory-fundamentalsthis-notebook-covers-the-fundamental-concepts-of-probability-theory-including-sample-spaces-events-and-probability-laws.-well-explore-these-concepts-through-practical-examples-using-python.-learning-objectives--understand-sample-spaces-and-events--learn-about-combinatorics-and-power-sets--implement-probability-laws--work-with-discrete-probability-distributionslets-begin-by-exploring-sample-spaces-for-common-probability-experiments" id="toc-probability-theory-fundamentalsthis-notebook-covers-the-fundamental-concepts-of-probability-theory-including-sample-spaces-events-and-probability-laws.-well-explore-these-concepts-through-practical-examples-using-python.-learning-objectives--understand-sample-spaces-and-events--learn-about-combinatorics-and-power-sets--implement-probability-laws--work-with-discrete-probability-distributionslets-begin-by-exploring-sample-spaces-for-common-probability-experiments" class="nav-link active" data-scroll-target="#probability-theory-fundamentalsthis-notebook-covers-the-fundamental-concepts-of-probability-theory-including-sample-spaces-events-and-probability-laws.-well-explore-these-concepts-through-practical-examples-using-python.-learning-objectives--understand-sample-spaces-and-events--learn-about-combinatorics-and-power-sets--implement-probability-laws--work-with-discrete-probability-distributionslets-begin-by-exploring-sample-spaces-for-common-probability-experiments">Probability Theory FundamentalsThis notebook covers the fundamental concepts of probability theory, including sample spaces, events, and probability laws. We’ll explore these concepts through practical examples using Python.## Learning Objectives- Understand sample spaces and events- Learn about combinatorics and power sets- Implement probability laws- Work with discrete probability distributionsLet’s begin by exploring sample spaces for common probability experiments:</a>
+  <ul class="collapse">
+  <li><a href="#sample-spaces-and-eventsin-probability-theory-the-sample-space-ω-is-the-set-of-all-possible-outcomes-of-an-experiment.-an-event-is-any-subset-of-the-sample-space.lets-start-with-simple-examples" id="toc-sample-spaces-and-eventsin-probability-theory-the-sample-space-ω-is-the-set-of-all-possible-outcomes-of-an-experiment.-an-event-is-any-subset-of-the-sample-space.lets-start-with-simple-examples" class="nav-link" data-scroll-target="#sample-spaces-and-eventsin-probability-theory-the-sample-space-ω-is-the-set-of-all-possible-outcomes-of-an-experiment.-an-event-is-any-subset-of-the-sample-space.lets-start-with-simple-examples">Sample Spaces and EventsIn probability theory, the <strong>sample space</strong> (Ω) is the set of all possible outcomes of an experiment. An <strong>event</strong> is any subset of the sample space.Let’s start with simple examples:</a></li>
+  <li><a href="#combinatorics-and-power-setsto-understand-all-possible-events-we-need-to-explore-combinatorics.-the-event-space-σ-algebra-consists-of-all-possible-events-which-is-the-power-set-of-the-sample-space.lets-explore-combinations-and-permutations-using-pythons-itertools" id="toc-combinatorics-and-power-setsto-understand-all-possible-events-we-need-to-explore-combinatorics.-the-event-space-σ-algebra-consists-of-all-possible-events-which-is-the-power-set-of-the-sample-space.lets-explore-combinations-and-permutations-using-pythons-itertools" class="nav-link" data-scroll-target="#combinatorics-and-power-setsto-understand-all-possible-events-we-need-to-explore-combinatorics.-the-event-space-σ-algebra-consists-of-all-possible-events-which-is-the-power-set-of-the-sample-space.lets-explore-combinations-and-permutations-using-pythons-itertools">Combinatorics and Power SetsTo understand all possible events, we need to explore combinatorics. The <strong>event space</strong> (σ-algebra) consists of all possible events, which is the power set of the sample space.Let’s explore combinations and permutations using Python’s <code>itertools</code>:</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -328,32 +344,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Probability Theory Fundamentals</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Probability</div>
+    <div class="quarto-category">Statistics</div>
+    <div class="quarto-category">Mathematics</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Introduction to fundamental probability concepts including sample spaces, events, and probability laws with practical Python implementations
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nipun Batra </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 13, 2025</p>
+    </div>
+  </div>
   
     
   </div>
   
 
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>probability, sample space, events, combinatorics, probability law, event space</p>
+  </div>
+</div>
 
 </header>
 
 
-<p>This notebook covers the fundamental concepts of probability theory, including sample spaces, events, and probability laws. We’ll explore these concepts through practical examples using Python.</p>
-<section id="learning-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
-<ul>
-<li>Understand sample spaces and events</li>
-<li>Learn about combinatorics and power sets</li>
-<li>Implement probability laws</li>
-<li>Work with discrete probability distributions</li>
-</ul>
-<p>Let’s begin by exploring sample spaces for common probability experiments:</p>
+<p>—author: Nipun Batratitle: Probability Theory Fundamentalsdescription: Introduction to fundamental probability concepts including sample spaces, events, and probability laws with practical Python implementationscategories: - Probability - Statistics - Mathematicskeywords: [probability, sample space, events, combinatorics, probability law, event space]date: ’2025-01-13’badges: truetoc: true—</p>
+<section id="probability-theory-fundamentalsthis-notebook-covers-the-fundamental-concepts-of-probability-theory-including-sample-spaces-events-and-probability-laws.-well-explore-these-concepts-through-practical-examples-using-python.-learning-objectives--understand-sample-spaces-and-events--learn-about-combinatorics-and-power-sets--implement-probability-laws--work-with-discrete-probability-distributionslets-begin-by-exploring-sample-spaces-for-common-probability-experiments" class="level1">
+<h1>Probability Theory FundamentalsThis notebook covers the fundamental concepts of probability theory, including sample spaces, events, and probability laws. We’ll explore these concepts through practical examples using Python.## Learning Objectives- Understand sample spaces and events- Learn about combinatorics and power sets- Implement probability laws- Work with discrete probability distributionsLet’s begin by exploring sample spaces for common probability experiments:</h1>
 <div id="cell-2" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -369,7 +406,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Sample Space for Dice Throw: [1, 2, 3, 4, 5, 6]</code></pre>
 </div>
 </div>
-</section>
 <section id="sample-spaces-and-eventsin-probability-theory-the-sample-space-ω-is-the-set-of-all-possible-outcomes-of-an-experiment.-an-event-is-any-subset-of-the-sample-space.lets-start-with-simple-examples" class="level2">
 <h2 class="anchored" data-anchor-id="sample-spaces-and-eventsin-probability-theory-the-sample-space-ω-is-the-set-of-all-possible-outcomes-of-an-experiment.-an-event-is-any-subset-of-the-sample-space.lets-start-with-simple-examples">Sample Spaces and EventsIn probability theory, the <strong>sample space</strong> (Ω) is the set of all possible outcomes of an experiment. An <strong>event</strong> is any subset of the sample space.Let’s start with simple examples:</h2>
 <p>Next, let’s define some specific events:</p>
@@ -672,6 +708,7 @@ Event: ['H' 'T'] -&gt; Probability: 1.0</code></pre>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
