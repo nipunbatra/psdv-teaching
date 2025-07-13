@@ -358,17 +358,30 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#probability-mass-functions-and-common-discrete-distributions-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-probability-mass-functions-pmf-mathematical-definition-and-properties2.-common-discrete-distributions-bernoulli-categorical-binomial-poisson-and-geometric3.-real-world-applications-quality-control-classification-and-count-modeling4.-parameter-estimation-fitting-distributions-to-data-using-pytorch5.-model-selection-choosing-appropriate-distributions-for-different-scenarios6.-practical-implementation-working-with-pytorch-distributions-for-data-science-introductiondiscrete-random-variables-take-on-countable-values-like-integers-and-their-behavior-is-completely-described-by-their-probability-mass-function-pmf.-the-pmf-tells-us-the-probability-of-each-possible-outcome-providing-a-complete-probabilistic-picture-of-the-random-variable.-mathematical-foundationfor-a-discrete-random-variable-x-the-pmf-is-defined-asp_xx-px-xthe-pmf-must-satisfy-two-fundamental-properties1.-non-negativity-p_xx-geq-0-for-all-x2.-normalization-sum_x-p_xx-1-why-discrete-distributions-matterdiscrete-distributions-are-everywhere-in-data-science-and-statistics--classification-problems-bernoulli-for-binary-categorical-for-multi-class--count-data-poisson-for-rare-events-binomial-for-fixed-trials--quality-control-binomial-for-defect-rates--waiting-times-geometric-for-time-to-first-success--natural-language-processing-categorical-for-word-distributions-common-discrete-distributions-overviewwell-explore-these-essential-distributions-distribution-use-case-parameters-example----bernoulli-binary-outcomes-p-success-prob-coin-flip-passfail-categorical-multi-class-outcomes-boldsymboltheta-prob-vector-die-roll-image-classification-binomial-fixed-trials-binary-outcome-n-p-quality-control-survey-responses-poisson-count-of-rare-events-lambda-rate-email-arrivals-defects-per-unit-geometric-trials-to-first-success-p-success-prob-sales-calls-equipment-failure-lets-dive-into-each-distribution-with-theory-implementation-and-real-world-applications" id="toc-probability-mass-functions-and-common-discrete-distributions-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-probability-mass-functions-pmf-mathematical-definition-and-properties2.-common-discrete-distributions-bernoulli-categorical-binomial-poisson-and-geometric3.-real-world-applications-quality-control-classification-and-count-modeling4.-parameter-estimation-fitting-distributions-to-data-using-pytorch5.-model-selection-choosing-appropriate-distributions-for-different-scenarios6.-practical-implementation-working-with-pytorch-distributions-for-data-science-introductiondiscrete-random-variables-take-on-countable-values-like-integers-and-their-behavior-is-completely-described-by-their-probability-mass-function-pmf.-the-pmf-tells-us-the-probability-of-each-possible-outcome-providing-a-complete-probabilistic-picture-of-the-random-variable.-mathematical-foundationfor-a-discrete-random-variable-x-the-pmf-is-defined-asp_xx-px-xthe-pmf-must-satisfy-two-fundamental-properties1.-non-negativity-p_xx-geq-0-for-all-x2.-normalization-sum_x-p_xx-1-why-discrete-distributions-matterdiscrete-distributions-are-everywhere-in-data-science-and-statistics--classification-problems-bernoulli-for-binary-categorical-for-multi-class--count-data-poisson-for-rare-events-binomial-for-fixed-trials--quality-control-binomial-for-defect-rates--waiting-times-geometric-for-time-to-first-success--natural-language-processing-categorical-for-word-distributions-common-discrete-distributions-overviewwell-explore-these-essential-distributions-distribution-use-case-parameters-example----bernoulli-binary-outcomes-p-success-prob-coin-flip-passfail-categorical-multi-class-outcomes-boldsymboltheta-prob-vector-die-roll-image-classification-binomial-fixed-trials-binary-outcome-n-p-quality-control-survey-responses-poisson-count-of-rare-events-lambda-rate-email-arrivals-defects-per-unit-geometric-trials-to-first-success-p-success-prob-sales-calls-equipment-failure-lets-dive-into-each-distribution-with-theory-implementation-and-real-world-applications" class="nav-link active" data-scroll-target="#probability-mass-functions-and-common-discrete-distributions-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-probability-mass-functions-pmf-mathematical-definition-and-properties2.-common-discrete-distributions-bernoulli-categorical-binomial-poisson-and-geometric3.-real-world-applications-quality-control-classification-and-count-modeling4.-parameter-estimation-fitting-distributions-to-data-using-pytorch5.-model-selection-choosing-appropriate-distributions-for-different-scenarios6.-practical-implementation-working-with-pytorch-distributions-for-data-science-introductiondiscrete-random-variables-take-on-countable-values-like-integers-and-their-behavior-is-completely-described-by-their-probability-mass-function-pmf.-the-pmf-tells-us-the-probability-of-each-possible-outcome-providing-a-complete-probabilistic-picture-of-the-random-variable.-mathematical-foundationfor-a-discrete-random-variable-x-the-pmf-is-defined-asp_xx-px-xthe-pmf-must-satisfy-two-fundamental-properties1.-non-negativity-p_xx-geq-0-for-all-x2.-normalization-sum_x-p_xx-1-why-discrete-distributions-matterdiscrete-distributions-are-everywhere-in-data-science-and-statistics--classification-problems-bernoulli-for-binary-categorical-for-multi-class--count-data-poisson-for-rare-events-binomial-for-fixed-trials--quality-control-binomial-for-defect-rates--waiting-times-geometric-for-time-to-first-success--natural-language-processing-categorical-for-word-distributions-common-discrete-distributions-overviewwell-explore-these-essential-distributions-distribution-use-case-parameters-example----bernoulli-binary-outcomes-p-success-prob-coin-flip-passfail-categorical-multi-class-outcomes-boldsymboltheta-prob-vector-die-roll-image-classification-binomial-fixed-trials-binary-outcome-n-p-quality-control-survey-responses-poisson-count-of-rare-events-lambda-rate-email-arrivals-defects-per-unit-geometric-trials-to-first-success-p-success-prob-sales-calls-equipment-failure-lets-dive-into-each-distribution-with-theory-implementation-and-real-world-applications">Probability Mass Functions and Common Discrete Distributions## Learning ObjectivesBy the end of this notebook, you will understand:1. <strong>Probability Mass Functions (PMF)</strong>: Mathematical definition and properties2. <strong>Common Discrete Distributions</strong>: Bernoulli, Categorical, Binomial, Poisson, and Geometric3. <strong>Real-World Applications</strong>: Quality control, classification, and count modeling4. <strong>Parameter Estimation</strong>: Fitting distributions to data using PyTorch5. <strong>Model Selection</strong>: Choosing appropriate distributions for different scenarios6. <strong>Practical Implementation</strong>: Working with PyTorch distributions for data science## Introduction<strong>Discrete random variables</strong> take on countable values (like integers), and their behavior is completely described by their <strong>Probability Mass Function (PMF)</strong>. The PMF tells us the probability of each possible outcome, providing a complete probabilistic picture of the random variable.### Mathematical FoundationFor a discrete random variable <span class="math inline">\(X\)</span>, the PMF is defined as:<span class="math display">\[p_X(x) = P(X = x)\]</span>The PMF must satisfy two fundamental properties:1. <strong>Non-negativity</strong>: <span class="math inline">\(p_X(x) \geq 0\)</span> for all $x$2. <strong>Normalization</strong>: <span class="math inline">\(\sum_{x} p_X(x) = 1\)</span>### Why Discrete Distributions MatterDiscrete distributions are everywhere in data science and statistics:- <strong>Classification problems</strong> (Bernoulli for binary, Categorical for multi-class)- <strong>Count data</strong> (Poisson for rare events, Binomial for fixed trials)- <strong>Quality control</strong> (Binomial for defect rates)- <strong>Waiting times</strong> (Geometric for time to first success)- <strong>Natural language processing</strong> (Categorical for word distributions)### Common Discrete Distributions OverviewWe’ll explore these essential distributions:| Distribution | Use Case | Parameters | Example ||————-|———-|————|———|| Bernoulli | Binary outcomes | <span class="math inline">\(p\)</span> (success prob) | Coin flip, Pass/Fail || Categorical | Multi-class outcomes | <span class="math inline">\(\boldsymbol{\theta}\)</span> (prob vector) | Die roll, Image classification || Binomial | Fixed trials, binary outcome | <span class="math inline">\(n, p\)</span> | Quality control, Survey responses || Poisson | Count of rare events | <span class="math inline">\(\lambda\)</span> (rate) | Email arrivals, Defects per unit || Geometric | Trials to first success | <span class="math inline">\(p\)</span> (success prob) | Sales calls, Equipment failure |Let’s dive into each distribution with theory, implementation, and real-world applications!</a>
+  <li><a href="#probability-mass-functions-and-common-discrete-distributions" id="toc-probability-mass-functions-and-common-discrete-distributions" class="nav-link active" data-scroll-target="#probability-mass-functions-and-common-discrete-distributions">Probability Mass Functions and Common Discrete Distributions</a>
   <ul class="collapse">
-  <li><a href="#setting-up-the-environmentwell-use-pytorch-for-probability-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations" id="toc-setting-up-the-environmentwell-use-pytorch-for-probability-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations" class="nav-link" data-scroll-target="#setting-up-the-environmentwell-use-pytorch-for-probability-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations">Setting Up the EnvironmentWe’ll use PyTorch for probability distributions, NumPy for numerical operations, and Matplotlib for visualizations:</a></li>
-  <li><a href="#bernoulli-distributionthe-bernoulli-distribution-is-the-simplest-discrete-distribution-modeling-a-single-binary-trial-with-two-possible-outcomes-success-1-or-failure-0.-mathematical-definitionlet-x-be-a-bernoulli-random-variable-with-parameter-p-in-01.-the-pmf-isp_xx-begincases1-p-textif-x-0-p-textif-x-1endcasesequivalently-p_xx-px1-p1-x-for-x-in-0-1-properties--mean-ex-p--variance-textvarx-p1-p--maximum-variance-occurs-when-p-0.5-visualization" id="toc-bernoulli-distributionthe-bernoulli-distribution-is-the-simplest-discrete-distribution-modeling-a-single-binary-trial-with-two-possible-outcomes-success-1-or-failure-0.-mathematical-definitionlet-x-be-a-bernoulli-random-variable-with-parameter-p-in-01.-the-pmf-isp_xx-begincases1-p-textif-x-0-p-textif-x-1endcasesequivalently-p_xx-px1-p1-x-for-x-in-0-1-properties--mean-ex-p--variance-textvarx-p1-p--maximum-variance-occurs-when-p-0.5-visualization" class="nav-link" data-scroll-target="#bernoulli-distributionthe-bernoulli-distribution-is-the-simplest-discrete-distribution-modeling-a-single-binary-trial-with-two-possible-outcomes-success-1-or-failure-0.-mathematical-definitionlet-x-be-a-bernoulli-random-variable-with-parameter-p-in-01.-the-pmf-isp_xx-begincases1-p-textif-x-0-p-textif-x-1endcasesequivalently-p_xx-px1-p1-x-for-x-in-0-1-properties--mean-ex-p--variance-textvarx-p1-p--maximum-variance-occurs-when-p-0.5-visualization">1. Bernoulli DistributionThe <strong>Bernoulli distribution</strong> is the simplest discrete distribution, modeling a single binary trial with two possible outcomes: success (1) or failure (0).### Mathematical DefinitionLet <span class="math inline">\(X\)</span> be a Bernoulli random variable with parameter <span class="math inline">\(p \in [0,1]\)</span>. The PMF is:<span class="math display">\[p_X(x) = \begin{cases}1-p, &amp; \text{if } x = 0 \\p, &amp; \text{if } x = 1\end{cases}\]</span>Equivalently: <span class="math inline">\(p_X(x) = p^x(1-p)^{1-x}\)</span> for <span class="math inline">\(x \in \{0, 1\}\)</span>### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = p\)</span>- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = p(1-p)\)</span>- <strong>Maximum variance</strong>: Occurs when <span class="math inline">\(p = 0.5\)</span>### Visualization</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#mathematical-foundation" id="toc-mathematical-foundation" class="nav-link" data-scroll-target="#mathematical-foundation">Mathematical Foundation</a></li>
+  <li><a href="#why-discrete-distributions-matter" id="toc-why-discrete-distributions-matter" class="nav-link" data-scroll-target="#why-discrete-distributions-matter">Why Discrete Distributions Matter</a></li>
+  <li><a href="#common-discrete-distributions-overview" id="toc-common-discrete-distributions-overview" class="nav-link" data-scroll-target="#common-discrete-distributions-overview">Common Discrete Distributions Overview</a></li>
+  </ul></li>
+  <li><a href="#setting-up-the-environment" id="toc-setting-up-the-environment" class="nav-link" data-scroll-target="#setting-up-the-environment">Setting Up the Environment</a></li>
+  <li><a href="#bernoulli-distribution" id="toc-bernoulli-distribution" class="nav-link" data-scroll-target="#bernoulli-distribution">1. Bernoulli Distribution</a>
+  <ul class="collapse">
+  <li><a href="#mathematical-definition" id="toc-mathematical-definition" class="nav-link" data-scroll-target="#mathematical-definition">Mathematical Definition</a></li>
+  <li><a href="#properties" id="toc-properties" class="nav-link" data-scroll-target="#properties">Properties</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#pmf-of-bernoulli-distribution" id="toc-pmf-of-bernoulli-distribution" class="nav-link" data-scroll-target="#pmf-of-bernoulli-distribution">PMF of Bernoulli distribution</a>
   <ul class="collapse">
-  <li><a href="#working-with-pytorch-distributionslets-explore-the-bernoulli-distribution-using-pytorchs-built-in-functionality" id="toc-working-with-pytorch-distributionslets-explore-the-bernoulli-distribution-using-pytorchs-built-in-functionality" class="nav-link" data-scroll-target="#working-with-pytorch-distributionslets-explore-the-bernoulli-distribution-using-pytorchs-built-in-functionality">Working with PyTorch DistributionsLet’s explore the Bernoulli distribution using PyTorch’s built-in functionality:</a></li>
-  <li><a href="#bernoulli-distribution-in-pytorch" id="toc-bernoulli-distribution-in-pytorch" class="nav-link" data-scroll-target="#bernoulli-distribution-in-pytorch">Bernoulli Distribution in PyTorch</a>
+  <li><a href="#working-with-pytorch-distributions" id="toc-working-with-pytorch-distributions" class="nav-link" data-scroll-target="#working-with-pytorch-distributions">Working with PyTorch Distributions</a></li>
+  <li><a href="#bernoulli-distribution-in-pytorch" id="toc-bernoulli-distribution-in-pytorch" class="nav-link" data-scroll-target="#bernoulli-distribution-in-pytorch">Bernoulli Distribution in PyTorch</a></li>
+  <li><a href="#real-world-application-fruit-classification" id="toc-real-world-application-fruit-classification" class="nav-link" data-scroll-target="#real-world-application-fruit-classification">Real-World Application: Fruit Classification</a>
   <ul class="collapse">
-  <li><a href="#problem-setup-lime-vs-lemon-classificationwe-want-to-classify-fruits-as-limes-0-or-lemons-1-based-on-their-radius.-this-is-a-classic-logistic-regression-problem-where-we-modelptextlemontextradius-textsigmoidw-cdot-textradius-bthe-sigmoid-function-ensures-probabilities-stay-between-0-and-1-making-it-perfect-for-bernoulli-distributions." id="toc-problem-setup-lime-vs-lemon-classificationwe-want-to-classify-fruits-as-limes-0-or-lemons-1-based-on-their-radius.-this-is-a-classic-logistic-regression-problem-where-we-modelptextlemontextradius-textsigmoidw-cdot-textradius-bthe-sigmoid-function-ensures-probabilities-stay-between-0-and-1-making-it-perfect-for-bernoulli-distributions." class="nav-link" data-scroll-target="#problem-setup-lime-vs-lemon-classificationwe-want-to-classify-fruits-as-limes-0-or-lemons-1-based-on-their-radius.-this-is-a-classic-logistic-regression-problem-where-we-modelptextlemontextradius-textsigmoidw-cdot-textradius-bthe-sigmoid-function-ensures-probabilities-stay-between-0-and-1-making-it-perfect-for-bernoulli-distributions.">Problem Setup: Lime vs Lemon ClassificationWe want to classify fruits as limes (0) or lemons (1) based on their radius. This is a classic logistic regression problem where we model:<span class="math display">\[P(\text{Lemon}|\text{radius}) = \text{sigmoid}(w \cdot \text{radius} + b)\]</span>The sigmoid function ensures probabilities stay between 0 and 1, making it perfect for Bernoulli distributions.</a></li>
+  <li><a href="#problem-setup-lime-vs-lemon-classification" id="toc-problem-setup-lime-vs-lemon-classification" class="nav-link" data-scroll-target="#problem-setup-lime-vs-lemon-classification">Problem Setup: Lime vs Lemon Classification</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#lime-vs-lemon" id="toc-lime-vs-lemon" class="nav-link" data-scroll-target="#lime-vs-lemon">Lime vs Lemon</a>
@@ -377,25 +390,50 @@ window.Quarto = {
   <li><a href="#generative-process" id="toc-generative-process" class="nav-link" data-scroll-target="#generative-process">Generative process</a></li>
   <li><a href="#generate-a-dataset" id="toc-generate-a-dataset" class="nav-link" data-scroll-target="#generate-a-dataset">Generate a dataset</a>
   <ul class="collapse">
-  <li><a href="#model-training-and-resultsour-logistic-regression-successfully-learned-the-underlying-relationship-the-learned-parameters-closely-match-the-true-parameters-used-to-generate-the-data." id="toc-model-training-and-resultsour-logistic-regression-successfully-learned-the-underlying-relationship-the-learned-parameters-closely-match-the-true-parameters-used-to-generate-the-data." class="nav-link" data-scroll-target="#model-training-and-resultsour-logistic-regression-successfully-learned-the-underlying-relationship-the-learned-parameters-closely-match-the-true-parameters-used-to-generate-the-data.">Model Training and ResultsOur logistic regression successfully learned the underlying relationship! The learned parameters closely match the true parameters used to generate the data.</a></li>
-  <li><a href="#mathematical-definitionlet-x-be-a-categorical-random-variable-with-k-possible-outcomes-1-2-ldots-k-and-parameter-vector-boldsymboltheta-theta_1-theta_2-ldots-theta_k.-the-pmf-isp_xx-k-theta_k-quad-textfor-k-in-1-2-ldots-kconstraints-theta_k-geq-0-and-sum_k1k-theta_k-1-applications--image-classification-cat-dog-bird---sentiment-analysis-positive-negative-neutral--die-rolling-1-2-3-4-5-6--market-research-product-preferences" id="toc-mathematical-definitionlet-x-be-a-categorical-random-variable-with-k-possible-outcomes-1-2-ldots-k-and-parameter-vector-boldsymboltheta-theta_1-theta_2-ldots-theta_k.-the-pmf-isp_xx-k-theta_k-quad-textfor-k-in-1-2-ldots-kconstraints-theta_k-geq-0-and-sum_k1k-theta_k-1-applications--image-classification-cat-dog-bird---sentiment-analysis-positive-negative-neutral--die-rolling-1-2-3-4-5-6--market-research-product-preferences" class="nav-link" data-scroll-target="#mathematical-definitionlet-x-be-a-categorical-random-variable-with-k-possible-outcomes-1-2-ldots-k-and-parameter-vector-boldsymboltheta-theta_1-theta_2-ldots-theta_k.-the-pmf-isp_xx-k-theta_k-quad-textfor-k-in-1-2-ldots-kconstraints-theta_k-geq-0-and-sum_k1k-theta_k-1-applications--image-classification-cat-dog-bird---sentiment-analysis-positive-negative-neutral--die-rolling-1-2-3-4-5-6--market-research-product-preferences">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be a categorical random variable with <span class="math inline">\(K\)</span> possible outcomes <span class="math inline">\(\{1, 2, \ldots, K\}\)</span> and parameter vector <span class="math inline">\(\boldsymbol{\theta} = (\theta_1, \theta_2, \ldots, \theta_K)\)</span>. The PMF is:<span class="math display">\[p_X(x = k) = \theta_k \quad \text{for } k \in \{1, 2, \ldots, K\}\]</span><strong>Constraints</strong>: <span class="math inline">\(\theta_k \geq 0\)</span> and <span class="math inline">\(\sum_{k=1}^K \theta_k = 1\)</span>### Applications- <strong>Image classification</strong> (cat, dog, bird, …)- <strong>Sentiment analysis</strong> (positive, negative, neutral)- <strong>Die rolling</strong> (1, 2, 3, 4, 5, 6)- <strong>Market research</strong> (product preferences)</a></li>
+  <li><a href="#model-training-and-results" id="toc-model-training-and-results" class="nav-link" data-scroll-target="#model-training-and-results">Model Training and Results</a></li>
   </ul></li>
-  </ul></li>
-  <li><a href="#categorical-distribution" id="toc-categorical-distribution" class="nav-link" data-scroll-target="#categorical-distribution">Categorical distribution</a>
+  <li><a href="#categorical-distribution" id="toc-categorical-distribution" class="nav-link" data-scroll-target="#categorical-distribution">2. Categorical Distribution</a>
   <ul class="collapse">
-  <li><a href="#imagenet" id="toc-imagenet" class="nav-link" data-scroll-target="#imagenet">Imagenet</a>
-  <ul class="collapse">
-  <li><a href="#mathematical-definitionlet-x-be-the-number-of-successes-in-n-independent-bernoulli-trials-each-with-success-probability-p.-then-x-sim-textbinomialn-p-with-pmfp_xx-binomnx-px-1-pn-x-quad-textfor-x-in-0-1-2-ldots-nwhere-binomnx-fracnxn-x-is-the-binomial-coefficient.-properties--mean-ex-np--variance-textvarx-np1-p--mode-lfloor-n1p-rfloor-real-world-example-quality-controla-factory-produces-electronic-chips-with-a-10-defect-rate.-quality-control-randomly-selects-10-chips.-how-many-defects-should-we-expect" id="toc-mathematical-definitionlet-x-be-the-number-of-successes-in-n-independent-bernoulli-trials-each-with-success-probability-p.-then-x-sim-textbinomialn-p-with-pmfp_xx-binomnx-px-1-pn-x-quad-textfor-x-in-0-1-2-ldots-nwhere-binomnx-fracnxn-x-is-the-binomial-coefficient.-properties--mean-ex-np--variance-textvarx-np1-p--mode-lfloor-n1p-rfloor-real-world-example-quality-controla-factory-produces-electronic-chips-with-a-10-defect-rate.-quality-control-randomly-selects-10-chips.-how-many-defects-should-we-expect" class="nav-link" data-scroll-target="#mathematical-definitionlet-x-be-the-number-of-successes-in-n-independent-bernoulli-trials-each-with-success-probability-p.-then-x-sim-textbinomialn-p-with-pmfp_xx-binomnx-px-1-pn-x-quad-textfor-x-in-0-1-2-ldots-nwhere-binomnx-fracnxn-x-is-the-binomial-coefficient.-properties--mean-ex-np--variance-textvarx-np1-p--mode-lfloor-n1p-rfloor-real-world-example-quality-controla-factory-produces-electronic-chips-with-a-10-defect-rate.-quality-control-randomly-selects-10-chips.-how-many-defects-should-we-expect">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be the number of successes in <span class="math inline">\(n\)</span> independent Bernoulli trials, each with success probability <span class="math inline">\(p\)</span>. Then <span class="math inline">\(X \sim \text{Binomial}(n, p)\)</span> with PMF:<span class="math display">\[p_X(x) = \binom{n}{x} p^x (1-p)^{n-x} \quad \text{for } x \in \{0, 1, 2, \ldots, n\}\]</span>where <span class="math inline">\(\binom{n}{x} = \frac{n!}{x!(n-x)!}\)</span> is the binomial coefficient.### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = np\)</span>- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = np(1-p)\)</span>- <strong>Mode</strong>: <span class="math inline">\(\lfloor (n+1)p \rfloor\)</span>### Real-World Example: Quality ControlA factory produces electronic chips with a 10% defect rate. Quality control randomly selects 10 chips. How many defects should we expect?</a></li>
+  <li><a href="#mathematical-definition-1" id="toc-mathematical-definition-1" class="nav-link" data-scroll-target="#mathematical-definition-1">Mathematical Definition</a></li>
+  <li><a href="#applications" id="toc-applications" class="nav-link" data-scroll-target="#applications">Applications</a></li>
   </ul></li>
-  <li><a href="#poisson-distributionthe-poisson-distribution-models-the-number-of-events-occurring-in-a-fixed-interval-when-events-happen-independently-at-a-constant-average-rate." id="toc-poisson-distributionthe-poisson-distribution-models-the-number-of-events-occurring-in-a-fixed-interval-when-events-happen-independently-at-a-constant-average-rate." class="nav-link" data-scroll-target="#poisson-distributionthe-poisson-distribution-models-the-number-of-events-occurring-in-a-fixed-interval-when-events-happen-independently-at-a-constant-average-rate.">4. Poisson DistributionThe <strong>Poisson distribution</strong> models the number of events occurring in a fixed interval when events happen independently at a constant average rate.</a></li>
+  </ul></li>
+  <li><a href="#categorical-distribution-1" id="toc-categorical-distribution-1" class="nav-link" data-scroll-target="#categorical-distribution-1">Categorical distribution</a>
+  <ul class="collapse">
+  <li><a href="#imagenet" id="toc-imagenet" class="nav-link" data-scroll-target="#imagenet">Imagenet</a></li>
+  <li><a href="#binomial-distribution" id="toc-binomial-distribution" class="nav-link" data-scroll-target="#binomial-distribution">3. Binomial Distribution</a>
+  <ul class="collapse">
+  <li><a href="#mathematical-definition-2" id="toc-mathematical-definition-2" class="nav-link" data-scroll-target="#mathematical-definition-2">Mathematical Definition</a></li>
+  <li><a href="#properties-1" id="toc-properties-1" class="nav-link" data-scroll-target="#properties-1">Properties</a></li>
+  <li><a href="#real-world-example-quality-control" id="toc-real-world-example-quality-control" class="nav-link" data-scroll-target="#real-world-example-quality-control">Real-World Example: Quality Control</a></li>
+  <li><a href="#simulation-validation" id="toc-simulation-validation" class="nav-link" data-scroll-target="#simulation-validation">Simulation Validation</a></li>
+  </ul></li>
+  <li><a href="#poisson-distribution" id="toc-poisson-distribution" class="nav-link" data-scroll-target="#poisson-distribution">4. Poisson Distribution</a></li>
   </ul></li>
   <li><a href="#quality-control-in-factories" id="toc-quality-control-in-factories" class="nav-link" data-scroll-target="#quality-control-in-factories">Quality control in factories</a>
   <ul class="collapse">
-  <li><a href="#mathematical-definitionlet-x-be-the-number-of-events-in-a-fixed-interval.-if-events-occur-at-rate-lambda-0-then-x-sim-textpoissonlambda-with-pmfp_xx-fraclambdax-e-lambdax-quad-textfor-x-in-0-1-2-ldots-properties--mean-ex-lambda--variance-textvarx-lambda---unique-property-mean-equals-variance-applications--email-arrivals-per-hour--customer-arrivals-at-a-store--defects-per-manufactured-unit--website-clicks-per-minute--radioactive-decay-events-real-world-example-sms-message-arrivalslets-analyze-sms-message-data-to-see-if-it-follows-a-poisson-distribution" id="toc-mathematical-definitionlet-x-be-the-number-of-events-in-a-fixed-interval.-if-events-occur-at-rate-lambda-0-then-x-sim-textpoissonlambda-with-pmfp_xx-fraclambdax-e-lambdax-quad-textfor-x-in-0-1-2-ldots-properties--mean-ex-lambda--variance-textvarx-lambda---unique-property-mean-equals-variance-applications--email-arrivals-per-hour--customer-arrivals-at-a-store--defects-per-manufactured-unit--website-clicks-per-minute--radioactive-decay-events-real-world-example-sms-message-arrivalslets-analyze-sms-message-data-to-see-if-it-follows-a-poisson-distribution" class="nav-link" data-scroll-target="#mathematical-definitionlet-x-be-the-number-of-events-in-a-fixed-interval.-if-events-occur-at-rate-lambda-0-then-x-sim-textpoissonlambda-with-pmfp_xx-fraclambdax-e-lambdax-quad-textfor-x-in-0-1-2-ldots-properties--mean-ex-lambda--variance-textvarx-lambda---unique-property-mean-equals-variance-applications--email-arrivals-per-hour--customer-arrivals-at-a-store--defects-per-manufactured-unit--website-clicks-per-minute--radioactive-decay-events-real-world-example-sms-message-arrivalslets-analyze-sms-message-data-to-see-if-it-follows-a-poisson-distribution">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be the number of events in a fixed interval. If events occur at rate <span class="math inline">\(\lambda &gt; 0\)</span>, then <span class="math inline">\(X \sim \text{Poisson}(\lambda)\)</span> with PMF:<span class="math display">\[p_X(x) = \frac{\lambda^x e^{-\lambda}}{x!} \quad \text{for } x \in \{0, 1, 2, \ldots\}\]</span>### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = \lambda\)</span>- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = \lambda\)</span> - <strong>Unique property</strong>: Mean equals variance!### Applications- <strong>Email arrivals</strong> per hour- <strong>Customer arrivals</strong> at a store- <strong>Defects per manufactured unit</strong>- <strong>Website clicks</strong> per minute- <strong>Radioactive decay</strong> events### Real-World Example: SMS Message ArrivalsLet’s analyze SMS message data to see if it follows a Poisson distribution:</a></li>
-  <li><a href="#mathematical-definitionlet-x-be-the-number-of-trials-needed-to-get-the-first-success-where-each-trial-has-success-probability-p.-then-x-sim-textgeometricp-with-pmfp_xx-1-px-1-p-quad-textfor-x-in-1-2-3-ldotsnote-pytorch-uses-a-different-parameterization-where-x-counts-the-number-of-failures-before-the-first-success-so-x-in-0-1-2-ldots.-properties--mean-ex-frac1p-trials-to-first-success--variance-textvarx-frac1-pp2--memoryless-property-px-mn-x-m-px-n-applications--sales-calls-until-first-sale--equipment-testing-until-first-failure--quality-control-until-first-defect--customer-service-until-problem-resolution-example-sales-representativea-sales-representative-has-a-30-success-rate-per-call.-how-many-calls-until-the-first-sale" id="toc-mathematical-definitionlet-x-be-the-number-of-trials-needed-to-get-the-first-success-where-each-trial-has-success-probability-p.-then-x-sim-textgeometricp-with-pmfp_xx-1-px-1-p-quad-textfor-x-in-1-2-3-ldotsnote-pytorch-uses-a-different-parameterization-where-x-counts-the-number-of-failures-before-the-first-success-so-x-in-0-1-2-ldots.-properties--mean-ex-frac1p-trials-to-first-success--variance-textvarx-frac1-pp2--memoryless-property-px-mn-x-m-px-n-applications--sales-calls-until-first-sale--equipment-testing-until-first-failure--quality-control-until-first-defect--customer-service-until-problem-resolution-example-sales-representativea-sales-representative-has-a-30-success-rate-per-call.-how-many-calls-until-the-first-sale" class="nav-link" data-scroll-target="#mathematical-definitionlet-x-be-the-number-of-trials-needed-to-get-the-first-success-where-each-trial-has-success-probability-p.-then-x-sim-textgeometricp-with-pmfp_xx-1-px-1-p-quad-textfor-x-in-1-2-3-ldotsnote-pytorch-uses-a-different-parameterization-where-x-counts-the-number-of-failures-before-the-first-success-so-x-in-0-1-2-ldots.-properties--mean-ex-frac1p-trials-to-first-success--variance-textvarx-frac1-pp2--memoryless-property-px-mn-x-m-px-n-applications--sales-calls-until-first-sale--equipment-testing-until-first-failure--quality-control-until-first-defect--customer-service-until-problem-resolution-example-sales-representativea-sales-representative-has-a-30-success-rate-per-call.-how-many-calls-until-the-first-sale">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be the number of trials needed to get the first success, where each trial has success probability <span class="math inline">\(p\)</span>. Then <span class="math inline">\(X \sim \text{Geometric}(p)\)</span> with PMF:<span class="math display">\[p_X(x) = (1-p)^{x-1} p \quad \text{for } x \in \{1, 2, 3, \ldots\}\]</span><strong>Note</strong>: PyTorch uses a different parameterization where <span class="math inline">\(X\)</span> counts the number of failures before the first success, so <span class="math inline">\(X \in \{0, 1, 2, \ldots\}\)</span>.### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = \frac{1}{p}\)</span> (trials to first success)- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = \frac{1-p}{p^2}\)</span>- <strong>Memoryless property</strong>: <span class="math inline">\(P(X &gt; m+n | X &gt; m) = P(X &gt; n)\)</span>### Applications- <strong>Sales calls</strong> until first sale- <strong>Equipment testing</strong> until first failure- <strong>Quality control</strong> until first defect- <strong>Customer service</strong> until problem resolution### Example: Sales RepresentativeA sales representative has a 30% success rate per call. How many calls until the first sale?</a></li>
-  <li><a href="#geometric-distributionthe-geometric-distribution-models-the-number-of-trials-needed-to-achieve-the-first-success-in-a-sequence-of-independent-bernoulli-trials." id="toc-geometric-distributionthe-geometric-distribution-models-the-number-of-trials-needed-to-achieve-the-first-success-in-a-sequence-of-independent-bernoulli-trials." class="nav-link" data-scroll-target="#geometric-distributionthe-geometric-distribution-models-the-number-of-trials-needed-to-achieve-the-first-success-in-a-sequence-of-independent-bernoulli-trials.">5. Geometric DistributionThe <strong>Geometric distribution</strong> models the number of trials needed to achieve the first success in a sequence of independent Bernoulli trials.</a></li>
+  <li><a href="#mathematical-definition-3" id="toc-mathematical-definition-3" class="nav-link" data-scroll-target="#mathematical-definition-3">Mathematical Definition</a></li>
+  <li><a href="#properties-2" id="toc-properties-2" class="nav-link" data-scroll-target="#properties-2">Properties</a></li>
+  <li><a href="#applications-1" id="toc-applications-1" class="nav-link" data-scroll-target="#applications-1">Applications</a></li>
+  <li><a href="#real-world-example-sms-message-arrivals" id="toc-real-world-example-sms-message-arrivals" class="nav-link" data-scroll-target="#real-world-example-sms-message-arrivals">Real-World Example: SMS Message Arrivals</a></li>
+  <li><a href="#mathematical-definition-4" id="toc-mathematical-definition-4" class="nav-link" data-scroll-target="#mathematical-definition-4">Mathematical Definition</a></li>
+  <li><a href="#properties-3" id="toc-properties-3" class="nav-link" data-scroll-target="#properties-3">Properties</a></li>
+  <li><a href="#applications-2" id="toc-applications-2" class="nav-link" data-scroll-target="#applications-2">Applications</a></li>
+  <li><a href="#example-sales-representative" id="toc-example-sales-representative" class="nav-link" data-scroll-target="#example-sales-representative">Example: Sales Representative</a></li>
+  <li><a href="#geometric-distribution" id="toc-geometric-distribution" class="nav-link" data-scroll-target="#geometric-distribution">5. Geometric Distribution</a></li>
   </ul></li>
-  <li><a href="#number-of-sms-rceived-per-day" id="toc-number-of-sms-rceived-per-day" class="nav-link" data-scroll-target="#number-of-sms-rceived-per-day">Number of SMS rceived per day</a></li>
+  <li><a href="#number-of-sms-rceived-per-day" id="toc-number-of-sms-rceived-per-day" class="nav-link" data-scroll-target="#number-of-sms-rceived-per-day">Number of SMS rceived per day</a>
+  <ul class="collapse">
+  <li><a href="#summary-and-key-insights" id="toc-summary-and-key-insights" class="nav-link" data-scroll-target="#summary-and-key-insights">Summary and Key Insights</a>
+  <ul class="collapse">
+  <li><a href="#distributions-covered" id="toc-distributions-covered" class="nav-link" data-scroll-target="#distributions-covered">Distributions Covered</a></li>
+  <li><a href="#key-mathematical-insights" id="toc-key-mathematical-insights" class="nav-link" data-scroll-target="#key-mathematical-insights">Key Mathematical Insights</a></li>
+  <li><a href="#practical-implementation-skills" id="toc-practical-implementation-skills" class="nav-link" data-scroll-target="#practical-implementation-skills">Practical Implementation Skills</a></li>
+  <li><a href="#when-to-use-each-distribution" id="toc-when-to-use-each-distribution" class="nav-link" data-scroll-target="#when-to-use-each-distribution">When to Use Each Distribution</a></li>
+  <li><a href="#advanced-topics-for-further-study" id="toc-advanced-topics-for-further-study" class="nav-link" data-scroll-target="#advanced-topics-for-further-study">Advanced Topics for Further Study</a></li>
+  <li><a href="#machine-learning-connections" id="toc-machine-learning-connections" class="nav-link" data-scroll-target="#machine-learning-connections">Machine Learning Connections</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#sales-calls-before-a-successful-sale" id="toc-sales-calls-before-a-successful-sale" class="nav-link" data-scroll-target="#sales-calls-before-a-successful-sale">Sales Calls Before a Successful Sale</a></li>
   </ul>
 </nav>
@@ -453,14 +491,113 @@ window.Quarto = {
 </header>
 
 
-<p>—author: Nipun Batratitle: Probability Mass Functions and Common Discrete Distributionsdescription: A comprehensive exploration of discrete probability distributions including Bernoulli, Categorical, Binomial, Poisson, and Geometric distributions. Covers theoretical foundations, practical applications, and real-world modeling scenarios.categories: - Probability - Statistics - Mathematics - Random Variables - Distributionskeywords: - probability mass function - PMF - discrete distributions - bernoulli distribution - categorical distribution - binomial distribution - poisson distribution - geometric distribution - quality control - logistic regressiondate: ’2025-02-11’badges: truetoc: true—</p>
-<section id="probability-mass-functions-and-common-discrete-distributions-learning-objectivesby-the-end-of-this-notebook-you-will-understand1.-probability-mass-functions-pmf-mathematical-definition-and-properties2.-common-discrete-distributions-bernoulli-categorical-binomial-poisson-and-geometric3.-real-world-applications-quality-control-classification-and-count-modeling4.-parameter-estimation-fitting-distributions-to-data-using-pytorch5.-model-selection-choosing-appropriate-distributions-for-different-scenarios6.-practical-implementation-working-with-pytorch-distributions-for-data-science-introductiondiscrete-random-variables-take-on-countable-values-like-integers-and-their-behavior-is-completely-described-by-their-probability-mass-function-pmf.-the-pmf-tells-us-the-probability-of-each-possible-outcome-providing-a-complete-probabilistic-picture-of-the-random-variable.-mathematical-foundationfor-a-discrete-random-variable-x-the-pmf-is-defined-asp_xx-px-xthe-pmf-must-satisfy-two-fundamental-properties1.-non-negativity-p_xx-geq-0-for-all-x2.-normalization-sum_x-p_xx-1-why-discrete-distributions-matterdiscrete-distributions-are-everywhere-in-data-science-and-statistics--classification-problems-bernoulli-for-binary-categorical-for-multi-class--count-data-poisson-for-rare-events-binomial-for-fixed-trials--quality-control-binomial-for-defect-rates--waiting-times-geometric-for-time-to-first-success--natural-language-processing-categorical-for-word-distributions-common-discrete-distributions-overviewwell-explore-these-essential-distributions-distribution-use-case-parameters-example----bernoulli-binary-outcomes-p-success-prob-coin-flip-passfail-categorical-multi-class-outcomes-boldsymboltheta-prob-vector-die-roll-image-classification-binomial-fixed-trials-binary-outcome-n-p-quality-control-survey-responses-poisson-count-of-rare-events-lambda-rate-email-arrivals-defects-per-unit-geometric-trials-to-first-success-p-success-prob-sales-calls-equipment-failure-lets-dive-into-each-distribution-with-theory-implementation-and-real-world-applications" class="level1">
-<h1>Probability Mass Functions and Common Discrete Distributions## Learning ObjectivesBy the end of this notebook, you will understand:1. <strong>Probability Mass Functions (PMF)</strong>: Mathematical definition and properties2. <strong>Common Discrete Distributions</strong>: Bernoulli, Categorical, Binomial, Poisson, and Geometric3. <strong>Real-World Applications</strong>: Quality control, classification, and count modeling4. <strong>Parameter Estimation</strong>: Fitting distributions to data using PyTorch5. <strong>Model Selection</strong>: Choosing appropriate distributions for different scenarios6. <strong>Practical Implementation</strong>: Working with PyTorch distributions for data science## Introduction<strong>Discrete random variables</strong> take on countable values (like integers), and their behavior is completely described by their <strong>Probability Mass Function (PMF)</strong>. The PMF tells us the probability of each possible outcome, providing a complete probabilistic picture of the random variable.### Mathematical FoundationFor a discrete random variable <span class="math inline">\(X\)</span>, the PMF is defined as:<span class="math display">\[p_X(x) = P(X = x)\]</span>The PMF must satisfy two fundamental properties:1. <strong>Non-negativity</strong>: <span class="math inline">\(p_X(x) \geq 0\)</span> for all $x$2. <strong>Normalization</strong>: <span class="math inline">\(\sum_{x} p_X(x) = 1\)</span>### Why Discrete Distributions MatterDiscrete distributions are everywhere in data science and statistics:- <strong>Classification problems</strong> (Bernoulli for binary, Categorical for multi-class)- <strong>Count data</strong> (Poisson for rare events, Binomial for fixed trials)- <strong>Quality control</strong> (Binomial for defect rates)- <strong>Waiting times</strong> (Geometric for time to first success)- <strong>Natural language processing</strong> (Categorical for word distributions)### Common Discrete Distributions OverviewWe’ll explore these essential distributions:| Distribution | Use Case | Parameters | Example ||————-|———-|————|———|| Bernoulli | Binary outcomes | <span class="math inline">\(p\)</span> (success prob) | Coin flip, Pass/Fail || Categorical | Multi-class outcomes | <span class="math inline">\(\boldsymbol{\theta}\)</span> (prob vector) | Die roll, Image classification || Binomial | Fixed trials, binary outcome | <span class="math inline">\(n, p\)</span> | Quality control, Survey responses || Poisson | Count of rare events | <span class="math inline">\(\lambda\)</span> (rate) | Email arrivals, Defects per unit || Geometric | Trials to first success | <span class="math inline">\(p\)</span> (success prob) | Sales calls, Equipment failure |Let’s dive into each distribution with theory, implementation, and real-world applications!</h1>
-<section id="setting-up-the-environmentwell-use-pytorch-for-probability-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations" class="level2">
-<h2 class="anchored" data-anchor-id="setting-up-the-environmentwell-use-pytorch-for-probability-distributions-numpy-for-numerical-operations-and-matplotlib-for-visualizations">Setting Up the EnvironmentWe’ll use PyTorch for probability distributions, NumPy for numerical operations, and Matplotlib for visualizations:</h2>
+<section id="probability-mass-functions-and-common-discrete-distributions" class="level1">
+<h1>Probability Mass Functions and Common Discrete Distributions</h1>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this notebook, you will understand:</p>
+<ol type="1">
+<li><strong>Probability Mass Functions (PMF)</strong>: Mathematical definition and properties</li>
+<li><strong>Common Discrete Distributions</strong>: Bernoulli, Categorical, Binomial, Poisson, and Geometric</li>
+<li><strong>Real-World Applications</strong>: Quality control, classification, and count modeling</li>
+<li><strong>Parameter Estimation</strong>: Fitting distributions to data using PyTorch</li>
+<li><strong>Model Selection</strong>: Choosing appropriate distributions for different scenarios</li>
+<li><strong>Practical Implementation</strong>: Working with PyTorch distributions for data science</li>
+</ol>
 </section>
-<section id="bernoulli-distributionthe-bernoulli-distribution-is-the-simplest-discrete-distribution-modeling-a-single-binary-trial-with-two-possible-outcomes-success-1-or-failure-0.-mathematical-definitionlet-x-be-a-bernoulli-random-variable-with-parameter-p-in-01.-the-pmf-isp_xx-begincases1-p-textif-x-0-p-textif-x-1endcasesequivalently-p_xx-px1-p1-x-for-x-in-0-1-properties--mean-ex-p--variance-textvarx-p1-p--maximum-variance-occurs-when-p-0.5-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="bernoulli-distributionthe-bernoulli-distribution-is-the-simplest-discrete-distribution-modeling-a-single-binary-trial-with-two-possible-outcomes-success-1-or-failure-0.-mathematical-definitionlet-x-be-a-bernoulli-random-variable-with-parameter-p-in-01.-the-pmf-isp_xx-begincases1-p-textif-x-0-p-textif-x-1endcasesequivalently-p_xx-px1-p1-x-for-x-in-0-1-properties--mean-ex-p--variance-textvarx-p1-p--maximum-variance-occurs-when-p-0.5-visualization">1. Bernoulli DistributionThe <strong>Bernoulli distribution</strong> is the simplest discrete distribution, modeling a single binary trial with two possible outcomes: success (1) or failure (0).### Mathematical DefinitionLet <span class="math inline">\(X\)</span> be a Bernoulli random variable with parameter <span class="math inline">\(p \in [0,1]\)</span>. The PMF is:<span class="math display">\[p_X(x) = \begin{cases}1-p, &amp; \text{if } x = 0 \\p, &amp; \text{if } x = 1\end{cases}\]</span>Equivalently: <span class="math inline">\(p_X(x) = p^x(1-p)^{1-x}\)</span> for <span class="math inline">\(x \in \{0, 1\}\)</span>### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = p\)</span>- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = p(1-p)\)</span>- <strong>Maximum variance</strong>: Occurs when <span class="math inline">\(p = 0.5\)</span>### Visualization</h2>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p><strong>Discrete random variables</strong> take on countable values (like integers), and their behavior is completely described by their <strong>Probability Mass Function (PMF)</strong>. The PMF tells us the probability of each possible outcome, providing a complete probabilistic picture of the random variable.</p>
+<section id="mathematical-foundation" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-foundation">Mathematical Foundation</h3>
+<p>For a discrete random variable <span class="math inline">\(X\)</span>, the PMF is defined as:</p>
+<p><span class="math display">\[p_X(x) = P(X = x)\]</span></p>
+<p>The PMF must satisfy two fundamental properties: 1. <strong>Non-negativity</strong>: <span class="math inline">\(p_X(x) \geq 0\)</span> for all <span class="math inline">\(x\)</span> 2. <strong>Normalization</strong>: <span class="math inline">\(\sum_{x} p_X(x) = 1\)</span></p>
+</section>
+<section id="why-discrete-distributions-matter" class="level3">
+<h3 class="anchored" data-anchor-id="why-discrete-distributions-matter">Why Discrete Distributions Matter</h3>
+<p>Discrete distributions are everywhere in data science and statistics: - <strong>Classification problems</strong> (Bernoulli for binary, Categorical for multi-class) - <strong>Count data</strong> (Poisson for rare events, Binomial for fixed trials) - <strong>Quality control</strong> (Binomial for defect rates) - <strong>Waiting times</strong> (Geometric for time to first success) - <strong>Natural language processing</strong> (Categorical for word distributions)</p>
+</section>
+<section id="common-discrete-distributions-overview" class="level3">
+<h3 class="anchored" data-anchor-id="common-discrete-distributions-overview">Common Discrete Distributions Overview</h3>
+<p>We’ll explore these essential distributions:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 22%">
+<col style="width: 27%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Distribution</th>
+<th>Use Case</th>
+<th>Parameters</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bernoulli</td>
+<td>Binary outcomes</td>
+<td><span class="math inline">\(p\)</span> (success prob)</td>
+<td>Coin flip, Pass/Fail</td>
+</tr>
+<tr class="even">
+<td>Categorical</td>
+<td>Multi-class outcomes</td>
+<td><span class="math inline">\(\boldsymbol{\theta}\)</span> (prob vector)</td>
+<td>Die roll, Image classification</td>
+</tr>
+<tr class="odd">
+<td>Binomial</td>
+<td>Fixed trials, binary outcome</td>
+<td><span class="math inline">\(n, p\)</span></td>
+<td>Quality control, Survey responses</td>
+</tr>
+<tr class="even">
+<td>Poisson</td>
+<td>Count of rare events</td>
+<td><span class="math inline">\(\lambda\)</span> (rate)</td>
+<td>Email arrivals, Defects per unit</td>
+</tr>
+<tr class="odd">
+<td>Geometric</td>
+<td>Trials to first success</td>
+<td><span class="math inline">\(p\)</span> (success prob)</td>
+<td>Sales calls, Equipment failure</td>
+</tr>
+</tbody>
+</table>
+<p>Let’s dive into each distribution with theory, implementation, and real-world applications!</p>
+</section>
+</section>
+<section id="setting-up-the-environment" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-the-environment">Setting Up the Environment</h2>
+<p>We’ll use PyTorch for probability distributions, NumPy for numerical operations, and Matplotlib for visualizations:</p>
+</section>
+<section id="bernoulli-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="bernoulli-distribution">1. Bernoulli Distribution</h2>
+<p>The <strong>Bernoulli distribution</strong> is the simplest discrete distribution, modeling a single binary trial with two possible outcomes: success (1) or failure (0).</p>
+<section id="mathematical-definition" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-definition">Mathematical Definition</h3>
+<p>Let <span class="math inline">\(X\)</span> be a Bernoulli random variable with parameter <span class="math inline">\(p \in [0,1]\)</span>. The PMF is:</p>
+<p><span class="math display">\[p_X(x) = \begin{cases}
+1-p, &amp; \text{if } x = 0 \\
+p, &amp; \text{if } x = 1
+\end{cases}\]</span></p>
+<p>Equivalently: <span class="math inline">\(p_X(x) = p^x(1-p)^{1-x}\)</span> for <span class="math inline">\(x \in \{0, 1\}\)</span></p>
+</section>
+<section id="properties" class="level3">
+<h3 class="anchored" data-anchor-id="properties">Properties</h3>
+<ul>
+<li><strong>Mean</strong>: <span class="math inline">\(E[X] = p\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = p(1-p)\)</span></li>
+<li><strong>Maximum variance</strong>: Occurs when <span class="math inline">\(p = 0.5\)</span></li>
+</ul>
+</section>
+<section id="visualization" class="level3">
+<h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
 <div id="cell-4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -472,6 +609,7 @@ window.Quarto = {
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 </section>
 </section>
 <section id="pmf-of-bernoulli-distribution" class="level1">
@@ -526,8 +664,9 @@ p &amp; \text{if } x = 1 \\
 </div>
 </div>
 </div>
-<section id="working-with-pytorch-distributionslets-explore-the-bernoulli-distribution-using-pytorchs-built-in-functionality" class="level3">
-<h3 class="anchored" data-anchor-id="working-with-pytorch-distributionslets-explore-the-bernoulli-distribution-using-pytorchs-built-in-functionality">Working with PyTorch DistributionsLet’s explore the Bernoulli distribution using PyTorch’s built-in functionality:</h3>
+<section id="working-with-pytorch-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-pytorch-distributions">Working with PyTorch Distributions</h3>
+<p>Let’s explore the Bernoulli distribution using PyTorch’s built-in functionality:</p>
 <div id="cell-10" class="cell" data-execution_count="87">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot_pmf_bernoilli(<span class="fl">0.8</span>, <span class="st">'Bernoulli PMF with p=0.3'</span>)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -671,7 +810,11 @@ dtype: object</code></pre>
 0.5</code></pre>
 </div>
 </div>
-<p>Notice that even though the expected frequency is 0.9, individual samples can vary significantly due to randomness.## Real-World Application: Fruit ClassificationLet’s explore a practical machine learning application using the Bernoulli distribution for binary classification.</p>
+<p>Notice that even though the expected frequency is 0.9, individual samples can vary significantly due to randomness.</p>
+</section>
+<section id="real-world-application-fruit-classification" class="level2">
+<h2 class="anchored" data-anchor-id="real-world-application-fruit-classification">Real-World Application: Fruit Classification</h2>
+<p>Let’s explore a practical machine learning application using the Bernoulli distribution for binary classification.</p>
 <div id="cell-23" class="cell" data-execution_count="218">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>dist.sample()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="218">
@@ -687,8 +830,11 @@ dtype: object</code></pre>
 <pre><code>tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])</code></pre>
 </div>
 </div>
-<section id="problem-setup-lime-vs-lemon-classificationwe-want-to-classify-fruits-as-limes-0-or-lemons-1-based-on-their-radius.-this-is-a-classic-logistic-regression-problem-where-we-modelptextlemontextradius-textsigmoidw-cdot-textradius-bthe-sigmoid-function-ensures-probabilities-stay-between-0-and-1-making-it-perfect-for-bernoulli-distributions." class="level3">
-<h3 class="anchored" data-anchor-id="problem-setup-lime-vs-lemon-classificationwe-want-to-classify-fruits-as-limes-0-or-lemons-1-based-on-their-radius.-this-is-a-classic-logistic-regression-problem-where-we-modelptextlemontextradius-textsigmoidw-cdot-textradius-bthe-sigmoid-function-ensures-probabilities-stay-between-0-and-1-making-it-perfect-for-bernoulli-distributions.">Problem Setup: Lime vs Lemon ClassificationWe want to classify fruits as limes (0) or lemons (1) based on their radius. This is a classic logistic regression problem where we model:<span class="math display">\[P(\text{Lemon}|\text{radius}) = \text{sigmoid}(w \cdot \text{radius} + b)\]</span>The sigmoid function ensures probabilities stay between 0 and 1, making it perfect for Bernoulli distributions.</h3>
+<section id="problem-setup-lime-vs-lemon-classification" class="level3">
+<h3 class="anchored" data-anchor-id="problem-setup-lime-vs-lemon-classification">Problem Setup: Lime vs Lemon Classification</h3>
+<p>We want to classify fruits as limes (0) or lemons (1) based on their radius. This is a classic logistic regression problem where we model:</p>
+<p><span class="math display">\[P(\text{Lemon}|\text{radius}) = \text{sigmoid}(w \cdot \text{radius} + b)\]</span></p>
+<p>The sigmoid function ensures probabilities stay between 0 and 1, making it perfect for Bernoulli distributions.</p>
 <div id="cell-27" class="cell" data-execution_count="221">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>samples.mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="221">
@@ -908,8 +1054,9 @@ dtype: float64</code></pre>
 <div id="cell-48" class="cell" data-execution_count="233">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'y_true'</span>] <span class="op">=</span> y_true.numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="model-training-and-resultsour-logistic-regression-successfully-learned-the-underlying-relationship-the-learned-parameters-closely-match-the-true-parameters-used-to-generate-the-data." class="level3">
-<h3 class="anchored" data-anchor-id="model-training-and-resultsour-logistic-regression-successfully-learned-the-underlying-relationship-the-learned-parameters-closely-match-the-true-parameters-used-to-generate-the-data.">Model Training and ResultsOur logistic regression successfully learned the underlying relationship! The learned parameters closely match the true parameters used to generate the data.</h3>
+<section id="model-training-and-results" class="level3">
+<h3 class="anchored" data-anchor-id="model-training-and-results">Model Training and Results</h3>
+<p>Our logistic regression successfully learned the underlying relationship! The learned parameters closely match the true parameters used to generate the data.</p>
 <div id="cell-50" class="cell" data-execution_count="236">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>df.query(<span class="st">'y_true == 0'</span>).head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="236">
@@ -1209,10 +1356,26 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<p>The decision boundary is at radius ≈ 1.67, where P(Lemon) = 0.5.## 2. Categorical DistributionThe <strong>Categorical distribution</strong> generalizes the Bernoulli distribution to more than two outcomes. It’s fundamental for multi-class classification problems.</p>
+<p>The decision boundary is at radius ≈ 1.67, where P(Lemon) = 0.5.</p>
 </section>
-<section id="mathematical-definitionlet-x-be-a-categorical-random-variable-with-k-possible-outcomes-1-2-ldots-k-and-parameter-vector-boldsymboltheta-theta_1-theta_2-ldots-theta_k.-the-pmf-isp_xx-k-theta_k-quad-textfor-k-in-1-2-ldots-kconstraints-theta_k-geq-0-and-sum_k1k-theta_k-1-applications--image-classification-cat-dog-bird---sentiment-analysis-positive-negative-neutral--die-rolling-1-2-3-4-5-6--market-research-product-preferences" class="level3">
-<h3 class="anchored" data-anchor-id="mathematical-definitionlet-x-be-a-categorical-random-variable-with-k-possible-outcomes-1-2-ldots-k-and-parameter-vector-boldsymboltheta-theta_1-theta_2-ldots-theta_k.-the-pmf-isp_xx-k-theta_k-quad-textfor-k-in-1-2-ldots-kconstraints-theta_k-geq-0-and-sum_k1k-theta_k-1-applications--image-classification-cat-dog-bird---sentiment-analysis-positive-negative-neutral--die-rolling-1-2-3-4-5-6--market-research-product-preferences">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be a categorical random variable with <span class="math inline">\(K\)</span> possible outcomes <span class="math inline">\(\{1, 2, \ldots, K\}\)</span> and parameter vector <span class="math inline">\(\boldsymbol{\theta} = (\theta_1, \theta_2, \ldots, \theta_K)\)</span>. The PMF is:<span class="math display">\[p_X(x = k) = \theta_k \quad \text{for } k \in \{1, 2, \ldots, K\}\]</span><strong>Constraints</strong>: <span class="math inline">\(\theta_k \geq 0\)</span> and <span class="math inline">\(\sum_{k=1}^K \theta_k = 1\)</span>### Applications- <strong>Image classification</strong> (cat, dog, bird, …)- <strong>Sentiment analysis</strong> (positive, negative, neutral)- <strong>Die rolling</strong> (1, 2, 3, 4, 5, 6)- <strong>Market research</strong> (product preferences)</h3>
+</section>
+<section id="categorical-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-distribution">2. Categorical Distribution</h2>
+<p>The <strong>Categorical distribution</strong> generalizes the Bernoulli distribution to more than two outcomes. It’s fundamental for multi-class classification problems.</p>
+<section id="mathematical-definition-1" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-definition-1">Mathematical Definition</h3>
+<p>Let <span class="math inline">\(X\)</span> be a categorical random variable with <span class="math inline">\(K\)</span> possible outcomes <span class="math inline">\(\{1, 2, \ldots, K\}\)</span> and parameter vector <span class="math inline">\(\boldsymbol{\theta} = (\theta_1, \theta_2, \ldots, \theta_K)\)</span>. The PMF is:</p>
+<p><span class="math display">\[p_X(x = k) = \theta_k \quad \text{for } k \in \{1, 2, \ldots, K\}\]</span></p>
+<p><strong>Constraints</strong>: <span class="math inline">\(\theta_k \geq 0\)</span> and <span class="math inline">\(\sum_{k=1}^K \theta_k = 1\)</span></p>
+</section>
+<section id="applications" class="level3">
+<h3 class="anchored" data-anchor-id="applications">Applications</h3>
+<ul>
+<li><strong>Image classification</strong> (cat, dog, bird, …)</li>
+<li><strong>Sentiment analysis</strong> (positive, negative, neutral)</li>
+<li><strong>Die rolling</strong> (1, 2, 3, 4, 5, 6)</li>
+<li><strong>Market research</strong> (product preferences)</li>
+</ul>
 <div id="cell-57" class="cell" data-execution_count="238">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Logistic regression model</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LogisticRegression(nn.Module):</span>
@@ -1335,7 +1498,7 @@ True bias: -2.0, Learned bias: -2.0183537006378174</code></pre>
 </section>
 </section>
 </section>
-<section id="categorical-distribution" class="level1">
+<section id="categorical-distribution-1" class="level1">
 <h1>Categorical distribution</h1>
 <p>Say, we have a random variable <span class="math inline">\(X\)</span> that can take on one of <span class="math inline">\(K\)</span> possible values, <span class="math inline">\(1, 2, \ldots, K\)</span>. The probability mass function (PMF) of a categorical distribution is given by:</p>
 <p><span class="math display">\[
@@ -1362,9 +1525,28 @@ p_X(x) = \frac{1}{6}, \quad x \in \{1, 2, 3, 4, 5, 6\}.
 <section id="imagenet" class="level2">
 <h2 class="anchored" data-anchor-id="imagenet">Imagenet</h2>
 <p>The ImageNet project is a large visual database designed for use in visual object recognition research.</p>
-<p>The empirical frequencies closely match our theoretical probabilities, validating our implementation.## 3. Binomial DistributionThe <strong>Binomial distribution</strong> models the number of successes in a fixed number of independent Bernoulli trials.</p>
-<section id="mathematical-definitionlet-x-be-the-number-of-successes-in-n-independent-bernoulli-trials-each-with-success-probability-p.-then-x-sim-textbinomialn-p-with-pmfp_xx-binomnx-px-1-pn-x-quad-textfor-x-in-0-1-2-ldots-nwhere-binomnx-fracnxn-x-is-the-binomial-coefficient.-properties--mean-ex-np--variance-textvarx-np1-p--mode-lfloor-n1p-rfloor-real-world-example-quality-controla-factory-produces-electronic-chips-with-a-10-defect-rate.-quality-control-randomly-selects-10-chips.-how-many-defects-should-we-expect" class="level3">
-<h3 class="anchored" data-anchor-id="mathematical-definitionlet-x-be-the-number-of-successes-in-n-independent-bernoulli-trials-each-with-success-probability-p.-then-x-sim-textbinomialn-p-with-pmfp_xx-binomnx-px-1-pn-x-quad-textfor-x-in-0-1-2-ldots-nwhere-binomnx-fracnxn-x-is-the-binomial-coefficient.-properties--mean-ex-np--variance-textvarx-np1-p--mode-lfloor-n1p-rfloor-real-world-example-quality-controla-factory-produces-electronic-chips-with-a-10-defect-rate.-quality-control-randomly-selects-10-chips.-how-many-defects-should-we-expect">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be the number of successes in <span class="math inline">\(n\)</span> independent Bernoulli trials, each with success probability <span class="math inline">\(p\)</span>. Then <span class="math inline">\(X \sim \text{Binomial}(n, p)\)</span> with PMF:<span class="math display">\[p_X(x) = \binom{n}{x} p^x (1-p)^{n-x} \quad \text{for } x \in \{0, 1, 2, \ldots, n\}\]</span>where <span class="math inline">\(\binom{n}{x} = \frac{n!}{x!(n-x)!}\)</span> is the binomial coefficient.### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = np\)</span>- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = np(1-p)\)</span>- <strong>Mode</strong>: <span class="math inline">\(\lfloor (n+1)p \rfloor\)</span>### Real-World Example: Quality ControlA factory produces electronic chips with a 10% defect rate. Quality control randomly selects 10 chips. How many defects should we expect?</h3>
+<p>The empirical frequencies closely match our theoretical probabilities, validating our implementation.</p>
+</section>
+<section id="binomial-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="binomial-distribution">3. Binomial Distribution</h2>
+<p>The <strong>Binomial distribution</strong> models the number of successes in a fixed number of independent Bernoulli trials.</p>
+<section id="mathematical-definition-2" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-definition-2">Mathematical Definition</h3>
+<p>Let <span class="math inline">\(X\)</span> be the number of successes in <span class="math inline">\(n\)</span> independent Bernoulli trials, each with success probability <span class="math inline">\(p\)</span>. Then <span class="math inline">\(X \sim \text{Binomial}(n, p)\)</span> with PMF:</p>
+<p><span class="math display">\[p_X(x) = \binom{n}{x} p^x (1-p)^{n-x} \quad \text{for } x \in \{0, 1, 2, \ldots, n\}\]</span></p>
+<p>where <span class="math inline">\(\binom{n}{x} = \frac{n!}{x!(n-x)!}\)</span> is the binomial coefficient.</p>
+</section>
+<section id="properties-1" class="level3">
+<h3 class="anchored" data-anchor-id="properties-1">Properties</h3>
+<ul>
+<li><strong>Mean</strong>: <span class="math inline">\(E[X] = np\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = np(1-p)\)</span></li>
+<li><strong>Mode</strong>: <span class="math inline">\(\lfloor (n+1)p \rfloor\)</span></li>
+</ul>
+</section>
+<section id="real-world-example-quality-control" class="level3">
+<h3 class="anchored" data-anchor-id="real-world-example-quality-control">Real-World Example: Quality Control</h3>
+<p>A factory produces electronic chips with a 10% defect rate. Quality control randomly selects 10 chips. How many defects should we expect?</p>
 <p><img src="https://blog.roboflow.com/content/images/2021/06/image-18.png" class="img-fluid"></p>
 <div id="cell-69" class="cell" data-execution_count="266">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>theta_vec <span class="op">=</span> torch.tensor([<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>])</span>
@@ -1417,7 +1599,10 @@ p_X(x) = \frac{1}{6}, \quad x \in \{1, 2, 3, 4, 5, 6\}.
 <div id="cell-74" class="cell" data-execution_count="271">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> dist.sample(torch.Size([<span class="dv">1000</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The distribution shows that finding 0 or 1 defects is most likely, with very low probability of finding 5+ defects in a sample of 10.### Simulation Validation</p>
+<p>The distribution shows that finding 0 or 1 defects is most likely, with very low probability of finding 5+ defects in a sample of 10.</p>
+</section>
+<section id="simulation-validation" class="level3">
+<h3 class="anchored" data-anchor-id="simulation-validation">Simulation Validation</h3>
 <div id="cell-76" class="cell" data-execution_count="272">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>samples[:<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="272">
@@ -1426,8 +1611,9 @@ p_X(x) = \frac{1}{6}, \quad x \in \{1, 2, 3, 4, 5, 6\}.
 </div>
 </section>
 </section>
-<section id="poisson-distributionthe-poisson-distribution-models-the-number-of-events-occurring-in-a-fixed-interval-when-events-happen-independently-at-a-constant-average-rate." class="level2">
-<h2 class="anchored" data-anchor-id="poisson-distributionthe-poisson-distribution-models-the-number-of-events-occurring-in-a-fixed-interval-when-events-happen-independently-at-a-constant-average-rate.">4. Poisson DistributionThe <strong>Poisson distribution</strong> models the number of events occurring in a fixed interval when events happen independently at a constant average rate.</h2>
+<section id="poisson-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="poisson-distribution">4. Poisson Distribution</h2>
+<p>The <strong>Poisson distribution</strong> models the number of events occurring in a fixed interval when events happen independently at a constant average rate.</p>
 <div id="cell-78" class="cell" data-execution_count="273">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>pd.value_counts(samples.numpy(), normalize<span class="op">=</span><span class="va">True</span>).sort_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1465,8 +1651,32 @@ p_X(x) = \binom{n}{x} p^x(1-p)^{n-x}, \quad x \in \{0, 1, 2, \ldots, 10\}.
 <pre><code>Binomial(total_count: 10.0, probs: 0.10000000149011612)</code></pre>
 </div>
 </div>
-<section id="mathematical-definitionlet-x-be-the-number-of-events-in-a-fixed-interval.-if-events-occur-at-rate-lambda-0-then-x-sim-textpoissonlambda-with-pmfp_xx-fraclambdax-e-lambdax-quad-textfor-x-in-0-1-2-ldots-properties--mean-ex-lambda--variance-textvarx-lambda---unique-property-mean-equals-variance-applications--email-arrivals-per-hour--customer-arrivals-at-a-store--defects-per-manufactured-unit--website-clicks-per-minute--radioactive-decay-events-real-world-example-sms-message-arrivalslets-analyze-sms-message-data-to-see-if-it-follows-a-poisson-distribution" class="level3">
-<h3 class="anchored" data-anchor-id="mathematical-definitionlet-x-be-the-number-of-events-in-a-fixed-interval.-if-events-occur-at-rate-lambda-0-then-x-sim-textpoissonlambda-with-pmfp_xx-fraclambdax-e-lambdax-quad-textfor-x-in-0-1-2-ldots-properties--mean-ex-lambda--variance-textvarx-lambda---unique-property-mean-equals-variance-applications--email-arrivals-per-hour--customer-arrivals-at-a-store--defects-per-manufactured-unit--website-clicks-per-minute--radioactive-decay-events-real-world-example-sms-message-arrivalslets-analyze-sms-message-data-to-see-if-it-follows-a-poisson-distribution">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be the number of events in a fixed interval. If events occur at rate <span class="math inline">\(\lambda &gt; 0\)</span>, then <span class="math inline">\(X \sim \text{Poisson}(\lambda)\)</span> with PMF:<span class="math display">\[p_X(x) = \frac{\lambda^x e^{-\lambda}}{x!} \quad \text{for } x \in \{0, 1, 2, \ldots\}\]</span>### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = \lambda\)</span>- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = \lambda\)</span> - <strong>Unique property</strong>: Mean equals variance!### Applications- <strong>Email arrivals</strong> per hour- <strong>Customer arrivals</strong> at a store- <strong>Defects per manufactured unit</strong>- <strong>Website clicks</strong> per minute- <strong>Radioactive decay</strong> events### Real-World Example: SMS Message ArrivalsLet’s analyze SMS message data to see if it follows a Poisson distribution:</h3>
+<section id="mathematical-definition-3" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-definition-3">Mathematical Definition</h3>
+<p>Let <span class="math inline">\(X\)</span> be the number of events in a fixed interval. If events occur at rate <span class="math inline">\(\lambda &gt; 0\)</span>, then <span class="math inline">\(X \sim \text{Poisson}(\lambda)\)</span> with PMF:</p>
+<p><span class="math display">\[p_X(x) = \frac{\lambda^x e^{-\lambda}}{x!} \quad \text{for } x \in \{0, 1, 2, \ldots\}\]</span></p>
+</section>
+<section id="properties-2" class="level3">
+<h3 class="anchored" data-anchor-id="properties-2">Properties</h3>
+<ul>
+<li><strong>Mean</strong>: <span class="math inline">\(E[X] = \lambda\)</span></li>
+<li><strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = \lambda\)</span></li>
+<li><strong>Unique property</strong>: Mean equals variance!</li>
+</ul>
+</section>
+<section id="applications-1" class="level3">
+<h3 class="anchored" data-anchor-id="applications-1">Applications</h3>
+<ul>
+<li><strong>Email arrivals</strong> per hour</li>
+<li><strong>Customer arrivals</strong> at a store</li>
+<li><strong>Defects per manufactured unit</strong></li>
+<li><strong>Website clicks</strong> per minute</li>
+<li><strong>Radioactive decay</strong> events</li>
+</ul>
+</section>
+<section id="real-world-example-sms-message-arrivals" class="level3">
+<h3 class="anchored" data-anchor-id="real-world-example-sms-message-arrivals">Real-World Example: SMS Message Arrivals</h3>
+<p>Let’s analyze SMS message data to see if it follows a Poisson distribution:</p>
 <div id="cell-83" class="cell" data-execution_count="276">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="276">
@@ -1581,11 +1791,36 @@ p_X(x) = \binom{n}{x} p^x(1-p)^{n-x}, \quad x \in \{0, 1, 2, \ldots, 10\}.
 </div>
 </div>
 </section>
-<section id="mathematical-definitionlet-x-be-the-number-of-trials-needed-to-get-the-first-success-where-each-trial-has-success-probability-p.-then-x-sim-textgeometricp-with-pmfp_xx-1-px-1-p-quad-textfor-x-in-1-2-3-ldotsnote-pytorch-uses-a-different-parameterization-where-x-counts-the-number-of-failures-before-the-first-success-so-x-in-0-1-2-ldots.-properties--mean-ex-frac1p-trials-to-first-success--variance-textvarx-frac1-pp2--memoryless-property-px-mn-x-m-px-n-applications--sales-calls-until-first-sale--equipment-testing-until-first-failure--quality-control-until-first-defect--customer-service-until-problem-resolution-example-sales-representativea-sales-representative-has-a-30-success-rate-per-call.-how-many-calls-until-the-first-sale" class="level3">
-<h3 class="anchored" data-anchor-id="mathematical-definitionlet-x-be-the-number-of-trials-needed-to-get-the-first-success-where-each-trial-has-success-probability-p.-then-x-sim-textgeometricp-with-pmfp_xx-1-px-1-p-quad-textfor-x-in-1-2-3-ldotsnote-pytorch-uses-a-different-parameterization-where-x-counts-the-number-of-failures-before-the-first-success-so-x-in-0-1-2-ldots.-properties--mean-ex-frac1p-trials-to-first-success--variance-textvarx-frac1-pp2--memoryless-property-px-mn-x-m-px-n-applications--sales-calls-until-first-sale--equipment-testing-until-first-failure--quality-control-until-first-defect--customer-service-until-problem-resolution-example-sales-representativea-sales-representative-has-a-30-success-rate-per-call.-how-many-calls-until-the-first-sale">Mathematical DefinitionLet <span class="math inline">\(X\)</span> be the number of trials needed to get the first success, where each trial has success probability <span class="math inline">\(p\)</span>. Then <span class="math inline">\(X \sim \text{Geometric}(p)\)</span> with PMF:<span class="math display">\[p_X(x) = (1-p)^{x-1} p \quad \text{for } x \in \{1, 2, 3, \ldots\}\]</span><strong>Note</strong>: PyTorch uses a different parameterization where <span class="math inline">\(X\)</span> counts the number of failures before the first success, so <span class="math inline">\(X \in \{0, 1, 2, \ldots\}\)</span>.### Properties- <strong>Mean</strong>: <span class="math inline">\(E[X] = \frac{1}{p}\)</span> (trials to first success)- <strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = \frac{1-p}{p^2}\)</span>- <strong>Memoryless property</strong>: <span class="math inline">\(P(X &gt; m+n | X &gt; m) = P(X &gt; n)\)</span>### Applications- <strong>Sales calls</strong> until first sale- <strong>Equipment testing</strong> until first failure- <strong>Quality control</strong> until first defect- <strong>Customer service</strong> until problem resolution### Example: Sales RepresentativeA sales representative has a 30% success rate per call. How many calls until the first sale?</h3>
+<section id="mathematical-definition-4" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-definition-4">Mathematical Definition</h3>
+<p>Let <span class="math inline">\(X\)</span> be the number of trials needed to get the first success, where each trial has success probability <span class="math inline">\(p\)</span>. Then <span class="math inline">\(X \sim \text{Geometric}(p)\)</span> with PMF:</p>
+<p><span class="math display">\[p_X(x) = (1-p)^{x-1} p \quad \text{for } x \in \{1, 2, 3, \ldots\}\]</span></p>
+<p><strong>Note</strong>: PyTorch uses a different parameterization where <span class="math inline">\(X\)</span> counts the number of failures before the first success, so <span class="math inline">\(X \in \{0, 1, 2, \ldots\}\)</span>.</p>
 </section>
-<section id="geometric-distributionthe-geometric-distribution-models-the-number-of-trials-needed-to-achieve-the-first-success-in-a-sequence-of-independent-bernoulli-trials." class="level2">
-<h2 class="anchored" data-anchor-id="geometric-distributionthe-geometric-distribution-models-the-number-of-trials-needed-to-achieve-the-first-success-in-a-sequence-of-independent-bernoulli-trials.">5. Geometric DistributionThe <strong>Geometric distribution</strong> models the number of trials needed to achieve the first success in a sequence of independent Bernoulli trials.</h2>
+<section id="properties-3" class="level3">
+<h3 class="anchored" data-anchor-id="properties-3">Properties</h3>
+<ul>
+<li><strong>Mean</strong>: <span class="math inline">\(E[X] = \frac{1}{p}\)</span> (trials to first success)</li>
+<li><strong>Variance</strong>: <span class="math inline">\(\text{Var}(X) = \frac{1-p}{p^2}\)</span></li>
+<li><strong>Memoryless property</strong>: <span class="math inline">\(P(X &gt; m+n | X &gt; m) = P(X &gt; n)\)</span></li>
+</ul>
+</section>
+<section id="applications-2" class="level3">
+<h3 class="anchored" data-anchor-id="applications-2">Applications</h3>
+<ul>
+<li><strong>Sales calls</strong> until first sale</li>
+<li><strong>Equipment testing</strong> until first failure</li>
+<li><strong>Quality control</strong> until first defect</li>
+<li><strong>Customer service</strong> until problem resolution</li>
+</ul>
+</section>
+<section id="example-sales-representative" class="level3">
+<h3 class="anchored" data-anchor-id="example-sales-representative">Example: Sales Representative</h3>
+<p>A sales representative has a 30% success rate per call. How many calls until the first sale?</p>
+</section>
+<section id="geometric-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="geometric-distribution">5. Geometric Distribution</h2>
+<p>The <strong>Geometric distribution</strong> models the number of trials needed to achieve the first success in a sequence of independent Bernoulli trials.</p>
 <div id="cell-90" class="cell" data-execution_count="282">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>pd.Series(samples.numpy()).value_counts().sort_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="282">
@@ -1604,7 +1839,97 @@ Name: count, dtype: int64</code></pre>
 <section id="number-of-sms-rceived-per-day" class="level1">
 <h1>Number of SMS rceived per day</h1>
 <p>Hat tip: Bayesian Methods for Hackers book</p>
-<p>Remember that PyTorch’s Geometric distribution counts failures before success, so these represent the number of failed calls before the first successful sale.## Summary and Key InsightsIn this comprehensive notebook, we’ve explored the fundamental discrete probability distributions that form the backbone of statistical modeling and machine learning:### Distributions Covered1. <strong>Bernoulli</strong>: Binary outcomes (classification, A/B testing)2. <strong>Categorical</strong>: Multi-class outcomes (image classification, NLP)3. <strong>Binomial</strong>: Fixed trials with binary outcomes (quality control, surveys) 4. <strong>Poisson</strong>: Count of rare events (arrivals, defects, clicks)5. <strong>Geometric</strong>: Trials to first success (sales, reliability testing)### Key Mathematical Insights- <strong>PMF Properties</strong>: Non-negativity and normalization are universal- <strong>Parameter Relationships</strong>: Mean and variance depend on distribution parameters- <strong>Support</strong>: Each distribution has a specific domain of possible values- <strong>Applications</strong>: Choice depends on the underlying data-generating process### Practical Implementation Skills- <strong>PyTorch Integration</strong>: Using built-in distributions for modeling- <strong>Sampling and Validation</strong>: Generating samples and verifying against theory- <strong>Real-World Modeling</strong>: Applying distributions to practical problems- <strong>Parameter Estimation</strong>: Learning distribution parameters from data### When to Use Each Distribution| Situation | Distribution | Key Question ||———–|————-|————–|| Binary classification | Bernoulli | Success/failure with fixed probability? || Multi-class classification | Categorical | Multiple exclusive outcomes? || Fixed number of trials | Binomial | How many successes in n trials? || Count of rare events | Poisson | How many events in fixed time/space? || Time to first success | Geometric | How long until first success? |### Advanced Topics for Further Study- <strong>Maximum Likelihood Estimation</strong> for parameter fitting- <strong>Bayesian approaches</strong> to parameter uncertainty- <strong>Mixture models</strong> combining multiple distributions- <strong>Zero-inflated models</strong> for count data with excess zeros- <strong>Truncated distributions</strong> for bounded domains### Machine Learning ConnectionsThese distributions are essential for:- <strong>Generative models</strong> (VAEs, GANs)- <strong>Classification</strong> (logistic regression, neural networks)- <strong>Reinforcement learning</strong> (policy gradients)- <strong>Bayesian machine learning</strong> (priors and posteriors)- <strong>Natural language processing</strong> (language models)Understanding discrete distributions provides the foundation for advanced statistical modeling and machine learning applications!</p>
+<p>Remember that PyTorch’s Geometric distribution counts failures before success, so these represent the number of failed calls before the first successful sale.</p>
+<section id="summary-and-key-insights" class="level2">
+<h2 class="anchored" data-anchor-id="summary-and-key-insights">Summary and Key Insights</h2>
+<p>In this comprehensive notebook, we’ve explored the fundamental discrete probability distributions that form the backbone of statistical modeling and machine learning:</p>
+<section id="distributions-covered" class="level3">
+<h3 class="anchored" data-anchor-id="distributions-covered">Distributions Covered</h3>
+<ol type="1">
+<li><strong>Bernoulli</strong>: Binary outcomes (classification, A/B testing)</li>
+<li><strong>Categorical</strong>: Multi-class outcomes (image classification, NLP)</li>
+<li><strong>Binomial</strong>: Fixed trials with binary outcomes (quality control, surveys)<br>
+</li>
+<li><strong>Poisson</strong>: Count of rare events (arrivals, defects, clicks)</li>
+<li><strong>Geometric</strong>: Trials to first success (sales, reliability testing)</li>
+</ol>
+</section>
+<section id="key-mathematical-insights" class="level3">
+<h3 class="anchored" data-anchor-id="key-mathematical-insights">Key Mathematical Insights</h3>
+<ul>
+<li><strong>PMF Properties</strong>: Non-negativity and normalization are universal</li>
+<li><strong>Parameter Relationships</strong>: Mean and variance depend on distribution parameters</li>
+<li><strong>Support</strong>: Each distribution has a specific domain of possible values</li>
+<li><strong>Applications</strong>: Choice depends on the underlying data-generating process</li>
+</ul>
+</section>
+<section id="practical-implementation-skills" class="level3">
+<h3 class="anchored" data-anchor-id="practical-implementation-skills">Practical Implementation Skills</h3>
+<ul>
+<li><strong>PyTorch Integration</strong>: Using built-in distributions for modeling</li>
+<li><strong>Sampling and Validation</strong>: Generating samples and verifying against theory</li>
+<li><strong>Real-World Modeling</strong>: Applying distributions to practical problems</li>
+<li><strong>Parameter Estimation</strong>: Learning distribution parameters from data</li>
+</ul>
+</section>
+<section id="when-to-use-each-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-use-each-distribution">When to Use Each Distribution</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 34%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Situation</th>
+<th>Distribution</th>
+<th>Key Question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Binary classification</td>
+<td>Bernoulli</td>
+<td>Success/failure with fixed probability?</td>
+</tr>
+<tr class="even">
+<td>Multi-class classification</td>
+<td>Categorical</td>
+<td>Multiple exclusive outcomes?</td>
+</tr>
+<tr class="odd">
+<td>Fixed number of trials</td>
+<td>Binomial</td>
+<td>How many successes in n trials?</td>
+</tr>
+<tr class="even">
+<td>Count of rare events</td>
+<td>Poisson</td>
+<td>How many events in fixed time/space?</td>
+</tr>
+<tr class="odd">
+<td>Time to first success</td>
+<td>Geometric</td>
+<td>How long until first success?</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="advanced-topics-for-further-study" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-topics-for-further-study">Advanced Topics for Further Study</h3>
+<ul>
+<li><strong>Maximum Likelihood Estimation</strong> for parameter fitting</li>
+<li><strong>Bayesian approaches</strong> to parameter uncertainty</li>
+<li><strong>Mixture models</strong> combining multiple distributions</li>
+<li><strong>Zero-inflated models</strong> for count data with excess zeros</li>
+<li><strong>Truncated distributions</strong> for bounded domains</li>
+</ul>
+</section>
+<section id="machine-learning-connections" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning-connections">Machine Learning Connections</h3>
+<p>These distributions are essential for: - <strong>Generative models</strong> (VAEs, GANs) - <strong>Classification</strong> (logistic regression, neural networks) - <strong>Reinforcement learning</strong> (policy gradients) - <strong>Bayesian machine learning</strong> (priors and posteriors) - <strong>Natural language processing</strong> (language models)</p>
+<p>Understanding discrete distributions provides the foundation for advanced statistical modeling and machine learning applications!</p>
 <div id="cell-94" class="cell" data-execution_count="170">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://raw.githubusercontent.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/refs/heads/master/Chapter1_Introduction/data/txtdata.csv"</span></span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(url, header<span class="op">=</span><span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1854,6 +2179,8 @@ p_X(x) = \frac{\lambda^x e^{-\lambda}}{x!}, \quad x \in \{0, 1, 2, \ldots\}.
 </div>
 </div>
 </div>
+</section>
+</section>
 </section>
 <section id="sales-calls-before-a-successful-sale" class="level1">
 <h1>Sales Calls Before a Successful Sale</h1>
