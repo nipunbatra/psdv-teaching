@@ -4,13 +4,12 @@ project:
 
 website:
   title: "PSDV Teaching Resources"
-  description: "Interactive Jupyter notebooks for Probability, Statistics & Data Visualization"
+  description: "Interactive Jupyter notebooks for Probability, Statistics and Data Visualization"
   site-url: "https://nipunbatra.github.io/psdv-teaching"
   repo-url: "https://github.com/nipunbatra/psdv-teaching"
   repo-actions: [edit, issue]
   
   navbar:
-    logo: "figures/pexels-solodsha-9009923.jpg"
     title: "PSDV Resources"
     left:
       - href: index.qmd
@@ -19,12 +18,9 @@ website:
         text: Notebooks
       - href: slides.qmd
         text: Slides
-      - href: questions.qmd
-        text: Questions
     right:
       - icon: github
         href: https://github.com/nipunbatra/psdv-teaching
-        aria-label: GitHub
       - href: https://nipunbatra.github.io/psdv25/
         text: Course 2025
       - href: https://nipunbatra.github.io

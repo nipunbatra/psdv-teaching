@@ -1,108 +1,50 @@
 ---
-title: "Probability, Statistics & Data Visualization"
-subtitle: "Interactive Teaching Resources"
-page-layout: full
-title-block-banner: true
+title: "PSDV Teaching Resources"
+subtitle: "Interactive Jupyter Notebooks for Probability, Statistics & Data Visualization"
 ---
 
-## Welcome to PSDV Teaching Resources
+## Welcome
 
-This comprehensive collection of interactive Jupyter notebooks provides educational materials for **Probability, Statistics, and Data Visualization**. Developed by [Prof. Nipun Batra](https://nipunbatra.github.io) at Indian Institute of Technology, Gandhinagar, these resources have evolved over multiple years with contributions from excellent teaching assistants.
+This comprehensive collection of interactive Jupyter notebooks provides educational materials for Probability, Statistics, and Data Visualization. Developed by [Prof. Nipun Batra](https://nipunbatra.github.io) at Indian Institute of Technology, Gandhinagar.
 
 ## Course Overview
 
-**ES 114: Probability, Statistics and Data Visualization** is an undergraduate course designed to provide students with foundational knowledge in:
+**ES 114: Probability, Statistics and Data Visualization** is an undergraduate course covering:
 
-- **Probability Theory**: From basic concepts to advanced distributions
-- **Statistical Analysis**: Expectation, variance, and key theorems
-- **Data Visualization**: Creating meaningful insights from data
-- **Practical Applications**: Real-world datasets and machine learning concepts
+- Probability Theory: From basic concepts to advanced distributions
+- Statistical Analysis: Expectation, variance, and key theorems  
+- Data Visualization: Creating meaningful insights from data
+- Practical Applications: Real-world datasets and machine learning
 
-### Course Information
-- **Institution**: Indian Institute of Technology, Gandhinagar
-- **Level**: Undergraduate (No prerequisites required)
-- **Format**: Interactive Jupyter notebooks with theoretical explanations and practical implementations
+## Key Features
+
+**24 Interactive Notebooks**
+: Complete coverage from probability basics to machine learning applications
+
+**Rich Visualizations**
+: High-quality plots, interactive widgets, and mathematical demonstrations
+
+**Self-Contained Learning**
+: Each notebook includes theory, code examples, and practical exercises
+
+**Real Applications**
+: Work with datasets including MNIST, height-weight data, and word embeddings
+
+## Quick Start
+
+**Browse Online**: All notebooks are available in the sidebar navigation
+
+**Run Locally**:
+```bash
+git clone https://github.com/nipunbatra/psdv-teaching.git
+pip install -r requirements.txt
+jupyter lab notebooks/
+```
+
+## Course Information
+
+- **Institution**: IIT Gandhinagar
+- **Level**: Undergraduate (No prerequisites)
 - **Current Course**: [ES 114 - Spring 2025](https://nipunbatra.github.io/psdv25/)
-
-## What You'll Find Here
-
-::: {.column-screen-inset}
-::: {.grid}
-
-::: {.g-col-6}
-### Interactive Notebooks
-24 comprehensive Jupyter notebooks covering the complete spectrum from basic probability to advanced machine learning topics like PCA and neural networks.
-:::
-
-::: {.g-col-6}
-### Rich Visualizations
-High-quality matplotlib plots, interactive widgets, and 3D visualizations to help understand complex mathematical concepts.
-:::
-
-::: {.g-col-6}
-### Mathematical Rigor
-Proper mathematical notation, derivations, and proofs alongside practical implementations using Python.
-:::
-
-::: {.g-col-6}
-### Real Applications
-Work with actual datasets including MNIST digits, height-weight data, and word embeddings to see theory in action.
-:::
-
-:::
-:::
-
-## Quick Navigation
-
-::: {.column-screen-inset}
-::: {.grid}
-
-::: {.g-col-4}
-### Getting Started
-- [Introduction](notebooks/intro.qmd)
-- [Set Theory](notebooks/set.qmd) 
-- [Probability Basics](notebooks/probability.qmd)
-:::
-
-::: {.g-col-4}
-### Core Topics
-- [Random Variables](notebooks/random-variables.qmd)
-- [Distributions](notebooks/pmf-discrete.qmd)
-- [Expectation](notebooks/expectation.qmd)
-:::
-
-::: {.g-col-4}
-### Advanced Topics
-- [2D Distributions](notebooks/2d-distributions.qmd)
-- [Principal Component Analysis](notebooks/pca.qmd)
-- [Machine Learning](notebooks/logistic-regression-generative.qmd)
-:::
-
-:::
-:::
-
-## Features
-
-**Interactive Learning Environment**
-: All notebooks can be run locally or viewed online with full interactivity
-
-**Self-Contained Modules**  
-: Each notebook includes learning objectives, theoretical background, and practical exercises
-
-**Modern Tools**
-: Built using Jupyter, PyTorch, NumPy, Matplotlib, and other state-of-the-art data science tools
-
-**Open Source**
-: All materials are freely available and contributions are welcome
-
-## Getting Started
-
-1. **Browse Online**: Explore all materials directly in your browser
-2. **Clone Repository**: `git clone https://github.com/nipunbatra/psdv-teaching.git`
-3. **Install Dependencies**: `pip install -r requirements.txt`
-4. **Launch Jupyter**: `jupyter lab notebooks/`
-
----
-
-*This resource is continuously updated based on student feedback and advances in data science education.*
+- **Repository**: [GitHub](https://github.com/nipunbatra/psdv-teaching)
 
