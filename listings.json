@@ -6,7 +6,6 @@
   {
     "listing": "/notebooks.html",
     "items": [
-      "/notebooks/embeddings-angle.html",
       "/notebooks/introduction-matplotlib.html",
       "/notebooks/law-large-numbers.html",
       "/notebooks/quiz1.html",
@@ -17,6 +16,7 @@
       "/notebooks/2d-distributions.html",
       "/notebooks/cdf-discrete.html",
       "/notebooks/cdf.html",
+      "/notebooks/embeddings-angle.html",
       "/notebooks/expectation.html",
       "/notebooks/iid.html",
       "/notebooks/images-joint-distribution.html",
