@@ -112,6 +112,3 @@ execute:
   warning: false
   error: false
   cache: true
-
-bibliography: references.bib
-csl: ieee.csl
