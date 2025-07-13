@@ -326,12 +326,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction-to-probability-and-statisticsthis-notebook-introduces-fundamental-concepts-in-probability-theory-and-demonstrates-how-to-generate-random-numbers-using-python.-well-explore-both-built-in-random-number-generators-and-implement-our-own-simple-pseudo-random-number-generator-prng.-learning-objectives--understand-probability-distributions-and-sampling--learn-how-random-number-generation-works--implement-a-simple-prng--compare-different-random-number-generatorslets-start-by-importing-the-necessary-libraries" id="toc-introduction-to-probability-and-statisticsthis-notebook-introduces-fundamental-concepts-in-probability-theory-and-demonstrates-how-to-generate-random-numbers-using-python.-well-explore-both-built-in-random-number-generators-and-implement-our-own-simple-pseudo-random-number-generator-prng.-learning-objectives--understand-probability-distributions-and-sampling--learn-how-random-number-generation-works--implement-a-simple-prng--compare-different-random-number-generatorslets-start-by-importing-the-necessary-libraries" class="nav-link active" data-scroll-target="#introduction-to-probability-and-statisticsthis-notebook-introduces-fundamental-concepts-in-probability-theory-and-demonstrates-how-to-generate-random-numbers-using-python.-well-explore-both-built-in-random-number-generators-and-implement-our-own-simple-pseudo-random-number-generator-prng.-learning-objectives--understand-probability-distributions-and-sampling--learn-how-random-number-generation-works--implement-a-simple-prng--compare-different-random-number-generatorslets-start-by-importing-the-necessary-libraries">Introduction to Probability and StatisticsThis notebook introduces fundamental concepts in probability theory and demonstrates how to generate random numbers using Python. We’ll explore both built-in random number generators and implement our own simple pseudo-random number generator (PRNG).## Learning Objectives- Understand probability distributions and sampling- Learn how random number generation works- Implement a simple PRNG- Compare different random number generatorsLet’s start by importing the necessary libraries:</a>
+  <li><a href="#introduction-to-probability-and-statistics" id="toc-introduction-to-probability-and-statistics" class="nav-link active" data-scroll-target="#introduction-to-probability-and-statistics">Introduction to Probability and Statistics</a>
   <ul class="collapse">
-  <li><a href="#probability-distributions-and-samplinglets-start-with-a-simple-example-of-creating-a-probability-distribution-over-characters.-well-create-a-categorical-distribution-where-certain-vowels-have-higher-probabilities" id="toc-probability-distributions-and-samplinglets-start-with-a-simple-example-of-creating-a-probability-distribution-over-characters.-well-create-a-categorical-distribution-where-certain-vowels-have-higher-probabilities" class="nav-link" data-scroll-target="#probability-distributions-and-samplinglets-start-with-a-simple-example-of-creating-a-probability-distribution-over-characters.-well-create-a-categorical-distribution-where-certain-vowels-have-higher-probabilities">Probability Distributions and SamplingLet’s start with a simple example of creating a probability distribution over characters. We’ll create a categorical distribution where certain vowels have higher probabilities:</a></li>
-  <li><a href="#random-number-generation-with-numpynumpy-provides-built-in-functions-for-generating-random-numbers-from-various-distributions.-lets-generate-random-numbers-from-a-uniform-distribution" id="toc-random-number-generation-with-numpynumpy-provides-built-in-functions-for-generating-random-numbers-from-various-distributions.-lets-generate-random-numbers-from-a-uniform-distribution" class="nav-link" data-scroll-target="#random-number-generation-with-numpynumpy-provides-built-in-functions-for-generating-random-numbers-from-various-distributions.-lets-generate-random-numbers-from-a-uniform-distribution">Random Number Generation with NumPyNumPy provides built-in functions for generating random numbers from various distributions. Let’s generate random numbers from a uniform distribution:</a></li>
-  <li><a href="#implementing-a-simple-pseudo-random-number-generator-prngto-understand-how-random-number-generation-works-under-the-hood-lets-implement-our-own-simple-prng-using-a-linear-congruential-generator-lcg.-this-is-one-of-the-oldest-and-most-well-studied-prng-algorithms" id="toc-implementing-a-simple-pseudo-random-number-generator-prngto-understand-how-random-number-generation-works-under-the-hood-lets-implement-our-own-simple-prng-using-a-linear-congruential-generator-lcg.-this-is-one-of-the-oldest-and-most-well-studied-prng-algorithms" class="nav-link" data-scroll-target="#implementing-a-simple-pseudo-random-number-generator-prngto-understand-how-random-number-generation-works-under-the-hood-lets-implement-our-own-simple-prng-using-a-linear-congruential-generator-lcg.-this-is-one-of-the-oldest-and-most-well-studied-prng-algorithms">Implementing a Simple Pseudo-Random Number Generator (PRNG)To understand how random number generation works under the hood, let’s implement our own simple PRNG using a Linear Congruential Generator (LCG). This is one of the oldest and most well-studied PRNG algorithms:</a></li>
-  <li><a href="#comparing-distributionslets-visualize-how-our-custom-prng-compares-to-numpys-built-in-generator" id="toc-comparing-distributionslets-visualize-how-our-custom-prng-compares-to-numpys-built-in-generator" class="nav-link" data-scroll-target="#comparing-distributionslets-visualize-how-our-custom-prng-compares-to-numpys-built-in-generator">Comparing DistributionsLet’s visualize how our custom PRNG compares to NumPy’s built-in generator:</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#probability-distributions-and-sampling" id="toc-probability-distributions-and-sampling" class="nav-link" data-scroll-target="#probability-distributions-and-sampling">Probability Distributions and Sampling</a></li>
+  <li><a href="#random-number-generation-with-numpy" id="toc-random-number-generation-with-numpy" class="nav-link" data-scroll-target="#random-number-generation-with-numpy">Random Number Generation with NumPy</a></li>
+  <li><a href="#implementing-a-simple-pseudo-random-number-generator-prng" id="toc-implementing-a-simple-pseudo-random-number-generator-prng" class="nav-link" data-scroll-target="#implementing-a-simple-pseudo-random-number-generator-prng">Implementing a Simple Pseudo-Random Number Generator (PRNG)</a></li>
+  <li><a href="#comparing-distributions" id="toc-comparing-distributions" class="nav-link" data-scroll-target="#comparing-distributions">Comparing Distributions</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -387,11 +388,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>—author: Nipun Batrabadges: truecategories:- Probability- Statistics- Data Sciencedate: ’2025-1-5’title: Introduction to Probability and Statisticstoc: truedescription: An introduction to probability theory, random number generation, and statistical concepts using Pythonkeywords: [probability, statistics, random numbers, PRNG, uniform distribution]—</p>
-<section id="introduction-to-probability-and-statisticsthis-notebook-introduces-fundamental-concepts-in-probability-theory-and-demonstrates-how-to-generate-random-numbers-using-python.-well-explore-both-built-in-random-number-generators-and-implement-our-own-simple-pseudo-random-number-generator-prng.-learning-objectives--understand-probability-distributions-and-sampling--learn-how-random-number-generation-works--implement-a-simple-prng--compare-different-random-number-generatorslets-start-by-importing-the-necessary-libraries" class="level1">
-<h1>Introduction to Probability and StatisticsThis notebook introduces fundamental concepts in probability theory and demonstrates how to generate random numbers using Python. We’ll explore both built-in random number generators and implement our own simple pseudo-random number generator (PRNG).## Learning Objectives- Understand probability distributions and sampling- Learn how random number generation works- Implement a simple PRNG- Compare different random number generatorsLet’s start by importing the necessary libraries:</h1>
-<section id="probability-distributions-and-samplinglets-start-with-a-simple-example-of-creating-a-probability-distribution-over-characters.-well-create-a-categorical-distribution-where-certain-vowels-have-higher-probabilities" class="level2">
-<h2 class="anchored" data-anchor-id="probability-distributions-and-samplinglets-start-with-a-simple-example-of-creating-a-probability-distribution-over-characters.-well-create-a-categorical-distribution-where-certain-vowels-have-higher-probabilities">Probability Distributions and SamplingLet’s start with a simple example of creating a probability distribution over characters. We’ll create a categorical distribution where certain vowels have higher probabilities:</h2>
+<section id="introduction-to-probability-and-statistics" class="level1">
+<h1>Introduction to Probability and Statistics</h1>
+<p>This notebook introduces fundamental concepts in probability theory and demonstrates how to generate random numbers using Python. We’ll explore both built-in random number generators and implement our own simple pseudo-random number generator (PRNG).</p>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<ul>
+<li>Understand probability distributions and sampling</li>
+<li>Learn how random number generation works</li>
+<li>Implement a simple PRNG</li>
+<li>Compare different random number generators</li>
+</ul>
+<p>Let’s start by importing the necessary libraries:</p>
+</section>
+<section id="probability-distributions-and-sampling" class="level2">
+<h2 class="anchored" data-anchor-id="probability-distributions-and-sampling">Probability Distributions and Sampling</h2>
+<p>Let’s start with a simple example of creating a probability distribution over characters. We’ll create a categorical distribution where certain vowels have higher probabilities:</p>
 <div id="cell-3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>first_4_chars <span class="op">=</span> <span class="st">"appl"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -422,8 +434,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="random-number-generation-with-numpynumpy-provides-built-in-functions-for-generating-random-numbers-from-various-distributions.-lets-generate-random-numbers-from-a-uniform-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="random-number-generation-with-numpynumpy-provides-built-in-functions-for-generating-random-numbers-from-various-distributions.-lets-generate-random-numbers-from-a-uniform-distribution">Random Number Generation with NumPyNumPy provides built-in functions for generating random numbers from various distributions. Let’s generate random numbers from a uniform distribution:</h2>
+<section id="random-number-generation-with-numpy" class="level2">
+<h2 class="anchored" data-anchor-id="random-number-generation-with-numpy">Random Number Generation with NumPy</h2>
+<p>NumPy provides built-in functions for generating random numbers from various distributions. Let’s generate random numbers from a uniform distribution:</p>
 <div id="cell-7" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>samples_numpy <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1000</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(samples_numpy[:<span class="dv">10</span>])</span>
@@ -448,8 +461,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="implementing-a-simple-pseudo-random-number-generator-prngto-understand-how-random-number-generation-works-under-the-hood-lets-implement-our-own-simple-prng-using-a-linear-congruential-generator-lcg.-this-is-one-of-the-oldest-and-most-well-studied-prng-algorithms" class="level2">
-<h2 class="anchored" data-anchor-id="implementing-a-simple-pseudo-random-number-generator-prngto-understand-how-random-number-generation-works-under-the-hood-lets-implement-our-own-simple-prng-using-a-linear-congruential-generator-lcg.-this-is-one-of-the-oldest-and-most-well-studied-prng-algorithms">Implementing a Simple Pseudo-Random Number Generator (PRNG)To understand how random number generation works under the hood, let’s implement our own simple PRNG using a Linear Congruential Generator (LCG). This is one of the oldest and most well-studied PRNG algorithms:</h2>
+<section id="implementing-a-simple-pseudo-random-number-generator-prng" class="level2">
+<h2 class="anchored" data-anchor-id="implementing-a-simple-pseudo-random-number-generator-prng">Implementing a Simple Pseudo-Random Number Generator (PRNG)</h2>
+<p>To understand how random number generation works under the hood, let’s implement our own simple PRNG using a Linear Congruential Generator (LCG). This is one of the oldest and most well-studied PRNG algorithms:</p>
 <div id="cell-9" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SimplePRNG:</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, seed<span class="op">=</span><span class="dv">42</span>):</span>
@@ -511,8 +525,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Let’s generate more samples and visualize the distribution:</p>
 </section>
-<section id="comparing-distributionslets-visualize-how-our-custom-prng-compares-to-numpys-built-in-generator" class="level2">
-<h2 class="anchored" data-anchor-id="comparing-distributionslets-visualize-how-our-custom-prng-compares-to-numpys-built-in-generator">Comparing DistributionsLet’s visualize how our custom PRNG compares to NumPy’s built-in generator:</h2>
+<section id="comparing-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-distributions">Comparing Distributions</h2>
+<p>Let’s visualize how our custom PRNG compares to NumPy’s built-in generator:</p>
 
 
 </section>
