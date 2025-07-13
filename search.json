@@ -1147,86 +1147,72 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Probability, Statistics & Data Visualization",
+    "title": "PSDV Teaching Resources",
     "section": "",
-    "text": "This comprehensive collection of interactive Jupyter notebooks provides educational materials for Probability, Statistics, and Data Visualization. Developed by Prof. Nipun Batra at Indian Institute of Technology, Gandhinagar, these resources have evolved over multiple years with contributions from excellent teaching assistants."
+    "text": "This comprehensive collection of interactive Jupyter notebooks provides educational materials for Probability, Statistics, and Data Visualization. Developed by Prof. Nipun Batra at Indian Institute of Technology, Gandhinagar."
   },
   {
-    "objectID": "index.html#welcome-to-psdv-teaching-resources",
-    "href": "index.html#welcome-to-psdv-teaching-resources",
-    "title": "Probability, Statistics & Data Visualization",
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "PSDV Teaching Resources",
     "section": "",
-    "text": "This comprehensive collection of interactive Jupyter notebooks provides educational materials for Probability, Statistics, and Data Visualization. Developed by Prof. Nipun Batra at Indian Institute of Technology, Gandhinagar, these resources have evolved over multiple years with contributions from excellent teaching assistants."
+    "text": "This comprehensive collection of interactive Jupyter notebooks provides educational materials for Probability, Statistics, and Data Visualization. Developed by Prof. Nipun Batra at Indian Institute of Technology, Gandhinagar."
   },
   {
     "objectID": "index.html#course-overview",
     "href": "index.html#course-overview",
-    "title": "Probability, Statistics & Data Visualization",
+    "title": "PSDV Teaching Resources",
     "section": "Course Overview",
-    "text": "Course Overview\nES 114: Probability, Statistics and Data Visualization is an undergraduate course designed to provide students with foundational knowledge in:\n\nProbability Theory: From basic concepts to advanced distributions\nStatistical Analysis: Expectation, variance, and key theorems\nData Visualization: Creating meaningful insights from data\nPractical Applications: Real-world datasets and machine learning concepts\n\n\nCourse Information\n\nInstitution: Indian Institute of Technology, Gandhinagar\nLevel: Undergraduate (No prerequisites required)\nFormat: Interactive Jupyter notebooks with theoretical explanations and practical implementations\nCurrent Course: ES 114 - Spring 2025"
+    "text": "Course Overview\nES 114: Probability, Statistics and Data Visualization is an undergraduate course covering:\n\nProbability Theory: From basic concepts to advanced distributions\nStatistical Analysis: Expectation, variance, and key theorems\n\nData Visualization: Creating meaningful insights from data\nPractical Applications: Real-world datasets and machine learning"
   },
   {
-    "objectID": "index.html#what-youll-find-here",
-    "href": "index.html#what-youll-find-here",
-    "title": "Probability, Statistics & Data Visualization",
-    "section": "What You’ll Find Here",
-    "text": "What You’ll Find Here\n\n\n\nInteractive Notebooks\n24 comprehensive Jupyter notebooks covering the complete spectrum from basic probability to advanced machine learning topics like PCA and neural networks.\n\n\nRich Visualizations\nHigh-quality matplotlib plots, interactive widgets, and 3D visualizations to help understand complex mathematical concepts.\n\n\nMathematical Rigor\nProper mathematical notation, derivations, and proofs alongside practical implementations using Python.\n\n\nReal Applications\nWork with actual datasets including MNIST digits, height-weight data, and word embeddings to see theory in action."
+    "objectID": "index.html#key-features",
+    "href": "index.html#key-features",
+    "title": "PSDV Teaching Resources",
+    "section": "Key Features",
+    "text": "Key Features\n\n24 Interactive Notebooks\n\nComplete coverage from probability basics to machine learning applications\n\nRich Visualizations\n\nHigh-quality plots, interactive widgets, and mathematical demonstrations\n\nSelf-Contained Learning\n\nEach notebook includes theory, code examples, and practical exercises\n\nReal Applications\n\nWork with datasets including MNIST, height-weight data, and word embeddings"
   },
   {
-    "objectID": "index.html#quick-navigation",
-    "href": "index.html#quick-navigation",
-    "title": "Probability, Statistics & Data Visualization",
-    "section": "Quick Navigation",
-    "text": "Quick Navigation\n\n\n\nGetting Started\n\nIntroduction\nSet Theory\nProbability Basics\n\n\n\nCore Topics\n\nRandom Variables\nDistributions\nExpectation\n\n\n\nAdvanced Topics\n\n2D Distributions\nPrincipal Component Analysis\nMachine Learning"
+    "objectID": "index.html#quick-start",
+    "href": "index.html#quick-start",
+    "title": "PSDV Teaching Resources",
+    "section": "Quick Start",
+    "text": "Quick Start\nBrowse Online: All notebooks are available in the sidebar navigation\nRun Locally:\ngit clone https://github.com/nipunbatra/psdv-teaching.git\npip install -r requirements.txt\njupyter lab notebooks/"
   },
   {
-    "objectID": "index.html#features",
-    "href": "index.html#features",
-    "title": "Probability, Statistics & Data Visualization",
-    "section": "Features",
-    "text": "Features\n\nInteractive Learning Environment\n\nAll notebooks can be run locally or viewed online with full interactivity\n\nSelf-Contained Modules\n\nEach notebook includes learning objectives, theoretical background, and practical exercises\n\nModern Tools\n\nBuilt using Jupyter, PyTorch, NumPy, Matplotlib, and other state-of-the-art data science tools\n\nOpen Source\n\nAll materials are freely available and contributions are welcome"
-  },
-  {
-    "objectID": "index.html#getting-started-1",
-    "href": "index.html#getting-started-1",
-    "title": "Probability, Statistics & Data Visualization",
-    "section": "Getting Started",
-    "text": "Getting Started\n\nBrowse Online: Explore all materials directly in your browser\nClone Repository: git clone https://github.com/nipunbatra/psdv-teaching.git\nInstall Dependencies: pip install -r requirements.txt\nLaunch Jupyter: jupyter lab notebooks/\n\n\nThis resource is continuously updated based on student feedback and advances in data science education."
+    "objectID": "index.html#course-information",
+    "href": "index.html#course-information",
+    "title": "PSDV Teaching Resources",
+    "section": "Course Information",
+    "text": "Course Information\n\nInstitution: IIT Gandhinagar\nLevel: Undergraduate (No prerequisites)\nCurrent Course: ES 114 - Spring 2025\nRepository: GitHub"
   },
   {
     "objectID": "notebooks.html",
     "href": "notebooks.html",
-    "title": "Interactive Notebooks",
+    "title": "Notebook Collection",
     "section": "",
-    "text": "These notebooks are designed to be followed in a logical sequence, building from fundamental concepts to advanced applications. Each notebook is self-contained but references and builds upon previous concepts.\n\n\n\n\n\n\nEssential mathematical and programming foundations for probability and statistics.\n\nIntroduction to Probability: Random number generation, basic probability concepts\nSet Theory: Mathematical foundations, set operations, Venn diagrams\n\nProbability Fundamentals: Sample spaces, events, basic probability rules\n\n\n\n\nCore concepts of random variables and their distributions.\n\nRandom Variables: Definition, types, and basic properties\nPMF for Discrete Variables: Probability mass functions, discrete distributions\nPDF for Continuous Variables: Probability density functions, continuous distributions\nCumulative Distribution Functions: CDFs and inverse sampling methods\nCDF for Discrete Variables: Discrete CDFs and applications\n\n\n\n\nKey statistical theorems and concepts.\n\nExpectation and Variance: Expected values, variance, moments\nIndependent and Identically Distributed: IID random variables and their properties\nLaw of Large Numbers: LLN, Central Limit Theorem demonstrations\n\n\n\n\nAdvanced topics involving multiple variables.\n\n2D Distributions: Bivariate normal, joint distributions\nJoint Distribution Properties: Covariance, correlation, independence\nSum of Random Variables: Convolution, sums of independent variables\nRandom Vectors: Multivariate distributions and operations\n\n\n\n\nPractical applications of probability and statistics in machine learning.\n\nPrincipal Component Analysis: Dimensionality reduction, eigenvalue decomposition\nLogistic Regression: Classification, generative vs discriminative models\nWord Embeddings and Angles: Vector representations, cosine similarity\nImage Joint Distributions: Computer vision applications\n\n\n\n\nEssential programming tools for data science.\n\nNumPy Introduction: Array operations, broadcasting, linear algebra\nPandas Introduction: Data manipulation, analysis, and visualization\nMatplotlib Introduction: Creating publication-quality plots\n\n\n\n\nHands-on learning and self-assessment tools.\n\nInteractive Widgets: Dynamic visualizations and explorations\nQuiz 1: Self-assessment questions and problems"
+    "text": "These 24 notebooks are organized by topic and difficulty. Use the sidebar navigation for structured learning or browse the complete collection below.\n\n\nStart with basic probability concepts and mathematical foundations.\n\n\n\nLearn about discrete and continuous distributions, PMFs, PDFs, and CDFs.\n\n\n\nExplore expectation, variance, independence, and key theorems.\n\n\n\nStudy multivariate distributions and joint probability concepts.\n\n\n\nApply probability concepts to PCA, classification, and embeddings.\n\n\n\nMaster NumPy, Pandas, and Matplotlib for data analysis."
   },
   {
-    "objectID": "notebooks.html#learning-pathway",
-    "href": "notebooks.html#learning-pathway",
-    "title": "Interactive Notebooks",
+    "objectID": "notebooks.html#learning-path",
+    "href": "notebooks.html#learning-path",
+    "title": "Notebook Collection",
     "section": "",
-    "text": "These notebooks are designed to be followed in a logical sequence, building from fundamental concepts to advanced applications. Each notebook is self-contained but references and builds upon previous concepts.\n\n\n\n\n\n\nEssential mathematical and programming foundations for probability and statistics.\n\nIntroduction to Probability: Random number generation, basic probability concepts\nSet Theory: Mathematical foundations, set operations, Venn diagrams\n\nProbability Fundamentals: Sample spaces, events, basic probability rules\n\n\n\n\nCore concepts of random variables and their distributions.\n\nRandom Variables: Definition, types, and basic properties\nPMF for Discrete Variables: Probability mass functions, discrete distributions\nPDF for Continuous Variables: Probability density functions, continuous distributions\nCumulative Distribution Functions: CDFs and inverse sampling methods\nCDF for Discrete Variables: Discrete CDFs and applications\n\n\n\n\nKey statistical theorems and concepts.\n\nExpectation and Variance: Expected values, variance, moments\nIndependent and Identically Distributed: IID random variables and their properties\nLaw of Large Numbers: LLN, Central Limit Theorem demonstrations\n\n\n\n\nAdvanced topics involving multiple variables.\n\n2D Distributions: Bivariate normal, joint distributions\nJoint Distribution Properties: Covariance, correlation, independence\nSum of Random Variables: Convolution, sums of independent variables\nRandom Vectors: Multivariate distributions and operations\n\n\n\n\nPractical applications of probability and statistics in machine learning.\n\nPrincipal Component Analysis: Dimensionality reduction, eigenvalue decomposition\nLogistic Regression: Classification, generative vs discriminative models\nWord Embeddings and Angles: Vector representations, cosine similarity\nImage Joint Distributions: Computer vision applications\n\n\n\n\nEssential programming tools for data science.\n\nNumPy Introduction: Array operations, broadcasting, linear algebra\nPandas Introduction: Data manipulation, analysis, and visualization\nMatplotlib Introduction: Creating publication-quality plots\n\n\n\n\nHands-on learning and self-assessment tools.\n\nInteractive Widgets: Dynamic visualizations and explorations\nQuiz 1: Self-assessment questions and problems"
+    "text": "These 24 notebooks are organized by topic and difficulty. Use the sidebar navigation for structured learning or browse the complete collection below.\n\n\nStart with basic probability concepts and mathematical foundations.\n\n\n\nLearn about discrete and continuous distributions, PMFs, PDFs, and CDFs.\n\n\n\nExplore expectation, variance, independence, and key theorems.\n\n\n\nStudy multivariate distributions and joint probability concepts.\n\n\n\nApply probability concepts to PCA, classification, and embeddings.\n\n\n\nMaster NumPy, Pandas, and Matplotlib for data analysis."
   },
   {
-    "objectID": "notebooks.html#notebook-features",
-    "href": "notebooks.html#notebook-features",
-    "title": "Interactive Notebooks",
-    "section": "Notebook Features",
-    "text": "Notebook Features\nEach notebook includes:\n\nLearning Objectives: Clear goals for what you’ll learn\nMathematical Theory: Rigorous mathematical explanations with proper notation\nPractical Implementation: Python code demonstrating concepts\nVisualizations: High-quality plots and interactive demonstrations\nReal Data: Applications using actual datasets\nExercises: Problems to test understanding"
-  },
-  {
-    "objectID": "notebooks.html#technical-requirements",
-    "href": "notebooks.html#technical-requirements",
-    "title": "Interactive Notebooks",
-    "section": "Technical Requirements",
-    "text": "Technical Requirements\n\nPython 3.8+ with Jupyter Notebook or JupyterLab\nCore packages: NumPy, Matplotlib, Pandas, PyTorch, Scikit-learn\nOptional: Interactive widgets for enhanced visualizations\n\nSee the README for complete installation instructions.\n\nBrowse the complete collection below. Use the search and filter options to find specific topics."
+    "objectID": "notebooks.html#getting-started",
+    "href": "notebooks.html#getting-started",
+    "title": "Notebook Collection",
+    "section": "Getting Started",
+    "text": "Getting Started\nNew to the subject? Start with the “Getting Started” section in the sidebar.\nLooking for specific topics? Use the search and filter options below.\nWant to run locally? See the README for setup instructions."
   },
   {
     "objectID": "slides.html",
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "bivariate-derivation.pdf\n\n\n7/13/25, 2:38:35 PM\n\n\n\n\n\n\n\n\n\n\n\nexpectation.pdf\n\n\n7/13/25, 2:38:35 PM\n\n\n\n\n\n\n\n\n\n\n\nintegration.pdf\n\n\n7/13/25, 2:38:35 PM\n\n\n\n\n\n\n\n\n\n\n\npca.pdf\n\n\n7/13/25, 2:38:35 PM\n\n\n\n\n\nNo matching items\nReuseMITCopyrightCopyright 2024-2025, Prof. Nipun Batra, IIT GandhinagarCitationBibTeX citation:@online{batra,\n  author = {Batra, Nipun},\n  title = {PSDV {Teaching} {Resources:} {Interactive} {Notebooks} for\n    {Probability,} {Statistics,} and {Data} {Visualization}},\n  url = {https://nipunbatra.github.io/psdv-teaching/},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nBatra, Nipun. n.d. “PSDV Teaching Resources: Interactive Notebooks\nfor Probability, Statistics, and Data Visualization.” https://nipunbatra.github.io/psdv-teaching/."
+    "text": "bivariate-derivation.pdf\n\n\n7/13/25, 2:43:07 PM\n\n\n\n\n\n\n\n\n\n\n\nexpectation.pdf\n\n\n7/13/25, 2:43:07 PM\n\n\n\n\n\n\n\n\n\n\n\nintegration.pdf\n\n\n7/13/25, 2:43:07 PM\n\n\n\n\n\n\n\n\n\n\n\npca.pdf\n\n\n7/13/25, 2:43:07 PM\n\n\n\n\n\nNo matching items\nReuseMITCopyrightCopyright 2024-2025, Prof. Nipun Batra, IIT GandhinagarCitationBibTeX citation:@online{batra,\n  author = {Batra, Nipun},\n  title = {PSDV {Teaching} {Resources:} {Interactive} {Notebooks} for\n    {Probability,} {Statistics,} and {Data} {Visualization}},\n  url = {https://nipunbatra.github.io/psdv-teaching/},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nBatra, Nipun. n.d. “PSDV Teaching Resources: Interactive Notebooks\nfor Probability, Statistics, and Data Visualization.” https://nipunbatra.github.io/psdv-teaching/."
   },
   {
     "objectID": "questions.html",

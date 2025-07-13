@@ -10,7 +10,7 @@
 <meta name="keywords" content="probability, statistics, data visualization, jupyter notebooks, python, education, machine learning, data science, interactive learning">
 <meta name="description" content="Interactive educational resources for probability, statistics, and data visualization using Python, Jupyter notebooks, and modern data science tools.">
 
-<title>Interactive Notebooks – PSDV Teaching Resources</title>
+<title>Notebook Collection – PSDV Teaching Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-date','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-date','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
@@ -138,13 +138,10 @@ window.Quarto = {
 <body class="nav-sidebar docked nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./figures/pexels-solodsha-9009923.jpg" alt="" class="navbar-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">PSDV Resources</span>
     </a>
@@ -167,14 +164,10 @@ window.Quarto = {
     <a class="nav-link" href="./slides.html"> 
 <span class="menu-text">Slides</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./questions.html"> 
-<span class="menu-text">Questions</span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/nipunbatra/psdv-teaching"> <i class="bi bi-github" role="img" aria-label="GitHub">
+    <a class="nav-link" href="https://github.com/nipunbatra/psdv-teaching"> <i class="bi bi-github" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -197,7 +190,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Interactive Notebooks</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Notebook Collection</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -207,44 +200,7 @@ window.Quarto = {
   </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Interactive Notebooks</h1>
-            <p class="subtitle lead">Comprehensive collection of Jupyter notebooks for learning probability, statistics, and data visualization</p>
-                      </div>
-  </div>
-    
-  <div class="quarto-title-meta-author column-body">
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-heading">Affiliation</div>
-    
-      <div class="quarto-title-meta-contents">
-      <p class="author">Prof.&nbsp;Nipun Batra </p>
-    </div>
-    <div class="quarto-title-meta-contents">
-          <p class="affiliation">
-              Indian Institute of Technology, Gandhinagar
-            </p>
-        </div>
-    </div>
-
-  <div class="quarto-title-meta column-body">
-
-        
-    
-      
-    </div>
-    
-
-  <div>
-    <div class="keywords">
-      <div class="block-title">Keywords</div>
-      <p>probability, statistics, data visualization, jupyter notebooks, python, education, machine learning, data science, interactive learning</p>
-    </div>
-  </div>
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -485,122 +441,93 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-pathway" id="toc-learning-pathway" class="nav-link active" data-scroll-target="#learning-pathway">Learning Pathway</a>
+  <li><a href="#learning-path" id="toc-learning-path" class="nav-link active" data-scroll-target="#learning-path">Learning Path</a>
   <ul class="collapse">
-  <li><a href="#recommended-learning-path" id="toc-recommended-learning-path" class="nav-link" data-scroll-target="#recommended-learning-path">Recommended Learning Path</a></li>
+  <li><a href="#foundations" id="toc-foundations" class="nav-link" data-scroll-target="#foundations">Foundations</a></li>
+  <li><a href="#random-variables-distributions" id="toc-random-variables-distributions" class="nav-link" data-scroll-target="#random-variables-distributions">Random Variables &amp; Distributions</a></li>
+  <li><a href="#statistical-concepts" id="toc-statistical-concepts" class="nav-link" data-scroll-target="#statistical-concepts">Statistical Concepts</a></li>
+  <li><a href="#advanced-topics" id="toc-advanced-topics" class="nav-link" data-scroll-target="#advanced-topics">Advanced Topics</a></li>
+  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning">Machine Learning</a></li>
+  <li><a href="#data-science-tools" id="toc-data-science-tools" class="nav-link" data-scroll-target="#data-science-tools">Data Science Tools</a></li>
   </ul></li>
-  <li><a href="#notebook-features" id="toc-notebook-features" class="nav-link" data-scroll-target="#notebook-features">Notebook Features</a></li>
-  <li><a href="#technical-requirements" id="toc-technical-requirements" class="nav-link" data-scroll-target="#technical-requirements">Technical Requirements</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nipunbatra/psdv-teaching/edit/main/notebooks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nipunbatra/psdv-teaching/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(24)</span></div><div class="category" data-category="RGF0YSUyMEFuYWx5c2lz">Data Analysis <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(7)</span></div><div class="category" data-category="RGF0YSUyMFZpc3VhbGl6YXRpb24=">Data Visualization <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RGlzdHJpYnV0aW9ucw==">Distributions <span class="quarto-category-count">(7)</span></div><div class="category" data-category="SW50ZXJhY3RpdmUlMjBDb21wdXRpbmc=">Interactive Computing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TGluZWFyJTIwQWxnZWJyYQ==">Linear Algebra <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TWFjaGluZSUyMExlYXJuaW5n">Machine Learning <span class="quarto-category-count">(3)</span></div><div class="category" data-category="TWF0aGVtYXRpY3M=">Mathematics <span class="quarto-category-count">(10)</span></div><div class="category" data-category="TWF0cGxvdGxpYg==">Matplotlib <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TUw=">ML <span class="quarto-category-count">(4)</span></div><div class="category" data-category="TnVtZXJpY2FsJTIwQ29tcHV0aW5n">Numerical Computing <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UGFuZGFz">Pandas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHJvYmFiaWxpdHk=">Probability <span class="quarto-category-count">(14)</span></div><div class="category" data-category="UHJvZ3JhbW1pbmc=">Programming <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(5)</span></div><div class="category" data-category="UmFuZG9tJTIwVmFyaWFibGVz">Random Variables <span class="quarto-category-count">(9)</span></div><div class="category" data-category="U3RhdGlzdGljcw==">Statistics <span class="quarto-category-count">(13)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block page-columns page-full column-body" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-
-
-
-
-<section id="learning-pathway" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="learning-pathway">Learning Pathway</h2>
-<p>These notebooks are designed to be followed in a logical sequence, building from fundamental concepts to advanced applications. Each notebook is self-contained but references and builds upon previous concepts.</p>
-<section id="recommended-learning-path" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="recommended-learning-path">Recommended Learning Path</h3>
-<div class="column-screen-inset">
-<div class="grid">
-<section id="phase-1-foundations-start-here" class="level4 g-col-12">
-<h4 class="anchored" data-anchor-id="phase-1-foundations-start-here">Phase 1: Foundations (Start Here)</h4>
-<p>Essential mathematical and programming foundations for probability and statistics.</p>
-<ul>
-<li><strong><a href="./notebooks/intro.html">Introduction to Probability</a></strong>: Random number generation, basic probability concepts</li>
-<li><strong><a href="./notebooks/set.html">Set Theory</a></strong>: Mathematical foundations, set operations, Venn diagrams<br>
-</li>
-<li><strong><a href="./notebooks/probability.html">Probability Fundamentals</a></strong>: Sample spaces, events, basic probability rules</li>
-</ul>
-</section>
-<section id="phase-2-random-variables-distributions" class="level4 g-col-12">
-<h4 class="anchored" data-anchor-id="phase-2-random-variables-distributions">Phase 2: Random Variables &amp; Distributions</h4>
-<p>Core concepts of random variables and their distributions.</p>
-<ul>
-<li><strong><a href="./notebooks/random-variables.html">Random Variables</a></strong>: Definition, types, and basic properties</li>
-<li><strong><a href="./notebooks/pmf-discrete.html">PMF for Discrete Variables</a></strong>: Probability mass functions, discrete distributions</li>
-<li><strong><a href="./notebooks/pdf-continuous.html">PDF for Continuous Variables</a></strong>: Probability density functions, continuous distributions</li>
-<li><strong><a href="./notebooks/cdf.html">Cumulative Distribution Functions</a></strong>: CDFs and inverse sampling methods</li>
-<li><strong><a href="./notebooks/cdf-discrete.html">CDF for Discrete Variables</a></strong>: Discrete CDFs and applications</li>
-</ul>
-</section>
-<section id="phase-3-statistical-concepts" class="level4 g-col-12">
-<h4 class="anchored" data-anchor-id="phase-3-statistical-concepts">Phase 3: Statistical Concepts</h4>
-<p>Key statistical theorems and concepts.</p>
-<ul>
-<li><strong><a href="./notebooks/expectation.html">Expectation and Variance</a></strong>: Expected values, variance, moments</li>
-<li><strong><a href="./notebooks/iid.html">Independent and Identically Distributed</a></strong>: IID random variables and their properties</li>
-<li><strong><a href="./notebooks/law-large-numbers.html">Law of Large Numbers</a></strong>: LLN, Central Limit Theorem demonstrations</li>
-</ul>
-</section>
-<section id="phase-4-multivariate-analysis" class="level4 g-col-12">
-<h4 class="anchored" data-anchor-id="phase-4-multivariate-analysis">Phase 4: Multivariate Analysis</h4>
-<p>Advanced topics involving multiple variables.</p>
-<ul>
-<li><strong><a href="./notebooks/2d-distributions.html">2D Distributions</a></strong>: Bivariate normal, joint distributions</li>
-<li><strong><a href="./notebooks/joint-distribution-properties.html">Joint Distribution Properties</a></strong>: Covariance, correlation, independence</li>
-<li><strong><a href="./notebooks/sum-random-vars.html">Sum of Random Variables</a></strong>: Convolution, sums of independent variables</li>
-<li><strong><a href="./notebooks/random-vector.html">Random Vectors</a></strong>: Multivariate distributions and operations</li>
-</ul>
-</section>
-<section id="phase-5-machine-learning-applications" class="level4 g-col-12">
-<h4 class="anchored" data-anchor-id="phase-5-machine-learning-applications">Phase 5: Machine Learning Applications</h4>
-<p>Practical applications of probability and statistics in machine learning.</p>
-<ul>
-<li><strong><a href="./notebooks/pca.html">Principal Component Analysis</a></strong>: Dimensionality reduction, eigenvalue decomposition</li>
-<li><strong><a href="./notebooks/logistic-regression-generative.html">Logistic Regression</a></strong>: Classification, generative vs discriminative models</li>
-<li><strong><a href="./notebooks/embeddings-angle.html">Word Embeddings and Angles</a></strong>: Vector representations, cosine similarity</li>
-<li><strong><a href="./notebooks/images-joint-distribution.html">Image Joint Distributions</a></strong>: Computer vision applications</li>
-</ul>
-</section>
-<section id="phase-6-data-science-tools" class="level4 g-col-12">
-<h4 class="anchored" data-anchor-id="phase-6-data-science-tools">Phase 6: Data Science Tools</h4>
-<p>Essential programming tools for data science.</p>
-<ul>
-<li><strong><a href="./notebooks/intro-numpy.html">NumPy Introduction</a></strong>: Array operations, broadcasting, linear algebra</li>
-<li><strong><a href="./notebooks/introduction-pandas.html">Pandas Introduction</a></strong>: Data manipulation, analysis, and visualization</li>
-<li><strong><a href="./notebooks/introduction-matplotlib.html">Matplotlib Introduction</a></strong>: Creating publication-quality plots</li>
-</ul>
-</section>
-<section id="interactive-assessment" class="level4 g-col-12">
-<h4 class="anchored" data-anchor-id="interactive-assessment">Interactive &amp; Assessment</h4>
-<p>Hands-on learning and self-assessment tools.</p>
-<ul>
-<li><strong><a href="./notebooks/widgets.html">Interactive Widgets</a></strong>: Dynamic visualizations and explorations</li>
-<li><strong><a href="./notebooks/quiz1.html">Quiz 1</a></strong>: Self-assessment questions and problems</li>
-</ul>
-</section>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Notebook Collection</h1>
 </div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Prof.&nbsp;Nipun Batra </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Indian Institute of Technology, Gandhinagar
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>probability, statistics, data visualization, jupyter notebooks, python, education, machine learning, data science, interactive learning</p>
+  </div>
 </div>
+
+</header>
+
+
+<section id="learning-path" class="level2">
+<h2 class="anchored" data-anchor-id="learning-path">Learning Path</h2>
+<p>These 24 notebooks are organized by topic and difficulty. Use the sidebar navigation for structured learning or browse the complete collection below.</p>
+<section id="foundations" class="level3">
+<h3 class="anchored" data-anchor-id="foundations">Foundations</h3>
+<p>Start with basic probability concepts and mathematical foundations.</p>
+</section>
+<section id="random-variables-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="random-variables-distributions">Random Variables &amp; Distributions</h3>
+<p>Learn about discrete and continuous distributions, PMFs, PDFs, and CDFs.</p>
+</section>
+<section id="statistical-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-concepts">Statistical Concepts</h3>
+<p>Explore expectation, variance, independence, and key theorems.</p>
+</section>
+<section id="advanced-topics" class="level3">
+<h3 class="anchored" data-anchor-id="advanced-topics">Advanced Topics</h3>
+<p>Study multivariate distributions and joint probability concepts.</p>
+</section>
+<section id="machine-learning" class="level3">
+<h3 class="anchored" data-anchor-id="machine-learning">Machine Learning</h3>
+<p>Apply probability concepts to PCA, classification, and embeddings.</p>
+</section>
+<section id="data-science-tools" class="level3">
+<h3 class="anchored" data-anchor-id="data-science-tools">Data Science Tools</h3>
+<p>Master NumPy, Pandas, and Matplotlib for data analysis.</p>
 </section>
 </section>
-<section id="notebook-features" class="level2">
-<h2 class="anchored" data-anchor-id="notebook-features">Notebook Features</h2>
-<p>Each notebook includes:</p>
-<ul>
-<li><strong>Learning Objectives</strong>: Clear goals for what you’ll learn</li>
-<li><strong>Mathematical Theory</strong>: Rigorous mathematical explanations with proper notation</li>
-<li><strong>Practical Implementation</strong>: Python code demonstrating concepts</li>
-<li><strong>Visualizations</strong>: High-quality plots and interactive demonstrations</li>
-<li><strong>Real Data</strong>: Applications using actual datasets</li>
-<li><strong>Exercises</strong>: Problems to test understanding</li>
-</ul>
-</section>
-<section id="technical-requirements" class="level2">
-<h2 class="anchored" data-anchor-id="technical-requirements">Technical Requirements</h2>
-<ul>
-<li><strong>Python 3.8+</strong> with Jupyter Notebook or JupyterLab</li>
-<li><strong>Core packages</strong>: NumPy, Matplotlib, Pandas, PyTorch, Scikit-learn</li>
-<li><strong>Optional</strong>: Interactive widgets for enhanced visualizations</li>
-</ul>
-<p>See the <a href="README.md">README</a> for complete installation instructions.</p>
-<hr>
-<p><em>Browse the complete collection below. Use the search and filter options to find specific topics.</em></p>
+<section id="getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
+<p><strong>New to the subject?</strong> Start with the “Getting Started” section in the sidebar.</p>
+<p><strong>Looking for specific topics?</strong> Use the search and filter options below.</p>
+<p><strong>Want to run locally?</strong> See the <a href="README.md">README</a> for setup instructions.</p>
 
 
 
@@ -630,22 +557,11 @@ window.Quarto = {
     </div>
 </div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDUmFuZG9tJTIwVmFyaWFibGVzJTJDTWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1739232000000" data-listing-file-modified-sort="1752417515028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="quarto-post image-right" data-index="0" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDUmFuZG9tJTIwVmFyaWFibGVzJTJDTWFjaGluZSUyMExlYXJuaW5n" data-listing-date-sort="1739232000000" data-listing-file-modified-sort="1752417787547" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/cdf-discrete.html" class="no-external">CDF for Discrete Random Variables</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwVmFyaWFibGVz'); return false;">Random Variables</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/cdf-discrete.html" class="no-external">
 <p>Understanding cumulative distribution functions for discrete random variables with categorical distributions and practical examples of logistic regression</p>
 </a></div>
@@ -658,24 +574,11 @@ Feb 11, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDTWF0aGVtYXRpY3MlMkNSYW5kb20lMjBWYXJpYWJsZXMlMkNEaXN0cmlidXRpb25z" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1752417515028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="869">
+<div class="quarto-post image-right" data-index="1" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDTWF0aGVtYXRpY3MlMkNSYW5kb20lMjBWYXJpYWJsZXMlMkNEaXN0cmlidXRpb25z" data-listing-date-sort="1741219200000" data-listing-file-modified-sort="1752417787548" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="869">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/cdf.html" class="no-external">Cumulative Distribution Functions and Inverse Sampling</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWF0aGVtYXRpY3M='); return false;">Mathematics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwVmFyaWFibGVz'); return false;">Random Variables</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGlzdHJpYnV0aW9ucw=='); return false;">Distributions</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/cdf.html" class="no-external">
 <p>A comprehensive exploration of cumulative distribution functions (CDFs), their properties, and applications in random number generation through inverse transform sampling. Covers both discrete and continuous distributions with practical implementations.</p>
 </a></div>
@@ -688,22 +591,11 @@ Mar 6, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="RGF0YSUyMFNjaWVuY2UlMkNQeXRob24lMkNQYW5kYXMlMkNEYXRhJTIwQW5hbHlzaXM=" data-listing-date-sort="1739232000000" data-listing-file-modified-sort="1752417515206" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="455">
+<div class="quarto-post image-right" data-index="2" data-categories="RGF0YSUyMFNjaWVuY2UlMkNQeXRob24lMkNQYW5kYXMlMkNEYXRhJTIwQW5hbHlzaXM=" data-listing-date-sort="1739232000000" data-listing-file-modified-sort="1752417787726" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="455">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/quiz1.html" class="no-external">Data Analysis Quiz - Pandas GroupBy Operations</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UGFuZGFz'); return false;">Pandas</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMEFuYWx5c2lz'); return false;">Data Analysis</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/quiz1.html" class="no-external">
 <p>Practical exercises and quiz problems focusing on pandas groupby operations and data aggregation techniques</p>
 </a></div>
@@ -716,20 +608,11 @@ Feb 11, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDRGlzdHJpYnV0aW9ucw==" data-listing-date-sort="1742169600000" data-listing-file-modified-sort="1752417515023" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="quarto-post image-right" data-index="3" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDRGlzdHJpYnV0aW9ucw==" data-listing-date-sort="1742169600000" data-listing-file-modified-sort="1752417787542" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/2d-distributions.html" class="no-external">Distributions in 2D</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGlzdHJpYnV0aW9ucw=='); return false;">Distributions</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/2d-distributions.html" class="no-external">
 <p>Exploring bivariate probability distributions including 2D normal and uniform distributions, with practical examples using PyTorch and real-world height-weight data</p>
 </a></div>
@@ -742,22 +625,11 @@ Mar 17, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDRGF0YSUyMFNjaWVuY2UlMkNQcm9iYWJpbGl0eSUyQ0Rpc3RyaWJ1dGlvbnM=" data-listing-date-sort="1742256000000" data-listing-file-modified-sort="1752417515054" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="798">
+<div class="quarto-post image-right" data-index="4" data-categories="TWFjaGluZSUyMExlYXJuaW5nJTJDRGF0YSUyMFNjaWVuY2UlMkNQcm9iYWJpbGl0eSUyQ0Rpc3RyaWJ1dGlvbnM=" data-listing-date-sort="1742256000000" data-listing-file-modified-sort="1752417787573" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="798">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/images-joint-distribution.html" class="no-external">Images and Joint Distributions</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGlzdHJpYnV0aW9ucw=='); return false;">Distributions</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/images-joint-distribution.html" class="no-external">
 <p>Exploring joint distributions through image data analysis using PCA dimensionality reduction and visualization of multi-dimensional probability distributions</p>
 </a></div>
@@ -770,22 +642,11 @@ Mar 18, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDUmFuZG9tJTIwVmFyaWFibGVzJTJDTWF0aGVtYXRpY3M=" data-listing-date-sort="1742169600000" data-listing-file-modified-sort="1752417515052" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="764">
+<div class="quarto-post image-right" data-index="5" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDUmFuZG9tJTIwVmFyaWFibGVzJTJDTWF0aGVtYXRpY3M=" data-listing-date-sort="1742169600000" data-listing-file-modified-sort="1752417787572" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="764">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/iid.html" class="no-external">Independent and Identically Distributed (i.i.d) Random Variables</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwVmFyaWFibGVz'); return false;">Random Variables</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWF0aGVtYXRpY3M='); return false;">Mathematics</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/iid.html" class="no-external">
 <p>Understanding the concept of independent and identically distributed random variables, their properties, and applications in probability theory and statistics</p>
 </a></div>
@@ -798,22 +659,11 @@ Mar 17, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="RGF0YSUyMFNjaWVuY2UlMkNJbnRlcmFjdGl2ZSUyMENvbXB1dGluZyUyQ0RhdGElMjBWaXN1YWxpemF0aW9uJTJDUHl0aG9u" data-listing-date-sort="1737504000000" data-listing-file-modified-sort="1752417515227" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="548">
+<div class="quarto-post image-right" data-index="6" data-categories="RGF0YSUyMFNjaWVuY2UlMkNJbnRlcmFjdGl2ZSUyMENvbXB1dGluZyUyQ0RhdGElMjBWaXN1YWxpemF0aW9uJTJDUHl0aG9u" data-listing-date-sort="1737504000000" data-listing-file-modified-sort="1752417787747" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="548">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/widgets.html" class="no-external">Interactive Data Exploration with Jupyter Widgets</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW50ZXJhY3RpdmUlMjBDb21wdXRpbmc='); return false;">Interactive Computing</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpc3VhbGl6YXRpb24='); return false;">Data Visualization</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/widgets.html" class="no-external">
 <p>Interactive data exploration and visualization using Jupyter widgets with pandas and matplotlib</p>
 </a></div>
@@ -826,20 +676,11 @@ Jan 22, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="RGF0YSUyMFZpc3VhbGl6YXRpb24lMkNQeXRob24lMkNNYXRwbG90bGli" data-listing-date-sort="1737072000000" data-listing-file-modified-sort="1752417515101" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="547">
+<div class="quarto-post image-right" data-index="7" data-categories="RGF0YSUyMFZpc3VhbGl6YXRpb24lMkNQeXRob24lMkNNYXRwbG90bGli" data-listing-date-sort="1737072000000" data-listing-file-modified-sort="1752417787621" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="547">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/introduction-matplotlib.html" class="no-external">Introduction to Matplotlib</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpc3VhbGl6YXRpb24='); return false;">Data Visualization</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWF0cGxvdGxpYg=='); return false;">Matplotlib</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/introduction-matplotlib.html" class="no-external">
 <p>Comprehensive introduction to matplotlib for data visualization</p>
 </a></div>
@@ -852,22 +693,11 @@ Jan 17, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="RGF0YSUyMFNjaWVuY2UlMkNQeXRob24lMkNOdW1lcmljYWwlMjBDb21wdXRpbmclMkNQcm9ncmFtbWluZw==" data-listing-date-sort="1736121600000" data-listing-file-modified-sort="1752417515075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="252">
+<div class="quarto-post image-right" data-index="8" data-categories="RGF0YSUyMFNjaWVuY2UlMkNQeXRob24lMkNOdW1lcmljYWwlMjBDb21wdXRpbmclMkNQcm9ncmFtbWluZw==" data-listing-date-sort="1736121600000" data-listing-file-modified-sort="1752417787595" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="252">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/intro-numpy.html" class="no-external">Introduction to NumPy</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TnVtZXJpY2FsJTIwQ29tcHV0aW5n'); return false;">Numerical Computing</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvZ3JhbW1pbmc='); return false;">Programming</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/intro-numpy.html" class="no-external">
 <p>A comprehensive introduction to numerical computing with NumPy, covering array creation, manipulation, indexing, slicing, and fundamental operations for scientific computing</p>
 </a></div>
@@ -880,22 +710,11 @@ Jan 6, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="RGF0YSUyMFNjaWVuY2UlMkNQeXRob24lMkNEYXRhJTIwQW5hbHlzaXMlMkNQcm9ncmFtbWluZw==" data-listing-date-sort="1736726400000" data-listing-file-modified-sort="1752417515106" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="626">
+<div class="quarto-post image-right" data-index="9" data-categories="RGF0YSUyMFNjaWVuY2UlMkNQeXRob24lMkNEYXRhJTIwQW5hbHlzaXMlMkNQcm9ncmFtbWluZw==" data-listing-date-sort="1736726400000" data-listing-file-modified-sort="1752417787625" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="626">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/introduction-pandas.html" class="no-external">Introduction to Pandas</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMEFuYWx5c2lz'); return false;">Data Analysis</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvZ3JhbW1pbmc='); return false;">Programming</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/introduction-pandas.html" class="no-external">
 <p>A comprehensive introduction to Pandas library for data manipulation and analysis, covering data structures, indexing, merging, grouping, and advanced operations</p>
 </a></div>
@@ -908,20 +727,11 @@ Jan 13, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDRGF0YSUyMFNjaWVuY2U=" data-listing-date-sort="1736035200000" data-listing-file-modified-sort="1752417515075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="180">
+<div class="quarto-post image-right" data-index="10" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDRGF0YSUyMFNjaWVuY2U=" data-listing-date-sort="1736035200000" data-listing-file-modified-sort="1752417787595" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="180">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/intro.html" class="no-external">Introduction to Probability and Statistics</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/intro.html" class="no-external">
 <p>An introduction to probability theory, random number generation, and statistical concepts using Python</p>
 </a></div>
@@ -934,22 +744,11 @@ Jan 5, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDTWF0aGVtYXRpY3MlMkNSYW5kb20lMjBWYXJpYWJsZXM=" data-listing-date-sort="1733356800000" data-listing-file-modified-sort="1752417515207" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="872">
+<div class="quarto-post image-right" data-index="11" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDTWF0aGVtYXRpY3MlMkNSYW5kb20lMjBWYXJpYWJsZXM=" data-listing-date-sort="1733356800000" data-listing-file-modified-sort="1752417787728" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="872">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/random-variables.html" class="no-external">Introduction to Random Variables</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWF0aGVtYXRpY3M='); return false;">Mathematics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwVmFyaWFibGVz'); return false;">Random Variables</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/random-variables.html" class="no-external">
 <p>A comprehensive introduction to random variables, their mathematical foundations, and practical applications. Covers discrete random variables, probability mass functions, and the relationship between histograms and theoretical distributions.</p>
 </a></div>
@@ -962,22 +761,11 @@ Dec 5, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDRGlzdHJpYnV0aW9ucyUyQ01hdGhlbWF0aWNz" data-listing-date-sort="1742774400000" data-listing-file-modified-sort="1752417515163" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="222">
+<div class="quarto-post image-right" data-index="12" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDRGlzdHJpYnV0aW9ucyUyQ01hdGhlbWF0aWNz" data-listing-date-sort="1742774400000" data-listing-file-modified-sort="1752417787683" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="222">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/joint-distribution-properties.html" class="no-external">Joint Distribution Properties</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGlzdHJpYnV0aW9ucw=='); return false;">Distributions</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWF0aGVtYXRpY3M='); return false;">Mathematics</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/joint-distribution-properties.html" class="no-external">
 <p>Exploring properties of joint probability distributions, including independence, covariance, correlation, and bivariate normal distributions with practical examples</p>
 </a></div>
@@ -990,22 +778,11 @@ Mar 24, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDTWF0aGVtYXRpY3MlMkNSYW5kb20lMjBWYXJpYWJsZXM=" data-listing-date-sort="1743897600000" data-listing-file-modified-sort="1752417515167" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="527">
+<div class="quarto-post image-right" data-index="13" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDTWF0aGVtYXRpY3MlMkNSYW5kb20lMjBWYXJpYWJsZXM=" data-listing-date-sort="1743897600000" data-listing-file-modified-sort="1752417787687" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="527">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/law-large-numbers.html" class="no-external">Law of Large Numbers and Central Limit Theorem</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWF0aGVtYXRpY3M='); return false;">Mathematics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwVmFyaWFibGVz'); return false;">Random Variables</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/law-large-numbers.html" class="no-external">
 <p>Interactive exploration of the Law of Large Numbers and Central Limit Theorem using Monte Carlo simulations with Bernoulli random variables</p>
 </a></div>
@@ -1018,22 +795,11 @@ Apr 6, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDTWF0aGVtYXRpY3MlMkNSYW5kb20lMjBWYXJpYWJsZXM=" data-listing-date-sort="1739750400000" data-listing-file-modified-sort="1752417515052" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="624">
+<div class="quarto-post image-right" data-index="14" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDTWF0aGVtYXRpY3MlMkNSYW5kb20lMjBWYXJpYWJsZXM=" data-listing-date-sort="1739750400000" data-listing-file-modified-sort="1752417787572" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="624">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/expectation.html" class="no-external">Mathematical Expectation and Law of Large Numbers</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWF0aGVtYXRpY3M='); return false;">Mathematics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwVmFyaWFibGVz'); return false;">Random Variables</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/expectation.html" class="no-external">
 <p>A comprehensive exploration of mathematical expectation, running averages, and the Law of Large Numbers with practical examples including dice rolls, coin flips, and financial simulations</p>
 </a></div>
@@ -1046,16 +812,11 @@ Feb 17, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="TUw=" data-listing-date-sort="1739232000000" data-listing-file-modified-sort="1752417515168" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="767">
+<div class="quarto-post image-right" data-index="15" data-categories="TUw=" data-listing-date-sort="1739232000000" data-listing-file-modified-sort="1752417787688" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="767">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/logistic-regression-generative.html" class="no-external">PMF and their applications</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TUw='); return false;">ML</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/logistic-regression-generative.html" class="no-external">
 Probability Mass Functions (PMF) are fundamental tools for describing the behavior of discrete random variables. A PMF tells us the probability that a discrete random…
 </a></div>
@@ -1068,16 +829,11 @@ Feb 11, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="TUw=" data-listing-date-sort="1744588800000" data-listing-file-modified-sort="1752417515176" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1467">
+<div class="quarto-post image-right" data-index="16" data-categories="TUw=" data-listing-date-sort="1744588800000" data-listing-file-modified-sort="1752417787696" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1467">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/pca.html" class="no-external">Principal Component Analysis</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TUw='); return false;">ML</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/pca.html" class="no-external">
 Principal Component Analysis (PCA) is one of the most fundamental techniques in data science and machine learning. It serves as a cornerstone for dimensionality reduction…
 </a></div>
@@ -1090,24 +846,11 @@ Apr 14, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDTWF0aGVtYXRpY3MlMkNSYW5kb20lMjBWYXJpYWJsZXMlMkNEaXN0cmlidXRpb25z" data-listing-date-sort="1739750400000" data-listing-file-modified-sort="1752417515201" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2348">
+<div class="quarto-post image-right" data-index="17" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDTWF0aGVtYXRpY3MlMkNSYW5kb20lMjBWYXJpYWJsZXMlMkNEaXN0cmlidXRpb25z" data-listing-date-sort="1739750400000" data-listing-file-modified-sort="1752417787722" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2348">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/pdf-continuous.html" class="no-external">Probability Density Functions and Continuous Distributions</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWF0aGVtYXRpY3M='); return false;">Mathematics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwVmFyaWFibGVz'); return false;">Random Variables</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGlzdHJpYnV0aW9ucw=='); return false;">Distributions</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/pdf-continuous.html" class="no-external">
 <p>A comprehensive exploration of continuous probability distributions including Normal, Laplace, Log-Normal, Gamma, Uniform, Beta, and Exponential distributions. Covers theoretical foundations, real-world applications, and practical implementation with PyTorch.</p>
 </a></div>
@@ -1120,24 +863,11 @@ Feb 17, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDTWF0aGVtYXRpY3MlMkNSYW5kb20lMjBWYXJpYWJsZXMlMkNEaXN0cmlidXRpb25z" data-listing-date-sort="1739232000000" data-listing-file-modified-sort="1752417515204" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2342">
+<div class="quarto-post image-right" data-index="18" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDTWF0aGVtYXRpY3MlMkNSYW5kb20lMjBWYXJpYWJsZXMlMkNEaXN0cmlidXRpb25z" data-listing-date-sort="1739232000000" data-listing-file-modified-sort="1752417787724" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2342">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/pmf-discrete.html" class="no-external">Probability Mass Functions and Common Discrete Distributions</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWF0aGVtYXRpY3M='); return false;">Mathematics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwVmFyaWFibGVz'); return false;">Random Variables</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGlzdHJpYnV0aW9ucw=='); return false;">Distributions</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/pmf-discrete.html" class="no-external">
 <p>A comprehensive exploration of discrete probability distributions including Bernoulli, Categorical, Binomial, Poisson, and Geometric distributions. Covers theoretical foundations, practical applications, and real-world modeling scenarios.</p>
 </a></div>
@@ -1150,20 +880,11 @@ Feb 11, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDTWF0aGVtYXRpY3M=" data-listing-date-sort="1738454400000" data-listing-file-modified-sort="1752417515204" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="131">
+<div class="quarto-post image-right" data-index="19" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDTWF0aGVtYXRpY3M=" data-listing-date-sort="1738454400000" data-listing-file-modified-sort="1752417787724" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="131">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/probability.html" class="no-external">Probability Theory Fundamentals</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWF0aGVtYXRpY3M='); return false;">Mathematics</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/probability.html" class="no-external">
 <p>Introduction to fundamental probability concepts including sample spaces, events, and probability laws with practical Python implementations</p>
 </a></div>
@@ -1176,16 +897,11 @@ Feb 2, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="TUw=" data-listing-date-sort="1744588800000" data-listing-file-modified-sort="1752417515210" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="quarto-post image-right" data-index="20" data-categories="TUw=" data-listing-date-sort="1744588800000" data-listing-file-modified-sort="1752417787731" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/random-vector.html" class="no-external">Random Vector</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TUw='); return false;">ML</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/random-vector.html" class="no-external">
 25000 rows × 2 columns
 </a></div>
@@ -1198,16 +914,11 @@ Apr 14, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="21" data-categories="TUw=" data-listing-date-sort="1733529600000" data-listing-file-modified-sort="1752417515215" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="quarto-post image-right" data-index="21" data-categories="TUw=" data-listing-date-sort="1733529600000" data-listing-file-modified-sort="1752417787736" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/set.html" class="no-external">Set</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('TUw='); return false;">ML</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/set.html" class="no-external">
 
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1228,22 +939,11 @@ Dec 7, 2024
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="22" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDUmFuZG9tJTIwVmFyaWFibGVzJTJDRGlzdHJpYnV0aW9ucw==" data-listing-date-sort="1743465600000" data-listing-file-modified-sort="1752417515218" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="134">
+<div class="quarto-post image-right" data-index="22" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNzJTJDUmFuZG9tJTIwVmFyaWFibGVzJTJDRGlzdHJpYnV0aW9ucw==" data-listing-date-sort="1743465600000" data-listing-file-modified-sort="1752417787738" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="134">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/sum-random-vars.html" class="no-external">Sum of Random Variables</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UmFuZG9tJTIwVmFyaWFibGVz'); return false;">Random Variables</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGlzdHJpYnV0aW9ucw=='); return false;">Distributions</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/sum-random-vars.html" class="no-external">
 <p>Understanding the distribution of sums of random variables through simulation and theory, covering both discrete and continuous cases</p>
 </a></div>
@@ -1256,22 +956,11 @@ Apr 1, 2025
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="23" data-categories="RGF0YSUyMFNjaWVuY2UlMkNNYWNoaW5lJTIwTGVhcm5pbmclMkNMaW5lYXIlMjBBbGdlYnJhJTJDTWF0aGVtYXRpY3M=" data-listing-date-sort="1742688000000" data-listing-file-modified-sort="1752417515042" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="575">
+<div class="quarto-post image-right" data-index="23" data-categories="RGF0YSUyMFNjaWVuY2UlMkNNYWNoaW5lJTIwTGVhcm5pbmclMkNMaW5lYXIlMjBBbGdlYnJhJTJDTWF0aGVtYXRpY3M=" data-listing-date-sort="1742688000000" data-listing-file-modified-sort="1752417787562" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="575">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./notebooks/embeddings-angle.html" class="no-external">Word Embeddings and Vector Angles</a>
 </h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWFjaGluZSUyMExlYXJuaW5n'); return false;">Machine Learning</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TGluZWFyJTIwQWxnZWJyYQ=='); return false;">Linear Algebra</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWF0aGVtYXRpY3M='); return false;">Mathematics</div>
-
-</div>
 <div class="delink listing-description"><a href="./notebooks/embeddings-angle.html" class="no-external">
 <p>Understanding vector similarities and angles in word embeddings using cosine similarity and vector operations for natural language processing applications</p>
 </a></div>
