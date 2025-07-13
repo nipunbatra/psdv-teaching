@@ -1,35 +1,35 @@
 [
   {
-    "listing": "/slides.html",
-    "items": []
-  },
-  {
     "listing": "/notebooks.html",
     "items": [
-      "/notebooks/pca.html",
-      "/notebooks/random-vector.html",
-      "/notebooks/law-large-numbers.html",
-      "/notebooks/sum-random-vars.html",
-      "/notebooks/joint-distribution-properties.html",
-      "/notebooks/embeddings-angle.html",
-      "/notebooks/images-joint-distribution.html",
-      "/notebooks/2d-distributions.html",
-      "/notebooks/iid.html",
-      "/notebooks/cdf.html",
-      "/notebooks/expectation.html",
-      "/notebooks/pdf-continuous.html",
       "/notebooks/cdf-discrete.html",
-      "/notebooks/logistic-regression-generative.html",
-      "/notebooks/pmf-discrete.html",
+      "/notebooks/cdf.html",
       "/notebooks/quiz1.html",
-      "/notebooks/probability.html",
+      "/notebooks/2d-distributions.html",
+      "/notebooks/images-joint-distribution.html",
+      "/notebooks/iid.html",
       "/notebooks/widgets.html",
       "/notebooks/introduction-matplotlib.html",
-      "/notebooks/introduction-pandas.html",
       "/notebooks/intro-numpy.html",
+      "/notebooks/introduction-pandas.html",
       "/notebooks/intro.html",
+      "/notebooks/random-variables.html",
+      "/notebooks/joint-distribution-properties.html",
+      "/notebooks/law-large-numbers.html",
+      "/notebooks/expectation.html",
+      "/notebooks/logistic-regression-generative.html",
+      "/notebooks/pca.html",
+      "/notebooks/pdf-continuous.html",
+      "/notebooks/pmf-discrete.html",
+      "/notebooks/probability.html",
+      "/notebooks/random-vector.html",
       "/notebooks/set.html",
-      "/notebooks/random-variables.html"
+      "/notebooks/sum-random-vars.html",
+      "/notebooks/embeddings-angle.html"
     ]
+  },
+  {
+    "listing": "/slides.html",
+    "items": []
   }
 ]

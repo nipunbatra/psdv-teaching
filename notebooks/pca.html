@@ -9,7 +9,7 @@
 <meta name="author" content="Nipun Batra">
 <meta name="dcterms.date" content="2025-04-14">
 
-<title>Principal Component Analysis – Probability Statistics Data Visualization Resources</title>
+<title>Principal Component Analysis – PSDV Teaching Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,14 +73,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet" class="quarto-color-scheme-extra">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1b24b88b73f8b56d80a2d5a00e70f885.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f1f85bb7dbd4314d5ad09add27c1e8f0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-1b24b88b73f8b56d80a2d5a00e70f885.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-18d8b755c270e74bdd954da6158d0ad1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fb9de656fd51071e35b698e91f52d13a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-18d8b755c270e74bdd954da6158d0ad1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,6 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -141,7 +140,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -310,8 +309,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../figures/pexels-solodsha-9009923.jpg" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Probability Statistics Data Visualization Resources</span>
+    <span class="navbar-title">PSDV Resources</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -319,11 +321,7 @@ window.Quarto = {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="https://nipunbatra.github.io"> 
-<span class="menu-text">Instructor Homepage</span></a>
-  </li>  
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
@@ -336,6 +334,25 @@ window.Quarto = {
     <a class="nav-link" href="../slides.html"> 
 <span class="menu-text">Slides</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../questions.html"> 
+<span class="menu-text">Questions</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/nipunbatra/psdv-teaching"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://nipunbatra.github.io/psdv25/"> 
+<span class="menu-text">Course 2025</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://nipunbatra.github.io"> 
+<span class="menu-text">Instructor</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -343,10 +360,256 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/pca.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../notebooks/pca.html">Principal Component Analysis</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Getting Started</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Probability and Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Set</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Theory Fundamentals</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/random-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Random Variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/pmf-discrete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Mass Functions and Common Discrete Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/pdf-continuous.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Density Functions and Continuous Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/cdf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cumulative Distribution Functions and Inverse Sampling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/cdf-discrete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CDF for Discrete Random Variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Core Concepts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/expectation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematical Expectation and Law of Large Numbers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/iid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Independent and Identically Distributed (i.i.d) Random Variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/law-large-numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Law of Large Numbers and Central Limit Theorem</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Advanced Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/2d-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Distributions in 2D</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/joint-distribution-properties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Joint Distribution Properties</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/sum-random-vars.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum of Random Variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/random-vector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Random Vector</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/pca.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Principal Component Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/logistic-regression-generative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PMF and their applications</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/embeddings-angle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Word Embeddings and Vector Angles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Science Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/intro-numpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to NumPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/introduction-pandas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Pandas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/introduction-matplotlib.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Matplotlib</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Interactive &amp; Quizzes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/widgets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interactive Data Exploration with Jupyter Widgets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/quiz1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Analysis Quiz - Pandas GroupBy Operations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/images-joint-distribution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Images and Joint Distributions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -394,13 +657,13 @@ window.Quarto = {
   </ul></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.dev/nipunbatra/psdv-teaching/blob/main/notebooks/pca.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nipunbatra/psdv-teaching/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/pca.html">Machine Learning</a></li><li class="breadcrumb-item"><a href="../notebooks/pca.html">Principal Component Analysis</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Principal Component Analysis</h1>
   <div class="quarto-categories">
@@ -435,19 +698,19 @@ window.Quarto = {
 
 
 <div id="cell-1" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.__version__)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Retina mode</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_blobs</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision <span class="im">import</span> datasets, transforms</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(np.__version__)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> torch </span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># Retina mode</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_blobs</span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="im">from</span> torchvision <span class="im">import</span> datasets, transforms</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>1.26.4</code></pre>
 </div>
@@ -569,138 +832,138 @@ window.Quarto = {
 </ol>
 <p>The reconstruction shows how well a 1D representation captures the 2D data structure!</p>
 <div id="cell-13" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple 2D blobs with say 0.7 correlation</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> torch.distributions.multivariate_normal.MultivariateNormal(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    torch.tensor([<span class="fl">5.0</span>, <span class="op">-</span><span class="fl">2.0</span>]), torch.tensor([[<span class="fl">1.0</span>, <span class="fl">0.7</span>], [<span class="fl">0.7</span>, <span class="fl">1.0</span>]])</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>).sample((<span class="dv">1000</span>,))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Simple 2D blobs with say 0.7 correlation</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>X <span class="op">=</span> torch.distributions.multivariate_normal.MultivariateNormal(</span>
+<span id="cb3-3"><a href="#cb3-3"></a>    torch.tensor([<span class="fl">5.0</span>, <span class="op">-</span><span class="fl">2.0</span>]), torch.tensor([[<span class="fl">1.0</span>, <span class="fl">0.7</span>], [<span class="fl">0.7</span>, <span class="fl">1.0</span>]])</span>
+<span id="cb3-4"><a href="#cb3-4"></a>).sample((<span class="dv">1000</span>,))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-14" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comprehensive PCA visualization</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">12</span>))</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Original vs Centered Data</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.6</span>, s<span class="op">=</span><span class="dv">30</span>, label<span class="op">=</span><span class="st">'Original Data'</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].scatter(X_mean[<span class="dv">0</span>, <span class="dv">0</span>], X_mean[<span class="dv">0</span>, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'red'</span>, s<span class="op">=</span><span class="dv">100</span>, marker<span class="op">=</span><span class="st">'x'</span>, </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                  linewidth<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">'Original Mean'</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].scatter(X_centered[:, <span class="dv">0</span>], X_centered[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.6</span>, s<span class="op">=</span><span class="dv">30</span>, </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                  color<span class="op">=</span><span class="st">'orange'</span>, label<span class="op">=</span><span class="st">'Centered Data'</span>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].scatter(<span class="dv">0</span>, <span class="dv">0</span>, color<span class="op">=</span><span class="st">'blue'</span>, s<span class="op">=</span><span class="dv">100</span>, marker<span class="op">=</span><span class="st">'x'</span>, linewidth<span class="op">=</span><span class="dv">3</span>, </span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                  label<span class="op">=</span><span class="st">'Centered Mean'</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Data Centering'</span>)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].legend()</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].axis(<span class="st">'equal'</span>)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Covariance Matrix Visualization</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> axes[<span class="dv">0</span>, <span class="dv">1</span>].imshow(cov.numpy(), cmap<span class="op">=</span><span class="st">'coolwarm'</span>, vmin<span class="op">=-</span><span class="dv">1</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Covariance Matrix'</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        axes[<span class="dv">0</span>, <span class="dv">1</span>].text(j, i, <span class="ss">f'</span><span class="sc">{</span>cov[i,j]<span class="sc">:.3f}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>, </span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>                       fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_xticks([<span class="dv">0</span>, <span class="dv">1</span>])</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_yticks([<span class="dv">0</span>, <span class="dv">1</span>])</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_xticklabels([<span class="st">'X1'</span>, <span class="st">'X2'</span>])</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_yticklabels([<span class="st">'X1'</span>, <span class="st">'X2'</span>])</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>plt.colorbar(im, ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">1</span>])</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Eigendecomposition Results</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].bar([<span class="st">'PC1'</span>, <span class="st">'PC2'</span>], eigvals.numpy(), alpha<span class="op">=</span><span class="fl">0.7</span>, color<span class="op">=</span>[<span class="st">'blue'</span>, <span class="st">'red'</span>])</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_title(<span class="st">'Eigenvalues (Explained Variance)'</span>)</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_ylabel(<span class="st">'Variance'</span>)</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, val <span class="kw">in</span> <span class="bu">enumerate</span>(eigvals.numpy()):</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">2</span>].text(i, val <span class="op">+</span> <span class="fl">0.02</span>, <span class="ss">f'</span><span class="sc">{</span>val<span class="sc">:.3f}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Principal Components Visualization</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].scatter(X_centered[:, <span class="dv">0</span>], X_centered[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.6</span>, s<span class="op">=</span><span class="dv">30</span>, color<span class="op">=</span><span class="st">'lightblue'</span>)</span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot eigenvectors as arrows from origin</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>scale <span class="op">=</span> <span class="dv">2</span>  <span class="co"># Scale for visibility</span></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    vec <span class="op">=</span> eigvecs[:, i] <span class="op">*</span> scale</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].arrow(<span class="dv">0</span>, <span class="dv">0</span>, vec[<span class="dv">0</span>], vec[<span class="dv">1</span>], head_width<span class="op">=</span><span class="fl">0.1</span>, head_length<span class="op">=</span><span class="fl">0.1</span>, </span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>                    fc<span class="op">=</span><span class="ss">f'C</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span>, ec<span class="op">=</span><span class="ss">f'C</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span>, linewidth<span class="op">=</span><span class="dv">3</span>, </span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>                    label<span class="op">=</span><span class="ss">f'PC</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss"> (λ=</span><span class="sc">{</span>eigvals[i]<span class="sc">:.3f}</span><span class="ss">)'</span>)</span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Principal Components</span><span class="ch">\n</span><span class="st">(Eigenvectors)'</span>)</span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].legend()</span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].axis(<span class="st">'equal'</span>)</span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. 1D Projection</span></span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].scatter(X_proj_1d[:, <span class="dv">0</span>], X_proj_1d[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.8</span>, s<span class="op">=</span><span class="dv">30</span>, </span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>                  color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'1D Projection'</span>)</span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].scatter(X_centered[:, <span class="dv">0</span>], X_centered[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.3</span>, s<span class="op">=</span><span class="dv">20</span>, </span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>                  color<span class="op">=</span><span class="st">'lightblue'</span>, label<span class="op">=</span><span class="st">'Original Data'</span>)</span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw projection lines</span></span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(X_centered), <span class="dv">20</span>):  <span class="co"># Show every 20th line for clarity</span></span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>    x_orig <span class="op">=</span> X_centered[i]</span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>    x_proj <span class="op">=</span> X_proj_1d[i]</span>
-<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].plot([x_orig[<span class="dv">0</span>], x_proj[<span class="dv">0</span>]], [x_orig[<span class="dv">1</span>], x_proj[<span class="dv">1</span>]], </span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'k--'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="st">'1D PCA Reconstruction'</span>)</span>
-<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].legend()</span>
-<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].axis(<span class="st">'equal'</span>)</span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Explained Variance Analysis</span></span>
-<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>explained_var_ratio <span class="op">=</span> eigvals <span class="op">/</span> torch.<span class="bu">sum</span>(eigvals)</span>
-<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>cumulative_var <span class="op">=</span> torch.cumsum(explained_var_ratio, dim<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>x_pos <span class="op">=</span> np.arange(<span class="bu">len</span>(eigvals))</span>
-<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>bars <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">2</span>].bar(x_pos, explained_var_ratio.numpy(), alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'Individual'</span>)</span>
-<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].plot(x_pos, cumulative_var.numpy(), <span class="st">'ro-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, markersize<span class="op">=</span><span class="dv">8</span>, label<span class="op">=</span><span class="st">'Cumulative'</span>)</span>
-<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_title(<span class="st">'Explained Variance Ratio'</span>)</span>
-<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_xlabel(<span class="st">'Principal Component'</span>)</span>
-<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_ylabel(<span class="st">'Proportion of Variance'</span>)</span>
-<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_xticks(x_pos)</span>
-<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_xticklabels([<span class="st">'PC1'</span>, <span class="st">'PC2'</span>])</span>
-<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].legend()</span>
-<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a><span class="co"># Add percentage labels</span></span>
-<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, (ind, cum) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(explained_var_ratio.numpy(), cumulative_var.numpy())):</span>
-<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">2</span>].text(i, ind <span class="op">+</span> <span class="fl">0.02</span>, <span class="ss">f'</span><span class="sc">{</span>ind<span class="sc">:.1%}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">2</span>].text(i, cum <span class="op">+</span> <span class="fl">0.02</span>, <span class="ss">f'</span><span class="sc">{</span>cum<span class="sc">:.1%}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Detailed Analysis</span></span>
-<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"COMPREHENSIVE PCA ANALYSIS:"</span>)</span>
-<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span><span class="op">*</span><span class="dv">50</span>)</span>
-<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">1. DATA CHARACTERISTICS:"</span>)</span>
-<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - Original mean: [</span><span class="sc">{</span>X_mean[<span class="dv">0</span>, <span class="dv">0</span>]<span class="sc">:.3f}</span><span class="ss">, </span><span class="sc">{</span>X_mean[<span class="dv">0</span>, <span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">]"</span>)</span>
-<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - Data shape: </span><span class="sc">{</span>X<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - Correlation: </span><span class="sc">{</span>cov[<span class="dv">0</span>,<span class="dv">1</span>] <span class="op">/</span> torch<span class="sc">.</span>sqrt(cov[<span class="dv">0</span>,<span class="dv">0</span>] <span class="op">*</span> cov[<span class="dv">1</span>,<span class="dv">1</span>])<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">2. COVARIANCE MATRIX:"</span>)</span>
-<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - Var(X1): </span><span class="sc">{</span>cov[<span class="dv">0</span>,<span class="dv">0</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - Var(X2): </span><span class="sc">{</span>cov[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - Cov(X1,X2): </span><span class="sc">{</span>cov[<span class="dv">0</span>,<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - Total variance: </span><span class="sc">{</span>torch<span class="sc">.</span>trace(cov)<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">3. EIGENDECOMPOSITION:"</span>)</span>
-<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - Eigenvalues: </span><span class="sc">{</span>eigvals<span class="sc">.</span>numpy()<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - PC1 direction: [</span><span class="sc">{</span>eigvecs[<span class="dv">0</span>,<span class="dv">0</span>]<span class="sc">:.3f}</span><span class="ss">, </span><span class="sc">{</span>eigvecs[<span class="dv">1</span>,<span class="dv">0</span>]<span class="sc">:.3f}</span><span class="ss">]"</span>)</span>
-<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - PC2 direction: [</span><span class="sc">{</span>eigvecs[<span class="dv">0</span>,<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">, </span><span class="sc">{</span>eigvecs[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">]"</span>)</span>
-<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - Orthogonality check: </span><span class="sc">{</span>torch<span class="sc">.</span>dot(eigvecs[:,<span class="dv">0</span>], eigvecs[:,<span class="dv">1</span>])<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
-<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">4. VARIANCE EXPLANATION:"</span>)</span>
-<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - PC1 explains: </span><span class="sc">{</span>explained_var_ratio[<span class="dv">0</span>]<span class="sc">:.1%}</span><span class="ss"> of variance"</span>)</span>
-<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - PC2 explains: </span><span class="sc">{</span>explained_var_ratio[<span class="dv">1</span>]<span class="sc">:.1%}</span><span class="ss"> of variance"</span>)</span>
-<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - Total explained: </span><span class="sc">{</span>cumulative_var[<span class="op">-</span><span class="dv">1</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">5. RECONSTRUCTION QUALITY:"</span>)</span>
-<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>reconstruction_error <span class="op">=</span> torch.mean((X_centered <span class="op">-</span> X_proj_1d)<span class="op">**</span><span class="dv">2</span>)</span>
-<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - Mean Squared Error (1D): </span><span class="sc">{</span>reconstruction_error<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
-<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - Variance retained (1D): </span><span class="sc">{</span>explained_var_ratio[<span class="dv">0</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
-<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"   - Information lost (1D): </span><span class="sc">{</span>explained_var_ratio[<span class="dv">1</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Comprehensive PCA visualization</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">12</span>))</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># 1. Original vs Centered Data</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.6</span>, s<span class="op">=</span><span class="dv">30</span>, label<span class="op">=</span><span class="st">'Original Data'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].scatter(X_mean[<span class="dv">0</span>, <span class="dv">0</span>], X_mean[<span class="dv">0</span>, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'red'</span>, s<span class="op">=</span><span class="dv">100</span>, marker<span class="op">=</span><span class="st">'x'</span>, </span>
+<span id="cb4-7"><a href="#cb4-7"></a>                  linewidth<span class="op">=</span><span class="dv">3</span>, label<span class="op">=</span><span class="st">'Original Mean'</span>)</span>
+<span id="cb4-8"><a href="#cb4-8"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].scatter(X_centered[:, <span class="dv">0</span>], X_centered[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.6</span>, s<span class="op">=</span><span class="dv">30</span>, </span>
+<span id="cb4-9"><a href="#cb4-9"></a>                  color<span class="op">=</span><span class="st">'orange'</span>, label<span class="op">=</span><span class="st">'Centered Data'</span>)</span>
+<span id="cb4-10"><a href="#cb4-10"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].scatter(<span class="dv">0</span>, <span class="dv">0</span>, color<span class="op">=</span><span class="st">'blue'</span>, s<span class="op">=</span><span class="dv">100</span>, marker<span class="op">=</span><span class="st">'x'</span>, linewidth<span class="op">=</span><span class="dv">3</span>, </span>
+<span id="cb4-11"><a href="#cb4-11"></a>                  label<span class="op">=</span><span class="st">'Centered Mean'</span>)</span>
+<span id="cb4-12"><a href="#cb4-12"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Data Centering'</span>)</span>
+<span id="cb4-13"><a href="#cb4-13"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].legend()</span>
+<span id="cb4-14"><a href="#cb4-14"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb4-15"><a href="#cb4-15"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].axis(<span class="st">'equal'</span>)</span>
+<span id="cb4-16"><a href="#cb4-16"></a></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="co"># 2. Covariance Matrix Visualization</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a>im <span class="op">=</span> axes[<span class="dv">0</span>, <span class="dv">1</span>].imshow(cov.numpy(), cmap<span class="op">=</span><span class="st">'coolwarm'</span>, vmin<span class="op">=-</span><span class="dv">1</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-19"><a href="#cb4-19"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Covariance Matrix'</span>)</span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb4-21"><a href="#cb4-21"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb4-22"><a href="#cb4-22"></a>        axes[<span class="dv">0</span>, <span class="dv">1</span>].text(j, i, <span class="ss">f'</span><span class="sc">{</span>cov[i,j]<span class="sc">:.3f}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>, </span>
+<span id="cb4-23"><a href="#cb4-23"></a>                       fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb4-24"><a href="#cb4-24"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_xticks([<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb4-25"><a href="#cb4-25"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_yticks([<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb4-26"><a href="#cb4-26"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_xticklabels([<span class="st">'X1'</span>, <span class="st">'X2'</span>])</span>
+<span id="cb4-27"><a href="#cb4-27"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_yticklabels([<span class="st">'X1'</span>, <span class="st">'X2'</span>])</span>
+<span id="cb4-28"><a href="#cb4-28"></a>plt.colorbar(im, ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb4-29"><a href="#cb4-29"></a></span>
+<span id="cb4-30"><a href="#cb4-30"></a><span class="co"># 3. Eigendecomposition Results</span></span>
+<span id="cb4-31"><a href="#cb4-31"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].bar([<span class="st">'PC1'</span>, <span class="st">'PC2'</span>], eigvals.numpy(), alpha<span class="op">=</span><span class="fl">0.7</span>, color<span class="op">=</span>[<span class="st">'blue'</span>, <span class="st">'red'</span>])</span>
+<span id="cb4-32"><a href="#cb4-32"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_title(<span class="st">'Eigenvalues (Explained Variance)'</span>)</span>
+<span id="cb4-33"><a href="#cb4-33"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_ylabel(<span class="st">'Variance'</span>)</span>
+<span id="cb4-34"><a href="#cb4-34"></a><span class="cf">for</span> i, val <span class="kw">in</span> <span class="bu">enumerate</span>(eigvals.numpy()):</span>
+<span id="cb4-35"><a href="#cb4-35"></a>    axes[<span class="dv">0</span>, <span class="dv">2</span>].text(i, val <span class="op">+</span> <span class="fl">0.02</span>, <span class="ss">f'</span><span class="sc">{</span>val<span class="sc">:.3f}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb4-36"><a href="#cb4-36"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb4-37"><a href="#cb4-37"></a></span>
+<span id="cb4-38"><a href="#cb4-38"></a><span class="co"># 4. Principal Components Visualization</span></span>
+<span id="cb4-39"><a href="#cb4-39"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].scatter(X_centered[:, <span class="dv">0</span>], X_centered[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.6</span>, s<span class="op">=</span><span class="dv">30</span>, color<span class="op">=</span><span class="st">'lightblue'</span>)</span>
+<span id="cb4-40"><a href="#cb4-40"></a></span>
+<span id="cb4-41"><a href="#cb4-41"></a><span class="co"># Plot eigenvectors as arrows from origin</span></span>
+<span id="cb4-42"><a href="#cb4-42"></a>scale <span class="op">=</span> <span class="dv">2</span>  <span class="co"># Scale for visibility</span></span>
+<span id="cb4-43"><a href="#cb4-43"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb4-44"><a href="#cb4-44"></a>    vec <span class="op">=</span> eigvecs[:, i] <span class="op">*</span> scale</span>
+<span id="cb4-45"><a href="#cb4-45"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].arrow(<span class="dv">0</span>, <span class="dv">0</span>, vec[<span class="dv">0</span>], vec[<span class="dv">1</span>], head_width<span class="op">=</span><span class="fl">0.1</span>, head_length<span class="op">=</span><span class="fl">0.1</span>, </span>
+<span id="cb4-46"><a href="#cb4-46"></a>                    fc<span class="op">=</span><span class="ss">f'C</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span>, ec<span class="op">=</span><span class="ss">f'C</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span>, linewidth<span class="op">=</span><span class="dv">3</span>, </span>
+<span id="cb4-47"><a href="#cb4-47"></a>                    label<span class="op">=</span><span class="ss">f'PC</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss"> (λ=</span><span class="sc">{</span>eigvals[i]<span class="sc">:.3f}</span><span class="ss">)'</span>)</span>
+<span id="cb4-48"><a href="#cb4-48"></a></span>
+<span id="cb4-49"><a href="#cb4-49"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Principal Components</span><span class="ch">\n</span><span class="st">(Eigenvectors)'</span>)</span>
+<span id="cb4-50"><a href="#cb4-50"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].legend()</span>
+<span id="cb4-51"><a href="#cb4-51"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb4-52"><a href="#cb4-52"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].axis(<span class="st">'equal'</span>)</span>
+<span id="cb4-53"><a href="#cb4-53"></a></span>
+<span id="cb4-54"><a href="#cb4-54"></a><span class="co"># 5. 1D Projection</span></span>
+<span id="cb4-55"><a href="#cb4-55"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].scatter(X_proj_1d[:, <span class="dv">0</span>], X_proj_1d[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.8</span>, s<span class="op">=</span><span class="dv">30</span>, </span>
+<span id="cb4-56"><a href="#cb4-56"></a>                  color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'1D Projection'</span>)</span>
+<span id="cb4-57"><a href="#cb4-57"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].scatter(X_centered[:, <span class="dv">0</span>], X_centered[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.3</span>, s<span class="op">=</span><span class="dv">20</span>, </span>
+<span id="cb4-58"><a href="#cb4-58"></a>                  color<span class="op">=</span><span class="st">'lightblue'</span>, label<span class="op">=</span><span class="st">'Original Data'</span>)</span>
+<span id="cb4-59"><a href="#cb4-59"></a></span>
+<span id="cb4-60"><a href="#cb4-60"></a><span class="co"># Draw projection lines</span></span>
+<span id="cb4-61"><a href="#cb4-61"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(X_centered), <span class="dv">20</span>):  <span class="co"># Show every 20th line for clarity</span></span>
+<span id="cb4-62"><a href="#cb4-62"></a>    x_orig <span class="op">=</span> X_centered[i]</span>
+<span id="cb4-63"><a href="#cb4-63"></a>    x_proj <span class="op">=</span> X_proj_1d[i]</span>
+<span id="cb4-64"><a href="#cb4-64"></a>    axes[<span class="dv">1</span>, <span class="dv">1</span>].plot([x_orig[<span class="dv">0</span>], x_proj[<span class="dv">0</span>]], [x_orig[<span class="dv">1</span>], x_proj[<span class="dv">1</span>]], </span>
+<span id="cb4-65"><a href="#cb4-65"></a>                   <span class="st">'k--'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb4-66"><a href="#cb4-66"></a></span>
+<span id="cb4-67"><a href="#cb4-67"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="st">'1D PCA Reconstruction'</span>)</span>
+<span id="cb4-68"><a href="#cb4-68"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].legend()</span>
+<span id="cb4-69"><a href="#cb4-69"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb4-70"><a href="#cb4-70"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].axis(<span class="st">'equal'</span>)</span>
+<span id="cb4-71"><a href="#cb4-71"></a></span>
+<span id="cb4-72"><a href="#cb4-72"></a><span class="co"># 6. Explained Variance Analysis</span></span>
+<span id="cb4-73"><a href="#cb4-73"></a>explained_var_ratio <span class="op">=</span> eigvals <span class="op">/</span> torch.<span class="bu">sum</span>(eigvals)</span>
+<span id="cb4-74"><a href="#cb4-74"></a>cumulative_var <span class="op">=</span> torch.cumsum(explained_var_ratio, dim<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb4-75"><a href="#cb4-75"></a></span>
+<span id="cb4-76"><a href="#cb4-76"></a>x_pos <span class="op">=</span> np.arange(<span class="bu">len</span>(eigvals))</span>
+<span id="cb4-77"><a href="#cb4-77"></a>bars <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">2</span>].bar(x_pos, explained_var_ratio.numpy(), alpha<span class="op">=</span><span class="fl">0.7</span>, label<span class="op">=</span><span class="st">'Individual'</span>)</span>
+<span id="cb4-78"><a href="#cb4-78"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].plot(x_pos, cumulative_var.numpy(), <span class="st">'ro-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, markersize<span class="op">=</span><span class="dv">8</span>, label<span class="op">=</span><span class="st">'Cumulative'</span>)</span>
+<span id="cb4-79"><a href="#cb4-79"></a></span>
+<span id="cb4-80"><a href="#cb4-80"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_title(<span class="st">'Explained Variance Ratio'</span>)</span>
+<span id="cb4-81"><a href="#cb4-81"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_xlabel(<span class="st">'Principal Component'</span>)</span>
+<span id="cb4-82"><a href="#cb4-82"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_ylabel(<span class="st">'Proportion of Variance'</span>)</span>
+<span id="cb4-83"><a href="#cb4-83"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_xticks(x_pos)</span>
+<span id="cb4-84"><a href="#cb4-84"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_xticklabels([<span class="st">'PC1'</span>, <span class="st">'PC2'</span>])</span>
+<span id="cb4-85"><a href="#cb4-85"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].legend()</span>
+<span id="cb4-86"><a href="#cb4-86"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb4-87"><a href="#cb4-87"></a></span>
+<span id="cb4-88"><a href="#cb4-88"></a><span class="co"># Add percentage labels</span></span>
+<span id="cb4-89"><a href="#cb4-89"></a><span class="cf">for</span> i, (ind, cum) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(explained_var_ratio.numpy(), cumulative_var.numpy())):</span>
+<span id="cb4-90"><a href="#cb4-90"></a>    axes[<span class="dv">1</span>, <span class="dv">2</span>].text(i, ind <span class="op">+</span> <span class="fl">0.02</span>, <span class="ss">f'</span><span class="sc">{</span>ind<span class="sc">:.1%}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb4-91"><a href="#cb4-91"></a>    axes[<span class="dv">1</span>, <span class="dv">2</span>].text(i, cum <span class="op">+</span> <span class="fl">0.02</span>, <span class="ss">f'</span><span class="sc">{</span>cum<span class="sc">:.1%}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb4-92"><a href="#cb4-92"></a></span>
+<span id="cb4-93"><a href="#cb4-93"></a>plt.tight_layout()</span>
+<span id="cb4-94"><a href="#cb4-94"></a>plt.show()</span>
+<span id="cb4-95"><a href="#cb4-95"></a></span>
+<span id="cb4-96"><a href="#cb4-96"></a><span class="co"># Detailed Analysis</span></span>
+<span id="cb4-97"><a href="#cb4-97"></a><span class="bu">print</span>(<span class="st">"COMPREHENSIVE PCA ANALYSIS:"</span>)</span>
+<span id="cb4-98"><a href="#cb4-98"></a><span class="bu">print</span>(<span class="st">"="</span><span class="op">*</span><span class="dv">50</span>)</span>
+<span id="cb4-99"><a href="#cb4-99"></a></span>
+<span id="cb4-100"><a href="#cb4-100"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">1. DATA CHARACTERISTICS:"</span>)</span>
+<span id="cb4-101"><a href="#cb4-101"></a><span class="bu">print</span>(<span class="ss">f"   - Original mean: [</span><span class="sc">{</span>X_mean[<span class="dv">0</span>, <span class="dv">0</span>]<span class="sc">:.3f}</span><span class="ss">, </span><span class="sc">{</span>X_mean[<span class="dv">0</span>, <span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">]"</span>)</span>
+<span id="cb4-102"><a href="#cb4-102"></a><span class="bu">print</span>(<span class="ss">f"   - Data shape: </span><span class="sc">{</span>X<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-103"><a href="#cb4-103"></a><span class="bu">print</span>(<span class="ss">f"   - Correlation: </span><span class="sc">{</span>cov[<span class="dv">0</span>,<span class="dv">1</span>] <span class="op">/</span> torch<span class="sc">.</span>sqrt(cov[<span class="dv">0</span>,<span class="dv">0</span>] <span class="op">*</span> cov[<span class="dv">1</span>,<span class="dv">1</span>])<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb4-104"><a href="#cb4-104"></a></span>
+<span id="cb4-105"><a href="#cb4-105"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">2. COVARIANCE MATRIX:"</span>)</span>
+<span id="cb4-106"><a href="#cb4-106"></a><span class="bu">print</span>(<span class="ss">f"   - Var(X1): </span><span class="sc">{</span>cov[<span class="dv">0</span>,<span class="dv">0</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb4-107"><a href="#cb4-107"></a><span class="bu">print</span>(<span class="ss">f"   - Var(X2): </span><span class="sc">{</span>cov[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb4-108"><a href="#cb4-108"></a><span class="bu">print</span>(<span class="ss">f"   - Cov(X1,X2): </span><span class="sc">{</span>cov[<span class="dv">0</span>,<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb4-109"><a href="#cb4-109"></a><span class="bu">print</span>(<span class="ss">f"   - Total variance: </span><span class="sc">{</span>torch<span class="sc">.</span>trace(cov)<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb4-110"><a href="#cb4-110"></a></span>
+<span id="cb4-111"><a href="#cb4-111"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">3. EIGENDECOMPOSITION:"</span>)</span>
+<span id="cb4-112"><a href="#cb4-112"></a><span class="bu">print</span>(<span class="ss">f"   - Eigenvalues: </span><span class="sc">{</span>eigvals<span class="sc">.</span>numpy()<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-113"><a href="#cb4-113"></a><span class="bu">print</span>(<span class="ss">f"   - PC1 direction: [</span><span class="sc">{</span>eigvecs[<span class="dv">0</span>,<span class="dv">0</span>]<span class="sc">:.3f}</span><span class="ss">, </span><span class="sc">{</span>eigvecs[<span class="dv">1</span>,<span class="dv">0</span>]<span class="sc">:.3f}</span><span class="ss">]"</span>)</span>
+<span id="cb4-114"><a href="#cb4-114"></a><span class="bu">print</span>(<span class="ss">f"   - PC2 direction: [</span><span class="sc">{</span>eigvecs[<span class="dv">0</span>,<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">, </span><span class="sc">{</span>eigvecs[<span class="dv">1</span>,<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">]"</span>)</span>
+<span id="cb4-115"><a href="#cb4-115"></a><span class="bu">print</span>(<span class="ss">f"   - Orthogonality check: </span><span class="sc">{</span>torch<span class="sc">.</span>dot(eigvecs[:,<span class="dv">0</span>], eigvecs[:,<span class="dv">1</span>])<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
+<span id="cb4-116"><a href="#cb4-116"></a></span>
+<span id="cb4-117"><a href="#cb4-117"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">4. VARIANCE EXPLANATION:"</span>)</span>
+<span id="cb4-118"><a href="#cb4-118"></a><span class="bu">print</span>(<span class="ss">f"   - PC1 explains: </span><span class="sc">{</span>explained_var_ratio[<span class="dv">0</span>]<span class="sc">:.1%}</span><span class="ss"> of variance"</span>)</span>
+<span id="cb4-119"><a href="#cb4-119"></a><span class="bu">print</span>(<span class="ss">f"   - PC2 explains: </span><span class="sc">{</span>explained_var_ratio[<span class="dv">1</span>]<span class="sc">:.1%}</span><span class="ss"> of variance"</span>)</span>
+<span id="cb4-120"><a href="#cb4-120"></a><span class="bu">print</span>(<span class="ss">f"   - Total explained: </span><span class="sc">{</span>cumulative_var[<span class="op">-</span><span class="dv">1</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
+<span id="cb4-121"><a href="#cb4-121"></a></span>
+<span id="cb4-122"><a href="#cb4-122"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">5. RECONSTRUCTION QUALITY:"</span>)</span>
+<span id="cb4-123"><a href="#cb4-123"></a>reconstruction_error <span class="op">=</span> torch.mean((X_centered <span class="op">-</span> X_proj_1d)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb4-124"><a href="#cb4-124"></a><span class="bu">print</span>(<span class="ss">f"   - Mean Squared Error (1D): </span><span class="sc">{</span>reconstruction_error<span class="sc">:.6f}</span><span class="ss">"</span>)</span>
+<span id="cb4-125"><a href="#cb4-125"></a><span class="bu">print</span>(<span class="ss">f"   - Variance retained (1D): </span><span class="sc">{</span>explained_var_ratio[<span class="dv">0</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span>
+<span id="cb4-126"><a href="#cb4-126"></a><span class="bu">print</span>(<span class="ss">f"   - Information lost (1D): </span><span class="sc">{</span>explained_var_ratio[<span class="dv">1</span>]<span class="sc">:.1%}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -734,9 +997,9 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="comprehensive-pca-analysis-with-visualizations">Comprehensive PCA Analysis with Visualizations</h3>
 <p>Let’s create a complete visualization showing all aspects of PCA:</p>
 <div id="cell-21" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Plot the data</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">4</span>))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>],  alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">### Plot the data</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">4</span>))</span>
+<span id="cb5-3"><a href="#cb5-3"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>],  alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -828,17 +1091,17 @@ window.Quarto = {
 <section id="center-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="center-the-data">Center the data</h3>
 <div id="cell-28" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>X_mean <span class="op">=</span> X.mean(<span class="dv">0</span>, keepdim<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>X_centered <span class="op">=</span> X <span class="op">-</span> X_mean</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_centered[:, <span class="dv">0</span>], X_centered[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Centered'</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Original'</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_mean[:, <span class="dv">0</span>], X_mean[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'Original Mean'</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_centered.mean(<span class="dv">0</span>, keepdim<span class="op">=</span><span class="va">True</span>)[:, <span class="dv">0</span>], X_centered.mean(<span class="dv">0</span>, keepdim<span class="op">=</span><span class="va">True</span>)[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'blue'</span>, label<span class="op">=</span><span class="st">'Centered Mean'</span>)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Centered vs Original'</span>)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'X1'</span>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'X2'</span>)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>X_mean <span class="op">=</span> X.mean(<span class="dv">0</span>, keepdim<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>X_centered <span class="op">=</span> X <span class="op">-</span> X_mean</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a>plt.scatter(X_centered[:, <span class="dv">0</span>], X_centered[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Centered'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Original'</span>)</span>
+<span id="cb6-6"><a href="#cb6-6"></a>plt.scatter(X_mean[:, <span class="dv">0</span>], X_mean[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'Original Mean'</span>)</span>
+<span id="cb6-7"><a href="#cb6-7"></a>plt.scatter(X_centered.mean(<span class="dv">0</span>, keepdim<span class="op">=</span><span class="va">True</span>)[:, <span class="dv">0</span>], X_centered.mean(<span class="dv">0</span>, keepdim<span class="op">=</span><span class="va">True</span>)[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'blue'</span>, label<span class="op">=</span><span class="st">'Centered Mean'</span>)</span>
+<span id="cb6-8"><a href="#cb6-8"></a>plt.title(<span class="st">'Centered vs Original'</span>)</span>
+<span id="cb6-9"><a href="#cb6-9"></a>plt.xlabel(<span class="st">'X1'</span>)</span>
+<span id="cb6-10"><a href="#cb6-10"></a>plt.ylabel(<span class="st">'X2'</span>)</span>
+<span id="cb6-11"><a href="#cb6-11"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -851,9 +1114,9 @@ window.Quarto = {
 <section id="finding-covariance" class="level3">
 <h3 class="anchored" data-anchor-id="finding-covariance">Finding covariance</h3>
 <div id="cell-30" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cov <span class="op">=</span> X_centered.T <span class="op">@</span> X_centered <span class="op">/</span> (X.shape[<span class="dv">0</span>] <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Covariance matrix:'</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cov)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>cov <span class="op">=</span> X_centered.T <span class="op">@</span> X_centered <span class="op">/</span> (X.shape[<span class="dv">0</span>] <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="bu">print</span>(<span class="st">'Covariance matrix:'</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="bu">print</span>(cov)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Covariance matrix:
 tensor([[1.0229, 0.7291],
@@ -861,12 +1124,12 @@ tensor([[1.0229, 0.7291],
 </div>
 </div>
 <div id="cell-31" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Finding the eigenvalues and eigenvectors</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>eigvals, eigvecs <span class="op">=</span> torch.linalg.eigh(cov)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Eigenvalues:'</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(eigvals)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Eigenvectors:'</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(eigvecs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">### Finding the eigenvalues and eigenvectors</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>eigvals, eigvecs <span class="op">=</span> torch.linalg.eigh(cov)</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="bu">print</span>(<span class="st">'Eigenvalues:'</span>)</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="bu">print</span>(eigvals)</span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="bu">print</span>(<span class="st">'Eigenvectors:'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="bu">print</span>(eigvecs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Eigenvalues:
 tensor([0.3186, 1.7776])
@@ -876,18 +1139,18 @@ tensor([[-0.7192,  0.6948],
 </div>
 </div>
 <div id="cell-32" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot centered data with eigenvectors</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_centered[:, <span class="dv">0</span>], X_centered[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot eigenvectors starting from the mean</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    vec <span class="op">=</span> eigvecs[:, i]</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    plt.quiver(<span class="dv">0</span>, <span class="dv">0</span>, vec[<span class="dv">0</span>], vec[<span class="dv">1</span>], scale<span class="op">=</span><span class="dv">3</span>, color<span class="op">=</span><span class="ss">f"C</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>, label<span class="op">=</span><span class="ss">f"u</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>eigvals[i]<span class="sc">:.2f}</span><span class="ss">)"</span>)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Centered Data with Principal Directions"</span>)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Plot centered data with eigenvectors</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>plt.scatter(X_centered[:, <span class="dv">0</span>], X_centered[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co"># Plot eigenvectors starting from the mean</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb11-6"><a href="#cb11-6"></a>    vec <span class="op">=</span> eigvecs[:, i]</span>
+<span id="cb11-7"><a href="#cb11-7"></a>    plt.quiver(<span class="dv">0</span>, <span class="dv">0</span>, vec[<span class="dv">0</span>], vec[<span class="dv">1</span>], scale<span class="op">=</span><span class="dv">3</span>, color<span class="op">=</span><span class="ss">f"C</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>, label<span class="op">=</span><span class="ss">f"u</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>eigvals[i]<span class="sc">:.2f}</span><span class="ss">)"</span>)</span>
+<span id="cb11-8"><a href="#cb11-8"></a></span>
+<span id="cb11-9"><a href="#cb11-9"></a>plt.axis(<span class="st">'equal'</span>)</span>
+<span id="cb11-10"><a href="#cb11-10"></a>plt.legend()</span>
+<span id="cb11-11"><a href="#cb11-11"></a>plt.title(<span class="st">"Centered Data with Principal Directions"</span>)</span>
+<span id="cb11-12"><a href="#cb11-12"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -897,28 +1160,28 @@ tensor([[-0.7192,  0.6948],
 </div>
 </div>
 <div id="cell-33" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>top_vec <span class="op">=</span> eigvecs[:, <span class="op">-</span><span class="dv">1</span>]  <span class="co"># Last column of eigvecs (the top eigenvector)</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Top eigenvector:'</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(top_vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>top_vec <span class="op">=</span> eigvecs[:, <span class="op">-</span><span class="dv">1</span>]  <span class="co"># Last column of eigvecs (the top eigenvector)</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="bu">print</span>(<span class="st">'Top eigenvector:'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="bu">print</span>(top_vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Top eigenvector:
 tensor([0.6948, 0.7192])</code></pre>
 </div>
 </div>
 <div id="cell-34" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Project centered data onto the top eigenvector using dot product</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>X_proj <span class="op">=</span> torch.zeros_like(X_centered)  <span class="co"># Initialize an empty tensor to store projections</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each data point and project it onto the top eigenvector</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(X_centered.shape[<span class="dv">0</span>]):</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the projection of the i-th data point onto the top eigenvector</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    X_proj[i] <span class="op">=</span> torch.dot(X_centered[i], top_vec) <span class="op">*</span> top_vec  <span class="co"># Scalar projection * eigenvector</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Reconstruct the data by adding the mean back</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>X_recon <span class="op">=</span> X_proj <span class="op">+</span> X_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Project centered data onto the top eigenvector using dot product</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>X_proj <span class="op">=</span> torch.zeros_like(X_centered)  <span class="co"># Initialize an empty tensor to store projections</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co"># Loop through each data point and project it onto the top eigenvector</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(X_centered.shape[<span class="dv">0</span>]):</span>
+<span id="cb14-6"><a href="#cb14-6"></a>    <span class="co"># Calculate the projection of the i-th data point onto the top eigenvector</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a>    X_proj[i] <span class="op">=</span> torch.dot(X_centered[i], top_vec) <span class="op">*</span> top_vec  <span class="co"># Scalar projection * eigenvector</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a></span>
+<span id="cb14-9"><a href="#cb14-9"></a><span class="co"># Reconstruct the data by adding the mean back</span></span>
+<span id="cb14-10"><a href="#cb14-10"></a>X_recon <span class="op">=</span> X_proj <span class="op">+</span> X_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-35" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>X_recon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>X_recon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>tensor([[ 2.8117, -4.2273],
         [ 4.4202, -2.5621],
@@ -930,11 +1193,11 @@ tensor([0.6948, 0.7192])</code></pre>
 </div>
 </div>
 <div id="cell-36" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.2</span>, label<span class="op">=</span><span class="st">'Original'</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_recon[:, <span class="dv">0</span>], X_recon[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.8</span>, label<span class="op">=</span><span class="st">'PCA-1D'</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"PCA projection onto top component"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.2</span>, label<span class="op">=</span><span class="st">'Original'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2"></a>plt.scatter(X_recon[:, <span class="dv">0</span>], X_recon[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.8</span>, label<span class="op">=</span><span class="st">'PCA-1D'</span>)</span>
+<span id="cb17-3"><a href="#cb17-3"></a>plt.axis(<span class="st">'equal'</span>)</span>
+<span id="cb17-4"><a href="#cb17-4"></a>plt.legend()</span>
+<span id="cb17-5"><a href="#cb17-5"></a>plt.title(<span class="st">"PCA projection onto top component"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>Text(0.5, 1.0, 'PCA projection onto top component')</code></pre>
 </div>
@@ -947,18 +1210,18 @@ tensor([0.6948, 0.7192])</code></pre>
 </div>
 </div>
 <div id="cell-37" class="cell" data-execution_count="58">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load MNIST dataset</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>transform <span class="op">=</span> transforms.Compose([transforms.ToTensor(), transforms.Lambda(<span class="kw">lambda</span> x: x.view(<span class="op">-</span><span class="dv">1</span>))])</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>train_data <span class="op">=</span> torchvision.datasets.MNIST(root<span class="op">=</span><span class="st">'~/.data'</span>, train<span class="op">=</span><span class="va">True</span>, download<span class="op">=</span><span class="va">True</span>, transform<span class="op">=</span>transform)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a small subset of data for simplicity</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> train_data.data[:<span class="dv">1000</span>].<span class="bu">float</span>()  <span class="co"># Take the first 1000 images (28x28 pixels)</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> train_data.targets[:<span class="dv">1000</span>]  <span class="co"># Corresponding labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Load MNIST dataset</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="im">import</span> torchvision</span>
+<span id="cb19-3"><a href="#cb19-3"></a>transform <span class="op">=</span> transforms.Compose([transforms.ToTensor(), transforms.Lambda(<span class="kw">lambda</span> x: x.view(<span class="op">-</span><span class="dv">1</span>))])</span>
+<span id="cb19-4"><a href="#cb19-4"></a>train_data <span class="op">=</span> torchvision.datasets.MNIST(root<span class="op">=</span><span class="st">'~/.data'</span>, train<span class="op">=</span><span class="va">True</span>, download<span class="op">=</span><span class="va">True</span>, transform<span class="op">=</span>transform)</span>
+<span id="cb19-5"><a href="#cb19-5"></a></span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="co"># Take a small subset of data for simplicity</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a>X <span class="op">=</span> train_data.data[:<span class="dv">1000</span>].<span class="bu">float</span>()  <span class="co"># Take the first 1000 images (28x28 pixels)</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a>y <span class="op">=</span> train_data.targets[:<span class="dv">1000</span>]  <span class="co"># Corresponding labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-38" class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first image</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(X[<span class="dv">0</span>].reshape(<span class="dv">28</span>, <span class="dv">28</span>), cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># View the first image</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>plt.imshow(X[<span class="dv">0</span>].reshape(<span class="dv">28</span>, <span class="dv">28</span>), cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -968,26 +1231,26 @@ tensor([0.6948, 0.7192])</code></pre>
 </div>
 </div>
 <div id="cell-39" class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> X <span class="op">/</span> <span class="fl">255.0</span>  <span class="co"># Normalize to [0, 1]</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>X_centered <span class="op">=</span> X <span class="op">-</span> X.mean(dim<span class="op">=</span><span class="dv">0</span>)  <span class="co"># Center the data by subtracting the mean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>X <span class="op">=</span> X <span class="op">/</span> <span class="fl">255.0</span>  <span class="co"># Normalize to [0, 1]</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>X_centered <span class="op">=</span> X <span class="op">-</span> X.mean(dim<span class="op">=</span><span class="dv">0</span>)  <span class="co"># Center the data by subtracting the mean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-40" class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>X_vecs <span class="op">=</span> X_centered.reshape(X_centered.shape[<span class="dv">0</span>], <span class="op">-</span><span class="dv">1</span>)  <span class="co"># Reshape to (n_samples, n_features)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>X_vecs <span class="op">=</span> X_centered.reshape(X_centered.shape[<span class="dv">0</span>], <span class="op">-</span><span class="dv">1</span>)  <span class="co"># Reshape to (n_samples, n_features)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-41" class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute covariance matrix</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>cov_matrix <span class="op">=</span> torch.cov(X_vecs.T)  <span class="co"># Transpose to get (n_features, n_samples)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Compute covariance matrix</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>cov_matrix <span class="op">=</span> torch.cov(X_vecs.T)  <span class="co"># Transpose to get (n_features, n_samples)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-42" class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Covariance matrix shape:'</span>, cov_matrix.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="bu">print</span>(<span class="st">'Covariance matrix shape:'</span>, cov_matrix.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Covariance matrix shape: torch.Size([784, 784])</code></pre>
 </div>
 </div>
 <div id="cell-43" class="cell" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(cov_matrix, cmap<span class="op">=</span><span class="st">'hot'</span>, interpolation<span class="op">=</span><span class="st">'nearest'</span>)</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Covariance Matrix'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>plt.imshow(cov_matrix, cmap<span class="op">=</span><span class="st">'hot'</span>, interpolation<span class="op">=</span><span class="st">'nearest'</span>)</span>
+<span id="cb26-2"><a href="#cb26-2"></a>plt.colorbar()</span>
+<span id="cb26-3"><a href="#cb26-3"></a>plt.title(<span class="st">'Covariance Matrix'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>Text(0.5, 1.0, 'Covariance Matrix')</code></pre>
 </div>
@@ -1000,27 +1263,27 @@ tensor([0.6948, 0.7192])</code></pre>
 </div>
 </div>
 <div id="cell-44" class="cell" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Eigenvalue decomposition</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>eigvals, eigvecs <span class="op">=</span> torch.linalg.eigh(cov_matrix)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Eigenvalues shape:'</span>, eigvals.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Eigenvalue decomposition</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>eigvals, eigvecs <span class="op">=</span> torch.linalg.eigh(cov_matrix)</span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="bu">print</span>(<span class="st">'Eigenvalues shape:'</span>, eigvals.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Eigenvalues shape: torch.Size([784])</code></pre>
 </div>
 </div>
 <div id="cell-45" class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Top K eigenvalues and eigenvectors</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>top_k_eigvals, top_k_indices <span class="op">=</span> torch.topk(eigvals, K)</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>top_k_eigvecs <span class="op">=</span> eigvecs[:, top_k_indices]</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Top K eigenvalues:'</span>, top_k_eigvals)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Top K eigenvectors shape:'</span>, top_k_eigvecs.shape)</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the top K eigenvalues</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>plt.bar(<span class="bu">range</span>(K), top_k_eigvals.numpy())</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Eigenvalue Index'</span>)</span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Eigenvalue'</span>)</span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Top K Eigenvalues'</span>)</span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Top K eigenvalues and eigenvectors</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>K <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a>top_k_eigvals, top_k_indices <span class="op">=</span> torch.topk(eigvals, K)</span>
+<span id="cb30-4"><a href="#cb30-4"></a>top_k_eigvecs <span class="op">=</span> eigvecs[:, top_k_indices]</span>
+<span id="cb30-5"><a href="#cb30-5"></a><span class="bu">print</span>(<span class="st">'Top K eigenvalues:'</span>, top_k_eigvals)</span>
+<span id="cb30-6"><a href="#cb30-6"></a><span class="bu">print</span>(<span class="st">'Top K eigenvectors shape:'</span>, top_k_eigvecs.shape)</span>
+<span id="cb30-7"><a href="#cb30-7"></a><span class="co"># Plot the top K eigenvalues</span></span>
+<span id="cb30-8"><a href="#cb30-8"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb30-9"><a href="#cb30-9"></a>plt.bar(<span class="bu">range</span>(K), top_k_eigvals.numpy())</span>
+<span id="cb30-10"><a href="#cb30-10"></a>plt.xlabel(<span class="st">'Eigenvalue Index'</span>)</span>
+<span id="cb30-11"><a href="#cb30-11"></a>plt.ylabel(<span class="st">'Eigenvalue'</span>)</span>
+<span id="cb30-12"><a href="#cb30-12"></a>plt.title(<span class="st">'Top K Eigenvalues'</span>)</span>
+<span id="cb30-13"><a href="#cb30-13"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Top K eigenvalues: tensor([5.1288, 4.0052, 3.5313, 2.8018, 2.5156, 2.3427, 1.8130, 1.5647, 1.4760,
         1.1167])
@@ -1035,31 +1298,31 @@ Top K eigenvectors shape: torch.Size([784, 10])</code></pre>
 </div>
 </div>
 <div id="cell-46" class="cell" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Project data onto the top K eigenvectors</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>X_proj <span class="op">=</span> torch.matmul(X_vecs, top_k_eigvecs)</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Projected data shape:'</span>, X_proj.shape)</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Reconstruct the data from the top K components</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Project data onto the top K eigenvectors</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>X_proj <span class="op">=</span> torch.matmul(X_vecs, top_k_eigvecs)</span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="bu">print</span>(<span class="st">'Projected data shape:'</span>, X_proj.shape)</span>
+<span id="cb32-4"><a href="#cb32-4"></a><span class="co"># Reconstruct the data from the top K components</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Projected data shape: torch.Size([1000, 10])</code></pre>
 </div>
 </div>
 <div id="cell-47" class="cell" data-execution_count="61">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.cm <span class="im">as</span> cm</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> cm.tab10(np.arange(<span class="dv">10</span>))  <span class="co"># 10 distinct colors</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    idx <span class="op">=</span> (y <span class="op">==</span> i)</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    plt.scatter(X_proj[idx, <span class="dv">0</span>], X_proj[idx, <span class="dv">1</span>], </span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>                alpha<span class="op">=</span><span class="fl">0.6</span>, color<span class="op">=</span>colors[i], label<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>, s<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'PCA Projection onto Top 2 Components (MNIST)'</span>)</span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Principal Component 1'</span>)</span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Principal Component 2'</span>)</span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Digit'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a><span class="im">import</span> matplotlib.cm <span class="im">as</span> cm</span>
+<span id="cb34-2"><a href="#cb34-2"></a></span>
+<span id="cb34-3"><a href="#cb34-3"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
+<span id="cb34-4"><a href="#cb34-4"></a></span>
+<span id="cb34-5"><a href="#cb34-5"></a>colors <span class="op">=</span> cm.tab10(np.arange(<span class="dv">10</span>))  <span class="co"># 10 distinct colors</span></span>
+<span id="cb34-6"><a href="#cb34-6"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb34-7"><a href="#cb34-7"></a>    idx <span class="op">=</span> (y <span class="op">==</span> i)</span>
+<span id="cb34-8"><a href="#cb34-8"></a>    plt.scatter(X_proj[idx, <span class="dv">0</span>], X_proj[idx, <span class="dv">1</span>], </span>
+<span id="cb34-9"><a href="#cb34-9"></a>                alpha<span class="op">=</span><span class="fl">0.6</span>, color<span class="op">=</span>colors[i], label<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>, s<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb34-10"><a href="#cb34-10"></a></span>
+<span id="cb34-11"><a href="#cb34-11"></a>plt.title(<span class="st">'PCA Projection onto Top 2 Components (MNIST)'</span>)</span>
+<span id="cb34-12"><a href="#cb34-12"></a>plt.xlabel(<span class="st">'Principal Component 1'</span>)</span>
+<span id="cb34-13"><a href="#cb34-13"></a>plt.ylabel(<span class="st">'Principal Component 2'</span>)</span>
+<span id="cb34-14"><a href="#cb34-14"></a>plt.axis(<span class="st">'equal'</span>)</span>
+<span id="cb34-15"><a href="#cb34-15"></a>plt.legend(title<span class="op">=</span><span class="st">'Digit'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb34-16"><a href="#cb34-16"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1160,7 +1423,7 @@ Top K eigenvectors shape: torch.Size([784, 10])</code></pre>
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/nipunbatra\.github\.io\/psdv-teaching\/");
+        var filterRegex = new RegExp("https:\/\/nipunbatra\.github\.io\/psdv-teaching");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1488,8 +1751,35 @@ Top K eigenvectors shape: torch.Size([784, 10])</code></pre>
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2024-2025, Prof.&nbsp;Nipun Batra, IIT Gandhinagar</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/nipunbatra/psdv-teaching/blob/main/notebooks/pca.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nipunbatra/psdv-teaching/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/nipunbatra/psdv-teaching">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://nipunbatra.github.io">
+      <i class="bi bi-globe" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 
 
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

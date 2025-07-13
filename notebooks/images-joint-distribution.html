@@ -11,7 +11,7 @@
 <meta name="keywords" content="joint distributions, PCA, dimensionality reduction, image analysis, scikit-learn, digits dataset">
 <meta name="description" content="Exploring joint distributions through image data analysis using PCA dimensionality reduction and visualization of multi-dimensional probability distributions">
 
-<title>Images and Joint Distributions – Probability Statistics Data Visualization Resources</title>
+<title>Images and Joint Distributions – PSDV Teaching Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,14 +75,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet" class="quarto-color-scheme-extra">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1b24b88b73f8b56d80a2d5a00e70f885.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f1f85bb7dbd4314d5ad09add27c1e8f0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-1b24b88b73f8b56d80a2d5a00e70f885.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-18d8b755c270e74bdd954da6158d0ad1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fb9de656fd51071e35b698e91f52d13a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-18d8b755c270e74bdd954da6158d0ad1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,6 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -143,7 +142,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -312,8 +311,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../figures/pexels-solodsha-9009923.jpg" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Probability Statistics Data Visualization Resources</span>
+    <span class="navbar-title">PSDV Resources</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -321,11 +323,7 @@ window.Quarto = {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="https://nipunbatra.github.io"> 
-<span class="menu-text">Instructor Homepage</span></a>
-  </li>  
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
@@ -338,6 +336,25 @@ window.Quarto = {
     <a class="nav-link" href="../slides.html"> 
 <span class="menu-text">Slides</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../questions.html"> 
+<span class="menu-text">Questions</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/nipunbatra/psdv-teaching"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://nipunbatra.github.io/psdv25/"> 
+<span class="menu-text">Course 2025</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://nipunbatra.github.io"> 
+<span class="menu-text">Instructor</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -345,10 +362,256 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/widgets.html">Interactive &amp; Quizzes</a></li><li class="breadcrumb-item"><a href="../notebooks/images-joint-distribution.html">Images and Joint Distributions</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Getting Started</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Probability and Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Set</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Theory Fundamentals</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/random-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Random Variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/pmf-discrete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Mass Functions and Common Discrete Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/pdf-continuous.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Density Functions and Continuous Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/cdf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cumulative Distribution Functions and Inverse Sampling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/cdf-discrete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CDF for Discrete Random Variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Core Concepts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/expectation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematical Expectation and Law of Large Numbers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/iid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Independent and Identically Distributed (i.i.d) Random Variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/law-large-numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Law of Large Numbers and Central Limit Theorem</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Advanced Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/2d-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Distributions in 2D</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/joint-distribution-properties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Joint Distribution Properties</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/sum-random-vars.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum of Random Variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/random-vector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Random Vector</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/pca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Principal Component Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/logistic-regression-generative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PMF and their applications</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/embeddings-angle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Word Embeddings and Vector Angles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Science Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/intro-numpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to NumPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/introduction-pandas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Pandas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/introduction-matplotlib.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Matplotlib</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Interactive &amp; Quizzes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/widgets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interactive Data Exploration with Jupyter Widgets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/quiz1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Analysis Quiz - Pandas GroupBy Operations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/images-joint-distribution.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Images and Joint Distributions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -388,13 +651,13 @@ window.Quarto = {
   </ul></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.dev/nipunbatra/psdv-teaching/blob/main/notebooks/images-joint-distribution.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nipunbatra/psdv-teaching/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/widgets.html">Interactive &amp; Quizzes</a></li><li class="breadcrumb-item"><a href="../notebooks/images-joint-distribution.html">Images and Joint Distributions</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Images and Joint Distributions</h1>
   <div class="quarto-categories">
@@ -443,16 +706,16 @@ window.Quarto = {
 
 
 <div id="cell-1" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.__version__)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Retina mode</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">print</span>(np.__version__)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> torch </span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># Retina mode</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2.2.4</code></pre>
 </div>
@@ -518,100 +781,100 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="loading-and-understanding-the-dataset">Loading and Understanding the Dataset</h2>
 <p>We’ll use the digits dataset, where each image is an 8×8 pixel grid. This gives us 64-dimensional data points, representing samples from a 64-dimensional joint distribution.</p>
 <div id="cell-4" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_digits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_digits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Data Interpretation:</strong> - <code>X.shape = (1797, 64)</code>: We have 1,797 samples from a 64-dimensional joint distribution - Each row represents one realization from this joint distribution<br>
 - Each column represents one random variable (pixel intensity) - The joint distribution captures how all 64 pixels co-vary across different digit images</p>
 <div id="cell-6" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize several samples from our joint distribution</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>axes <span class="op">=</span> axes.ravel()</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Each image is a sample from the 64-dimensional joint distribution</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    sample_idx <span class="op">=</span> i <span class="op">*</span> <span class="dv">180</span>  <span class="co"># Spread out the examples</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    image <span class="op">=</span> X[sample_idx].reshape(<span class="dv">8</span>, <span class="dv">8</span>)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    axes[i].imshow(image, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    axes[i].set_title(<span class="ss">f'Digit: </span><span class="sc">{</span>y[sample_idx]<span class="sc">}</span><span class="ch">\n</span><span class="ss">Sample #</span><span class="sc">{</span>sample_idx<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    axes[i].axis(<span class="st">'off'</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Individual Samples from the 64-Dimensional Joint Distribution'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the actual 64-dimensional vector for one sample</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sample </span><span class="sc">{</span>sample_idx<span class="sc">}</span><span class="ss"> as 64-dimensional vector:"</span>)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"First 10 values: </span><span class="sc">{</span>X[sample_idx][:<span class="dv">10</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Range: [</span><span class="sc">{</span>X[sample_idx]<span class="sc">.</span><span class="bu">min</span>()<span class="sc">:.1f}</span><span class="ss">, </span><span class="sc">{</span>X[sample_idx]<span class="sc">.</span><span class="bu">max</span>()<span class="sc">:.1f}</span><span class="ss">]"</span>)</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean: </span><span class="sc">{</span>X[sample_idx]<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">, Std: </span><span class="sc">{</span>X[sample_idx]<span class="sc">.</span>std()<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Visualize several samples from our joint distribution</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb4-3"><a href="#cb4-3"></a>axes <span class="op">=</span> axes.ravel()</span>
+<span id="cb4-4"><a href="#cb4-4"></a></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb4-6"><a href="#cb4-6"></a>    <span class="co"># Each image is a sample from the 64-dimensional joint distribution</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>    sample_idx <span class="op">=</span> i <span class="op">*</span> <span class="dv">180</span>  <span class="co"># Spread out the examples</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>    image <span class="op">=</span> X[sample_idx].reshape(<span class="dv">8</span>, <span class="dv">8</span>)</span>
+<span id="cb4-9"><a href="#cb4-9"></a>    axes[i].imshow(image, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb4-10"><a href="#cb4-10"></a>    axes[i].set_title(<span class="ss">f'Digit: </span><span class="sc">{</span>y[sample_idx]<span class="sc">}</span><span class="ch">\n</span><span class="ss">Sample #</span><span class="sc">{</span>sample_idx<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb4-11"><a href="#cb4-11"></a>    axes[i].axis(<span class="st">'off'</span>)</span>
+<span id="cb4-12"><a href="#cb4-12"></a></span>
+<span id="cb4-13"><a href="#cb4-13"></a>plt.suptitle(<span class="st">'Individual Samples from the 64-Dimensional Joint Distribution'</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb4-14"><a href="#cb4-14"></a>plt.tight_layout()</span>
+<span id="cb4-15"><a href="#cb4-15"></a>plt.show()</span>
+<span id="cb4-16"><a href="#cb4-16"></a></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="co"># Show the actual 64-dimensional vector for one sample</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="bu">print</span>(<span class="ss">f"Sample </span><span class="sc">{</span>sample_idx<span class="sc">}</span><span class="ss"> as 64-dimensional vector:"</span>)</span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="bu">print</span>(<span class="ss">f"First 10 values: </span><span class="sc">{</span>X[sample_idx][:<span class="dv">10</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="bu">print</span>(<span class="ss">f"Range: [</span><span class="sc">{</span>X[sample_idx]<span class="sc">.</span><span class="bu">min</span>()<span class="sc">:.1f}</span><span class="ss">, </span><span class="sc">{</span>X[sample_idx]<span class="sc">.</span><span class="bu">max</span>()<span class="sc">:.1f}</span><span class="ss">]"</span>)</span>
+<span id="cb4-21"><a href="#cb4-21"></a><span class="bu">print</span>(<span class="ss">f"Mean: </span><span class="sc">{</span>X[sample_idx]<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">, Std: </span><span class="sc">{</span>X[sample_idx]<span class="sc">.</span>std()<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-7" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyze marginal distributions of pixels</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">8</span>))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Mean image (expected value of the joint distribution)</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>mean_image <span class="op">=</span> X.mean(axis<span class="op">=</span><span class="dv">0</span>).reshape(<span class="dv">8</span>, <span class="dv">8</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].imshow(mean_image, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Mean Image</span><span class="ch">\n</span><span class="st">(Expected Value)'</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].axis(<span class="st">'off'</span>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Standard deviation image (marginal variances)</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>std_image <span class="op">=</span> X.std(axis<span class="op">=</span><span class="dv">0</span>).reshape(<span class="dv">8</span>, <span class="dv">8</span>)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].imshow(std_image, cmap<span class="op">=</span><span class="st">'hot'</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Standard Deviation per Pixel</span><span class="ch">\n</span><span class="st">(Marginal Variances)'</span>)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].axis(<span class="st">'off'</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Sample of marginal distributions</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>pixel_indices <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">28</span>, <span class="dv">35</span>, <span class="dv">50</span>]  <span class="co"># Different pixel positions</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, px_idx <span class="kw">in</span> <span class="bu">enumerate</span>(pixel_indices):</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">2</span>:</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        ax <span class="op">=</span> axes[<span class="dv">0</span>, <span class="dv">2</span>]</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        ax <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">2</span>]</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    ax.hist(X[:, px_idx], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, density<span class="op">=</span><span class="va">True</span>, </span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>            label<span class="op">=</span><span class="ss">f'Pixel </span><span class="sc">{</span>px_idx<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_title(<span class="st">'Marginal Distributions</span><span class="ch">\n</span><span class="st">of Selected Pixels'</span>)</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_xlabel(<span class="st">'Pixel Intensity'</span>)</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_ylabel(<span class="st">'Density'</span>)</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].legend()</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_xlabel(<span class="st">'Pixel Intensity'</span>)</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_ylabel(<span class="st">'Density'</span>)</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].legend()</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Pixel correlation analysis</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample a few pixels to show correlation</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>sample_pixels <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">28</span>, <span class="dv">29</span>]  <span class="co"># Adjacent pixels</span></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>pixel_data <span class="op">=</span> X[:, sample_pixels]</span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>correlation_matrix <span class="op">=</span> np.corrcoef(pixel_data.T)</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">0</span>].imshow(correlation_matrix, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, vmin<span class="op">=-</span><span class="dv">1</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Correlation Matrix</span><span class="ch">\n</span><span class="st">(Sample Adjacent Pixels)'</span>)</span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_xticks(<span class="bu">range</span>(<span class="bu">len</span>(sample_pixels)))</span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_yticks(<span class="bu">range</span>(<span class="bu">len</span>(sample_pixels)))</span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_xticklabels([<span class="ss">f'Px</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> i <span class="kw">in</span> sample_pixels])</span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_yticklabels([<span class="ss">f'Px</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> i <span class="kw">in</span> sample_pixels])</span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>plt.colorbar(im, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">0</span>])</span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Scatter plot showing dependence</span></span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].scatter(X[:, <span class="dv">20</span>], X[:, <span class="dv">21</span>], alpha<span class="op">=</span><span class="fl">0.3</span>, s<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="st">'Pixel 20 vs Pixel 21</span><span class="ch">\n</span><span class="st">(Adjacent Pixels)'</span>)</span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_xlabel(<span class="st">'Pixel 20 Intensity'</span>)</span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Pixel 21 Intensity'</span>)</span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Joint Distribution Properties:"</span>)</span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"- Dimensionality: </span><span class="sc">{</span>X<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> (each sample is 64-dimensional)"</span>)</span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"- Sample size: </span><span class="sc">{</span>X<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> realizations"</span>)</span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"- Mean pixel intensity: </span><span class="sc">{</span>X<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"- Overall variance: </span><span class="sc">{</span>X<span class="sc">.</span>var()<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"- Range: [</span><span class="sc">{</span>X<span class="sc">.</span><span class="bu">min</span>()<span class="sc">:.1f}</span><span class="ss">, </span><span class="sc">{</span>X<span class="sc">.</span><span class="bu">max</span>()<span class="sc">:.1f}</span><span class="ss">]"</span>)</span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"- Correlation between adjacent pixels (20,21): </span><span class="sc">{</span>np<span class="sc">.</span>corrcoef(X[:, <span class="dv">20</span>], X[:, <span class="dv">21</span>])[<span class="dv">0</span>,<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Analyze marginal distributions of pixels</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">8</span>))</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># 1. Mean image (expected value of the joint distribution)</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>mean_image <span class="op">=</span> X.mean(axis<span class="op">=</span><span class="dv">0</span>).reshape(<span class="dv">8</span>, <span class="dv">8</span>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].imshow(mean_image, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Mean Image</span><span class="ch">\n</span><span class="st">(Expected Value)'</span>)</span>
+<span id="cb5-8"><a href="#cb5-8"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].axis(<span class="st">'off'</span>)</span>
+<span id="cb5-9"><a href="#cb5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co"># 2. Standard deviation image (marginal variances)</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>std_image <span class="op">=</span> X.std(axis<span class="op">=</span><span class="dv">0</span>).reshape(<span class="dv">8</span>, <span class="dv">8</span>)</span>
+<span id="cb5-12"><a href="#cb5-12"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].imshow(std_image, cmap<span class="op">=</span><span class="st">'hot'</span>)</span>
+<span id="cb5-13"><a href="#cb5-13"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Standard Deviation per Pixel</span><span class="ch">\n</span><span class="st">(Marginal Variances)'</span>)</span>
+<span id="cb5-14"><a href="#cb5-14"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].axis(<span class="st">'off'</span>)</span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="co"># 3. Sample of marginal distributions</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>pixel_indices <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">28</span>, <span class="dv">35</span>, <span class="dv">50</span>]  <span class="co"># Different pixel positions</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="cf">for</span> i, px_idx <span class="kw">in</span> <span class="bu">enumerate</span>(pixel_indices):</span>
+<span id="cb5-19"><a href="#cb5-19"></a>    <span class="cf">if</span> i <span class="op">&lt;</span> <span class="dv">2</span>:</span>
+<span id="cb5-20"><a href="#cb5-20"></a>        ax <span class="op">=</span> axes[<span class="dv">0</span>, <span class="dv">2</span>]</span>
+<span id="cb5-21"><a href="#cb5-21"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-22"><a href="#cb5-22"></a>        ax <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb5-23"><a href="#cb5-23"></a>    </span>
+<span id="cb5-24"><a href="#cb5-24"></a>    ax.hist(X[:, px_idx], bins<span class="op">=</span><span class="dv">30</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, density<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb5-25"><a href="#cb5-25"></a>            label<span class="op">=</span><span class="ss">f'Pixel </span><span class="sc">{</span>px_idx<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-26"><a href="#cb5-26"></a></span>
+<span id="cb5-27"><a href="#cb5-27"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_title(<span class="st">'Marginal Distributions</span><span class="ch">\n</span><span class="st">of Selected Pixels'</span>)</span>
+<span id="cb5-28"><a href="#cb5-28"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_xlabel(<span class="st">'Pixel Intensity'</span>)</span>
+<span id="cb5-29"><a href="#cb5-29"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_ylabel(<span class="st">'Density'</span>)</span>
+<span id="cb5-30"><a href="#cb5-30"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].legend()</span>
+<span id="cb5-31"><a href="#cb5-31"></a></span>
+<span id="cb5-32"><a href="#cb5-32"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_xlabel(<span class="st">'Pixel Intensity'</span>)</span>
+<span id="cb5-33"><a href="#cb5-33"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_ylabel(<span class="st">'Density'</span>)</span>
+<span id="cb5-34"><a href="#cb5-34"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].legend()</span>
+<span id="cb5-35"><a href="#cb5-35"></a></span>
+<span id="cb5-36"><a href="#cb5-36"></a><span class="co"># 4. Pixel correlation analysis</span></span>
+<span id="cb5-37"><a href="#cb5-37"></a><span class="co"># Sample a few pixels to show correlation</span></span>
+<span id="cb5-38"><a href="#cb5-38"></a>sample_pixels <span class="op">=</span> [<span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">28</span>, <span class="dv">29</span>]  <span class="co"># Adjacent pixels</span></span>
+<span id="cb5-39"><a href="#cb5-39"></a>pixel_data <span class="op">=</span> X[:, sample_pixels]</span>
+<span id="cb5-40"><a href="#cb5-40"></a>correlation_matrix <span class="op">=</span> np.corrcoef(pixel_data.T)</span>
+<span id="cb5-41"><a href="#cb5-41"></a></span>
+<span id="cb5-42"><a href="#cb5-42"></a>im <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">0</span>].imshow(correlation_matrix, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, vmin<span class="op">=-</span><span class="dv">1</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-43"><a href="#cb5-43"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Correlation Matrix</span><span class="ch">\n</span><span class="st">(Sample Adjacent Pixels)'</span>)</span>
+<span id="cb5-44"><a href="#cb5-44"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_xticks(<span class="bu">range</span>(<span class="bu">len</span>(sample_pixels)))</span>
+<span id="cb5-45"><a href="#cb5-45"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_yticks(<span class="bu">range</span>(<span class="bu">len</span>(sample_pixels)))</span>
+<span id="cb5-46"><a href="#cb5-46"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_xticklabels([<span class="ss">f'Px</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> i <span class="kw">in</span> sample_pixels])</span>
+<span id="cb5-47"><a href="#cb5-47"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_yticklabels([<span class="ss">f'Px</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> i <span class="kw">in</span> sample_pixels])</span>
+<span id="cb5-48"><a href="#cb5-48"></a>plt.colorbar(im, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb5-49"><a href="#cb5-49"></a></span>
+<span id="cb5-50"><a href="#cb5-50"></a><span class="co"># 5. Scatter plot showing dependence</span></span>
+<span id="cb5-51"><a href="#cb5-51"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].scatter(X[:, <span class="dv">20</span>], X[:, <span class="dv">21</span>], alpha<span class="op">=</span><span class="fl">0.3</span>, s<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb5-52"><a href="#cb5-52"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="st">'Pixel 20 vs Pixel 21</span><span class="ch">\n</span><span class="st">(Adjacent Pixels)'</span>)</span>
+<span id="cb5-53"><a href="#cb5-53"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_xlabel(<span class="st">'Pixel 20 Intensity'</span>)</span>
+<span id="cb5-54"><a href="#cb5-54"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Pixel 21 Intensity'</span>)</span>
+<span id="cb5-55"><a href="#cb5-55"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb5-56"><a href="#cb5-56"></a></span>
+<span id="cb5-57"><a href="#cb5-57"></a>plt.tight_layout()</span>
+<span id="cb5-58"><a href="#cb5-58"></a>plt.show()</span>
+<span id="cb5-59"><a href="#cb5-59"></a></span>
+<span id="cb5-60"><a href="#cb5-60"></a><span class="bu">print</span>(<span class="st">"Joint Distribution Properties:"</span>)</span>
+<span id="cb5-61"><a href="#cb5-61"></a><span class="bu">print</span>(<span class="ss">f"- Dimensionality: </span><span class="sc">{</span>X<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> (each sample is 64-dimensional)"</span>)</span>
+<span id="cb5-62"><a href="#cb5-62"></a><span class="bu">print</span>(<span class="ss">f"- Sample size: </span><span class="sc">{</span>X<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss"> realizations"</span>)</span>
+<span id="cb5-63"><a href="#cb5-63"></a><span class="bu">print</span>(<span class="ss">f"- Mean pixel intensity: </span><span class="sc">{</span>X<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb5-64"><a href="#cb5-64"></a><span class="bu">print</span>(<span class="ss">f"- Overall variance: </span><span class="sc">{</span>X<span class="sc">.</span>var()<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb5-65"><a href="#cb5-65"></a><span class="bu">print</span>(<span class="ss">f"- Range: [</span><span class="sc">{</span>X<span class="sc">.</span><span class="bu">min</span>()<span class="sc">:.1f}</span><span class="ss">, </span><span class="sc">{</span>X<span class="sc">.</span><span class="bu">max</span>()<span class="sc">:.1f}</span><span class="ss">]"</span>)</span>
+<span id="cb5-66"><a href="#cb5-66"></a><span class="bu">print</span>(<span class="ss">f"- Correlation between adjacent pixels (20,21): </span><span class="sc">{</span>np<span class="sc">.</span>corrcoef(X[:, <span class="dv">20</span>], X[:, <span class="dv">21</span>])[<span class="dv">0</span>,<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="step-2-principal-component-analysis---finding-joint-distribution-structure" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-principal-component-analysis---finding-joint-distribution-structure">Step 2: Principal Component Analysis - Finding Joint Distribution Structure</h3>
@@ -660,96 +923,96 @@ window.Quarto = {
 </ul>
 <p>This analysis demonstrates how abstract concepts like joint distributions become concrete and actionable through computational tools like PCA, bridging probability theory with practical data analysis.</p>
 <div id="cell-10" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Explore the relationship between PCA and covariance structure</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.covariance <span class="im">import</span> EmpiricalCovariance</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute sample covariance matrix</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>cov_estimator <span class="op">=</span> EmpiricalCovariance()</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>cov_matrix <span class="op">=</span> cov_estimator.fit(X).covariance_</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare with PCA eigendecomposition</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>eigenvals, eigenvecs <span class="op">=</span> np.linalg.eigh(cov_matrix)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort in descending order (like PCA)</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>idx <span class="op">=</span> np.argsort(eigenvals)[::<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>eigenvals <span class="op">=</span> eigenvals[idx]</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>eigenvecs <span class="op">=</span> eigenvecs[:, idx]</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Create visualization</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">10</span>))</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Covariance matrix</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>im1 <span class="op">=</span> axes[<span class="dv">0</span>, <span class="dv">0</span>].imshow(cov_matrix, cmap<span class="op">=</span><span class="st">'coolwarm'</span>)</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Sample Covariance Matrix</span><span class="ch">\n</span><span class="st">(64×64)'</span>)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Pixel Index'</span>)</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Pixel Index'</span>)</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>plt.colorbar(im1, ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">0</span>])</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Eigenvalues comparison</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].plot(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>), eigenvals[:<span class="dv">10</span>], <span class="st">'bo-'</span>, label<span class="op">=</span><span class="st">'Covariance Eigenvalues'</span>)</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].plot(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>), pca_detailed.explained_variance_, <span class="st">'ro-'</span>, label<span class="op">=</span><span class="st">'PCA Eigenvalues'</span>)</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Eigenvalues Comparison'</span>)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_xlabel(<span class="st">'Component'</span>)</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Eigenvalue'</span>)</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].legend()</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].grid(<span class="va">True</span>)</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Eigenvector comparison (first PC)</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].plot(eigenvecs[:, <span class="dv">0</span>], <span class="st">'b-'</span>, label<span class="op">=</span><span class="st">'Cov. Eigenvector 1'</span>)</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].plot(pca_detailed.components_[<span class="dv">0</span>], <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">'PCA Component 1'</span>)</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_title(<span class="st">'First Principal Component</span><span class="ch">\n</span><span class="st">(Eigenvector Comparison)'</span>)</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_xlabel(<span class="st">'Pixel Index'</span>)</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_ylabel(<span class="st">'Component Weight'</span>)</span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].legend()</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].grid(<span class="va">True</span>)</span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Correlation matrix (easier to interpret)</span></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>correlation_matrix <span class="op">=</span> np.corrcoef(X.T)</span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>im2 <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">0</span>].imshow(correlation_matrix, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, vmin<span class="op">=-</span><span class="dv">1</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Sample Correlation Matrix</span><span class="ch">\n</span><span class="st">(64×64)'</span>)</span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Pixel Index'</span>)</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Pixel Index'</span>)</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>plt.colorbar(im2, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">0</span>])</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Local correlation structure (show 8x8 spatial structure)</span></span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape correlation matrix to show spatial structure</span></span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>spatial_corr <span class="op">=</span> np.zeros((<span class="dv">8</span>, <span class="dv">8</span>))</span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>center_pixel <span class="op">=</span> <span class="dv">28</span>  <span class="co"># Middle-ish pixel</span></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">64</span>):</span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    row, col <span class="op">=</span> i <span class="op">//</span> <span class="dv">8</span>, i <span class="op">%</span> <span class="dv">8</span></span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>    spatial_corr[row, col] <span class="op">=</span> correlation_matrix[center_pixel, i]</span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>im3 <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">1</span>].imshow(spatial_corr, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, vmin<span class="op">=-</span><span class="dv">1</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="ss">f'Correlation with Pixel </span><span class="sc">{</span>center_pixel<span class="sc">}</span><span class="ch">\n</span><span class="ss">(Spatial Layout)'</span>)</span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>plt.colorbar(im3, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">1</span>])</span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Distribution of correlations</span></span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].hist(correlation_matrix[np.triu_indices_from(correlation_matrix, k<span class="op">=</span><span class="dv">1</span>)], </span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>                bins<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, density<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_title(<span class="st">'Distribution of Pairwise</span><span class="ch">\n</span><span class="st">Pixel Correlations'</span>)</span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_xlabel(<span class="st">'Correlation Coefficient'</span>)</span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_ylabel(<span class="st">'Density'</span>)</span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a><span class="co"># Statistical summary</span></span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"COVARIANCE STRUCTURE ANALYSIS:"</span>)</span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span><span class="op">*</span><span class="dv">40</span>)</span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Covariance matrix shape: </span><span class="sc">{</span>cov_matrix<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Covariance matrix rank: </span><span class="sc">{</span>np<span class="sc">.</span>linalg<span class="sc">.</span>matrix_rank(cov_matrix)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Trace (total variance): </span><span class="sc">{</span>np<span class="sc">.</span>trace(cov_matrix)<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Maximum correlation: </span><span class="sc">{</span>correlation_matrix[correlation_matrix <span class="op">&lt;</span> <span class="dv">1</span>]<span class="sc">.</span><span class="bu">max</span>()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Minimum correlation: </span><span class="sc">{</span>correlation_matrix<span class="sc">.</span><span class="bu">min</span>()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Mean absolute correlation: </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">abs</span>(correlation_matrix[np.triu_indices_from(correlation_matrix, k<span class="op">=</span><span class="dv">1</span>)])<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">PROOF THAT PCA = COVARIANCE EIGENDECOMPOSITION:"</span>)</span>
-<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span><span class="op">*</span><span class="dv">50</span>)</span>
-<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Eigenvalue difference (should be ~0): </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">max</span>(np.<span class="bu">abs</span>(eigenvals[:<span class="dv">10</span>] <span class="op">-</span> pca_detailed.explained_variance_))<span class="sc">:.2e}</span><span class="ss">"</span>)</span>
-<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Eigenvector difference (should be ~0): </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">max</span>(np.<span class="bu">abs</span>(np.<span class="bu">abs</span>(eigenvecs[:, <span class="dv">0</span>]) <span class="op">-</span> np.<span class="bu">abs</span>(pca_detailed.components_[<span class="dv">0</span>])))<span class="sc">:.2e}</span><span class="ss">"</span>)</span>
-<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">✓ PCA components are eigenvectors of the covariance matrix!"</span>)</span>
-<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"✓ PCA eigenvalues are eigenvalues of the covariance matrix!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Explore the relationship between PCA and covariance structure</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="im">from</span> sklearn.covariance <span class="im">import</span> EmpiricalCovariance</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># Compute sample covariance matrix</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>cov_estimator <span class="op">=</span> EmpiricalCovariance()</span>
+<span id="cb6-6"><a href="#cb6-6"></a>cov_matrix <span class="op">=</span> cov_estimator.fit(X).covariance_</span>
+<span id="cb6-7"><a href="#cb6-7"></a></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co"># Compare with PCA eigendecomposition</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a>eigenvals, eigenvecs <span class="op">=</span> np.linalg.eigh(cov_matrix)</span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co"># Sort in descending order (like PCA)</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>idx <span class="op">=</span> np.argsort(eigenvals)[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-12"><a href="#cb6-12"></a>eigenvals <span class="op">=</span> eigenvals[idx]</span>
+<span id="cb6-13"><a href="#cb6-13"></a>eigenvecs <span class="op">=</span> eigenvecs[:, idx]</span>
+<span id="cb6-14"><a href="#cb6-14"></a></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="co"># Create visualization</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">10</span>))</span>
+<span id="cb6-17"><a href="#cb6-17"></a></span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="co"># 1. Covariance matrix</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a>im1 <span class="op">=</span> axes[<span class="dv">0</span>, <span class="dv">0</span>].imshow(cov_matrix, cmap<span class="op">=</span><span class="st">'coolwarm'</span>)</span>
+<span id="cb6-20"><a href="#cb6-20"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Sample Covariance Matrix</span><span class="ch">\n</span><span class="st">(64×64)'</span>)</span>
+<span id="cb6-21"><a href="#cb6-21"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Pixel Index'</span>)</span>
+<span id="cb6-22"><a href="#cb6-22"></a>axes[<span class="dv">0</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Pixel Index'</span>)</span>
+<span id="cb6-23"><a href="#cb6-23"></a>plt.colorbar(im1, ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">0</span>])</span>
+<span id="cb6-24"><a href="#cb6-24"></a></span>
+<span id="cb6-25"><a href="#cb6-25"></a><span class="co"># 2. Eigenvalues comparison</span></span>
+<span id="cb6-26"><a href="#cb6-26"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].plot(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>), eigenvals[:<span class="dv">10</span>], <span class="st">'bo-'</span>, label<span class="op">=</span><span class="st">'Covariance Eigenvalues'</span>)</span>
+<span id="cb6-27"><a href="#cb6-27"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].plot(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>), pca_detailed.explained_variance_, <span class="st">'ro-'</span>, label<span class="op">=</span><span class="st">'PCA Eigenvalues'</span>)</span>
+<span id="cb6-28"><a href="#cb6-28"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Eigenvalues Comparison'</span>)</span>
+<span id="cb6-29"><a href="#cb6-29"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_xlabel(<span class="st">'Component'</span>)</span>
+<span id="cb6-30"><a href="#cb6-30"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].set_ylabel(<span class="st">'Eigenvalue'</span>)</span>
+<span id="cb6-31"><a href="#cb6-31"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].legend()</span>
+<span id="cb6-32"><a href="#cb6-32"></a>axes[<span class="dv">0</span>, <span class="dv">1</span>].grid(<span class="va">True</span>)</span>
+<span id="cb6-33"><a href="#cb6-33"></a></span>
+<span id="cb6-34"><a href="#cb6-34"></a><span class="co"># 3. Eigenvector comparison (first PC)</span></span>
+<span id="cb6-35"><a href="#cb6-35"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].plot(eigenvecs[:, <span class="dv">0</span>], <span class="st">'b-'</span>, label<span class="op">=</span><span class="st">'Cov. Eigenvector 1'</span>)</span>
+<span id="cb6-36"><a href="#cb6-36"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].plot(pca_detailed.components_[<span class="dv">0</span>], <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">'PCA Component 1'</span>)</span>
+<span id="cb6-37"><a href="#cb6-37"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_title(<span class="st">'First Principal Component</span><span class="ch">\n</span><span class="st">(Eigenvector Comparison)'</span>)</span>
+<span id="cb6-38"><a href="#cb6-38"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_xlabel(<span class="st">'Pixel Index'</span>)</span>
+<span id="cb6-39"><a href="#cb6-39"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].set_ylabel(<span class="st">'Component Weight'</span>)</span>
+<span id="cb6-40"><a href="#cb6-40"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].legend()</span>
+<span id="cb6-41"><a href="#cb6-41"></a>axes[<span class="dv">0</span>, <span class="dv">2</span>].grid(<span class="va">True</span>)</span>
+<span id="cb6-42"><a href="#cb6-42"></a></span>
+<span id="cb6-43"><a href="#cb6-43"></a><span class="co"># 4. Correlation matrix (easier to interpret)</span></span>
+<span id="cb6-44"><a href="#cb6-44"></a>correlation_matrix <span class="op">=</span> np.corrcoef(X.T)</span>
+<span id="cb6-45"><a href="#cb6-45"></a>im2 <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">0</span>].imshow(correlation_matrix, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, vmin<span class="op">=-</span><span class="dv">1</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb6-46"><a href="#cb6-46"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Sample Correlation Matrix</span><span class="ch">\n</span><span class="st">(64×64)'</span>)</span>
+<span id="cb6-47"><a href="#cb6-47"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_xlabel(<span class="st">'Pixel Index'</span>)</span>
+<span id="cb6-48"><a href="#cb6-48"></a>axes[<span class="dv">1</span>, <span class="dv">0</span>].set_ylabel(<span class="st">'Pixel Index'</span>)</span>
+<span id="cb6-49"><a href="#cb6-49"></a>plt.colorbar(im2, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb6-50"><a href="#cb6-50"></a></span>
+<span id="cb6-51"><a href="#cb6-51"></a><span class="co"># 5. Local correlation structure (show 8x8 spatial structure)</span></span>
+<span id="cb6-52"><a href="#cb6-52"></a><span class="co"># Reshape correlation matrix to show spatial structure</span></span>
+<span id="cb6-53"><a href="#cb6-53"></a>spatial_corr <span class="op">=</span> np.zeros((<span class="dv">8</span>, <span class="dv">8</span>))</span>
+<span id="cb6-54"><a href="#cb6-54"></a>center_pixel <span class="op">=</span> <span class="dv">28</span>  <span class="co"># Middle-ish pixel</span></span>
+<span id="cb6-55"><a href="#cb6-55"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">64</span>):</span>
+<span id="cb6-56"><a href="#cb6-56"></a>    row, col <span class="op">=</span> i <span class="op">//</span> <span class="dv">8</span>, i <span class="op">%</span> <span class="dv">8</span></span>
+<span id="cb6-57"><a href="#cb6-57"></a>    spatial_corr[row, col] <span class="op">=</span> correlation_matrix[center_pixel, i]</span>
+<span id="cb6-58"><a href="#cb6-58"></a></span>
+<span id="cb6-59"><a href="#cb6-59"></a>im3 <span class="op">=</span> axes[<span class="dv">1</span>, <span class="dv">1</span>].imshow(spatial_corr, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, vmin<span class="op">=-</span><span class="dv">1</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb6-60"><a href="#cb6-60"></a>axes[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="ss">f'Correlation with Pixel </span><span class="sc">{</span>center_pixel<span class="sc">}</span><span class="ch">\n</span><span class="ss">(Spatial Layout)'</span>)</span>
+<span id="cb6-61"><a href="#cb6-61"></a>plt.colorbar(im3, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">1</span>])</span>
+<span id="cb6-62"><a href="#cb6-62"></a></span>
+<span id="cb6-63"><a href="#cb6-63"></a><span class="co"># 6. Distribution of correlations</span></span>
+<span id="cb6-64"><a href="#cb6-64"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].hist(correlation_matrix[np.triu_indices_from(correlation_matrix, k<span class="op">=</span><span class="dv">1</span>)], </span>
+<span id="cb6-65"><a href="#cb6-65"></a>                bins<span class="op">=</span><span class="dv">50</span>, alpha<span class="op">=</span><span class="fl">0.7</span>, density<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-66"><a href="#cb6-66"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_title(<span class="st">'Distribution of Pairwise</span><span class="ch">\n</span><span class="st">Pixel Correlations'</span>)</span>
+<span id="cb6-67"><a href="#cb6-67"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_xlabel(<span class="st">'Correlation Coefficient'</span>)</span>
+<span id="cb6-68"><a href="#cb6-68"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].set_ylabel(<span class="st">'Density'</span>)</span>
+<span id="cb6-69"><a href="#cb6-69"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].axvline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb6-70"><a href="#cb6-70"></a>axes[<span class="dv">1</span>, <span class="dv">2</span>].grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb6-71"><a href="#cb6-71"></a></span>
+<span id="cb6-72"><a href="#cb6-72"></a>plt.tight_layout()</span>
+<span id="cb6-73"><a href="#cb6-73"></a>plt.show()</span>
+<span id="cb6-74"><a href="#cb6-74"></a></span>
+<span id="cb6-75"><a href="#cb6-75"></a><span class="co"># Statistical summary</span></span>
+<span id="cb6-76"><a href="#cb6-76"></a><span class="bu">print</span>(<span class="st">"COVARIANCE STRUCTURE ANALYSIS:"</span>)</span>
+<span id="cb6-77"><a href="#cb6-77"></a><span class="bu">print</span>(<span class="st">"="</span><span class="op">*</span><span class="dv">40</span>)</span>
+<span id="cb6-78"><a href="#cb6-78"></a><span class="bu">print</span>(<span class="ss">f"Covariance matrix shape: </span><span class="sc">{</span>cov_matrix<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-79"><a href="#cb6-79"></a><span class="bu">print</span>(<span class="ss">f"Covariance matrix rank: </span><span class="sc">{</span>np<span class="sc">.</span>linalg<span class="sc">.</span>matrix_rank(cov_matrix)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-80"><a href="#cb6-80"></a><span class="bu">print</span>(<span class="ss">f"Trace (total variance): </span><span class="sc">{</span>np<span class="sc">.</span>trace(cov_matrix)<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb6-81"><a href="#cb6-81"></a><span class="bu">print</span>(<span class="ss">f"Maximum correlation: </span><span class="sc">{</span>correlation_matrix[correlation_matrix <span class="op">&lt;</span> <span class="dv">1</span>]<span class="sc">.</span><span class="bu">max</span>()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb6-82"><a href="#cb6-82"></a><span class="bu">print</span>(<span class="ss">f"Minimum correlation: </span><span class="sc">{</span>correlation_matrix<span class="sc">.</span><span class="bu">min</span>()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb6-83"><a href="#cb6-83"></a><span class="bu">print</span>(<span class="ss">f"Mean absolute correlation: </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">abs</span>(correlation_matrix[np.triu_indices_from(correlation_matrix, k<span class="op">=</span><span class="dv">1</span>)])<span class="sc">.</span>mean()<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb6-84"><a href="#cb6-84"></a></span>
+<span id="cb6-85"><a href="#cb6-85"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">PROOF THAT PCA = COVARIANCE EIGENDECOMPOSITION:"</span>)</span>
+<span id="cb6-86"><a href="#cb6-86"></a><span class="bu">print</span>(<span class="st">"="</span><span class="op">*</span><span class="dv">50</span>)</span>
+<span id="cb6-87"><a href="#cb6-87"></a><span class="bu">print</span>(<span class="ss">f"Eigenvalue difference (should be ~0): </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">max</span>(np.<span class="bu">abs</span>(eigenvals[:<span class="dv">10</span>] <span class="op">-</span> pca_detailed.explained_variance_))<span class="sc">:.2e}</span><span class="ss">"</span>)</span>
+<span id="cb6-88"><a href="#cb6-88"></a><span class="bu">print</span>(<span class="ss">f"Eigenvector difference (should be ~0): </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">max</span>(np.<span class="bu">abs</span>(np.<span class="bu">abs</span>(eigenvecs[:, <span class="dv">0</span>]) <span class="op">-</span> np.<span class="bu">abs</span>(pca_detailed.components_[<span class="dv">0</span>])))<span class="sc">:.2e}</span><span class="ss">"</span>)</span>
+<span id="cb6-89"><a href="#cb6-89"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">✓ PCA components are eigenvectors of the covariance matrix!"</span>)</span>
+<span id="cb6-90"><a href="#cb6-90"></a><span class="bu">print</span>(<span class="st">"✓ PCA eigenvalues are eigenvalues of the covariance matrix!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -759,121 +1022,121 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="covariance-matrix-and-eigenstructure">Covariance Matrix and Eigenstructure</h3>
 <p>The principal components are directly related to the covariance structure of our joint distribution:</p>
 <div id="cell-12" class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Detailed PCA Analysis</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pca_detailed <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">10</span>)  <span class="co"># Get more components for analysis</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>X_reduced_detailed <span class="op">=</span> pca_detailed.fit_transform(X)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create comprehensive visualization</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">12</span>))</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Explained variance ratio</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>plt.bar(<span class="bu">range</span>(<span class="dv">10</span>), pca_detailed.explained_variance_ratio_)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Explained Variance Ratio</span><span class="ch">\n</span><span class="st">by Principal Component'</span>)</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Component'</span>)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Variance Ratio'</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>plt.xticks(<span class="bu">range</span>(<span class="dv">10</span>))</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Cumulative explained variance</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>)</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>cumsum_var <span class="op">=</span> np.cumsum(pca_detailed.explained_variance_ratio_)</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>plt.plot(<span class="bu">range</span>(<span class="dv">10</span>), cumsum_var, <span class="st">'bo-'</span>)</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Cumulative Explained Variance'</span>)</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Components'</span>)</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Cumulative Variance Ratio'</span>)</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 3-6. First 4 principal components as images</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span> <span class="op">+</span> i)</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    component_image <span class="op">=</span> pca_detailed.components_[i].reshape(<span class="dv">8</span>, <span class="dv">8</span>)</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    plt.imshow(component_image, cmap<span class="op">=</span><span class="st">'RdBu_r'</span>)</span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'PC</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ch">\n</span><span class="ss">(Var: </span><span class="sc">{</span>pca_detailed<span class="sc">.</span>explained_variance_ratio_[i]<span class="sc">:.3f}</span><span class="ss">)'</span>)</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    plt.axis(<span class="st">'off'</span>)</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    plt.colorbar(shrink<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. 2D projection colored by digit</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>ax7 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>)</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>scatter <span class="op">=</span> plt.scatter(X_reduced_detailed[:, <span class="dv">0</span>], X_reduced_detailed[:, <span class="dv">1</span>], </span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>                     c<span class="op">=</span>y, cmap<span class="op">=</span><span class="st">'tab10'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, s<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Joint Distribution Projection</span><span class="ch">\n</span><span class="st">(First 2 PCs)'</span>)</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'PC1'</span>)</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'PC2'</span>)</span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>plt.colorbar(scatter, shrink<span class="op">=</span><span class="fl">0.6</span>)</span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 8. Different PC pairs</span></span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>ax8 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">8</span>)</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_reduced_detailed[:, <span class="dv">2</span>], X_reduced_detailed[:, <span class="dv">3</span>], </span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>           c<span class="op">=</span>y, cmap<span class="op">=</span><span class="st">'tab10'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, s<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Joint Distribution Projection</span><span class="ch">\n</span><span class="st">(PC3 vs PC4)'</span>)</span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'PC3'</span>)</span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'PC4'</span>)</span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="co"># 9. Reconstruction demonstration</span></span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>ax9 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">9</span>)</span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Original image</span></span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>original_idx <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>original_image <span class="op">=</span> X[original_idx].reshape(<span class="dv">8</span>, <span class="dv">8</span>)</span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>plt.imshow(original_image, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Original</span><span class="ch">\n</span><span class="ss">(Digit </span><span class="sc">{</span>y[original_idx]<span class="sc">}</span><span class="ss">)'</span>)</span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'off'</span>)</span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="co"># 10. Reconstruction with 2 components</span></span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>ax10 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">10</span>)</span>
-<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>pca_2 <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>X_2d <span class="op">=</span> pca_2.fit_transform(X)</span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>X_reconstructed_2 <span class="op">=</span> pca_2.inverse_transform(X_2d)</span>
-<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>reconstructed_image_2 <span class="op">=</span> X_reconstructed_2[original_idx].reshape(<span class="dv">8</span>, <span class="dv">8</span>)</span>
-<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>plt.imshow(reconstructed_image_2, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'2-PC Reconstruction'</span>)</span>
-<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'off'</span>)</span>
-<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a><span class="co"># 11. Reconstruction with 5 components</span></span>
-<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>ax11 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">11</span>)</span>
-<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>pca_5 <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">5</span>)</span>
-<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>X_5d <span class="op">=</span> pca_5.fit_transform(X)</span>
-<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>X_reconstructed_5 <span class="op">=</span> pca_5.inverse_transform(X_5d)</span>
-<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>reconstructed_image_5 <span class="op">=</span> X_reconstructed_5[original_idx].reshape(<span class="dv">8</span>, <span class="dv">8</span>)</span>
-<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>plt.imshow(reconstructed_image_5, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'5-PC Reconstruction'</span>)</span>
-<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'off'</span>)</span>
-<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a><span class="co"># 12. Reconstruction error analysis</span></span>
-<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>ax12 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">12</span>)</span>
-<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>n_components_range <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">21</span>)</span>
-<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>reconstruction_errors <span class="op">=</span> []</span>
-<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n_comp <span class="kw">in</span> n_components_range:</span>
-<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>    pca_temp <span class="op">=</span> PCA(n_components<span class="op">=</span>n_comp)</span>
-<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>    X_temp <span class="op">=</span> pca_temp.fit_transform(X)</span>
-<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a>    X_recon_temp <span class="op">=</span> pca_temp.inverse_transform(X_temp)</span>
-<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>    error <span class="op">=</span> np.mean((X <span class="op">-</span> X_recon_temp) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>    reconstruction_errors.append(error)</span>
-<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>plt.plot(n_components_range, reconstruction_errors, <span class="st">'ro-'</span>)</span>
-<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Reconstruction Error</span><span class="ch">\n</span><span class="st">vs Number of Components'</span>)</span>
-<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Components'</span>)</span>
-<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Mean Squared Error'</span>)</span>
-<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Print summary statistics</span></span>
-<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"JOINT DISTRIBUTION ANALYSIS SUMMARY:"</span>)</span>
-<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"="</span><span class="op">*</span><span class="dv">50</span>)</span>
-<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Original dimensionality: </span><span class="sc">{</span>X<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Number of samples: </span><span class="sc">{</span>X<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"First 2 PCs explain </span><span class="sc">{</span>cumsum_var[<span class="dv">1</span>]<span class="sc">:.1%}</span><span class="ss"> of total variance"</span>)</span>
-<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"First 5 PCs explain </span><span class="sc">{</span>cumsum_var[<span class="dv">4</span>]<span class="sc">:.1%}</span><span class="ss"> of total variance"</span>)</span>
-<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"First 10 PCs explain </span><span class="sc">{</span>cumsum_var[<span class="dv">9</span>]<span class="sc">:.1%}</span><span class="ss"> of total variance"</span>)</span>
-<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">This means the 64-dimensional joint distribution has most of its"</span>)</span>
-<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"structure captured in just a few principal directions!"</span>)</span>
-<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Reconstruction Quality:"</span>)</span>
-<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"- 2 components: MSE = </span><span class="sc">{</span>reconstruction_errors[<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"- 5 components: MSE = </span><span class="sc">{</span>reconstruction_errors[<span class="dv">4</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"- 10 components: MSE = </span><span class="sc">{</span>reconstruction_errors[<span class="dv">9</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Detailed PCA Analysis</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>pca_detailed <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">10</span>)  <span class="co"># Get more components for analysis</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>X_reduced_detailed <span class="op">=</span> pca_detailed.fit_transform(X)</span>
+<span id="cb7-4"><a href="#cb7-4"></a></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="co"># Create comprehensive visualization</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">12</span>))</span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co"># 1. Explained variance ratio</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>ax1 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>)</span>
+<span id="cb7-10"><a href="#cb7-10"></a>plt.bar(<span class="bu">range</span>(<span class="dv">10</span>), pca_detailed.explained_variance_ratio_)</span>
+<span id="cb7-11"><a href="#cb7-11"></a>plt.title(<span class="st">'Explained Variance Ratio</span><span class="ch">\n</span><span class="st">by Principal Component'</span>)</span>
+<span id="cb7-12"><a href="#cb7-12"></a>plt.xlabel(<span class="st">'Component'</span>)</span>
+<span id="cb7-13"><a href="#cb7-13"></a>plt.ylabel(<span class="st">'Variance Ratio'</span>)</span>
+<span id="cb7-14"><a href="#cb7-14"></a>plt.xticks(<span class="bu">range</span>(<span class="dv">10</span>))</span>
+<span id="cb7-15"><a href="#cb7-15"></a></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="co"># 2. Cumulative explained variance</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>ax2 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>)</span>
+<span id="cb7-18"><a href="#cb7-18"></a>cumsum_var <span class="op">=</span> np.cumsum(pca_detailed.explained_variance_ratio_)</span>
+<span id="cb7-19"><a href="#cb7-19"></a>plt.plot(<span class="bu">range</span>(<span class="dv">10</span>), cumsum_var, <span class="st">'bo-'</span>)</span>
+<span id="cb7-20"><a href="#cb7-20"></a>plt.title(<span class="st">'Cumulative Explained Variance'</span>)</span>
+<span id="cb7-21"><a href="#cb7-21"></a>plt.xlabel(<span class="st">'Number of Components'</span>)</span>
+<span id="cb7-22"><a href="#cb7-22"></a>plt.ylabel(<span class="st">'Cumulative Variance Ratio'</span>)</span>
+<span id="cb7-23"><a href="#cb7-23"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb7-24"><a href="#cb7-24"></a></span>
+<span id="cb7-25"><a href="#cb7-25"></a><span class="co"># 3-6. First 4 principal components as images</span></span>
+<span id="cb7-26"><a href="#cb7-26"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb7-27"><a href="#cb7-27"></a>    ax <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">3</span> <span class="op">+</span> i)</span>
+<span id="cb7-28"><a href="#cb7-28"></a>    component_image <span class="op">=</span> pca_detailed.components_[i].reshape(<span class="dv">8</span>, <span class="dv">8</span>)</span>
+<span id="cb7-29"><a href="#cb7-29"></a>    plt.imshow(component_image, cmap<span class="op">=</span><span class="st">'RdBu_r'</span>)</span>
+<span id="cb7-30"><a href="#cb7-30"></a>    plt.title(<span class="ss">f'PC</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ch">\n</span><span class="ss">(Var: </span><span class="sc">{</span>pca_detailed<span class="sc">.</span>explained_variance_ratio_[i]<span class="sc">:.3f}</span><span class="ss">)'</span>)</span>
+<span id="cb7-31"><a href="#cb7-31"></a>    plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb7-32"><a href="#cb7-32"></a>    plt.colorbar(shrink<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb7-33"><a href="#cb7-33"></a></span>
+<span id="cb7-34"><a href="#cb7-34"></a><span class="co"># 7. 2D projection colored by digit</span></span>
+<span id="cb7-35"><a href="#cb7-35"></a>ax7 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>)</span>
+<span id="cb7-36"><a href="#cb7-36"></a>scatter <span class="op">=</span> plt.scatter(X_reduced_detailed[:, <span class="dv">0</span>], X_reduced_detailed[:, <span class="dv">1</span>], </span>
+<span id="cb7-37"><a href="#cb7-37"></a>                     c<span class="op">=</span>y, cmap<span class="op">=</span><span class="st">'tab10'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, s<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb7-38"><a href="#cb7-38"></a>plt.title(<span class="st">'Joint Distribution Projection</span><span class="ch">\n</span><span class="st">(First 2 PCs)'</span>)</span>
+<span id="cb7-39"><a href="#cb7-39"></a>plt.xlabel(<span class="st">'PC1'</span>)</span>
+<span id="cb7-40"><a href="#cb7-40"></a>plt.ylabel(<span class="st">'PC2'</span>)</span>
+<span id="cb7-41"><a href="#cb7-41"></a>plt.colorbar(scatter, shrink<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb7-42"><a href="#cb7-42"></a></span>
+<span id="cb7-43"><a href="#cb7-43"></a><span class="co"># 8. Different PC pairs</span></span>
+<span id="cb7-44"><a href="#cb7-44"></a>ax8 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">8</span>)</span>
+<span id="cb7-45"><a href="#cb7-45"></a>plt.scatter(X_reduced_detailed[:, <span class="dv">2</span>], X_reduced_detailed[:, <span class="dv">3</span>], </span>
+<span id="cb7-46"><a href="#cb7-46"></a>           c<span class="op">=</span>y, cmap<span class="op">=</span><span class="st">'tab10'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, s<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb7-47"><a href="#cb7-47"></a>plt.title(<span class="st">'Joint Distribution Projection</span><span class="ch">\n</span><span class="st">(PC3 vs PC4)'</span>)</span>
+<span id="cb7-48"><a href="#cb7-48"></a>plt.xlabel(<span class="st">'PC3'</span>)</span>
+<span id="cb7-49"><a href="#cb7-49"></a>plt.ylabel(<span class="st">'PC4'</span>)</span>
+<span id="cb7-50"><a href="#cb7-50"></a></span>
+<span id="cb7-51"><a href="#cb7-51"></a><span class="co"># 9. Reconstruction demonstration</span></span>
+<span id="cb7-52"><a href="#cb7-52"></a>ax9 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">9</span>)</span>
+<span id="cb7-53"><a href="#cb7-53"></a><span class="co"># Original image</span></span>
+<span id="cb7-54"><a href="#cb7-54"></a>original_idx <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb7-55"><a href="#cb7-55"></a>original_image <span class="op">=</span> X[original_idx].reshape(<span class="dv">8</span>, <span class="dv">8</span>)</span>
+<span id="cb7-56"><a href="#cb7-56"></a>plt.imshow(original_image, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb7-57"><a href="#cb7-57"></a>plt.title(<span class="ss">f'Original</span><span class="ch">\n</span><span class="ss">(Digit </span><span class="sc">{</span>y[original_idx]<span class="sc">}</span><span class="ss">)'</span>)</span>
+<span id="cb7-58"><a href="#cb7-58"></a>plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb7-59"><a href="#cb7-59"></a></span>
+<span id="cb7-60"><a href="#cb7-60"></a><span class="co"># 10. Reconstruction with 2 components</span></span>
+<span id="cb7-61"><a href="#cb7-61"></a>ax10 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">10</span>)</span>
+<span id="cb7-62"><a href="#cb7-62"></a>pca_2 <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb7-63"><a href="#cb7-63"></a>X_2d <span class="op">=</span> pca_2.fit_transform(X)</span>
+<span id="cb7-64"><a href="#cb7-64"></a>X_reconstructed_2 <span class="op">=</span> pca_2.inverse_transform(X_2d)</span>
+<span id="cb7-65"><a href="#cb7-65"></a>reconstructed_image_2 <span class="op">=</span> X_reconstructed_2[original_idx].reshape(<span class="dv">8</span>, <span class="dv">8</span>)</span>
+<span id="cb7-66"><a href="#cb7-66"></a>plt.imshow(reconstructed_image_2, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb7-67"><a href="#cb7-67"></a>plt.title(<span class="st">'2-PC Reconstruction'</span>)</span>
+<span id="cb7-68"><a href="#cb7-68"></a>plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb7-69"><a href="#cb7-69"></a></span>
+<span id="cb7-70"><a href="#cb7-70"></a><span class="co"># 11. Reconstruction with 5 components</span></span>
+<span id="cb7-71"><a href="#cb7-71"></a>ax11 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">11</span>)</span>
+<span id="cb7-72"><a href="#cb7-72"></a>pca_5 <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb7-73"><a href="#cb7-73"></a>X_5d <span class="op">=</span> pca_5.fit_transform(X)</span>
+<span id="cb7-74"><a href="#cb7-74"></a>X_reconstructed_5 <span class="op">=</span> pca_5.inverse_transform(X_5d)</span>
+<span id="cb7-75"><a href="#cb7-75"></a>reconstructed_image_5 <span class="op">=</span> X_reconstructed_5[original_idx].reshape(<span class="dv">8</span>, <span class="dv">8</span>)</span>
+<span id="cb7-76"><a href="#cb7-76"></a>plt.imshow(reconstructed_image_5, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb7-77"><a href="#cb7-77"></a>plt.title(<span class="st">'5-PC Reconstruction'</span>)</span>
+<span id="cb7-78"><a href="#cb7-78"></a>plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb7-79"><a href="#cb7-79"></a></span>
+<span id="cb7-80"><a href="#cb7-80"></a><span class="co"># 12. Reconstruction error analysis</span></span>
+<span id="cb7-81"><a href="#cb7-81"></a>ax12 <span class="op">=</span> plt.subplot(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">12</span>)</span>
+<span id="cb7-82"><a href="#cb7-82"></a>n_components_range <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">21</span>)</span>
+<span id="cb7-83"><a href="#cb7-83"></a>reconstruction_errors <span class="op">=</span> []</span>
+<span id="cb7-84"><a href="#cb7-84"></a></span>
+<span id="cb7-85"><a href="#cb7-85"></a><span class="cf">for</span> n_comp <span class="kw">in</span> n_components_range:</span>
+<span id="cb7-86"><a href="#cb7-86"></a>    pca_temp <span class="op">=</span> PCA(n_components<span class="op">=</span>n_comp)</span>
+<span id="cb7-87"><a href="#cb7-87"></a>    X_temp <span class="op">=</span> pca_temp.fit_transform(X)</span>
+<span id="cb7-88"><a href="#cb7-88"></a>    X_recon_temp <span class="op">=</span> pca_temp.inverse_transform(X_temp)</span>
+<span id="cb7-89"><a href="#cb7-89"></a>    error <span class="op">=</span> np.mean((X <span class="op">-</span> X_recon_temp) <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb7-90"><a href="#cb7-90"></a>    reconstruction_errors.append(error)</span>
+<span id="cb7-91"><a href="#cb7-91"></a></span>
+<span id="cb7-92"><a href="#cb7-92"></a>plt.plot(n_components_range, reconstruction_errors, <span class="st">'ro-'</span>)</span>
+<span id="cb7-93"><a href="#cb7-93"></a>plt.title(<span class="st">'Reconstruction Error</span><span class="ch">\n</span><span class="st">vs Number of Components'</span>)</span>
+<span id="cb7-94"><a href="#cb7-94"></a>plt.xlabel(<span class="st">'Number of Components'</span>)</span>
+<span id="cb7-95"><a href="#cb7-95"></a>plt.ylabel(<span class="st">'Mean Squared Error'</span>)</span>
+<span id="cb7-96"><a href="#cb7-96"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb7-97"><a href="#cb7-97"></a></span>
+<span id="cb7-98"><a href="#cb7-98"></a>plt.tight_layout()</span>
+<span id="cb7-99"><a href="#cb7-99"></a>plt.show()</span>
+<span id="cb7-100"><a href="#cb7-100"></a></span>
+<span id="cb7-101"><a href="#cb7-101"></a><span class="co"># Print summary statistics</span></span>
+<span id="cb7-102"><a href="#cb7-102"></a><span class="bu">print</span>(<span class="st">"JOINT DISTRIBUTION ANALYSIS SUMMARY:"</span>)</span>
+<span id="cb7-103"><a href="#cb7-103"></a><span class="bu">print</span>(<span class="st">"="</span><span class="op">*</span><span class="dv">50</span>)</span>
+<span id="cb7-104"><a href="#cb7-104"></a><span class="bu">print</span>(<span class="ss">f"Original dimensionality: </span><span class="sc">{</span>X<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-105"><a href="#cb7-105"></a><span class="bu">print</span>(<span class="ss">f"Number of samples: </span><span class="sc">{</span>X<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-106"><a href="#cb7-106"></a><span class="bu">print</span>(<span class="ss">f"First 2 PCs explain </span><span class="sc">{</span>cumsum_var[<span class="dv">1</span>]<span class="sc">:.1%}</span><span class="ss"> of total variance"</span>)</span>
+<span id="cb7-107"><a href="#cb7-107"></a><span class="bu">print</span>(<span class="ss">f"First 5 PCs explain </span><span class="sc">{</span>cumsum_var[<span class="dv">4</span>]<span class="sc">:.1%}</span><span class="ss"> of total variance"</span>)</span>
+<span id="cb7-108"><a href="#cb7-108"></a><span class="bu">print</span>(<span class="ss">f"First 10 PCs explain </span><span class="sc">{</span>cumsum_var[<span class="dv">9</span>]<span class="sc">:.1%}</span><span class="ss"> of total variance"</span>)</span>
+<span id="cb7-109"><a href="#cb7-109"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">This means the 64-dimensional joint distribution has most of its"</span>)</span>
+<span id="cb7-110"><a href="#cb7-110"></a><span class="bu">print</span>(<span class="ss">f"structure captured in just a few principal directions!"</span>)</span>
+<span id="cb7-111"><a href="#cb7-111"></a></span>
+<span id="cb7-112"><a href="#cb7-112"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Reconstruction Quality:"</span>)</span>
+<span id="cb7-113"><a href="#cb7-113"></a><span class="bu">print</span>(<span class="ss">f"- 2 components: MSE = </span><span class="sc">{</span>reconstruction_errors[<span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb7-114"><a href="#cb7-114"></a><span class="bu">print</span>(<span class="ss">f"- 5 components: MSE = </span><span class="sc">{</span>reconstruction_errors[<span class="dv">4</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb7-115"><a href="#cb7-115"></a><span class="bu">print</span>(<span class="ss">f"- 10 components: MSE = </span><span class="sc">{</span>reconstruction_errors[<span class="dv">9</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let’s explore this in more detail by analyzing the principal components and their relationship to the joint distribution:</p>
 <p><strong>Understanding the PCA Results:</strong></p>
@@ -895,16 +1158,16 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="visualizing-individual-samples">Visualizing Individual Samples</h3>
 <p>Let’s examine individual realizations from our 64-dimensional joint distribution:</p>
 <div id="cell-17" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>X, y <span class="op">=</span> load_digits(return_X_y<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> X.astype(np.float32)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> y.astype(np.int64)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X.shape, y.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>X, y <span class="op">=</span> load_digits(return_X_y<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>X <span class="op">=</span> X.astype(np.float32)</span>
+<span id="cb8-3"><a href="#cb8-3"></a>y <span class="op">=</span> y.astype(np.int64)</span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="bu">print</span>(X.shape, y.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(1797, 64) (1797,)</code></pre>
 </div>
 </div>
 <div id="cell-18" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>X[<span class="dv">0</span>], y[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>X[<span class="dv">0</span>], y[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>(array([ 0.,  0.,  5., 13.,  9.,  1.,  0.,  0.,  0.,  0., 13., 15., 10.,
         15.,  5.,  0.,  0.,  3., 15.,  2.,  0., 11.,  8.,  0.,  0.,  4.,
@@ -916,9 +1179,9 @@ window.Quarto = {
 </div>
 </div>
 <div id="cell-19" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dig <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(X[dig].reshape(<span class="dv">8</span>, <span class="dv">8</span>), cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="ss">f'Target: </span><span class="sc">{</span>y[dig]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>dig <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>plt.imshow(X[dig].reshape(<span class="dv">8</span>, <span class="dv">8</span>), cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3"></a>plt.title(<span class="ss">f'Target: </span><span class="sc">{</span>y[dig]<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>Text(0.5, 1.0, 'Target: 0')</code></pre>
 </div>
@@ -931,21 +1194,21 @@ window.Quarto = {
 </div>
 </div>
 <div id="cell-20" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using PCA to reduce the dimensionality of the data to 2d</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>X_reduced <span class="op">=</span> pca.fit_transform(X)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_reduced.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Using PCA to reduce the dimensionality of the data to 2d</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb14-6"><a href="#cb14-6"></a>X_reduced <span class="op">=</span> pca.fit_transform(X)</span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="bu">print</span>(X_reduced.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(1797, 2)</code></pre>
 </div>
 </div>
 <div id="cell-21" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the reduced data</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_reduced[:, <span class="dv">0</span>], X_reduced[:, <span class="dv">1</span>], c<span class="op">=</span>y, cmap<span class="op">=</span><span class="st">'tab10'</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Plotting the reduced data</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>plt.scatter(X_reduced[:, <span class="dv">0</span>], X_reduced[:, <span class="dv">1</span>], c<span class="op">=</span>y, cmap<span class="op">=</span><span class="st">'tab10'</span>)</span>
+<span id="cb16-3"><a href="#cb16-3"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1046,7 +1309,7 @@ window.Quarto = {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/nipunbatra\.github\.io\/psdv-teaching\/");
+        var filterRegex = new RegExp("https:\/\/nipunbatra\.github\.io\/psdv-teaching");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1374,8 +1637,35 @@ window.Quarto = {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2024-2025, Prof.&nbsp;Nipun Batra, IIT Gandhinagar</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/nipunbatra/psdv-teaching/blob/main/notebooks/images-joint-distribution.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nipunbatra/psdv-teaching/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/nipunbatra/psdv-teaching">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://nipunbatra.github.io">
+      <i class="bi bi-globe" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 
 
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

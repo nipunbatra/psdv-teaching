@@ -11,7 +11,7 @@
 <meta name="keywords" content="probability density function, PDF, continuous distributions, normal distribution, exponential distribution, uniform distribution, gamma distribution, beta distribution, log-normal distribution, parameter estimation">
 <meta name="description" content="A comprehensive exploration of continuous probability distributions including Normal, Laplace, Log-Normal, Gamma, Uniform, Beta, and Exponential distributions. Covers theoretical foundations, real-world applications, and practical implementation with PyTorch.">
 
-<title>Probability Density Functions and Continuous Distributions – Probability Statistics Data Visualization Resources</title>
+<title>Probability Density Functions and Continuous Distributions – PSDV Teaching Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,14 +75,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c3c2c9e745155556954bc4da23476b10.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet" class="quarto-color-scheme-extra">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-1b24b88b73f8b56d80a2d5a00e70f885.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-f1f85bb7dbd4314d5ad09add27c1e8f0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-1b24b88b73f8b56d80a2d5a00e70f885.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-18d8b755c270e74bdd954da6158d0ad1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-fb9de656fd51071e35b698e91f52d13a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-18d8b755c270e74bdd954da6158d0ad1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,6 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
@@ -146,7 +145,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -315,8 +314,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../figures/pexels-solodsha-9009923.jpg" alt="" class="navbar-logo">
+    </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Probability Statistics Data Visualization Resources</span>
+    <span class="navbar-title">PSDV Resources</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -324,11 +326,7 @@ window.Quarto = {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="https://nipunbatra.github.io"> 
-<span class="menu-text">Instructor Homepage</span></a>
-  </li>  
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
@@ -341,6 +339,25 @@ window.Quarto = {
     <a class="nav-link" href="../slides.html"> 
 <span class="menu-text">Slides</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../questions.html"> 
+<span class="menu-text">Questions</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/nipunbatra/psdv-teaching"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://nipunbatra.github.io/psdv25/"> 
+<span class="menu-text">Course 2025</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://nipunbatra.github.io"> 
+<span class="menu-text">Instructor</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -348,10 +365,256 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/random-variables.html">Foundations</a></li><li class="breadcrumb-item"><a href="../notebooks/pdf-continuous.html">Probability Density Functions and Continuous Distributions</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Getting Started</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Probability and Statistics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/set.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Set</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Theory Fundamentals</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/random-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Random Variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/pmf-discrete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Probability Mass Functions and Common Discrete Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/pdf-continuous.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Probability Density Functions and Continuous Distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/cdf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cumulative Distribution Functions and Inverse Sampling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/cdf-discrete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CDF for Discrete Random Variables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Core Concepts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/expectation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematical Expectation and Law of Large Numbers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/iid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Independent and Identically Distributed (i.i.d) Random Variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/law-large-numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Law of Large Numbers and Central Limit Theorem</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Advanced Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/2d-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Distributions in 2D</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/joint-distribution-properties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Joint Distribution Properties</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/sum-random-vars.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sum of Random Variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/random-vector.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Random Vector</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Machine Learning</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/pca.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Principal Component Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/logistic-regression-generative.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PMF and their applications</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/embeddings-angle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Word Embeddings and Vector Angles</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Data Science Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/intro-numpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to NumPy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/introduction-pandas.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Pandas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/introduction-matplotlib.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to Matplotlib</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true">
+ <span class="menu-text">Interactive &amp; Quizzes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/widgets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Interactive Data Exploration with Jupyter Widgets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/quiz1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Analysis Quiz - Pandas GroupBy Operations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/images-joint-distribution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Images and Joint Distributions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -461,13 +724,13 @@ window.Quarto = {
   <li><a href="#exponential-distribution-1" id="toc-exponential-distribution-1" class="nav-link" data-scroll-target="#exponential-distribution-1">Exponential Distribution</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.dev/nipunbatra/psdv-teaching/blob/main/notebooks/pdf-continuous.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nipunbatra/psdv-teaching/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/random-variables.html">Foundations</a></li><li class="breadcrumb-item"><a href="../notebooks/pdf-continuous.html">Probability Density Functions and Continuous Distributions</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Probability Density Functions and Continuous Distributions</h1>
   <div class="quarto-categories">
@@ -640,15 +903,15 @@ window.Quarto = {
 <section id="visualization-of-different-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="visualization-of-different-parameters">Visualization of Different Parameters</h3>
 <div id="cell-4" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Retina mode</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> torch </span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># Retina mode</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -661,28 +924,28 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 \]</span></p>
 <p>Let <span class="math inline">\(X \sim \mathcal{N}(\mu, \sigma^2)\)</span> denote that <span class="math inline">\(X\)</span> is drawn from a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>.</p>
 <div id="cell-6" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>dist <span class="op">=</span> torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-7" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>Real()</code></pre>
 </div>
 </div>
 <div id="cell-8" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>tensor(0.)</code></pre>
 </div>
 </div>
 <div id="cell-9" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dist.variance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>dist.variance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>tensor(1.)</code></pre>
 </div>
 </div>
 <div id="cell-10" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dist.mode</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>dist.mode</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>tensor(0.)</code></pre>
 </div>
@@ -691,19 +954,19 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 <h3 class="anchored" data-anchor-id="real-world-application-heights-and-weights-data">Real-World Application: Heights and Weights Data</h3>
 <p>Human physical measurements often follow normal distributions. Let’s analyze a real dataset of heights and weights:</p>
 <div id="cell-12" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Plotting the PDF</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_pdf_normal(mu, sigma):</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    dist <span class="op">=</span> torch.distributions.Normal(mu, sigma)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> dist.log_prob(x).exp()</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, y, label<span class="op">=</span><span class="ss">f"PDF N(</span><span class="sc">{</span>mu<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">## Plotting the PDF</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="kw">def</span> plot_pdf_normal(mu, sigma):</span>
+<span id="cb11-4"><a href="#cb11-4"></a>    dist <span class="op">=</span> torch.distributions.Normal(mu, sigma)</span>
+<span id="cb11-5"><a href="#cb11-5"></a>    x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
+<span id="cb11-6"><a href="#cb11-6"></a>    y <span class="op">=</span> dist.log_prob(x).exp()</span>
+<span id="cb11-7"><a href="#cb11-7"></a>    plt.plot(x, y, label<span class="op">=</span><span class="ss">f"PDF N(</span><span class="sc">{</span>mu<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>sigma<span class="sc">}</span><span class="ss">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-13" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plot_pdf_normal(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plot_pdf_normal(<span class="dv">0</span>, <span class="dv">2</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plot_pdf_normal(<span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>plot_pdf_normal(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>plot_pdf_normal(<span class="dv">0</span>, <span class="dv">2</span>)</span>
+<span id="cb12-3"><a href="#cb12-3"></a>plot_pdf_normal(<span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb12-4"><a href="#cb12-4"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -713,19 +976,19 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 </div>
 </div>
 <div id="cell-14" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulating data with normal distributed noise</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>x_true <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">1000</span>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>y_true <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> x_true <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>eps <span class="op">=</span> torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">1</span>).sample(y_true.shape)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>y_obs <span class="op">=</span> y_true <span class="op">+</span> eps</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>plt.scatter(x_true, y_obs, </span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>            label<span class="op">=</span><span class="st">"Observed data"</span>, </span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>            marker<span class="op">=</span><span class="st">'o'</span>, s<span class="op">=</span><span class="dv">2</span>,</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>            alpha <span class="op">=</span> <span class="fl">0.5</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>plt.plot(x_true, y_true, label<span class="op">=</span><span class="st">"True data"</span>)</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Simulating data with normal distributed noise</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a></span>
+<span id="cb13-3"><a href="#cb13-3"></a>x_true <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">1000</span>)</span>
+<span id="cb13-4"><a href="#cb13-4"></a>y_true <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> x_true <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>eps <span class="op">=</span> torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">1</span>).sample(y_true.shape)</span>
+<span id="cb13-6"><a href="#cb13-6"></a>y_obs <span class="op">=</span> y_true <span class="op">+</span> eps</span>
+<span id="cb13-7"><a href="#cb13-7"></a></span>
+<span id="cb13-8"><a href="#cb13-8"></a>plt.scatter(x_true, y_obs, </span>
+<span id="cb13-9"><a href="#cb13-9"></a>            label<span class="op">=</span><span class="st">"Observed data"</span>, </span>
+<span id="cb13-10"><a href="#cb13-10"></a>            marker<span class="op">=</span><span class="st">'o'</span>, s<span class="op">=</span><span class="dv">2</span>,</span>
+<span id="cb13-11"><a href="#cb13-11"></a>            alpha <span class="op">=</span> <span class="fl">0.5</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb13-12"><a href="#cb13-12"></a>plt.plot(x_true, y_true, label<span class="op">=</span><span class="st">"True data"</span>)</span>
+<span id="cb13-13"><a href="#cb13-13"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -740,15 +1003,15 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 <p><a href="https://www.kaggle.com/datasets/burnoutminer/heights-and-weights-dataset">Dataset link</a></p>
 <p>The dataset contains 25,000 rows and 3 columns. Each row represents a person and the columns represent the person’s index, height, and weight.</p>
 <div id="cell-16" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_html(<span class="st">"http://socr.ucla.edu/docs/resources/SOCR_Data/SOCR_Data_Dinov_020108_HeightsWeights.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>df <span class="op">=</span> pd.read_html(<span class="st">"http://socr.ucla.edu/docs/resources/SOCR_Data/SOCR_Data_Dinov_020108_HeightsWeights.html"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-17" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>store_df <span class="op">=</span> df[<span class="dv">0</span>]</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>store_df.columns <span class="op">=</span> store_df.iloc[<span class="dv">0</span>]</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>store_df <span class="op">=</span> store_df.iloc[<span class="dv">1</span>:]</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>store_df <span class="op">=</span> store_df.astype(<span class="bu">float</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>store_df <span class="op">=</span> store_df.drop(columns<span class="op">=</span>[<span class="st">"Index"</span>])</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>store_df <span class="op">=</span> store_df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>store_df <span class="op">=</span> df[<span class="dv">0</span>]</span>
+<span id="cb15-2"><a href="#cb15-2"></a>store_df.columns <span class="op">=</span> store_df.iloc[<span class="dv">0</span>]</span>
+<span id="cb15-3"><a href="#cb15-3"></a>store_df <span class="op">=</span> store_df.iloc[<span class="dv">1</span>:]</span>
+<span id="cb15-4"><a href="#cb15-4"></a>store_df <span class="op">=</span> store_df.astype(<span class="bu">float</span>)</span>
+<span id="cb15-5"><a href="#cb15-5"></a>store_df <span class="op">=</span> store_df.drop(columns<span class="op">=</span>[<span class="st">"Index"</span>])</span>
+<span id="cb15-6"><a href="#cb15-6"></a>store_df <span class="op">=</span> store_df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The fitted normal distribution closely matches the empirical height data, confirming that human heights approximately follow a normal distribution.</p>
 </section>
@@ -756,7 +1019,7 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 <h3 class="anchored" data-anchor-id="weight-distribution-analysis">Weight Distribution Analysis</h3>
 <p>Let’s examine whether weights also follow a normal distribution:</p>
 <div id="cell-19" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>store_df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>store_df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <div>
 
@@ -822,7 +1085,7 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 <p><strong>⚠️ Disclaimer</strong>: This example is for educational purposes only. I do not endorse using normal distributions for grading in practice, as it can be unfair and arbitrary.</p>
 <p>Let’s demonstrate how percentiles work with normal distributions:</p>
 <div id="cell-21" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>store_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>store_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 
@@ -868,9 +1131,9 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 </div>
 </div>
 <div id="cell-22" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, sharex<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>store_df[<span class="st">"Height(Inches)"</span>].plot(kind<span class="op">=</span><span class="st">'density'</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>])</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>store_df[<span class="st">"Height(Inches)"</span>].plot(kind<span class="op">=</span><span class="st">'hist'</span>, bins<span class="op">=</span><span class="dv">30</span>, ax<span class="op">=</span>ax[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>fig, ax <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, sharex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>store_df[<span class="st">"Height(Inches)"</span>].plot(kind<span class="op">=</span><span class="st">'density'</span>, ax<span class="op">=</span>ax[<span class="dv">0</span>])</span>
+<span id="cb18-3"><a href="#cb18-3"></a>store_df[<span class="st">"Height(Inches)"</span>].plot(kind<span class="op">=</span><span class="st">'hist'</span>, bins<span class="op">=</span><span class="dv">30</span>, ax<span class="op">=</span>ax[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -924,17 +1187,17 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 <section id="visualization" class="level3">
 <h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
 <div id="cell-27" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a normal distribution to the data</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> store_df[<span class="st">"Height(Inches)"</span>].mean().item()</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> store_df[<span class="st">"Height(Inches)"</span>].std().item()</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Normal(mu, sigma)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="dv">50</span>, <span class="dv">80</span>, <span class="dv">1000</span>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> dist.log_prob(x).exp()</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"Fitted PDF"</span>)</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>store_df[<span class="st">"Height(Inches)"</span>].plot(kind<span class="op">=</span><span class="st">'hist'</span>, label<span class="op">=</span><span class="st">"Histogram"</span>, density<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span><span class="dv">30</span>)</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Fit a normal distribution to the data</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>mu <span class="op">=</span> store_df[<span class="st">"Height(Inches)"</span>].mean().item()</span>
+<span id="cb19-3"><a href="#cb19-3"></a>sigma <span class="op">=</span> store_df[<span class="st">"Height(Inches)"</span>].std().item()</span>
+<span id="cb19-4"><a href="#cb19-4"></a></span>
+<span id="cb19-5"><a href="#cb19-5"></a>dist <span class="op">=</span> torch.distributions.Normal(mu, sigma)</span>
+<span id="cb19-6"><a href="#cb19-6"></a>x <span class="op">=</span> torch.linspace(<span class="dv">50</span>, <span class="dv">80</span>, <span class="dv">1000</span>)</span>
+<span id="cb19-7"><a href="#cb19-7"></a>y <span class="op">=</span> dist.log_prob(x).exp()</span>
+<span id="cb19-8"><a href="#cb19-8"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"Fitted PDF"</span>)</span>
+<span id="cb19-9"><a href="#cb19-9"></a></span>
+<span id="cb19-10"><a href="#cb19-10"></a>store_df[<span class="st">"Height(Inches)"</span>].plot(kind<span class="op">=</span><span class="st">'hist'</span>, label<span class="op">=</span><span class="st">"Histogram"</span>, density<span class="op">=</span><span class="va">True</span>, bins<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb19-11"><a href="#cb19-11"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -944,7 +1207,7 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 </div>
 </div>
 <div id="cell-28" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>store_df[<span class="st">"Weight(Pounds)"</span>].plot(kind<span class="op">=</span><span class="st">'density'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>store_df[<span class="st">"Weight(Pounds)"</span>].plot(kind<span class="op">=</span><span class="st">'density'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -995,10 +1258,10 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 <section id="comparing-log-normal-with-normal" class="level3">
 <h3 class="anchored" data-anchor-id="comparing-log-normal-with-normal">Comparing Log-Normal with Normal</h3>
 <div id="cell-33" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>marks <span class="op">=</span> torch.distributions.Normal(<span class="dv">70</span>, <span class="dv">8</span>).sample((<span class="dv">400</span>,))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>marks <span class="op">=</span> torch.distributions.Normal(<span class="dv">70</span>, <span class="dv">8</span>).sample((<span class="dv">400</span>,))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-34" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> plt.hist(marks, bins<span class="op">=</span><span class="dv">20</span>, density<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>_ <span class="op">=</span> plt.hist(marks, bins<span class="op">=</span><span class="dv">20</span>, density<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1008,57 +1271,57 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 </div>
 </div>
 <div id="cell-35" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>mu_marks, sigma_marks <span class="op">=</span> marks.mean().item(), marks.std().item()</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Normal(mu_marks, sigma_marks)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="dv">30</span>, <span class="dv">110</span>, <span class="dv">1000</span>)</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> dist.log_prob(x).exp()</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"Fitted PDF"</span>, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 99% percentile and above get A+</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>marks_99_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.99</span>))</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>num_students_getting_A_plus <span class="op">=</span> marks[marks<span class="op">&gt;</span>marks_99_per].shape[<span class="dv">0</span>]</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>plt.fill_between(x, y, where<span class="op">=</span>x<span class="op">&gt;</span>marks_99_per, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"A+ (</span><span class="sc">{</span>num_students_getting_A_plus<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 90th percntile to 99th percentile get A</span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>marks_90_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.90</span>))</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>num_students_getting_A <span class="op">=</span> marks[(marks<span class="op">&gt;</span>marks_90_per) <span class="op">&amp;</span> (marks<span class="op">&lt;</span>marks_99_per)].shape[<span class="dv">0</span>]</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>plt.fill_between(x, y, where<span class="op">=</span>(x<span class="op">&gt;</span>marks_90_per) <span class="op">&amp;</span> (x<span class="op">&lt;</span>marks_99_per), alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"A (</span><span class="sc">{</span>num_students_getting_A<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 75th percentile to 90th percentile get A-</span></span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>marks_75_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.75</span>))</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>num_students_getting_B <span class="op">=</span> marks[(marks<span class="op">&gt;</span>marks_75_per) <span class="op">&amp;</span> (marks<span class="op">&lt;</span>marks_90_per)].shape[<span class="dv">0</span>]</span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>plt.fill_between(x, y, where<span class="op">=</span>(x<span class="op">&gt;</span>marks_75_per) <span class="op">&amp;</span> (x<span class="op">&lt;</span>marks_90_per), alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"B (</span><span class="sc">{</span>num_students_getting_B<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 60th percentile to 75th percentile get B</span></span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>marks_60_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.60</span>))</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>num_students_getting_B <span class="op">=</span> marks[(marks<span class="op">&gt;</span>marks_60_per) <span class="op">&amp;</span> (marks<span class="op">&lt;</span>marks_75_per)].shape[<span class="dv">0</span>]</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>plt.fill_between(x, y, where<span class="op">=</span>(x<span class="op">&gt;</span>marks_60_per) <span class="op">&amp;</span> (x<span class="op">&lt;</span>marks_75_per), alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"B- (</span><span class="sc">{</span>num_students_getting_B<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 45th percentile to 60th percentile get C</span></span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>marks_45_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.45</span>))</span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>num_students_getting_B_minus <span class="op">=</span> marks[(marks<span class="op">&gt;</span>marks_45_per) <span class="op">&amp;</span> (marks<span class="op">&lt;</span>marks_60_per)].shape[<span class="dv">0</span>]</span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>plt.fill_between(x, y, where<span class="op">=</span>(x<span class="op">&gt;</span>marks_45_per) <span class="op">&amp;</span> (x<span class="op">&lt;</span>marks_60_per), alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"C (</span><span class="sc">{</span>num_students_getting_B_minus<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb23-31"><a href="#cb23-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-32"><a href="#cb23-32" aria-hidden="true" tabindex="-1"></a><span class="co">#35th percentile to 45th percentile get C-</span></span>
-<span id="cb23-33"><a href="#cb23-33" aria-hidden="true" tabindex="-1"></a>marks_35_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.35</span>))</span>
-<span id="cb23-34"><a href="#cb23-34" aria-hidden="true" tabindex="-1"></a>num_students_getting_C <span class="op">=</span> marks[(marks<span class="op">&gt;</span>marks_35_per) <span class="op">&amp;</span> (marks<span class="op">&lt;</span>marks_45_per)].shape[<span class="dv">0</span>]</span>
-<span id="cb23-35"><a href="#cb23-35" aria-hidden="true" tabindex="-1"></a>plt.fill_between(x, y, where<span class="op">=</span>(x<span class="op">&gt;</span>marks_35_per) <span class="op">&amp;</span> (x<span class="op">&lt;</span>marks_45_per), alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"C- (</span><span class="sc">{</span>num_students_getting_C<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb23-36"><a href="#cb23-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-37"><a href="#cb23-37" aria-hidden="true" tabindex="-1"></a><span class="co"># 20th percentile to 35th percentile get D</span></span>
-<span id="cb23-38"><a href="#cb23-38" aria-hidden="true" tabindex="-1"></a>marks_20_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.20</span>))</span>
-<span id="cb23-39"><a href="#cb23-39" aria-hidden="true" tabindex="-1"></a>num_students_getting_C_minus <span class="op">=</span> marks[(marks<span class="op">&gt;</span>marks_20_per) <span class="op">&amp;</span> (marks<span class="op">&lt;</span>marks_35_per)].shape[<span class="dv">0</span>]</span>
-<span id="cb23-40"><a href="#cb23-40" aria-hidden="true" tabindex="-1"></a>plt.fill_between(x, y, where<span class="op">=</span>(x<span class="op">&gt;</span>marks_20_per) <span class="op">&amp;</span> (x<span class="op">&lt;</span>marks_35_per), alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"D (</span><span class="sc">{</span>num_students_getting_C_minus<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb23-41"><a href="#cb23-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-42"><a href="#cb23-42" aria-hidden="true" tabindex="-1"></a><span class="co"># 3rd percentile to 20th percentile get E</span></span>
-<span id="cb23-43"><a href="#cb23-43" aria-hidden="true" tabindex="-1"></a>marks_3_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.03</span>))</span>
-<span id="cb23-44"><a href="#cb23-44" aria-hidden="true" tabindex="-1"></a>num_students_getting_D <span class="op">=</span> marks[(marks<span class="op">&gt;</span>marks_3_per) <span class="op">&amp;</span> (marks<span class="op">&lt;</span>marks_20_per)].shape[<span class="dv">0</span>]</span>
-<span id="cb23-45"><a href="#cb23-45" aria-hidden="true" tabindex="-1"></a>plt.fill_between(x, y, where<span class="op">=</span>(x<span class="op">&gt;</span>marks_3_per) <span class="op">&amp;</span> (x<span class="op">&lt;</span>marks_20_per), alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"E (</span><span class="sc">{</span>num_students_getting_D<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb23-46"><a href="#cb23-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-47"><a href="#cb23-47" aria-hidden="true" tabindex="-1"></a><span class="co"># 3rd percentile and below get F</span></span>
-<span id="cb23-48"><a href="#cb23-48" aria-hidden="true" tabindex="-1"></a>num_students_getting_F <span class="op">=</span> marks[marks<span class="op">&lt;</span>marks_3_per].shape[<span class="dv">0</span>]</span>
-<span id="cb23-49"><a href="#cb23-49" aria-hidden="true" tabindex="-1"></a>plt.fill_between(x, y, where<span class="op">=</span>x<span class="op">&lt;</span>marks_3_per, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"F (</span><span class="sc">{</span>num_students_getting_F<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb23-50"><a href="#cb23-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-51"><a href="#cb23-51" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>mu_marks, sigma_marks <span class="op">=</span> marks.mean().item(), marks.std().item()</span>
+<span id="cb23-2"><a href="#cb23-2"></a>dist <span class="op">=</span> torch.distributions.Normal(mu_marks, sigma_marks)</span>
+<span id="cb23-3"><a href="#cb23-3"></a>x <span class="op">=</span> torch.linspace(<span class="dv">30</span>, <span class="dv">110</span>, <span class="dv">1000</span>)</span>
+<span id="cb23-4"><a href="#cb23-4"></a>y <span class="op">=</span> dist.log_prob(x).exp()</span>
+<span id="cb23-5"><a href="#cb23-5"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"Fitted PDF"</span>, color<span class="op">=</span><span class="st">'gray'</span>, lw<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb23-6"><a href="#cb23-6"></a></span>
+<span id="cb23-7"><a href="#cb23-7"></a><span class="co"># 99% percentile and above get A+</span></span>
+<span id="cb23-8"><a href="#cb23-8"></a>marks_99_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.99</span>))</span>
+<span id="cb23-9"><a href="#cb23-9"></a>num_students_getting_A_plus <span class="op">=</span> marks[marks<span class="op">&gt;</span>marks_99_per].shape[<span class="dv">0</span>]</span>
+<span id="cb23-10"><a href="#cb23-10"></a>plt.fill_between(x, y, where<span class="op">=</span>x<span class="op">&gt;</span>marks_99_per, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"A+ (</span><span class="sc">{</span>num_students_getting_A_plus<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb23-11"><a href="#cb23-11"></a></span>
+<span id="cb23-12"><a href="#cb23-12"></a><span class="co"># 90th percntile to 99th percentile get A</span></span>
+<span id="cb23-13"><a href="#cb23-13"></a>marks_90_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.90</span>))</span>
+<span id="cb23-14"><a href="#cb23-14"></a>num_students_getting_A <span class="op">=</span> marks[(marks<span class="op">&gt;</span>marks_90_per) <span class="op">&amp;</span> (marks<span class="op">&lt;</span>marks_99_per)].shape[<span class="dv">0</span>]</span>
+<span id="cb23-15"><a href="#cb23-15"></a>plt.fill_between(x, y, where<span class="op">=</span>(x<span class="op">&gt;</span>marks_90_per) <span class="op">&amp;</span> (x<span class="op">&lt;</span>marks_99_per), alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"A (</span><span class="sc">{</span>num_students_getting_A<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb23-16"><a href="#cb23-16"></a></span>
+<span id="cb23-17"><a href="#cb23-17"></a><span class="co"># 75th percentile to 90th percentile get A-</span></span>
+<span id="cb23-18"><a href="#cb23-18"></a>marks_75_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.75</span>))</span>
+<span id="cb23-19"><a href="#cb23-19"></a>num_students_getting_B <span class="op">=</span> marks[(marks<span class="op">&gt;</span>marks_75_per) <span class="op">&amp;</span> (marks<span class="op">&lt;</span>marks_90_per)].shape[<span class="dv">0</span>]</span>
+<span id="cb23-20"><a href="#cb23-20"></a>plt.fill_between(x, y, where<span class="op">=</span>(x<span class="op">&gt;</span>marks_75_per) <span class="op">&amp;</span> (x<span class="op">&lt;</span>marks_90_per), alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"B (</span><span class="sc">{</span>num_students_getting_B<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb23-21"><a href="#cb23-21"></a></span>
+<span id="cb23-22"><a href="#cb23-22"></a><span class="co"># 60th percentile to 75th percentile get B</span></span>
+<span id="cb23-23"><a href="#cb23-23"></a>marks_60_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.60</span>))</span>
+<span id="cb23-24"><a href="#cb23-24"></a>num_students_getting_B <span class="op">=</span> marks[(marks<span class="op">&gt;</span>marks_60_per) <span class="op">&amp;</span> (marks<span class="op">&lt;</span>marks_75_per)].shape[<span class="dv">0</span>]</span>
+<span id="cb23-25"><a href="#cb23-25"></a>plt.fill_between(x, y, where<span class="op">=</span>(x<span class="op">&gt;</span>marks_60_per) <span class="op">&amp;</span> (x<span class="op">&lt;</span>marks_75_per), alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"B- (</span><span class="sc">{</span>num_students_getting_B<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb23-26"><a href="#cb23-26"></a></span>
+<span id="cb23-27"><a href="#cb23-27"></a><span class="co"># 45th percentile to 60th percentile get C</span></span>
+<span id="cb23-28"><a href="#cb23-28"></a>marks_45_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.45</span>))</span>
+<span id="cb23-29"><a href="#cb23-29"></a>num_students_getting_B_minus <span class="op">=</span> marks[(marks<span class="op">&gt;</span>marks_45_per) <span class="op">&amp;</span> (marks<span class="op">&lt;</span>marks_60_per)].shape[<span class="dv">0</span>]</span>
+<span id="cb23-30"><a href="#cb23-30"></a>plt.fill_between(x, y, where<span class="op">=</span>(x<span class="op">&gt;</span>marks_45_per) <span class="op">&amp;</span> (x<span class="op">&lt;</span>marks_60_per), alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"C (</span><span class="sc">{</span>num_students_getting_B_minus<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb23-31"><a href="#cb23-31"></a></span>
+<span id="cb23-32"><a href="#cb23-32"></a><span class="co">#35th percentile to 45th percentile get C-</span></span>
+<span id="cb23-33"><a href="#cb23-33"></a>marks_35_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.35</span>))</span>
+<span id="cb23-34"><a href="#cb23-34"></a>num_students_getting_C <span class="op">=</span> marks[(marks<span class="op">&gt;</span>marks_35_per) <span class="op">&amp;</span> (marks<span class="op">&lt;</span>marks_45_per)].shape[<span class="dv">0</span>]</span>
+<span id="cb23-35"><a href="#cb23-35"></a>plt.fill_between(x, y, where<span class="op">=</span>(x<span class="op">&gt;</span>marks_35_per) <span class="op">&amp;</span> (x<span class="op">&lt;</span>marks_45_per), alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"C- (</span><span class="sc">{</span>num_students_getting_C<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb23-36"><a href="#cb23-36"></a></span>
+<span id="cb23-37"><a href="#cb23-37"></a><span class="co"># 20th percentile to 35th percentile get D</span></span>
+<span id="cb23-38"><a href="#cb23-38"></a>marks_20_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.20</span>))</span>
+<span id="cb23-39"><a href="#cb23-39"></a>num_students_getting_C_minus <span class="op">=</span> marks[(marks<span class="op">&gt;</span>marks_20_per) <span class="op">&amp;</span> (marks<span class="op">&lt;</span>marks_35_per)].shape[<span class="dv">0</span>]</span>
+<span id="cb23-40"><a href="#cb23-40"></a>plt.fill_between(x, y, where<span class="op">=</span>(x<span class="op">&gt;</span>marks_20_per) <span class="op">&amp;</span> (x<span class="op">&lt;</span>marks_35_per), alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"D (</span><span class="sc">{</span>num_students_getting_C_minus<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb23-41"><a href="#cb23-41"></a></span>
+<span id="cb23-42"><a href="#cb23-42"></a><span class="co"># 3rd percentile to 20th percentile get E</span></span>
+<span id="cb23-43"><a href="#cb23-43"></a>marks_3_per <span class="op">=</span> dist.icdf(torch.tensor(<span class="fl">0.03</span>))</span>
+<span id="cb23-44"><a href="#cb23-44"></a>num_students_getting_D <span class="op">=</span> marks[(marks<span class="op">&gt;</span>marks_3_per) <span class="op">&amp;</span> (marks<span class="op">&lt;</span>marks_20_per)].shape[<span class="dv">0</span>]</span>
+<span id="cb23-45"><a href="#cb23-45"></a>plt.fill_between(x, y, where<span class="op">=</span>(x<span class="op">&gt;</span>marks_3_per) <span class="op">&amp;</span> (x<span class="op">&lt;</span>marks_20_per), alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"E (</span><span class="sc">{</span>num_students_getting_D<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb23-46"><a href="#cb23-46"></a></span>
+<span id="cb23-47"><a href="#cb23-47"></a><span class="co"># 3rd percentile and below get F</span></span>
+<span id="cb23-48"><a href="#cb23-48"></a>num_students_getting_F <span class="op">=</span> marks[marks<span class="op">&lt;</span>marks_3_per].shape[<span class="dv">0</span>]</span>
+<span id="cb23-49"><a href="#cb23-49"></a>plt.fill_between(x, y, where<span class="op">=</span>x<span class="op">&lt;</span>marks_3_per, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="ss">f"F (</span><span class="sc">{</span>num_students_getting_F<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb23-50"><a href="#cb23-50"></a></span>
+<span id="cb23-51"><a href="#cb23-51"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1077,15 +1340,15 @@ f_X(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\ri
 f_X(x) = \frac{1}{2\lambda} \exp\left(-\frac{|x-\mu|}{\lambda}\right).
 \]</span></p>
 <div id="cell-37" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>unit_normal <span class="op">=</span> torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>unit_laplace <span class="op">=</span> torch.distributions.Laplace(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>y_normal <span class="op">=</span> unit_normal.log_prob(x).exp()</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>y_laplace <span class="op">=</span> unit_laplace.log_prob(x).exp()</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y_normal, label<span class="op">=</span><span class="st">"Normal"</span>)</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y_laplace, label<span class="op">=</span><span class="st">"Laplace"</span>)</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>unit_normal <span class="op">=</span> torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb24-2"><a href="#cb24-2"></a>unit_laplace <span class="op">=</span> torch.distributions.Laplace(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb24-3"><a href="#cb24-3"></a></span>
+<span id="cb24-4"><a href="#cb24-4"></a>x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
+<span id="cb24-5"><a href="#cb24-5"></a>y_normal <span class="op">=</span> unit_normal.log_prob(x).exp()</span>
+<span id="cb24-6"><a href="#cb24-6"></a>y_laplace <span class="op">=</span> unit_laplace.log_prob(x).exp()</span>
+<span id="cb24-7"><a href="#cb24-7"></a>plt.plot(x, y_normal, label<span class="op">=</span><span class="st">"Normal"</span>)</span>
+<span id="cb24-8"><a href="#cb24-8"></a>plt.plot(x, y_laplace, label<span class="op">=</span><span class="st">"Laplace"</span>)</span>
+<span id="cb24-9"><a href="#cb24-9"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1106,13 +1369,13 @@ f_X(x) = \frac{1}{2\lambda} \exp\left(-\frac{|x-\mu|}{\lambda}\right).
 <p>$$ f_X(x) = (-).</p>
 <p>$$</p>
 <div id="cell-40" class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>hn <span class="op">=</span> torch.distributions.HalfNormal(<span class="dv">1</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> hn.log_prob(x).exp()</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, y, label<span class="op">=</span><span class="st">"HalfNormal"</span>)</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>hn <span class="op">=</span> torch.distributions.HalfNormal(<span class="dv">1</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a>x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="cf">try</span>:</span>
+<span id="cb25-4"><a href="#cb25-4"></a>    y <span class="op">=</span> hn.log_prob(x).exp()</span>
+<span id="cb25-5"><a href="#cb25-5"></a>    plt.plot(x, y, label<span class="op">=</span><span class="st">"HalfNormal"</span>)</span>
+<span id="cb25-6"><a href="#cb25-6"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb25-7"><a href="#cb25-7"></a>    <span class="bu">print</span>(e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Expected value argument (Tensor of shape (1000,)) to be within the support (GreaterThanEq(lower_bound=0.0)) of the distribution HalfNormal(), but found invalid values:
 tensor([-10.0000,  -9.9800,  -9.9600,  -9.9399,  -9.9199,  -9.8999,  -9.8799,
@@ -1261,18 +1524,18 @@ tensor([-10.0000,  -9.9800,  -9.9600,  -9.9399,  -9.9199,  -9.8999,  -9.8799,
 </div>
 </div>
 <div id="cell-41" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>hn <span class="op">=</span> torch.distributions.HalfNormal(<span class="dv">1</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>x_mask <span class="op">=</span> x<span class="op">&gt;</span><span class="dv">0</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> torch.zeros_like(x)</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>y[x_mask] <span class="op">=</span> hn.log_prob(x[x_mask]).exp()</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"Half Normal"</span>)</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>normal <span class="op">=</span>  torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>y_norm <span class="op">=</span> normal.log_prob(x).exp()</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y_norm, label<span class="op">=</span><span class="st">"Normal"</span>)</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>hn <span class="op">=</span> torch.distributions.HalfNormal(<span class="dv">1</span>)</span>
+<span id="cb27-2"><a href="#cb27-2"></a>x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
+<span id="cb27-3"><a href="#cb27-3"></a>x_mask <span class="op">=</span> x<span class="op">&gt;</span><span class="dv">0</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a>y <span class="op">=</span> torch.zeros_like(x)</span>
+<span id="cb27-5"><a href="#cb27-5"></a>y[x_mask] <span class="op">=</span> hn.log_prob(x[x_mask]).exp()</span>
+<span id="cb27-6"><a href="#cb27-6"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"Half Normal"</span>)</span>
+<span id="cb27-7"><a href="#cb27-7"></a></span>
+<span id="cb27-8"><a href="#cb27-8"></a></span>
+<span id="cb27-9"><a href="#cb27-9"></a>normal <span class="op">=</span>  torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb27-10"><a href="#cb27-10"></a>y_norm <span class="op">=</span> normal.log_prob(x).exp()</span>
+<span id="cb27-11"><a href="#cb27-11"></a>plt.plot(x, y_norm, label<span class="op">=</span><span class="st">"Normal"</span>)</span>
+<span id="cb27-12"><a href="#cb27-12"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1282,16 +1545,16 @@ tensor([-10.0000,  -9.9800,  -9.9600,  -9.9399,  -9.9199,  -9.8999,  -9.8799,
 </div>
 </div>
 <div id="cell-42" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>x_lin <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">17</span>, <span class="dv">17</span>, <span class="dv">1000</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>log_probs <span class="op">=</span> dist.log_prob(x_lin)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>probs <span class="op">=</span> log_probs.exp()</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, sharex<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].plot(x_lin, log_probs)</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_title(<span class="st">"Log Prob"</span>)</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].plot(x_lin, probs)</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_title(<span class="st">"Prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>dist <span class="op">=</span> torch.distributions.Normal(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb28-2"><a href="#cb28-2"></a>x_lin <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">17</span>, <span class="dv">17</span>, <span class="dv">1000</span>)</span>
+<span id="cb28-3"><a href="#cb28-3"></a>log_probs <span class="op">=</span> dist.log_prob(x_lin)</span>
+<span id="cb28-4"><a href="#cb28-4"></a>probs <span class="op">=</span> log_probs.exp()</span>
+<span id="cb28-5"><a href="#cb28-5"></a></span>
+<span id="cb28-6"><a href="#cb28-6"></a>fig, ax <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, sharex<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb28-7"><a href="#cb28-7"></a>ax[<span class="dv">0</span>].plot(x_lin, log_probs)</span>
+<span id="cb28-8"><a href="#cb28-8"></a>ax[<span class="dv">0</span>].set_title(<span class="st">"Log Prob"</span>)</span>
+<span id="cb28-9"><a href="#cb28-9"></a>ax[<span class="dv">1</span>].plot(x_lin, probs)</span>
+<span id="cb28-10"><a href="#cb28-10"></a>ax[<span class="dv">1</span>].set_title(<span class="st">"Prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>Text(0.5, 1.0, 'Prob')</code></pre>
 </div>
@@ -1304,10 +1567,10 @@ tensor([-10.0000,  -9.9800,  -9.9600,  -9.9399,  -9.9199,  -9.8999,  -9.8799,
 </div>
 </div>
 <div id="cell-43" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(probs[<span class="dv">0</span>], probs[<span class="dv">1</span>])</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(log_probs[<span class="dv">0</span>], log_probs[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a></span>
+<span id="cb30-2"><a href="#cb30-2"></a></span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="bu">print</span>(probs[<span class="dv">0</span>], probs[<span class="dv">1</span>])</span>
+<span id="cb30-4"><a href="#cb30-4"></a><span class="bu">print</span>(log_probs[<span class="dv">0</span>], log_probs[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tensor(0.) tensor(0.)
 tensor(-145.4189) tensor(-144.8409)</code></pre>
@@ -1358,13 +1621,13 @@ f_X(x) = \frac{1}{x\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(\log(x)-\mu)^2}{2\sigm
 <h3 class="anchored" data-anchor-id="parameter-estimation-example">Parameter Estimation Example</h3>
 <p>Let’s fit a gamma distribution to chess game length data:</p>
 <div id="cell-47" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="op">=</span> <span class="fl">1.0</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>log_normal <span class="op">=</span> torch.distributions.LogNormal(mu, sigma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>mu <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>sigma <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a></span>
+<span id="cb32-4"><a href="#cb32-4"></a>log_normal <span class="op">=</span> torch.distributions.LogNormal(mu, sigma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-48" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>log_normal.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>log_normal.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>GreaterThan(lower_bound=0.0)</code></pre>
 </div>
@@ -1405,37 +1668,37 @@ f_X(x) = \frac{1}{x\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(\log(x)-\mu)^2}{2\sigm
 <h3 class="anchored" data-anchor-id="practical-application-quantization-error-modeling">Practical Application: Quantization Error Modeling</h3>
 <p>Digital signal processing often involves quantizing continuous signals into discrete levels, introducing quantization error that can be modeled as uniform:</p>
 <div id="cell-51" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>log_normal.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>log_normal.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <pre><code>tensor(4.4817)</code></pre>
 </div>
 </div>
 <div id="cell-52" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>log_normal.mode</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>log_normal.mode</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>tensor(1.)</code></pre>
 </div>
 </div>
 <div id="cell-53" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>log_normal.variance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>log_normal.variance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
 <pre><code>tensor(34.5126)</code></pre>
 </div>
 </div>
 <div id="cell-54" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>x_non_neg_mask <span class="op">=</span> x <span class="op">&gt;</span> <span class="fl">0.001</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> torch.zeros_like(x)</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>y[x_non_neg_mask] <span class="op">=</span> log_normal.log_prob(x[x_non_neg_mask]).exp()</span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"PDF LogNormal(1, 1)"</span>)</span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>normal <span class="op">=</span> torch.distributions.Normal(mu, sigma)</span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>plt.plot(x, normal.log_prob(x).exp(), label<span class="op">=</span><span class="st">"PDF Normal(1, 1)"</span>)</span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a></span>
+<span id="cb41-2"><a href="#cb41-2"></a>x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
+<span id="cb41-3"><a href="#cb41-3"></a>x_non_neg_mask <span class="op">=</span> x <span class="op">&gt;</span> <span class="fl">0.001</span></span>
+<span id="cb41-4"><a href="#cb41-4"></a></span>
+<span id="cb41-5"><a href="#cb41-5"></a>y <span class="op">=</span> torch.zeros_like(x)</span>
+<span id="cb41-6"><a href="#cb41-6"></a>y[x_non_neg_mask] <span class="op">=</span> log_normal.log_prob(x[x_non_neg_mask]).exp()</span>
+<span id="cb41-7"><a href="#cb41-7"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"PDF LogNormal(1, 1)"</span>)</span>
+<span id="cb41-8"><a href="#cb41-8"></a></span>
+<span id="cb41-9"><a href="#cb41-9"></a>normal <span class="op">=</span> torch.distributions.Normal(mu, sigma)</span>
+<span id="cb41-10"><a href="#cb41-10"></a>plt.plot(x, normal.log_prob(x).exp(), label<span class="op">=</span><span class="st">"PDF Normal(1, 1)"</span>)</span>
+<span id="cb41-11"><a href="#cb41-11"></a></span>
+<span id="cb41-12"><a href="#cb41-12"></a>plt.legend()</span>
+<span id="cb41-13"><a href="#cb41-13"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1448,22 +1711,22 @@ f_X(x) = \frac{1}{x\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(\log(x)-\mu)^2}{2\sigm
 <p>See: https://en.wikipedia.org/wiki/Log-normal_distribution</p>
 <p>See https://chess.stackexchange.com/questions/2506/what-is-the-average-length-of-a-game-of-chess/4899#4899</p>
 <div id="cell-56" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> kagglehub</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Download latest version</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> kagglehub.dataset_download(<span class="st">"datasnaek/chess"</span>)</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Path to dataset files:"</span>, path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="im">import</span> kagglehub</span>
+<span id="cb42-2"><a href="#cb42-2"></a></span>
+<span id="cb42-3"><a href="#cb42-3"></a><span class="co"># Download latest version</span></span>
+<span id="cb42-4"><a href="#cb42-4"></a>path <span class="op">=</span> kagglehub.dataset_download(<span class="st">"datasnaek/chess"</span>)</span>
+<span id="cb42-5"><a href="#cb42-5"></a></span>
+<span id="cb42-6"><a href="#cb42-6"></a><span class="bu">print</span>(<span class="st">"Path to dataset files:"</span>, path)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Path to dataset files: /Users/nipun/.cache/kagglehub/datasets/datasnaek/chess/versions/1</code></pre>
 </div>
 </div>
 <div id="cell-57" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(os.path.join(path, <span class="st">"games.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="im">import</span> os</span>
+<span id="cb44-2"><a href="#cb44-2"></a>df <span class="op">=</span> pd.read_csv(os.path.join(path, <span class="st">"games.csv"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-58" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
 <div>
 
@@ -1593,8 +1856,8 @@ f_X(x) = \frac{1}{x\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(\log(x)-\mu)^2}{2\sigm
 </div>
 </div>
 <div id="cell-59" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribution of the number of turns in the games</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"turns"</span>].plot(kind<span class="op">=</span><span class="st">'hist'</span>, bins<span class="op">=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Distribution of the number of turns in the games</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>df[<span class="st">"turns"</span>].plot(kind<span class="op">=</span><span class="st">'hist'</span>, bins<span class="op">=</span><span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1604,10 +1867,10 @@ f_X(x) = \frac{1}{x\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(\log(x)-\mu)^2}{2\sigm
 </div>
 </div>
 <div id="cell-60" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Logarithm of the number of turns</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"turns"</span>].<span class="bu">apply</span>(np.log).plot(kind<span class="op">=</span><span class="st">'hist'</span>, bins<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Log of turns seems to be normally distributed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Logarithm of the number of turns</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>df[<span class="st">"turns"</span>].<span class="bu">apply</span>(np.log).plot(kind<span class="op">=</span><span class="st">'hist'</span>, bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb47-3"><a href="#cb47-3"></a></span>
+<span id="cb47-4"><a href="#cb47-4"></a><span class="co"># Log of turns seems to be normally distributed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1617,24 +1880,24 @@ f_X(x) = \frac{1}{x\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(\log(x)-\mu)^2}{2\sigm
 </div>
 </div>
 <div id="cell-61" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>mu, sigma <span class="op">=</span> df[<span class="st">"turns"</span>].<span class="bu">apply</span>(np.log).mean(), df[<span class="st">"turns"</span>].<span class="bu">apply</span>(np.log1p).std()</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mu, sigma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>mu, sigma <span class="op">=</span> df[<span class="st">"turns"</span>].<span class="bu">apply</span>(np.log).mean(), df[<span class="st">"turns"</span>].<span class="bu">apply</span>(np.log1p).std()</span>
+<span id="cb48-2"><a href="#cb48-2"></a><span class="bu">print</span>(mu, sigma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>3.9070571274448245 0.6822030192719669</code></pre>
 </div>
 </div>
 <div id="cell-62" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot PDF of the fitted log-normal distribution</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="dv">300</span>, <span class="dv">1000</span>)</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> torch.no_grad():</span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>    log_normal <span class="op">=</span> torch.distributions.LogNormal(mu, sigma)</span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> log_normal.log_prob(x).exp()</span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"Fitted PDF"</span>)</span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>plt.hist(df[<span class="st">"turns"</span>], bins<span class="op">=</span><span class="dv">50</span>, density<span class="op">=</span><span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"KDE"</span>)</span>
-<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Plot PDF of the fitted log-normal distribution</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a></span>
+<span id="cb50-3"><a href="#cb50-3"></a>x <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="dv">300</span>, <span class="dv">1000</span>)</span>
+<span id="cb50-4"><a href="#cb50-4"></a></span>
+<span id="cb50-5"><a href="#cb50-5"></a><span class="cf">with</span> torch.no_grad():</span>
+<span id="cb50-6"><a href="#cb50-6"></a>    log_normal <span class="op">=</span> torch.distributions.LogNormal(mu, sigma)</span>
+<span id="cb50-7"><a href="#cb50-7"></a>y <span class="op">=</span> log_normal.log_prob(x).exp()</span>
+<span id="cb50-8"><a href="#cb50-8"></a></span>
+<span id="cb50-9"><a href="#cb50-9"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"Fitted PDF"</span>)</span>
+<span id="cb50-10"><a href="#cb50-10"></a>plt.hist(df[<span class="st">"turns"</span>], bins<span class="op">=</span><span class="dv">50</span>, density<span class="op">=</span><span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"KDE"</span>)</span>
+<span id="cb50-11"><a href="#cb50-11"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1661,11 +1924,11 @@ f_X(x) = \frac{1}{\Gamma(k)\theta^k} x^{k-1} \exp\left(-\frac{x}{\theta}\right).
 <h3 class="anchored" data-anchor-id="audio-compression-example">Audio Compression Example</h3>
 <p>Let’s demonstrate quantization with real audio data:</p>
 <div id="cell-65" class="cell" data-execution_count="39">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>gamma_dist <span class="op">=</span> torch.distributions.Gamma(<span class="dv">2</span>, <span class="dv">1</span>)</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> gamma_dist.log_prob(x).exp()</span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"PDF Gamma(2, 1)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>gamma_dist <span class="op">=</span> torch.distributions.Gamma(<span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb51-2"><a href="#cb51-2"></a></span>
+<span id="cb51-3"><a href="#cb51-3"></a>x <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
+<span id="cb51-4"><a href="#cb51-4"></a>y <span class="op">=</span> gamma_dist.log_prob(x).exp()</span>
+<span id="cb51-5"><a href="#cb51-5"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"PDF Gamma(2, 1)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1675,32 +1938,32 @@ f_X(x) = \frac{1}{\Gamma(k)\theta^k} x^{k-1} \exp\left(-\frac{x}{\theta}\right).
 </div>
 </div>
 <div id="cell-66" class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a gamma distribution to the data</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>alpha, beta <span class="op">=</span> torch.tensor([<span class="fl">1.0</span>], requires_grad<span class="op">=</span><span class="va">True</span>), torch.tensor([<span class="fl">1.0</span>], requires_grad<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>gamma_dist <span class="op">=</span> torch.distributions.Gamma(alpha, beta)</span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.Adam([alpha, beta], lr<span class="op">=</span><span class="fl">0.01</span>)</span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.tensor(df[<span class="st">"turns"</span>].values, dtype<span class="op">=</span>torch.float32)</span>
-<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
-<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>    optimizer.zero_grad()</span>
-<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>    loss <span class="op">=</span> <span class="op">-</span>gamma_dist.log_prob(x).mean()</span>
-<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>    loss.backward()</span>
-<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>    optimizer.step()</span>
-<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(alpha.item(), beta.item())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Fit a gamma distribution to the data</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>alpha, beta <span class="op">=</span> torch.tensor([<span class="fl">1.0</span>], requires_grad<span class="op">=</span><span class="va">True</span>), torch.tensor([<span class="fl">1.0</span>], requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb52-3"><a href="#cb52-3"></a>gamma_dist <span class="op">=</span> torch.distributions.Gamma(alpha, beta)</span>
+<span id="cb52-4"><a href="#cb52-4"></a></span>
+<span id="cb52-5"><a href="#cb52-5"></a>optimizer <span class="op">=</span> torch.optim.Adam([alpha, beta], lr<span class="op">=</span><span class="fl">0.01</span>)</span>
+<span id="cb52-6"><a href="#cb52-6"></a></span>
+<span id="cb52-7"><a href="#cb52-7"></a>x <span class="op">=</span> torch.tensor(df[<span class="st">"turns"</span>].values, dtype<span class="op">=</span>torch.float32)</span>
+<span id="cb52-8"><a href="#cb52-8"></a></span>
+<span id="cb52-9"><a href="#cb52-9"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb52-10"><a href="#cb52-10"></a>    optimizer.zero_grad()</span>
+<span id="cb52-11"><a href="#cb52-11"></a>    loss <span class="op">=</span> <span class="op">-</span>gamma_dist.log_prob(x).mean()</span>
+<span id="cb52-12"><a href="#cb52-12"></a>    loss.backward()</span>
+<span id="cb52-13"><a href="#cb52-13"></a>    optimizer.step()</span>
+<span id="cb52-14"><a href="#cb52-14"></a></span>
+<span id="cb52-15"><a href="#cb52-15"></a><span class="bu">print</span>(alpha.item(), beta.item())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>2.315873384475708 0.03829348832368851</code></pre>
 </div>
 </div>
 <div id="cell-67" class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>learnt_gamma_dist <span class="op">=</span> torch.distributions.Gamma(alpha.detach(), beta.detach())</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="dv">300</span>, <span class="dv">1000</span>)</span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> learnt_gamma_dist.log_prob(x).exp()</span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"Fitted PDF"</span>)</span>
-<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>plt.hist(df[<span class="st">"turns"</span>], bins<span class="op">=</span><span class="dv">50</span>, density<span class="op">=</span><span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"KDE"</span>)</span>
-<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>learnt_gamma_dist <span class="op">=</span> torch.distributions.Gamma(alpha.detach(), beta.detach())</span>
+<span id="cb54-2"><a href="#cb54-2"></a>x <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="dv">300</span>, <span class="dv">1000</span>)</span>
+<span id="cb54-3"><a href="#cb54-3"></a>y <span class="op">=</span> learnt_gamma_dist.log_prob(x).exp()</span>
+<span id="cb54-4"><a href="#cb54-4"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"Fitted PDF"</span>)</span>
+<span id="cb54-5"><a href="#cb54-5"></a>plt.hist(df[<span class="st">"turns"</span>], bins<span class="op">=</span><span class="dv">50</span>, density<span class="op">=</span><span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">"KDE"</span>)</span>
+<span id="cb54-6"><a href="#cb54-6"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1721,24 +1984,24 @@ $$ f_X(x) =
 <p>$$</p>
 <p>We can say that <span class="math inline">\(X \sim \text{Uniform}(a, b)\)</span>.</p>
 <div id="cell-69" class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">2.0</span></span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Uniform(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>a <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a>b <span class="op">=</span> <span class="fl">2.0</span></span>
+<span id="cb55-3"><a href="#cb55-3"></a>dist <span class="op">=</span> torch.distributions.Uniform(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-70" class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>Interval(lower_bound=0.0, upper_bound=2.0)</code></pre>
 </div>
 </div>
 <div id="cell-71" class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>dist.high, dist.low</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>dist.high, dist.low</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="44">
 <pre><code>(tensor(2.), tensor(0.))</code></pre>
 </div>
 </div>
 <div id="cell-72" class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="45">
 <pre><code>tensor(1.)</code></pre>
 </div>
@@ -1765,17 +2028,17 @@ $$ f_X(x) =
 <h3 class="anchored" data-anchor-id="shape-flexibility">Shape Flexibility</h3>
 <p>The Beta distribution can take many shapes depending on its parameters:</p>
 <div id="cell-75" class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>dist.variance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>dist.variance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="46">
 <pre><code>tensor(0.3333)</code></pre>
 </div>
 </div>
 <div id="cell-76" class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>x_range <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1000</span>)</span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> dist.log_prob(x_range).exp()</span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>x_range <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1000</span>)</span>
+<span id="cb64-2"><a href="#cb64-2"></a><span class="cf">try</span>:</span>
+<span id="cb64-3"><a href="#cb64-3"></a>    y <span class="op">=</span> dist.log_prob(x_range).exp()</span>
+<span id="cb64-4"><a href="#cb64-4"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb64-5"><a href="#cb64-5"></a>    <span class="bu">print</span>(e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Expected value argument (Tensor of shape (1000,)) to be within the support (Interval(lower_bound=0.0, upper_bound=2.0)) of the distribution Uniform(low: 0.0, high: 2.0), but found invalid values:
 tensor([-1.0000e+00, -9.9600e-01, -9.9199e-01, -9.8799e-01, -9.8398e-01,
@@ -1981,11 +2244,11 @@ tensor([-1.0000e+00, -9.9600e-01, -9.9199e-01, -9.8799e-01, -9.8398e-01,
 </div>
 </div>
 <div id="cell-77" class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>x_range_mask <span class="op">=</span> (x_range <span class="op">&gt;=</span> a) <span class="op">&amp;</span> (x_range <span class="op">&lt;=</span> b)</span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> torch.zeros_like(x_range)</span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>y[x_range_mask] <span class="op">=</span> dist.log_prob(x_range[x_range_mask]).exp()</span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x_range, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>x_range_mask <span class="op">=</span> (x_range <span class="op">&gt;=</span> a) <span class="op">&amp;</span> (x_range <span class="op">&lt;=</span> b)</span>
+<span id="cb66-2"><a href="#cb66-2"></a>y <span class="op">=</span> torch.zeros_like(x_range)</span>
+<span id="cb66-3"><a href="#cb66-3"></a>y[x_range_mask] <span class="op">=</span> dist.log_prob(x_range[x_range_mask]).exp()</span>
+<span id="cb66-4"><a href="#cb66-4"></a></span>
+<span id="cb66-5"><a href="#cb66-5"></a>plt.plot(x_range, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2045,27 +2308,27 @@ e(t) \sim \text{Uniform}(-\Delta/2, \Delta/2).
 <h3 class="anchored" data-anchor-id="key-insight-memoryless-property">Key Insight: Memoryless Property</h3>
 <p>The exponential distribution is the only continuous distribution with the memoryless property, making it ideal for modeling “fresh start” scenarios.</p>
 <div id="cell-81" class="cell" data-execution_count="97">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>x_t <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">5000</span>)</span>
-<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>y_t <span class="op">=</span> torch.sin(x_t)</span>
-<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x_t, y_t, label<span class="op">=</span><span class="st">"y_t"</span>)</span>
-<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a>max_y_t <span class="op">=</span> y_t.<span class="bu">max</span>()</span>
-<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a>min_y_t <span class="op">=</span> y_t.<span class="bu">min</span>()</span>
-<span id="cb67-9"><a href="#cb67-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-10"><a href="#cb67-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide the range of y_t into N (=10) equal parts</span></span>
-<span id="cb67-11"><a href="#cb67-11" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb67-12"><a href="#cb67-12" aria-hidden="true" tabindex="-1"></a>y_bins <span class="op">=</span> torch.linspace(min_y_t, max_y_t, N<span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb67-13"><a href="#cb67-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-14"><a href="#cb67-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw the N levels as horizontal lines</span></span>
-<span id="cb67-15"><a href="#cb67-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> y_level <span class="kw">in</span> y_bins:</span>
-<span id="cb67-16"><a href="#cb67-16" aria-hidden="true" tabindex="-1"></a>    plt.axhline(y_level, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
-<span id="cb67-17"><a href="#cb67-17" aria-hidden="true" tabindex="-1"></a>    plt.text(<span class="dv">3</span>, y_level<span class="op">+</span><span class="fl">.01</span>, <span class="ss">f"</span><span class="sc">{</span>y_level<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb67-18"><a href="#cb67-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb67-19"><a href="#cb67-19" aria-hidden="true" tabindex="-1"></a>delta <span class="op">=</span> (max_y_t <span class="op">-</span> min_y_t)<span class="op">/</span>N</span>
-<span id="cb67-20"><a href="#cb67-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(delta)</span>
-<span id="cb67-21"><a href="#cb67-21" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a></span>
+<span id="cb67-2"><a href="#cb67-2"></a></span>
+<span id="cb67-3"><a href="#cb67-3"></a>x_t <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="dv">2</span>, <span class="dv">8</span>, <span class="dv">5000</span>)</span>
+<span id="cb67-4"><a href="#cb67-4"></a>y_t <span class="op">=</span> torch.sin(x_t)</span>
+<span id="cb67-5"><a href="#cb67-5"></a>plt.plot(x_t, y_t, label<span class="op">=</span><span class="st">"y_t"</span>)</span>
+<span id="cb67-6"><a href="#cb67-6"></a></span>
+<span id="cb67-7"><a href="#cb67-7"></a>max_y_t <span class="op">=</span> y_t.<span class="bu">max</span>()</span>
+<span id="cb67-8"><a href="#cb67-8"></a>min_y_t <span class="op">=</span> y_t.<span class="bu">min</span>()</span>
+<span id="cb67-9"><a href="#cb67-9"></a></span>
+<span id="cb67-10"><a href="#cb67-10"></a><span class="co"># Divide the range of y_t into N (=10) equal parts</span></span>
+<span id="cb67-11"><a href="#cb67-11"></a>N <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb67-12"><a href="#cb67-12"></a>y_bins <span class="op">=</span> torch.linspace(min_y_t, max_y_t, N<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb67-13"><a href="#cb67-13"></a></span>
+<span id="cb67-14"><a href="#cb67-14"></a><span class="co"># Draw the N levels as horizontal lines</span></span>
+<span id="cb67-15"><a href="#cb67-15"></a><span class="cf">for</span> y_level <span class="kw">in</span> y_bins:</span>
+<span id="cb67-16"><a href="#cb67-16"></a>    plt.axhline(y_level, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb67-17"><a href="#cb67-17"></a>    plt.text(<span class="dv">3</span>, y_level<span class="op">+</span><span class="fl">.01</span>, <span class="ss">f"</span><span class="sc">{</span>y_level<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb67-18"><a href="#cb67-18"></a>    </span>
+<span id="cb67-19"><a href="#cb67-19"></a>delta <span class="op">=</span> (max_y_t <span class="op">-</span> min_y_t)<span class="op">/</span>N</span>
+<span id="cb67-20"><a href="#cb67-20"></a><span class="bu">print</span>(delta)</span>
+<span id="cb67-21"><a href="#cb67-21"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tensor(0.2000)</code></pre>
 </div>
@@ -2078,24 +2341,24 @@ e(t) \sim \text{Uniform}(-\Delta/2, \Delta/2).
 </div>
 </div>
 <div id="cell-82" class="cell" data-execution_count="98">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For x = 3, find the bin in which y_t falls</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>y_t_x_3 <span class="op">=</span> torch.sin(torch.tensor(<span class="dv">3</span>))</span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y_t_x_3)</span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>plt.plot(x_t, y_t, label<span class="op">=</span><span class="st">"y_t"</span>)</span>
-<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>plt.axvline(<span class="dv">3</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
-<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>plt.axhline(y_t_x_3, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
-<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-10"><a href="#cb69-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw the N levels as horizontal lines</span></span>
-<span id="cb69-11"><a href="#cb69-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> y_level <span class="kw">in</span> y_bins:</span>
-<span id="cb69-12"><a href="#cb69-12" aria-hidden="true" tabindex="-1"></a>    plt.axhline(y_level, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
-<span id="cb69-13"><a href="#cb69-13" aria-hidden="true" tabindex="-1"></a>    plt.text(<span class="dv">3</span>, y_level<span class="op">+</span><span class="fl">.01</span>, <span class="ss">f"</span><span class="sc">{</span>y_level<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb69-14"><a href="#cb69-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb69-15"><a href="#cb69-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the bin in which y_t falls</span></span>
-<span id="cb69-16"><a href="#cb69-16" aria-hidden="true" tabindex="-1"></a>bin_idx <span class="op">=</span> torch.searchsorted(y_bins, y_t_x_3)</span>
-<span id="cb69-17"><a href="#cb69-17" aria-hidden="true" tabindex="-1"></a>plt.axhline(y_bins[bin_idx], color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">"Closest level"</span>)</span>
-<span id="cb69-18"><a href="#cb69-18" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># For x = 3, find the bin in which y_t falls</span></span>
+<span id="cb69-2"><a href="#cb69-2"></a>y_t_x_3 <span class="op">=</span> torch.sin(torch.tensor(<span class="dv">3</span>))</span>
+<span id="cb69-3"><a href="#cb69-3"></a><span class="bu">print</span>(y_t_x_3)</span>
+<span id="cb69-4"><a href="#cb69-4"></a></span>
+<span id="cb69-5"><a href="#cb69-5"></a></span>
+<span id="cb69-6"><a href="#cb69-6"></a>plt.plot(x_t, y_t, label<span class="op">=</span><span class="st">"y_t"</span>)</span>
+<span id="cb69-7"><a href="#cb69-7"></a>plt.axvline(<span class="dv">3</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb69-8"><a href="#cb69-8"></a>plt.axhline(y_t_x_3, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb69-9"><a href="#cb69-9"></a></span>
+<span id="cb69-10"><a href="#cb69-10"></a><span class="co"># Draw the N levels as horizontal lines</span></span>
+<span id="cb69-11"><a href="#cb69-11"></a><span class="cf">for</span> y_level <span class="kw">in</span> y_bins:</span>
+<span id="cb69-12"><a href="#cb69-12"></a>    plt.axhline(y_level, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb69-13"><a href="#cb69-13"></a>    plt.text(<span class="dv">3</span>, y_level<span class="op">+</span><span class="fl">.01</span>, <span class="ss">f"</span><span class="sc">{</span>y_level<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb69-14"><a href="#cb69-14"></a>    </span>
+<span id="cb69-15"><a href="#cb69-15"></a><span class="co"># Find the bin in which y_t falls</span></span>
+<span id="cb69-16"><a href="#cb69-16"></a>bin_idx <span class="op">=</span> torch.searchsorted(y_bins, y_t_x_3)</span>
+<span id="cb69-17"><a href="#cb69-17"></a>plt.axhline(y_bins[bin_idx], color<span class="op">=</span><span class="st">'green'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">"Closest level"</span>)</span>
+<span id="cb69-18"><a href="#cb69-18"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tensor(0.1411)</code></pre>
 </div>
@@ -2108,19 +2371,19 @@ e(t) \sim \text{Uniform}(-\Delta/2, \Delta/2).
 </div>
 </div>
 <div id="cell-83" class="cell" data-execution_count="99">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>y_t.shape, y_bins.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>y_t.shape, y_bins.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="99">
 <pre><code>(torch.Size([5000]), torch.Size([11]))</code></pre>
 </div>
 </div>
 <div id="cell-84" class="cell" data-execution_count="100">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find closest bin for each y_t</span></span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> (y_t <span class="op">-</span> y_bins.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)).<span class="bu">abs</span>().argmin(dim<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>y_binned <span class="op">=</span> y_bins[bins]</span>
-<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>plt.plot(x_t, y_t, label<span class="op">=</span><span class="st">"y_t"</span>)</span>
-<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>plt.plot(x_t, y_binned, label<span class="op">=</span><span class="st">"y_binned"</span>)</span>
-<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Find closest bin for each y_t</span></span>
+<span id="cb73-2"><a href="#cb73-2"></a>bins <span class="op">=</span> (y_t <span class="op">-</span> y_bins.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)).<span class="bu">abs</span>().argmin(dim<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb73-3"><a href="#cb73-3"></a></span>
+<span id="cb73-4"><a href="#cb73-4"></a>y_binned <span class="op">=</span> y_bins[bins]</span>
+<span id="cb73-5"><a href="#cb73-5"></a>plt.plot(x_t, y_t, label<span class="op">=</span><span class="st">"y_t"</span>)</span>
+<span id="cb73-6"><a href="#cb73-6"></a>plt.plot(x_t, y_binned, label<span class="op">=</span><span class="st">"y_binned"</span>)</span>
+<span id="cb73-7"><a href="#cb73-7"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2130,7 +2393,7 @@ e(t) \sim \text{Uniform}(-\Delta/2, \Delta/2).
 </div>
 </div>
 <div id="cell-85" class="cell" data-execution_count="101">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>plt.plot(y_t <span class="op">-</span> y_binned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>plt.plot(y_t <span class="op">-</span> y_binned)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2237,17 +2500,17 @@ e(t) \sim \text{Uniform}(-\Delta/2, \Delta/2).
 <p>Understanding continuous distributions enables: - <strong>Risk assessment</strong> in finance and insurance - <strong>Quality control</strong> in manufacturing - <strong>Signal processing</strong> and communications - <strong>Epidemiological modeling</strong> and public health - <strong>Climate science</strong> and environmental monitoring</p>
 <p>The journey through continuous distributions reveals the mathematical beauty underlying much of our uncertain world. These tools provide the foundation for sophisticated statistical modeling and machine learning applications that impact every aspect of modern data science!</p>
 <div id="cell-87" class="cell" data-execution_count="111">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> plt.hist(y_t <span class="op">-</span> y_binned, density<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Error in binning"</span>)</span>
-<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Density"</span>)</span>
-<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>theoretical_uniform <span class="op">=</span> torch.distributions.Uniform(<span class="op">-</span>delta<span class="op">/</span><span class="dv">2</span>, delta<span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="dv">1000</span>)</span>
-<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a>x_mask <span class="op">=</span> (x <span class="op">&gt;=</span> <span class="op">-</span>delta<span class="op">/</span><span class="dv">2</span>) <span class="op">&amp;</span> (x <span class="op">&lt;=</span> delta<span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> torch.zeros_like(x)</span>
-<span id="cb75-9"><a href="#cb75-9" aria-hidden="true" tabindex="-1"></a>y[x_mask] <span class="op">=</span> theoretical_uniform.log_prob(x[x_mask]).exp()</span>
-<span id="cb75-10"><a href="#cb75-10" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"Theoretical PDF"</span>)</span>
-<span id="cb75-11"><a href="#cb75-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>_ <span class="op">=</span> plt.hist(y_t <span class="op">-</span> y_binned, density<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb75-2"><a href="#cb75-2"></a>plt.xlabel(<span class="st">"Error in binning"</span>)</span>
+<span id="cb75-3"><a href="#cb75-3"></a>plt.ylabel(<span class="st">"Density"</span>)</span>
+<span id="cb75-4"><a href="#cb75-4"></a></span>
+<span id="cb75-5"><a href="#cb75-5"></a>theoretical_uniform <span class="op">=</span> torch.distributions.Uniform(<span class="op">-</span>delta<span class="op">/</span><span class="dv">2</span>, delta<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb75-6"><a href="#cb75-6"></a>x <span class="op">=</span> torch.linspace(<span class="op">-</span><span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="dv">1000</span>)</span>
+<span id="cb75-7"><a href="#cb75-7"></a>x_mask <span class="op">=</span> (x <span class="op">&gt;=</span> <span class="op">-</span>delta<span class="op">/</span><span class="dv">2</span>) <span class="op">&amp;</span> (x <span class="op">&lt;=</span> delta<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb75-8"><a href="#cb75-8"></a>y <span class="op">=</span> torch.zeros_like(x)</span>
+<span id="cb75-9"><a href="#cb75-9"></a>y[x_mask] <span class="op">=</span> theoretical_uniform.log_prob(x[x_mask]).exp()</span>
+<span id="cb75-10"><a href="#cb75-10"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">"Theoretical PDF"</span>)</span>
+<span id="cb75-11"><a href="#cb75-11"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2264,26 +2527,26 @@ e(t) \sim \text{Uniform}(-\Delta/2, \Delta/2).
 (B - B_q) \times \text{number of samples}.
 \]</span></p>
 <div id="cell-89" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pydub <span class="im">import</span> AudioSegment</span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load MP3</span></span>
-<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>audio <span class="op">=</span> AudioSegment.from_mp3(<span class="st">"vlog-music.mp3"</span>)</span>
-<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to NumPy array</span></span>
-<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> np.array(audio.get_array_of_samples(), dtype<span class="op">=</span>np.float32)</span>
-<span id="cb76-9"><a href="#cb76-9" aria-hidden="true" tabindex="-1"></a>sample_rate <span class="op">=</span> audio.frame_rate</span>
-<span id="cb76-10"><a href="#cb76-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-11"><a href="#cb76-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Samples shape: </span><span class="sc">{</span>samples<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb76-12"><a href="#cb76-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sample rate: </span><span class="sc">{</span>sample_rate<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a><span class="im">from</span> pydub <span class="im">import</span> AudioSegment</span>
+<span id="cb76-2"><a href="#cb76-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb76-3"><a href="#cb76-3"></a></span>
+<span id="cb76-4"><a href="#cb76-4"></a><span class="co"># Load MP3</span></span>
+<span id="cb76-5"><a href="#cb76-5"></a>audio <span class="op">=</span> AudioSegment.from_mp3(<span class="st">"vlog-music.mp3"</span>)</span>
+<span id="cb76-6"><a href="#cb76-6"></a></span>
+<span id="cb76-7"><a href="#cb76-7"></a><span class="co"># Convert to NumPy array</span></span>
+<span id="cb76-8"><a href="#cb76-8"></a>samples <span class="op">=</span> np.array(audio.get_array_of_samples(), dtype<span class="op">=</span>np.float32)</span>
+<span id="cb76-9"><a href="#cb76-9"></a>sample_rate <span class="op">=</span> audio.frame_rate</span>
+<span id="cb76-10"><a href="#cb76-10"></a></span>
+<span id="cb76-11"><a href="#cb76-11"></a><span class="bu">print</span>(<span class="ss">f"Samples shape: </span><span class="sc">{</span>samples<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb76-12"><a href="#cb76-12"></a><span class="bu">print</span>(<span class="ss">f"Sample rate: </span><span class="sc">{</span>sample_rate<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Samples shape: (5430528,)
 Sample rate: 44100</code></pre>
 </div>
 </div>
 <div id="cell-90" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Audio</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>Audio(<span class="st">"vlog-music.mp3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Audio</span>
+<span id="cb78-2"><a href="#cb78-2"></a>Audio(<span class="st">"vlog-music.mp3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
 
                 <audio controls="controls">
@@ -2294,7 +2557,7 @@ Sample rate: 44100</code></pre>
 </div>
 </div>
 <div id="cell-91" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>plt.plot(samples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a>plt.plot(samples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2304,24 +2567,24 @@ Sample rate: 44100</code></pre>
 </div>
 </div>
 <div id="cell-92" class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 2nd second to 5th second</span></span>
-<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>filtered_audio  <span class="op">=</span> samples[sample_rate<span class="op">*</span><span class="dv">2</span>:sample_rate<span class="op">*</span><span class="dv">5</span>]</span>
-<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">5</span>))</span>
-<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>ax.plot(filtered_audio)</span>
-<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantize to 10 levels</span></span>
-<span id="cb80-8"><a href="#cb80-8" aria-hidden="true" tabindex="-1"></a>min_audio <span class="op">=</span> filtered_audio.<span class="bu">min</span>()</span>
-<span id="cb80-9"><a href="#cb80-9" aria-hidden="true" tabindex="-1"></a>max_audio <span class="op">=</span> filtered_audio.<span class="bu">max</span>()</span>
-<span id="cb80-10"><a href="#cb80-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb80-11"><a href="#cb80-11" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb80-12"><a href="#cb80-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb80-13"><a href="#cb80-13" aria-hidden="true" tabindex="-1"></a>audio_bins <span class="op">=</span> torch.linspace(min_audio, max_audio, N<span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb80-14"><a href="#cb80-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting audio bins</span></span>
-<span id="cb80-15"><a href="#cb80-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> audio_bin <span class="kw">in</span> audio_bins:</span>
-<span id="cb80-16"><a href="#cb80-16" aria-hidden="true" tabindex="-1"></a>    plt.axhline(audio_bin, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb80-17"><a href="#cb80-17" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb80-18"><a href="#cb80-18" aria-hidden="true" tabindex="-1"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a><span class="co"># Plot 2nd second to 5th second</span></span>
+<span id="cb80-2"><a href="#cb80-2"></a>filtered_audio  <span class="op">=</span> samples[sample_rate<span class="op">*</span><span class="dv">2</span>:sample_rate<span class="op">*</span><span class="dv">5</span>]</span>
+<span id="cb80-3"><a href="#cb80-3"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">5</span>))</span>
+<span id="cb80-4"><a href="#cb80-4"></a></span>
+<span id="cb80-5"><a href="#cb80-5"></a>ax.plot(filtered_audio)</span>
+<span id="cb80-6"><a href="#cb80-6"></a></span>
+<span id="cb80-7"><a href="#cb80-7"></a><span class="co"># Quantize to 10 levels</span></span>
+<span id="cb80-8"><a href="#cb80-8"></a>min_audio <span class="op">=</span> filtered_audio.<span class="bu">min</span>()</span>
+<span id="cb80-9"><a href="#cb80-9"></a>max_audio <span class="op">=</span> filtered_audio.<span class="bu">max</span>()</span>
+<span id="cb80-10"><a href="#cb80-10"></a></span>
+<span id="cb80-11"><a href="#cb80-11"></a>N <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb80-12"><a href="#cb80-12"></a></span>
+<span id="cb80-13"><a href="#cb80-13"></a>audio_bins <span class="op">=</span> torch.linspace(min_audio, max_audio, N<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb80-14"><a href="#cb80-14"></a><span class="co"># Plotting audio bins</span></span>
+<span id="cb80-15"><a href="#cb80-15"></a><span class="cf">for</span> audio_bin <span class="kw">in</span> audio_bins:</span>
+<span id="cb80-16"><a href="#cb80-16"></a>    plt.axhline(audio_bin, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb80-17"><a href="#cb80-17"></a>    </span>
+<span id="cb80-18"><a href="#cb80-18"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2331,19 +2594,19 @@ Sample rate: 44100</code></pre>
 </div>
 </div>
 <div id="cell-93" class="cell" data-execution_count="144">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Quantize the audio </span></span>
-<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>audio_bins <span class="op">=</span> np.linspace(min_audio, max_audio, N<span class="op">+</span><span class="dv">1</span>)</span>
-<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Find closest bin for each audio sample</span></span>
-<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> np.<span class="bu">abs</span>(filtered_audio <span class="op">-</span> audio_bins.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)).argmin(<span class="dv">0</span>)</span>
-<span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-8"><a href="#cb81-8" aria-hidden="true" tabindex="-1"></a>audio_binned <span class="op">=</span> audio_bins[bins]</span>
-<span id="cb81-9"><a href="#cb81-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-10"><a href="#cb81-10" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">5</span>))</span>
-<span id="cb81-11"><a href="#cb81-11" aria-hidden="true" tabindex="-1"></a>ax.plot(filtered_audio, label<span class="op">=</span><span class="st">"Original audio"</span>, alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
-<span id="cb81-12"><a href="#cb81-12" aria-hidden="true" tabindex="-1"></a>ax.plot(audio_binned, label<span class="op">=</span><span class="st">"Quantized audio"</span>)</span>
-<span id="cb81-13"><a href="#cb81-13" aria-hidden="true" tabindex="-1"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a><span class="co"># Quantize the audio </span></span>
+<span id="cb81-2"><a href="#cb81-2"></a></span>
+<span id="cb81-3"><a href="#cb81-3"></a>audio_bins <span class="op">=</span> np.linspace(min_audio, max_audio, N<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb81-4"><a href="#cb81-4"></a></span>
+<span id="cb81-5"><a href="#cb81-5"></a><span class="co"># Find closest bin for each audio sample</span></span>
+<span id="cb81-6"><a href="#cb81-6"></a>bins <span class="op">=</span> np.<span class="bu">abs</span>(filtered_audio <span class="op">-</span> audio_bins.reshape(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>)).argmin(<span class="dv">0</span>)</span>
+<span id="cb81-7"><a href="#cb81-7"></a></span>
+<span id="cb81-8"><a href="#cb81-8"></a>audio_binned <span class="op">=</span> audio_bins[bins]</span>
+<span id="cb81-9"><a href="#cb81-9"></a></span>
+<span id="cb81-10"><a href="#cb81-10"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">5</span>))</span>
+<span id="cb81-11"><a href="#cb81-11"></a>ax.plot(filtered_audio, label<span class="op">=</span><span class="st">"Original audio"</span>, alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb81-12"><a href="#cb81-12"></a>ax.plot(audio_binned, label<span class="op">=</span><span class="st">"Quantized audio"</span>)</span>
+<span id="cb81-13"><a href="#cb81-13"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2353,7 +2616,7 @@ Sample rate: 44100</code></pre>
 </div>
 </div>
 <div id="cell-94" class="cell" data-execution_count="146">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>Audio(filtered_audio, rate<span class="op">=</span>sample_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a>Audio(filtered_audio, rate<span class="op">=</span>sample_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="146">
 
                 <audio controls="controls">
@@ -2364,8 +2627,8 @@ Sample rate: 44100</code></pre>
 </div>
 </div>
 <div id="cell-95" class="cell" data-execution_count="145">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Play the quantized audio</span></span>
-<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>Audio(audio_binned, rate<span class="op">=</span>sample_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a><span class="co"># Play the quantized audio</span></span>
+<span id="cb83-2"><a href="#cb83-2"></a>Audio(audio_binned, rate<span class="op">=</span>sample_rate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="145">
 
                 <audio controls="controls">
@@ -2390,31 +2653,31 @@ f_X(x) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} x^{\alpha-1}
 \]</span></p>
 <p>We can say that <span class="math inline">\(X \sim \text{Beta}(\alpha, \beta)\)</span>.</p>
 <div id="cell-97" class="cell" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>beta_dist <span class="op">=</span> torch.distributions.Beta(<span class="dv">2</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a>beta_dist <span class="op">=</span> torch.distributions.Beta(<span class="dv">2</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-98" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>beta_dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>beta_dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>Interval(lower_bound=0.0, upper_bound=1.0)</code></pre>
 </div>
 </div>
 <div id="cell-99" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>beta_dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a>beta_dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>tensor(0.5000)</code></pre>
 </div>
 </div>
 <p>Beta distribution is used to model random variables that are constrained to lie within a fixed interval. For example, the probability of success in a Bernoulli trial is a random variable that lies in the interval <span class="math inline">\([0, 1]\)</span>. We can model this probability using a beta distribution.</p>
 <div id="cell-101" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>x_lin <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="dv">1000</span>)</span>
-<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> alpha <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">3</span>):</span>
-<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> beta <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">3</span>):</span>
-<span id="cb89-4"><a href="#cb89-4" aria-hidden="true" tabindex="-1"></a>        beta_dist <span class="op">=</span> torch.distributions.Beta(alpha, beta)</span>
-<span id="cb89-5"><a href="#cb89-5" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> beta_dist.log_prob(x_lin).exp()</span>
-<span id="cb89-6"><a href="#cb89-6" aria-hidden="true" tabindex="-1"></a>        plt.plot(x_lin, y, label<span class="op">=</span><span class="ss">f"PDF Beta(</span><span class="sc">{</span>alpha<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>beta<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb89-7"><a href="#cb89-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb89-8"><a href="#cb89-8" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb89-9"><a href="#cb89-9" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>x_lin <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="dv">1000</span>)</span>
+<span id="cb89-2"><a href="#cb89-2"></a><span class="cf">for</span> alpha <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">3</span>):</span>
+<span id="cb89-3"><a href="#cb89-3"></a>    <span class="cf">for</span> beta <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">3</span>):</span>
+<span id="cb89-4"><a href="#cb89-4"></a>        beta_dist <span class="op">=</span> torch.distributions.Beta(alpha, beta)</span>
+<span id="cb89-5"><a href="#cb89-5"></a>        y <span class="op">=</span> beta_dist.log_prob(x_lin).exp()</span>
+<span id="cb89-6"><a href="#cb89-6"></a>        plt.plot(x_lin, y, label<span class="op">=</span><span class="ss">f"PDF Beta(</span><span class="sc">{</span>alpha<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>beta<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb89-7"><a href="#cb89-7"></a></span>
+<span id="cb89-8"><a href="#cb89-8"></a>plt.legend()</span>
+<span id="cb89-9"><a href="#cb89-9"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2438,38 +2701,38 @@ $$ f_X(x) =
 <p>The exponential distribution may be viewed as a continuous counterpart of the geometric distribution, which describes the number of Bernoulli trials necessary for a discrete process to change state. In contrast, the exponential distribution describes the time for a continuous process to change state.</p>
 </blockquote>
 <div id="cell-104" class="cell" data-execution_count="105">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>l <span class="op">=</span> <span class="fl">5.0</span></span>
-<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>dist <span class="op">=</span> torch.distributions.Exponential(l)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1"></a>l <span class="op">=</span> <span class="fl">5.0</span></span>
+<span id="cb90-2"><a href="#cb90-2"></a>dist <span class="op">=</span> torch.distributions.Exponential(l)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-105" class="cell" data-execution_count="106">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a>dist.support</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="106">
 <pre><code>GreaterThanEq(lower_bound=0.0)</code></pre>
 </div>
 </div>
 <div id="cell-106" class="cell" data-execution_count="107">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>dist.rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a>dist.rate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="107">
 <pre><code>tensor(5.)</code></pre>
 </div>
 </div>
 <div id="cell-107" class="cell" data-execution_count="108">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a>dist.mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="108">
 <pre><code>tensor(0.2000)</code></pre>
 </div>
 </div>
 <div id="cell-108" class="cell" data-execution_count="109">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>dist.mode</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a>dist.mode</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="109">
 <pre><code>tensor(0.)</code></pre>
 </div>
 </div>
 <div id="cell-109" class="cell" data-execution_count="110">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the PDF</span></span>
-<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>x_range <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
-<span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> dist.log_prob(x_range).exp()</span>
-<span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a>plt.plot(x_range, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a><span class="co"># Plotting the PDF</span></span>
+<span id="cb99-2"><a href="#cb99-2"></a>x_range <span class="op">=</span> torch.linspace(<span class="fl">0.001</span>, <span class="dv">10</span>, <span class="dv">1000</span>)</span>
+<span id="cb99-3"><a href="#cb99-3"></a>y <span class="op">=</span> dist.log_prob(x_range).exp()</span>
+<span id="cb99-4"><a href="#cb99-4"></a>plt.plot(x_range, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -2569,7 +2832,7 @@ $$ f_X(x) =
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/nipunbatra\.github\.io\/psdv-teaching\/");
+        var filterRegex = new RegExp("https:\/\/nipunbatra\.github\.io\/psdv-teaching");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -2897,8 +3160,35 @@ $$ f_X(x) =
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2024-2025, Prof.&nbsp;Nipun Batra, IIT Gandhinagar</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.dev/nipunbatra/psdv-teaching/blob/main/notebooks/pdf-continuous.ipynb" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/nipunbatra/psdv-teaching/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/nipunbatra/psdv-teaching">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://nipunbatra.github.io">
+      <i class="bi bi-globe" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 
 
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
