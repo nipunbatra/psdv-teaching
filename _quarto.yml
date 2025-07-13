@@ -1,28 +1,117 @@
 project:
   type: website
+  output-dir: _site
 
 website:
-  title: "Probability Statistics Data Visualization Resources"
+  title: "PSDV Teaching Resources"
+  description: "Interactive Jupyter notebooks for Probability, Statistics & Data Visualization"
+  site-url: "https://nipunbatra.github.io/psdv-teaching"
+  repo-url: "https://github.com/nipunbatra/psdv-teaching"
+  repo-actions: [edit, issue]
+  
   navbar:
+    logo: "figures/pexels-solodsha-9009923.jpg"
+    title: "PSDV Resources"
+    left:
+      - href: index.qmd
+        text: Home
+      - href: notebooks.qmd
+        text: Notebooks
+      - href: slides.qmd
+        text: Slides
+      - href: questions.qmd
+        text: Questions
     right:
-        - href: https://nipunbatra.github.io
-          text: Instructor Homepage
-        - href: index.qmd
-          text: Home
-        - href: notebooks.qmd
-          text: Notebooks
-        - href: slides.qmd
-          text: Slides
+      - icon: github
+        href: https://github.com/nipunbatra/psdv-teaching
+        aria-label: GitHub
+      - href: https://nipunbatra.github.io/psdv25/
+        text: Course 2025
+      - href: https://nipunbatra.github.io
+        text: Instructor
+        
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "Getting Started"
+        contents:
+          - notebooks/intro.ipynb
+          - notebooks/set.ipynb
+          - notebooks/probability.ipynb
+      - section: "Foundations"
+        contents:
+          - notebooks/random-variables.ipynb
+          - notebooks/pmf-discrete.ipynb
+          - notebooks/pdf-continuous.ipynb
+          - notebooks/cdf.ipynb
+          - notebooks/cdf-discrete.ipynb
+      - section: "Core Concepts"
+        contents:
+          - notebooks/expectation.ipynb
+          - notebooks/iid.ipynb
+          - notebooks/law-large-numbers.ipynb
+      - section: "Advanced Topics"
+        contents:
+          - notebooks/2d-distributions.ipynb
+          - notebooks/joint-distribution-properties.ipynb
+          - notebooks/sum-random-vars.ipynb
+          - notebooks/random-vector.ipynb
+      - section: "Machine Learning"
+        contents:
+          - notebooks/pca.ipynb
+          - notebooks/logistic-regression-generative.ipynb
+          - notebooks/embeddings-angle.ipynb
+      - section: "Data Science Tools"
+        contents:
+          - notebooks/intro-numpy.ipynb
+          - notebooks/introduction-pandas.ipynb
+          - notebooks/introduction-matplotlib.ipynb
+      - section: "Interactive & Quizzes"
+        contents:
+          - notebooks/widgets.ipynb
+          - notebooks/quiz1.ipynb
+          - notebooks/images-joint-distribution.ipynb
+
+  page-footer:
+    left: "Copyright 2024-2025, Prof. Nipun Batra, IIT Gandhinagar"
+    right: 
+      - icon: github
+        href: https://github.com/nipunbatra/psdv-teaching
+      - icon: globe
+        href: https://nipunbatra.github.io
 format:
   html:
     theme:
       light: [litera, styles.scss]
       dark: [darkly, styles-dark.scss]
-    highlight-style: a11y-dark
+    highlight-style: 
+      light: github
+      dark: a11y-dark
     mainfont: "Roboto"
+    monofont: "Fira Code"
     code-copy: true
     code-overflow: wrap
-
+    code-fold: false
+    code-line-numbers: true
+    fig-width: 8
+    fig-height: 6
+    fig-format: retina
+    fig-dpi: 300
+    toc: true
+    toc-depth: 3
+    toc-location: right
+    number-sections: false
+    smooth-scroll: true
+    citations-hover: true
+    footnotes-hover: true
 
 execute:
   freeze: auto
+  echo: true
+  warning: false
+  error: false
+  cache: true
+
+bibliography: references.bib
+csl: ieee.csl

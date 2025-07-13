@@ -1,12 +1,116 @@
 ---
-title: "Notebooks"
+title: "Interactive Notebooks"
+subtitle: "Comprehensive collection of Jupyter notebooks for learning probability, statistics, and data visualization"
 listing:
   contents: notebooks/*.ipynb
-  sort: "date desc"
+  sort: "title"
   type: default
   categories: true
-  sort-ui: false
-  filter-ui: false
+  sort-ui: true
+  filter-ui: true
+  page-size: 50
+  fields: [title, date, description, categories]
 page-layout: full
 title-block-banner: true
 ---
+
+## Learning Pathway
+
+These notebooks are designed to be followed in a logical sequence, building from fundamental concepts to advanced applications. Each notebook is self-contained but references and builds upon previous concepts.
+
+### Recommended Learning Path
+
+::: {.column-screen-inset}
+::: {.grid}
+
+::: {.g-col-12}
+#### Phase 1: Foundations (Start Here)
+Essential mathematical and programming foundations for probability and statistics.
+
+- **[Introduction to Probability](notebooks/intro.ipynb)**: Random number generation, basic probability concepts
+- **[Set Theory](notebooks/set.ipynb)**: Mathematical foundations, set operations, Venn diagrams  
+- **[Probability Fundamentals](notebooks/probability.ipynb)**: Sample spaces, events, basic probability rules
+:::
+
+::: {.g-col-12}
+#### Phase 2: Random Variables & Distributions
+Core concepts of random variables and their distributions.
+
+- **[Random Variables](notebooks/random-variables.ipynb)**: Definition, types, and basic properties
+- **[PMF for Discrete Variables](notebooks/pmf-discrete.ipynb)**: Probability mass functions, discrete distributions
+- **[PDF for Continuous Variables](notebooks/pdf-continuous.ipynb)**: Probability density functions, continuous distributions
+- **[Cumulative Distribution Functions](notebooks/cdf.ipynb)**: CDFs and inverse sampling methods
+- **[CDF for Discrete Variables](notebooks/cdf-discrete.ipynb)**: Discrete CDFs and applications
+:::
+
+::: {.g-col-12}
+#### Phase 3: Statistical Concepts
+Key statistical theorems and concepts.
+
+- **[Expectation and Variance](notebooks/expectation.ipynb)**: Expected values, variance, moments
+- **[Independent and Identically Distributed](notebooks/iid.ipynb)**: IID random variables and their properties
+- **[Law of Large Numbers](notebooks/law-large-numbers.ipynb)**: LLN, Central Limit Theorem demonstrations
+:::
+
+::: {.g-col-12}
+#### Phase 4: Multivariate Analysis
+Advanced topics involving multiple variables.
+
+- **[2D Distributions](notebooks/2d-distributions.ipynb)**: Bivariate normal, joint distributions
+- **[Joint Distribution Properties](notebooks/joint-distribution-properties.ipynb)**: Covariance, correlation, independence
+- **[Sum of Random Variables](notebooks/sum-random-vars.ipynb)**: Convolution, sums of independent variables
+- **[Random Vectors](notebooks/random-vector.ipynb)**: Multivariate distributions and operations
+:::
+
+::: {.g-col-12}
+#### Phase 5: Machine Learning Applications
+Practical applications of probability and statistics in machine learning.
+
+- **[Principal Component Analysis](notebooks/pca.ipynb)**: Dimensionality reduction, eigenvalue decomposition
+- **[Logistic Regression](notebooks/logistic-regression-generative.ipynb)**: Classification, generative vs discriminative models
+- **[Word Embeddings and Angles](notebooks/embeddings-angle.ipynb)**: Vector representations, cosine similarity
+- **[Image Joint Distributions](notebooks/images-joint-distribution.ipynb)**: Computer vision applications
+:::
+
+::: {.g-col-12}
+#### Phase 6: Data Science Tools
+Essential programming tools for data science.
+
+- **[NumPy Introduction](notebooks/intro-numpy.ipynb)**: Array operations, broadcasting, linear algebra
+- **[Pandas Introduction](notebooks/introduction-pandas.ipynb)**: Data manipulation, analysis, and visualization
+- **[Matplotlib Introduction](notebooks/introduction-matplotlib.ipynb)**: Creating publication-quality plots
+:::
+
+::: {.g-col-12}
+#### Interactive & Assessment
+Hands-on learning and self-assessment tools.
+
+- **[Interactive Widgets](notebooks/widgets.ipynb)**: Dynamic visualizations and explorations
+- **[Quiz 1](notebooks/quiz1.ipynb)**: Self-assessment questions and problems
+:::
+
+:::
+:::
+
+## Notebook Features
+
+Each notebook includes:
+
+- **Learning Objectives**: Clear goals for what you'll learn
+- **Mathematical Theory**: Rigorous mathematical explanations with proper notation
+- **Practical Implementation**: Python code demonstrating concepts
+- **Visualizations**: High-quality plots and interactive demonstrations
+- **Real Data**: Applications using actual datasets
+- **Exercises**: Problems to test understanding
+
+## Technical Requirements
+
+- **Python 3.8+** with Jupyter Notebook or JupyterLab
+- **Core packages**: NumPy, Matplotlib, Pandas, PyTorch, Scikit-learn
+- **Optional**: Interactive widgets for enhanced visualizations
+
+See the [README](README.md) for complete installation instructions.
+
+---
+
+*Browse the complete collection below. Use the search and filter options to find specific topics.*
