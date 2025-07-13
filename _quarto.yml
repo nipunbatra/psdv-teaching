@@ -82,12 +82,8 @@ website:
         href: https://nipunbatra.github.io
 format:
   html:
-    theme:
-      light: [litera, styles.scss]
-      dark: [darkly, styles-dark.scss]
-    highlight-style: 
-      light: github
-      dark: a11y-dark
+    theme: [cosmo, styles.scss]
+    highlight-style: github
     mainfont: "Roboto"
     monofont: "Fira Code"
     code-copy: true
