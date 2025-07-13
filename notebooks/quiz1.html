@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quiz1 – Probability Statistics Data Visualization Resources</title>
+<title>Data Analysis Quiz - Pandas GroupBy Operations – Probability Statistics Data Visualization Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -322,13 +322,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Analysis Quiz - Pandas GroupBy Operations</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<div id="cell-0" class="cell" data-execution_count="3">
+</header>
+
+
+<div id="cell-1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -341,9 +357,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
        'Finance', 'Sales'], dtype='&lt;U7')</code></pre>
 </div>
 </div>
-<section id="data-analysis-quiz---pandas-groupby-operations-introductionthis-notebook-contains-practical-exercises-focusing-on-pandas-groupby-operations---one-of-the-most-powerful-features-in-pandas-for-data-aggregation-and-analysis.-these-exercises-will-test-your-understanding-of-grouping-data-applying-functions-and-extracting-insights-from-grouped-datasets.-learning-objectivesthis-quiz-will-assess-your-ability-to--create-and-manipulate-sample-datasets-with-pandas--apply-groupby-operations-effectively--use-various-aggregation-functions-max-min-mean-etc.--access-specific-groups-and-their-properties--understand-method-chaining-in-pandas-operations-key-concepts-covered--groupby-mechanics-how-pandas-splits-data-into-groups--aggregation-functions-computing-summary-statistics-per-group--group-selection-accessing-specific-groups-and-their-data--method-syntax-different-ways-to-call-aggregation-methods-problem-setupwell-work-with-a-simulated-employee-dataset-containing-information-about-departments-employee-ids-salaries-and-office-locations." class="level1">
-<h1>Data Analysis Quiz - Pandas GroupBy Operations## IntroductionThis notebook contains practical exercises focusing on <strong>pandas GroupBy operations</strong> - one of the most powerful features in pandas for data aggregation and analysis. These exercises will test your understanding of grouping data, applying functions, and extracting insights from grouped datasets.### Learning ObjectivesThis quiz will assess your ability to:- Create and manipulate sample datasets with pandas- Apply GroupBy operations effectively- Use various aggregation functions (max, min, mean, etc.)- Access specific groups and their properties- Understand method chaining in pandas operations### Key Concepts Covered- <strong>GroupBy Mechanics</strong>: How pandas splits data into groups- <strong>Aggregation Functions</strong>: Computing summary statistics per group- <strong>Group Selection</strong>: Accessing specific groups and their data- <strong>Method Syntax</strong>: Different ways to call aggregation methods—## Problem SetupWe’ll work with a simulated employee dataset containing information about departments, employee IDs, salaries, and office locations.</h1>
-<p>—author: Nipun Batrabadges: truecategories:- Data Science- Python- Pandas- Data Analysisdate: ’2025-01-13’description: Practical exercises and quiz problems focusing on pandas groupby operations and data aggregation techniqueskeywords: pandas, groupby, data aggregation, quiz, exercises, data manipulation, pythontitle: Data Analysis Quiz - Pandas GroupBy Operationstoc: true—</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This notebook contains practical exercises focusing on <strong>pandas GroupBy operations</strong> - one of the most powerful features in pandas for data aggregation and analysis. These exercises will test your understanding of grouping data, applying functions, and extracting insights from grouped datasets.</p>
+<section id="learning-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<p>This quiz will assess your ability to: - Create and manipulate sample datasets with pandas - Apply GroupBy operations effectively - Use various aggregation functions (max, min, mean, etc.) - Access specific groups and their properties - Understand method chaining in pandas operations</p>
+</section>
+<section id="key-concepts-covered" class="level3">
+<h3 class="anchored" data-anchor-id="key-concepts-covered">Key Concepts Covered</h3>
+<ul>
+<li><strong>GroupBy Mechanics</strong>: How pandas splits data into groups</li>
+<li><strong>Aggregation Functions</strong>: Computing summary statistics per group</li>
+<li><strong>Group Selection</strong>: Accessing specific groups and their data</li>
+<li><strong>Method Syntax</strong>: Different ways to call aggregation methods</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="problem-setup" class="level2">
+<h2 class="anchored" data-anchor-id="problem-setup">Problem Setup</h2>
+<p>We’ll work with a simulated employee dataset containing information about departments, employee IDs, salaries, and office locations.</p>
 <div id="cell-3" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>location <span class="op">=</span> np.random.choice([<span class="st">'Bangalore'</span>, <span class="st">'Chennai'</span>, <span class="st">'Hyderabad'</span>,<span class="st">'Pune'</span>], num_rows)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -364,6 +398,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
        52789])</code></pre>
 </div>
 </div>
+</section>
 <section id="understanding-the-datasetlets-examine-our-employee-dataset.-notice-the-different-departments-varying-salaries-and-multiple-office-locations.-this-diversity-makes-it-perfect-for-practicing-groupby-operations." class="level2">
 <h2 class="anchored" data-anchor-id="understanding-the-datasetlets-examine-our-employee-dataset.-notice-the-different-departments-varying-salaries-and-multiple-office-locations.-this-diversity-makes-it-perfect-for-practicing-groupby-operations.">Understanding the DatasetLet’s examine our employee dataset. Notice the different departments, varying salaries, and multiple office locations. This diversity makes it perfect for practicing GroupBy operations.</h2>
 </section>
@@ -942,7 +977,6 @@ a
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

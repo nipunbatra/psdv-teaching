@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>law-large-numbers – Probability Statistics Data Visualization Resources</title>
+<title>Law of Large Numbers and Central Limit Theorem – Probability Statistics Data Visualization Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -348,13 +348,29 @@ window.Quarto = {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Law of Large Numbers and Central Limit Theorem</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-<div id="cell-0" class="cell" data-execution_count="8">
+</header>
+
+
+<div id="cell-1" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.distributions <span class="im">as</span> dist</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -362,13 +378,27 @@ window.Quarto = {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="law-of-large-numbers-and-central-limit-theorem-introductionthis-notebook-provides-an-interactive-exploration-of-two-fundamental-theorems-in-probability-theory-the-law-of-large-numbers-lln-and-the-central-limit-theorem-clt.-these-concepts-are-cornerstones-of-statistical-inference-and-help-us-understand-how-sample-statistics-behave-as-sample-sizes-increase.-learning-objectivesby-the-end-of-this-notebook-you-will-understand--the-law-of-large-numbers-and-its-practical-implications--how-sample-means-converge-to-population-means--the-central-limit-theorem-and-the-distribution-of-sample-means--the-relationship-between-sample-size-and-statistical-accuracy--how-to-visualize-convergence-using-monte-carlo-simulations-key-concepts--law-of-large-numbers-as-sample-size-increases-sample-means-converge-to-the-true-population-mean--central-limit-theorem-sample-means-are-approximately-normally-distributed-regardless-of-the-population-distribution--monte-carlo-simulation-using-random-sampling-to-understand-statistical-properties" class="level1">
-<h1>Law of Large Numbers and Central Limit Theorem## IntroductionThis notebook provides an interactive exploration of two fundamental theorems in probability theory: the <strong>Law of Large Numbers (LLN)</strong> and the <strong>Central Limit Theorem (CLT)</strong>. These concepts are cornerstones of statistical inference and help us understand how sample statistics behave as sample sizes increase.### Learning ObjectivesBy the end of this notebook, you will understand:- The Law of Large Numbers and its practical implications- How sample means converge to population means- The Central Limit Theorem and the distribution of sample means- The relationship between sample size and statistical accuracy- How to visualize convergence using Monte Carlo simulations### Key Concepts- <strong>Law of Large Numbers</strong>: As sample size increases, sample means converge to the true population mean- <strong>Central Limit Theorem</strong>: Sample means are approximately normally distributed, regardless of the population distribution- <strong>Monte Carlo Simulation</strong>: Using random sampling to understand statistical properties—</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This notebook provides an interactive exploration of two fundamental theorems in probability theory: the <strong>Law of Large Numbers (LLN)</strong> and the <strong>Central Limit Theorem (CLT)</strong>. These concepts are cornerstones of statistical inference and help us understand how sample statistics behave as sample sizes increase.</p>
+<section id="learning-objectives" class="level3">
+<h3 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h3>
+<p>By the end of this notebook, you will understand: - The Law of Large Numbers and its practical implications - How sample means converge to population means - The Central Limit Theorem and the distribution of sample means - The relationship between sample size and statistical accuracy - How to visualize convergence using Monte Carlo simulations</p>
+</section>
+<section id="key-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="key-concepts">Key Concepts</h3>
+<ul>
+<li><strong>Law of Large Numbers</strong>: As sample size increases, sample means converge to the true population mean</li>
+<li><strong>Central Limit Theorem</strong>: Sample means are approximately normally distributed, regardless of the population distribution</li>
+<li><strong>Monte Carlo Simulation</strong>: Using random sampling to understand statistical properties</li>
+</ul>
+<hr>
+</section>
+</section>
 <section id="setting-up-the-experimentwell-use-bernoulli-random-variables-for-our-demonstration.-a-bernoulli-distribution-with-parameter-p-0.5-represents-a-fair-coin-flip-where--success-heads-1-with-probability-0.5---failure-tails-0-with-probability-0.5the-theoretical-mean-mathbbex-p-0.5." class="level2">
 <h2 class="anchored" data-anchor-id="setting-up-the-experimentwell-use-bernoulli-random-variables-for-our-demonstration.-a-bernoulli-distribution-with-parameter-p-0.5-represents-a-fair-coin-flip-where--success-heads-1-with-probability-0.5---failure-tails-0-with-probability-0.5the-theoretical-mean-mathbbex-p-0.5.">Setting Up the ExperimentWe’ll use <strong>Bernoulli random variables</strong> for our demonstration. A Bernoulli distribution with parameter <span class="math inline">\(p = 0.5\)</span> represents a fair coin flip where:- Success (heads) = 1 with probability 0.5 - Failure (tails) = 0 with probability 0.5The theoretical mean <span class="math inline">\(\mathbb{E}[X] = p = 0.5\)</span>.</h2>
 <section id="experimental-designwell-generate--k-1000-independent-experiments-sample-paths--each-experiment-contains-n-5000-coin-flips--this-allows-us-to-observe-both-lln-and-clt-simultaneously" class="level3">
 <h3 class="anchored" data-anchor-id="experimental-designwell-generate--k-1000-independent-experiments-sample-paths--each-experiment-contains-n-5000-coin-flips--this-allows-us-to-observe-both-lln-and-clt-simultaneously">Experimental DesignWe’ll generate:- <strong>K = 1000</strong> independent experiments (sample paths)- Each experiment contains <strong>N = 5000</strong> coin flips- This allows us to observe both LLN and CLT simultaneously</h3>
-<p>—author: Nipun Batrabadges: truecategories:- Probability- Statistics- Mathematics- Random Variablesdate: ’2025-01-13’description: Interactive exploration of the Law of Large Numbers and Central Limit Theorem using Monte Carlo simulations with Bernoulli random variableskeywords: law of large numbers, central limit theorem, monte carlo, bernoulli distribution, convergence, sample meantitle: Law of Large Numbers and Central Limit Theoremtoc: true—</p>
 <div id="cell-5" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>X1 <span class="op">=</span> dist.Bernoulli(probs<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X2 <span class="op">=</span> dist.Bernoulli(probs<span class="op">=</span><span class="fl">0.5</span>)</span>
@@ -523,7 +553,6 @@ This will become an error in seaborn v0.14.0; please update your code.
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
