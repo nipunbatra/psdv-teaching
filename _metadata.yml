@@ -1,0 +1,34 @@
+author: "Prof. Nipun Batra"
+institute: "Indian Institute of Technology, Gandhinagar"
+website:
+  title: "PSDV Teaching Resources"
+  description: "Interactive Jupyter notebooks for learning Probability, Statistics, and Data Visualization. Comprehensive educational materials developed at IIT Gandhinagar."
+  image: "figures/pexels-solodsha-9009923.jpg"
+  
+format:
+  html:
+    author-meta: "Prof. Nipun Batra"
+    description-meta: "Interactive educational resources for probability, statistics, and data visualization using Python, Jupyter notebooks, and modern data science tools."
+    keywords: 
+      - probability
+      - statistics
+      - data visualization
+      - jupyter notebooks
+      - python
+      - education
+      - machine learning
+      - data science
+      - interactive learning
+    lang: en
+    
+# Common citation format for academic content
+citation:
+  type: webpage
+  author: "Nipun Batra"
+  title: "PSDV Teaching Resources: Interactive Notebooks for Probability, Statistics, and Data Visualization"
+  url: "https://nipunbatra.github.io/psdv-teaching/"
+  doi: ""
+  
+# Creative Commons license for educational content
+license: "MIT"
+copyright: "Copyright 2024-2025, Prof. Nipun Batra, IIT Gandhinagar"
