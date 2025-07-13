@@ -6,6 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Nipun Batra">
+<meta name="dcterms.date" content="2025-02-11">
+<meta name="keywords" content="pandas, groupby, data aggregation, quiz, exercises, data manipulation, python">
+<meta name="description" content="Practical exercises and quiz problems focusing on pandas groupby operations and data aggregation techniques">
 
 <title>Data Analysis Quiz - Pandas GroupBy Operations – Probability Statistics Data Visualization Resources</title>
 <style>
@@ -113,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -320,7 +324,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-analysis-quiz---pandas-groupby-operations" id="toc-data-analysis-quiz---pandas-groupby-operations" class="nav-link active" data-scroll-target="#data-analysis-quiz---pandas-groupby-operations">Data Analysis Quiz - Pandas GroupBy Operations</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#key-concepts-covered" id="toc-key-concepts-covered" class="nav-link" data-scroll-target="#key-concepts-covered">Key Concepts Covered</a></li>
+  </ul></li>
+  <li><a href="#problem-setup" id="toc-problem-setup" class="nav-link" data-scroll-target="#problem-setup">Problem Setup</a></li>
+  <li><a href="#understanding-the-dataset" id="toc-understanding-the-dataset" class="nav-link" data-scroll-target="#understanding-the-dataset">Understanding the Dataset</a></li>
+  <li><a href="#groupby-fundamentals" id="toc-groupby-fundamentals" class="nav-link" data-scroll-target="#groupby-fundamentals">GroupBy Fundamentals</a>
+  <ul class="collapse">
+  <li><a href="#creating-a-groupby-object" id="toc-creating-a-groupby-object" class="nav-link" data-scroll-target="#creating-a-groupby-object">Creating a GroupBy Object</a></li>
+  <li><a href="#accessing-individual-groups" id="toc-accessing-individual-groups" class="nav-link" data-scroll-target="#accessing-individual-groups">Accessing Individual Groups</a></li>
+  </ul></li>
+  <li><a href="#aggregation-methods" id="toc-aggregation-methods" class="nav-link" data-scroll-target="#aggregation-methods">Aggregation Methods</a>
+  <ul class="collapse">
+  <li><a href="#understanding-different-aggregation-approaches" id="toc-understanding-different-aggregation-approaches" class="nav-link" data-scroll-target="#understanding-different-aggregation-approaches">Understanding Different Aggregation Approaches</a></li>
+  <li><a href="#controlling-numeric-vs.-all-columns" id="toc-controlling-numeric-vs.-all-columns" class="nav-link" data-scroll-target="#controlling-numeric-vs.-all-columns">Controlling Numeric vs.&nbsp;All Columns</a></li>
+  <li><a href="#column-specific-aggregation" id="toc-column-specific-aggregation" class="nav-link" data-scroll-target="#column-specific-aggregation">Column-Specific Aggregation</a></li>
+  <li><a href="#exploring-method-documentation" id="toc-exploring-method-documentation" class="nav-link" data-scroll-target="#exploring-method-documentation">Exploring Method Documentation</a></li>
+  </ul></li>
+  <li><a href="#key-learning-points" id="toc-key-learning-points" class="nav-link" data-scroll-target="#key-learning-points">Key Learning Points</a>
+  <ul class="collapse">
+  <li><a href="#groupby-operation-summary" id="toc-groupby-operation-summary" class="nav-link" data-scroll-target="#groupby-operation-summary">GroupBy Operation Summary</a></li>
+  <li><a href="#practical-applications" id="toc-practical-applications" class="nav-link" data-scroll-target="#practical-applications">Practical Applications</a></li>
+  <li><a href="#best-practices" id="toc-best-practices" class="nav-link" data-scroll-target="#best-practices">Best Practices</a></li>
+  <li><a href="#further-exploration" id="toc-further-exploration" class="nav-link" data-scroll-target="#further-exploration">Further Exploration</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -328,23 +368,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Data Analysis Quiz - Pandas GroupBy Operations</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Data Science</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Pandas</div>
+    <div class="quarto-category">Data Analysis</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Practical exercises and quiz problems focusing on pandas groupby operations and data aggregation techniques
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nipun Batra </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 11, 2025</p>
+    </div>
+  </div>
   
     
   </div>
   
 
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>pandas, groupby, data aggregation, quiz, exercises, data manipulation, python</p>
+  </div>
+</div>
 
 </header>
 
 
-<div id="cell-1" class="cell" data-execution_count="3">
+<p>—author: Nipun Batratitle: Data Analysis Quiz - Pandas GroupBy Operationsdescription: Practical exercises and quiz problems focusing on pandas groupby operations and data aggregation techniquescategories: - Data Science - Python - Pandas - Data Analysiskeywords: [pandas, groupby, data aggregation, quiz, exercises, data manipulation, python]date: ’2025-02-11’badges: truetoc: true—</p>
+<div id="cell-1" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -357,6 +427,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
        'Finance', 'Sales'], dtype='&lt;U7')</code></pre>
 </div>
 </div>
+<section id="data-analysis-quiz---pandas-groupby-operations" class="level1">
+<h1>Data Analysis Quiz - Pandas GroupBy Operations</h1>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>This notebook contains practical exercises focusing on <strong>pandas GroupBy operations</strong> - one of the most powerful features in pandas for data aggregation and analysis. These exercises will test your understanding of grouping data, applying functions, and extracting insights from grouped datasets.</p>
@@ -399,13 +471,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="understanding-the-datasetlets-examine-our-employee-dataset.-notice-the-different-departments-varying-salaries-and-multiple-office-locations.-this-diversity-makes-it-perfect-for-practicing-groupby-operations." class="level2">
-<h2 class="anchored" data-anchor-id="understanding-the-datasetlets-examine-our-employee-dataset.-notice-the-different-departments-varying-salaries-and-multiple-office-locations.-this-diversity-makes-it-perfect-for-practicing-groupby-operations.">Understanding the DatasetLet’s examine our employee dataset. Notice the different departments, varying salaries, and multiple office locations. This diversity makes it perfect for practicing GroupBy operations.</h2>
+<section id="understanding-the-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="understanding-the-dataset">Understanding the Dataset</h2>
+<p>Let’s examine our employee dataset. Notice the different departments, varying salaries, and multiple office locations. This diversity makes it perfect for practicing GroupBy operations.</p>
 </section>
-<section id="groupby-fundamentals-creating-a-groupby-objectwhen-we-call-df.groupbydepartment-pandas-creates-a-groupby-object-that-represents-the-data-split-into-groups-based-on-the-specified-column." class="level2">
-<h2 class="anchored" data-anchor-id="groupby-fundamentals-creating-a-groupby-objectwhen-we-call-df.groupbydepartment-pandas-creates-a-groupby-object-that-represents-the-data-split-into-groups-based-on-the-specified-column.">GroupBy Fundamentals### Creating a GroupBy ObjectWhen we call <code>df.groupby('department')</code>, pandas creates a GroupBy object that represents the data split into groups based on the specified column.</h2>
-<section id="accessing-individual-groupsthe-get_group-method-allows-us-to-extract-data-for-a-specific-group.-this-is-useful-for-examining-subsets-of-your-data." class="level3">
-<h3 class="anchored" data-anchor-id="accessing-individual-groupsthe-get_group-method-allows-us-to-extract-data-for-a-specific-group.-this-is-useful-for-examining-subsets-of-your-data.">Accessing Individual GroupsThe <code>get_group()</code> method allows us to extract data for a specific group. This is useful for examining subsets of your data.</h3>
+<section id="groupby-fundamentals" class="level2">
+<h2 class="anchored" data-anchor-id="groupby-fundamentals">GroupBy Fundamentals</h2>
+<section id="creating-a-groupby-object" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-groupby-object">Creating a GroupBy Object</h3>
+<p>When we call <code>df.groupby('department')</code>, pandas creates a GroupBy object that represents the data split into groups based on the specified column.</p>
+</section>
+<section id="accessing-individual-groups" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-individual-groups">Accessing Individual Groups</h3>
+<p>The <code>get_group()</code> method allows us to extract data for a specific group. This is useful for examining subsets of your data.</p>
 <div id="cell-10" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'department'</span>: department, </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'employee_id'</span>: employee_id, </span>
@@ -507,16 +585,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="aggregation-methods-understanding-different-aggregation-approachespandas-provides-multiple-ways-to-apply-aggregation-functions-to-grouped-data.-lets-explore-the-different-syntaxes-and-their-implications." class="level2">
-<h2 class="anchored" data-anchor-id="aggregation-methods-understanding-different-aggregation-approachespandas-provides-multiple-ways-to-apply-aggregation-functions-to-grouped-data.-lets-explore-the-different-syntaxes-and-their-implications.">Aggregation Methods### Understanding Different Aggregation ApproachesPandas provides multiple ways to apply aggregation functions to grouped data. Let’s explore the different syntaxes and their implications.</h2>
-<section id="controlling-numeric-vs.-all-columnsthe-numeric_only-parameter-helps-control-which-columns-are-included-in-aggregation-operations." class="level3">
-<h3 class="anchored" data-anchor-id="controlling-numeric-vs.-all-columnsthe-numeric_only-parameter-helps-control-which-columns-are-included-in-aggregation-operations.">Controlling Numeric vs.&nbsp;All ColumnsThe <code>numeric_only</code> parameter helps control which columns are included in aggregation operations.</h3>
+<section id="aggregation-methods" class="level2">
+<h2 class="anchored" data-anchor-id="aggregation-methods">Aggregation Methods</h2>
+<section id="understanding-different-aggregation-approaches" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-different-aggregation-approaches">Understanding Different Aggregation Approaches</h3>
+<p>Pandas provides multiple ways to apply aggregation functions to grouped data. Let’s explore the different syntaxes and their implications.</p>
+</section>
+<section id="controlling-numeric-vs.-all-columns" class="level3">
+<h3 class="anchored" data-anchor-id="controlling-numeric-vs.-all-columns">Controlling Numeric vs.&nbsp;All Columns</h3>
+<p>The <code>numeric_only</code> parameter helps control which columns are included in aggregation operations.</p>
 <div id="cell-14" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> df.groupby(<span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="column-specific-aggregationdifferent-syntax-approaches-for-focusing-on-specific-columns-during-aggregation." class="level3">
-<h3 class="anchored" data-anchor-id="column-specific-aggregationdifferent-syntax-approaches-for-focusing-on-specific-columns-during-aggregation.">Column-Specific AggregationDifferent syntax approaches for focusing on specific columns during aggregation.</h3>
+<section id="column-specific-aggregation" class="level3">
+<h3 class="anchored" data-anchor-id="column-specific-aggregation">Column-Specific Aggregation</h3>
+<p>Different syntax approaches for focusing on specific columns during aggregation.</p>
 <div id="cell-16" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>g.get_group(<span class="st">'HR'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
@@ -555,12 +639,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="exploring-method-documentationunderstanding-the-parameters-and-options-available-for-aggregation-methods-is-crucial-for-effective-data-analysis." class="level3">
-<h3 class="anchored" data-anchor-id="exploring-method-documentationunderstanding-the-parameters-and-options-available-for-aggregation-methods-is-crucial-for-effective-data-analysis.">Exploring Method DocumentationUnderstanding the parameters and options available for aggregation methods is crucial for effective data analysis.</h3>
+<section id="exploring-method-documentation" class="level3">
+<h3 class="anchored" data-anchor-id="exploring-method-documentation">Exploring Method Documentation</h3>
+<p>Understanding the parameters and options available for aggregation methods is crucial for effective data analysis.</p>
 </section>
 </section>
-<section id="key-learning-points-groupby-operation-summaryfrom-this-exercise-weve-learned-several-important-concepts1.-groupby-object-creation-df.groupbycolumn-splits-data-into-groups2.-group-access-get_groupgroup_name-retrieves-specific-group-data-3.-aggregation-methods-multiple-ways-to-apply-functions-like-max-min-mean4.-column-selection-different-syntax-for-targeting-specific-columns5.-parameter-control-using-numeric_only-to-control-which-columns-are-processed-practical-applicationsgroupby-operations-are-fundamental-for--business-analytics-analyzing-performance-by-department-region-or-time-period--scientific-research-grouping-experimental-data-by-conditions-or-categories---financial-analysis-summarizing-transactions-by-account-date-or-category--marketing-analyzing-customer-behavior-by-demographics-or-segments-best-practices1.-understand-your-data-know-the-structure-before-grouping2.-choose-appropriate-aggregations-select-functions-that-make-sense-for-your-analysis3.-handle-missing-data-consider-how-nan-values-affect-your-groupings4.-performance-for-large-datasets-consider-using-vectorized-operations5.-readability-use-clear-descriptive-group-column-names-further-explorationto-deepen-your-groupby-skills-explore--multiple-column-grouping-df.groupbycol1-col2--custom-aggregation-functions-with-agg--transformation-operations-with-transform--filtering-groups-with-filter--advanced-indexing-with-grouped-data" class="level2">
-<h2 class="anchored" data-anchor-id="key-learning-points-groupby-operation-summaryfrom-this-exercise-weve-learned-several-important-concepts1.-groupby-object-creation-df.groupbycolumn-splits-data-into-groups2.-group-access-get_groupgroup_name-retrieves-specific-group-data-3.-aggregation-methods-multiple-ways-to-apply-functions-like-max-min-mean4.-column-selection-different-syntax-for-targeting-specific-columns5.-parameter-control-using-numeric_only-to-control-which-columns-are-processed-practical-applicationsgroupby-operations-are-fundamental-for--business-analytics-analyzing-performance-by-department-region-or-time-period--scientific-research-grouping-experimental-data-by-conditions-or-categories---financial-analysis-summarizing-transactions-by-account-date-or-category--marketing-analyzing-customer-behavior-by-demographics-or-segments-best-practices1.-understand-your-data-know-the-structure-before-grouping2.-choose-appropriate-aggregations-select-functions-that-make-sense-for-your-analysis3.-handle-missing-data-consider-how-nan-values-affect-your-groupings4.-performance-for-large-datasets-consider-using-vectorized-operations5.-readability-use-clear-descriptive-group-column-names-further-explorationto-deepen-your-groupby-skills-explore--multiple-column-grouping-df.groupbycol1-col2--custom-aggregation-functions-with-agg--transformation-operations-with-transform--filtering-groups-with-filter--advanced-indexing-with-grouped-data">Key Learning Points### GroupBy Operation SummaryFrom this exercise, we’ve learned several important concepts:1. <strong>GroupBy Object Creation</strong>: <code>df.groupby('column')</code> splits data into groups2. <strong>Group Access</strong>: <code>get_group('group_name')</code> retrieves specific group data 3. <strong>Aggregation Methods</strong>: Multiple ways to apply functions like <code>max()</code>, <code>min()</code>, <code>mean()</code>4. <strong>Column Selection</strong>: Different syntax for targeting specific columns5. <strong>Parameter Control</strong>: Using <code>numeric_only</code> to control which columns are processed### Practical ApplicationsGroupBy operations are fundamental for:- <strong>Business Analytics</strong>: Analyzing performance by department, region, or time period- <strong>Scientific Research</strong>: Grouping experimental data by conditions or categories - <strong>Financial Analysis</strong>: Summarizing transactions by account, date, or category- <strong>Marketing</strong>: Analyzing customer behavior by demographics or segments### Best Practices1. <strong>Understand Your Data</strong>: Know the structure before grouping2. <strong>Choose Appropriate Aggregations</strong>: Select functions that make sense for your analysis3. <strong>Handle Missing Data</strong>: Consider how NaN values affect your groupings4. <strong>Performance</strong>: For large datasets, consider using vectorized operations5. <strong>Readability</strong>: Use clear, descriptive group column names### Further ExplorationTo deepen your GroupBy skills, explore:- Multiple column grouping: <code>df.groupby(['col1', 'col2'])</code>- Custom aggregation functions with <code>agg()</code>- Transformation operations with <code>transform()</code>- Filtering groups with <code>filter()</code>- Advanced indexing with grouped data</h2>
+<section id="key-learning-points" class="level2">
+<h2 class="anchored" data-anchor-id="key-learning-points">Key Learning Points</h2>
+<section id="groupby-operation-summary" class="level3">
+<h3 class="anchored" data-anchor-id="groupby-operation-summary">GroupBy Operation Summary</h3>
+<p>From this exercise, we’ve learned several important concepts:</p>
+<ol type="1">
+<li><strong>GroupBy Object Creation</strong>: <code>df.groupby('column')</code> splits data into groups</li>
+<li><strong>Group Access</strong>: <code>get_group('group_name')</code> retrieves specific group data<br>
+</li>
+<li><strong>Aggregation Methods</strong>: Multiple ways to apply functions like <code>max()</code>, <code>min()</code>, <code>mean()</code></li>
+<li><strong>Column Selection</strong>: Different syntax for targeting specific columns</li>
+<li><strong>Parameter Control</strong>: Using <code>numeric_only</code> to control which columns are processed</li>
+</ol>
+</section>
+<section id="practical-applications" class="level3">
+<h3 class="anchored" data-anchor-id="practical-applications">Practical Applications</h3>
+<p>GroupBy operations are fundamental for: - <strong>Business Analytics</strong>: Analyzing performance by department, region, or time period - <strong>Scientific Research</strong>: Grouping experimental data by conditions or categories<br>
+- <strong>Financial Analysis</strong>: Summarizing transactions by account, date, or category - <strong>Marketing</strong>: Analyzing customer behavior by demographics or segments</p>
+</section>
+<section id="best-practices" class="level3">
+<h3 class="anchored" data-anchor-id="best-practices">Best Practices</h3>
+<ol type="1">
+<li><strong>Understand Your Data</strong>: Know the structure before grouping</li>
+<li><strong>Choose Appropriate Aggregations</strong>: Select functions that make sense for your analysis</li>
+<li><strong>Handle Missing Data</strong>: Consider how NaN values affect your groupings</li>
+<li><strong>Performance</strong>: For large datasets, consider using vectorized operations</li>
+<li><strong>Readability</strong>: Use clear, descriptive group column names</li>
+</ol>
+</section>
+<section id="further-exploration" class="level3">
+<h3 class="anchored" data-anchor-id="further-exploration">Further Exploration</h3>
+<p>To deepen your GroupBy skills, explore: - Multiple column grouping: <code>df.groupby(['col1', 'col2'])</code> - Custom aggregation functions with <code>agg()</code> - Transformation operations with <code>transform()</code> - Filtering groups with <code>filter()</code> - Advanced indexing with grouped data</p>
 <div id="cell-19" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>g.get_group(<span class="st">'Sales'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="27">
@@ -977,6 +1092,8 @@ a
 </div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

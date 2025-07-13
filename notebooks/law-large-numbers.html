@@ -6,6 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Nipun Batra">
+<meta name="dcterms.date" content="2025-04-06">
+<meta name="keywords" content="law of large numbers, central limit theorem, monte carlo, bernoulli distribution, convergence, sample mean">
+<meta name="description" content="Interactive exploration of the Law of Large Numbers and Central Limit Theorem using Monte Carlo simulations with Bernoulli random variables">
 
 <title>Law of Large Numbers and Central Limit Theorem – Probability Statistics Data Visualization Resources</title>
 <style>
@@ -139,7 +143,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -346,7 +350,40 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#law-of-large-numbers-and-central-limit-theorem" id="toc-law-of-large-numbers-and-central-limit-theorem" class="nav-link active" data-scroll-target="#law-of-large-numbers-and-central-limit-theorem">Law of Large Numbers and Central Limit Theorem</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts">Key Concepts</a></li>
+  </ul></li>
+  <li><a href="#setting-up-the-experiment" id="toc-setting-up-the-experiment" class="nav-link" data-scroll-target="#setting-up-the-experiment">Setting Up the Experiment</a>
+  <ul class="collapse">
+  <li><a href="#experimental-design" id="toc-experimental-design" class="nav-link" data-scroll-target="#experimental-design">Experimental Design</a></li>
+  </ul></li>
+  <li><a href="#observing-a-single-sample-path" id="toc-observing-a-single-sample-path" class="nav-link" data-scroll-target="#observing-a-single-sample-path">Observing a Single Sample Path</a></li>
+  <li><a href="#law-of-large-numbers-in-action" id="toc-law-of-large-numbers-in-action" class="nav-link" data-scroll-target="#law-of-large-numbers-in-action">Law of Large Numbers in Action</a></li>
+  <li><a href="#combined-visualization-lln-and-clt" id="toc-combined-visualization-lln-and-clt" class="nav-link" data-scroll-target="#combined-visualization-lln-and-clt">Combined Visualization: LLN and CLT</a>
+  <ul class="collapse">
+  <li><a href="#left-panel-law-of-large-numbers" id="toc-left-panel-law-of-large-numbers" class="nav-link" data-scroll-target="#left-panel-law-of-large-numbers">Left Panel: Law of Large Numbers</a></li>
+  <li><a href="#right-panel-central-limit-theorem" id="toc-right-panel-central-limit-theorem" class="nav-link" data-scroll-target="#right-panel-central-limit-theorem">Right Panel: Central Limit Theorem</a></li>
+  </ul></li>
+  <li><a href="#key-insights-and-implications" id="toc-key-insights-and-implications" class="nav-link" data-scroll-target="#key-insights-and-implications">Key Insights and Implications</a>
+  <ul class="collapse">
+  <li><a href="#law-of-large-numbers" id="toc-law-of-large-numbers" class="nav-link" data-scroll-target="#law-of-large-numbers">Law of Large Numbers</a></li>
+  <li><a href="#central-limit-theorem" id="toc-central-limit-theorem" class="nav-link" data-scroll-target="#central-limit-theorem">Central Limit Theorem</a></li>
+  <li><a href="#real-world-applications" id="toc-real-world-applications" class="nav-link" data-scroll-target="#real-world-applications">Real-World Applications</a></li>
+  <li><a href="#mathematical-formulation" id="toc-mathematical-formulation" class="nav-link" data-scroll-target="#mathematical-formulation">Mathematical Formulation</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -354,22 +391,52 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Law of Large Numbers and Central Limit Theorem</h1>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Probability</div>
+    <div class="quarto-category">Statistics</div>
+    <div class="quarto-category">Mathematics</div>
+    <div class="quarto-category">Random Variables</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Interactive exploration of the Law of Large Numbers and Central Limit Theorem using Monte Carlo simulations with Bernoulli random variables
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nipun Batra </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 6, 2025</p>
+    </div>
+  </div>
   
     
   </div>
   
 
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>law of large numbers, central limit theorem, monte carlo, bernoulli distribution, convergence, sample mean</p>
+  </div>
+</div>
 
 </header>
 
 
+<p>—author: Nipun Batratitle: Law of Large Numbers and Central Limit Theoremdescription: Interactive exploration of the Law of Large Numbers and Central Limit Theorem using Monte Carlo simulations with Bernoulli random variablescategories: - Probability - Statistics - Mathematics - Random Variableskeywords: [law of large numbers, central limit theorem, monte carlo, bernoulli distribution, convergence, sample mean]date: ’2025-04-06’badges: truetoc: true—</p>
 <div id="cell-1" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.distributions <span class="im">as</span> dist</span>
@@ -378,6 +445,8 @@ window.Quarto = {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>config InlineBackend.figure_format <span class="op">=</span> <span class="st">'retina'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<section id="law-of-large-numbers-and-central-limit-theorem" class="level1">
+<h1>Law of Large Numbers and Central Limit Theorem</h1>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>This notebook provides an interactive exploration of two fundamental theorems in probability theory: the <strong>Law of Large Numbers (LLN)</strong> and the <strong>Central Limit Theorem (CLT)</strong>. These concepts are cornerstones of statistical inference and help us understand how sample statistics behave as sample sizes increase.</p>
@@ -395,10 +464,14 @@ window.Quarto = {
 <hr>
 </section>
 </section>
-<section id="setting-up-the-experimentwell-use-bernoulli-random-variables-for-our-demonstration.-a-bernoulli-distribution-with-parameter-p-0.5-represents-a-fair-coin-flip-where--success-heads-1-with-probability-0.5---failure-tails-0-with-probability-0.5the-theoretical-mean-mathbbex-p-0.5." class="level2">
-<h2 class="anchored" data-anchor-id="setting-up-the-experimentwell-use-bernoulli-random-variables-for-our-demonstration.-a-bernoulli-distribution-with-parameter-p-0.5-represents-a-fair-coin-flip-where--success-heads-1-with-probability-0.5---failure-tails-0-with-probability-0.5the-theoretical-mean-mathbbex-p-0.5.">Setting Up the ExperimentWe’ll use <strong>Bernoulli random variables</strong> for our demonstration. A Bernoulli distribution with parameter <span class="math inline">\(p = 0.5\)</span> represents a fair coin flip where:- Success (heads) = 1 with probability 0.5 - Failure (tails) = 0 with probability 0.5The theoretical mean <span class="math inline">\(\mathbb{E}[X] = p = 0.5\)</span>.</h2>
-<section id="experimental-designwell-generate--k-1000-independent-experiments-sample-paths--each-experiment-contains-n-5000-coin-flips--this-allows-us-to-observe-both-lln-and-clt-simultaneously" class="level3">
-<h3 class="anchored" data-anchor-id="experimental-designwell-generate--k-1000-independent-experiments-sample-paths--each-experiment-contains-n-5000-coin-flips--this-allows-us-to-observe-both-lln-and-clt-simultaneously">Experimental DesignWe’ll generate:- <strong>K = 1000</strong> independent experiments (sample paths)- Each experiment contains <strong>N = 5000</strong> coin flips- This allows us to observe both LLN and CLT simultaneously</h3>
+<section id="setting-up-the-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="setting-up-the-experiment">Setting Up the Experiment</h2>
+<p>We’ll use <strong>Bernoulli random variables</strong> for our demonstration. A Bernoulli distribution with parameter <span class="math inline">\(p = 0.5\)</span> represents a fair coin flip where: - Success (heads) = 1 with probability 0.5<br>
+- Failure (tails) = 0 with probability 0.5</p>
+<p>The theoretical mean <span class="math inline">\(\mathbb{E}[X] = p = 0.5\)</span>.</p>
+<section id="experimental-design" class="level3">
+<h3 class="anchored" data-anchor-id="experimental-design">Experimental Design</h3>
+<p>We’ll generate: - <strong>K = 1000</strong> independent experiments (sample paths) - Each experiment contains <strong>N = 5000</strong> coin flips - This allows us to observe both LLN and CLT simultaneously</p>
 <div id="cell-5" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>X1 <span class="op">=</span> dist.Bernoulli(probs<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>X2 <span class="op">=</span> dist.Bernoulli(probs<span class="op">=</span><span class="fl">0.5</span>)</span>
@@ -414,8 +487,9 @@ tensor([1., 1.])</code></pre>
 </div>
 </section>
 </section>
-<section id="observing-a-single-sample-pathlets-first-examine-how-a-single-sequence-of-coin-flips-converges-to-the-expected-value.-the-running-average-should-approach-0.5-as-we-add-more-samples." class="level2">
-<h2 class="anchored" data-anchor-id="observing-a-single-sample-pathlets-first-examine-how-a-single-sequence-of-coin-flips-converges-to-the-expected-value.-the-running-average-should-approach-0.5-as-we-add-more-samples.">Observing a Single Sample PathLet’s first examine how a single sequence of coin flips converges to the expected value. The running average should approach 0.5 as we add more samples.</h2>
+<section id="observing-a-single-sample-path" class="level2">
+<h2 class="anchored" data-anchor-id="observing-a-single-sample-path">Observing a Single Sample Path</h2>
+<p>Let’s first examine how a single sequence of coin flips converges to the expected value. The running average should approach 0.5 as we add more samples.</p>
 <div id="cell-7" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> dist.Bernoulli(probs<span class="op">=</span><span class="fl">0.5</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -429,14 +503,63 @@ tensor([1., 1.])</code></pre>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="law-of-large-numbers-in-actionnow-lets-visualize-the-law-of-large-numbers-by-plotting-many-sample-paths-simultaneously.-each-gray-line-represents-one-experiment-and-the-red-dashed-line-shows-the-true-expected-value." class="level2">
-<h2 class="anchored" data-anchor-id="law-of-large-numbers-in-actionnow-lets-visualize-the-law-of-large-numbers-by-plotting-many-sample-paths-simultaneously.-each-gray-line-represents-one-experiment-and-the-red-dashed-line-shows-the-true-expected-value.">Law of Large Numbers in ActionNow let’s visualize the Law of Large Numbers by plotting many sample paths simultaneously. Each gray line represents one experiment, and the red dashed line shows the true expected value.</h2>
+<section id="law-of-large-numbers-in-action" class="level2">
+<h2 class="anchored" data-anchor-id="law-of-large-numbers-in-action">Law of Large Numbers in Action</h2>
+<p>Now let’s visualize the Law of Large Numbers by plotting many sample paths simultaneously. Each gray line represents one experiment, and the red dashed line shows the true expected value.</p>
 </section>
-<section id="combined-visualization-lln-and-cltthis-enhanced-visualization-shows-both-theorems-simultaneously-left-panel-law-of-large-numbers--multiple-sample-paths-showing-convergence-to-the-true-mean--each-path-represents-running-averages-over-time--notice-how-variability-decreases-as-sample-size-increases-right-panel-central-limit-theorem---distribution-of-final-sample-means-from-all-k1000-experiments--this-distribution-is-approximately-normal-even-though-individual-coin-flips-are-bernoulli--the-center-of-this-distribution-is-at-the-true-mean-0.5" class="level2">
-<h2 class="anchored" data-anchor-id="combined-visualization-lln-and-cltthis-enhanced-visualization-shows-both-theorems-simultaneously-left-panel-law-of-large-numbers--multiple-sample-paths-showing-convergence-to-the-true-mean--each-path-represents-running-averages-over-time--notice-how-variability-decreases-as-sample-size-increases-right-panel-central-limit-theorem---distribution-of-final-sample-means-from-all-k1000-experiments--this-distribution-is-approximately-normal-even-though-individual-coin-flips-are-bernoulli--the-center-of-this-distribution-is-at-the-true-mean-0.5">Combined Visualization: LLN and CLTThis enhanced visualization shows both theorems simultaneously:### Left Panel: Law of Large Numbers- Multiple sample paths showing convergence to the true mean- Each path represents running averages over time- Notice how variability decreases as sample size increases### Right Panel: Central Limit Theorem - Distribution of final sample means (from all K=1000 experiments)- This distribution is approximately normal, even though individual coin flips are Bernoulli- The center of this distribution is at the true mean (0.5)</h2>
+<section id="combined-visualization-lln-and-clt" class="level2">
+<h2 class="anchored" data-anchor-id="combined-visualization-lln-and-clt">Combined Visualization: LLN and CLT</h2>
+<p>This enhanced visualization shows both theorems simultaneously:</p>
+<section id="left-panel-law-of-large-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="left-panel-law-of-large-numbers">Left Panel: Law of Large Numbers</h3>
+<ul>
+<li>Multiple sample paths showing convergence to the true mean</li>
+<li>Each path represents running averages over time</li>
+<li>Notice how variability decreases as sample size increases</li>
+</ul>
 </section>
-<section id="key-insights-and-implications-law-of-large-numbers--convergence-individual-sample-means-approach-the-true-population-mean-as-n---consistency-this-convergence-happens-for-each-individual-experiment--practical-meaning-larger-samples-give-more-accurate-estimates-central-limit-theorem--normality-the-distribution-of-sample-means-becomes-normal-regardless-of-the-original-distribution--universality-this-holds-for-any-distribution-with-finite-mean-and-variance--statistical-inference-this-is-why-normal-distributions-are-so-important-in-statistics-real-world-applications1.-quality-control-manufacturing-processes-use-these-principles-to-ensure-product-quality2.-polling-election-polls-rely-on-clt-to-estimate-population-preferences-from-samples-3.-ab-testing-digital-experiments-use-these-concepts-to-make-decisions-from-limited-data4.-risk-management-financial-models-use-lln-to-predict-long-term-outcomes-mathematical-formulationfor-i.i.d.-random-variables-x_1-x_2-ldots-x_n-with-mean-mu-and-variance-sigma2law-of-large-numbersbarx_n-frac1nsum_i1n-x_i-xrightarrowp-mu-text-as-n-to-inftycentral-limit-theoremfracbarx_n---musigmasqrtn-xrightarrowd-n01-text-as-n-to-infty" class="level2">
-<h2 class="anchored" data-anchor-id="key-insights-and-implications-law-of-large-numbers--convergence-individual-sample-means-approach-the-true-population-mean-as-n---consistency-this-convergence-happens-for-each-individual-experiment--practical-meaning-larger-samples-give-more-accurate-estimates-central-limit-theorem--normality-the-distribution-of-sample-means-becomes-normal-regardless-of-the-original-distribution--universality-this-holds-for-any-distribution-with-finite-mean-and-variance--statistical-inference-this-is-why-normal-distributions-are-so-important-in-statistics-real-world-applications1.-quality-control-manufacturing-processes-use-these-principles-to-ensure-product-quality2.-polling-election-polls-rely-on-clt-to-estimate-population-preferences-from-samples-3.-ab-testing-digital-experiments-use-these-concepts-to-make-decisions-from-limited-data4.-risk-management-financial-models-use-lln-to-predict-long-term-outcomes-mathematical-formulationfor-i.i.d.-random-variables-x_1-x_2-ldots-x_n-with-mean-mu-and-variance-sigma2law-of-large-numbersbarx_n-frac1nsum_i1n-x_i-xrightarrowp-mu-text-as-n-to-inftycentral-limit-theoremfracbarx_n---musigmasqrtn-xrightarrowd-n01-text-as-n-to-infty">Key Insights and Implications### Law of Large Numbers- <strong>Convergence</strong>: Individual sample means approach the true population mean as N → ∞- <strong>Consistency</strong>: This convergence happens for each individual experiment- <strong>Practical Meaning</strong>: Larger samples give more accurate estimates### Central Limit Theorem- <strong>Normality</strong>: The distribution of sample means becomes normal regardless of the original distribution- <strong>Universality</strong>: This holds for any distribution with finite mean and variance- <strong>Statistical Inference</strong>: This is why normal distributions are so important in statistics### Real-World Applications1. <strong>Quality Control</strong>: Manufacturing processes use these principles to ensure product quality2. <strong>Polling</strong>: Election polls rely on CLT to estimate population preferences from samples 3. <strong>A/B Testing</strong>: Digital experiments use these concepts to make decisions from limited data4. <strong>Risk Management</strong>: Financial models use LLN to predict long-term outcomes### Mathematical FormulationFor i.i.d. random variables <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>:<strong>Law of Large Numbers:</strong><span class="math display">\[\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i \xrightarrow{P} \mu \text{ as } n \to \infty\]</span><strong>Central Limit Theorem:</strong><span class="math display">\[\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \xrightarrow{D} N(0,1) \text{ as } n \to \infty\]</span></h2>
+<section id="right-panel-central-limit-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="right-panel-central-limit-theorem">Right Panel: Central Limit Theorem</h3>
+<ul>
+<li>Distribution of final sample means (from all K=1000 experiments)</li>
+<li>This distribution is approximately normal, even though individual coin flips are Bernoulli</li>
+<li>The center of this distribution is at the true mean (0.5)</li>
+</ul>
+</section>
+</section>
+<section id="key-insights-and-implications" class="level2">
+<h2 class="anchored" data-anchor-id="key-insights-and-implications">Key Insights and Implications</h2>
+<section id="law-of-large-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="law-of-large-numbers">Law of Large Numbers</h3>
+<ul>
+<li><strong>Convergence</strong>: Individual sample means approach the true population mean as N → ∞</li>
+<li><strong>Consistency</strong>: This convergence happens for each individual experiment</li>
+<li><strong>Practical Meaning</strong>: Larger samples give more accurate estimates</li>
+</ul>
+</section>
+<section id="central-limit-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="central-limit-theorem">Central Limit Theorem</h3>
+<ul>
+<li><strong>Normality</strong>: The distribution of sample means becomes normal regardless of the original distribution</li>
+<li><strong>Universality</strong>: This holds for any distribution with finite mean and variance</li>
+<li><strong>Statistical Inference</strong>: This is why normal distributions are so important in statistics</li>
+</ul>
+</section>
+<section id="real-world-applications" class="level3">
+<h3 class="anchored" data-anchor-id="real-world-applications">Real-World Applications</h3>
+<ol type="1">
+<li><strong>Quality Control</strong>: Manufacturing processes use these principles to ensure product quality</li>
+<li><strong>Polling</strong>: Election polls rely on CLT to estimate population preferences from samples<br>
+</li>
+<li><strong>A/B Testing</strong>: Digital experiments use these concepts to make decisions from limited data</li>
+<li><strong>Risk Management</strong>: Financial models use LLN to predict long-term outcomes</li>
+</ol>
+</section>
+<section id="mathematical-formulation" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-formulation">Mathematical Formulation</h3>
+<p>For i.i.d. random variables <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>:</p>
+<p><strong>Law of Large Numbers:</strong> <span class="math display">\[\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i \xrightarrow{P} \mu \text{ as } n \to \infty\]</span></p>
+<p><strong>Central Limit Theorem:</strong> <span class="math display">\[\frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \xrightarrow{D} N(0,1) \text{ as } n \to \infty\]</span></p>
 <div id="cell-11" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>samples[<span class="dv">0</span>, :]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
@@ -553,6 +676,8 @@ This will become an error in seaborn v0.14.0; please update your code.
 </div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

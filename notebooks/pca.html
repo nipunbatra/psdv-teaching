@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Nipun Batra">
-<meta name="dcterms.date" content="2025-04-15">
+<meta name="dcterms.date" content="2025-04-14">
 
 <title>Principal Component Analysis – Probability Statistics Data Visualization Resources</title>
 <style>
@@ -109,6 +109,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -324,8 +353,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#center-the-data" id="toc-center-the-data" class="nav-link active" data-scroll-target="#center-the-data">Center the data</a></li>
+  <li><a href="#principal-component-analysis-pca-theory-and-applications-introductionprincipal-component-analysis-pca-is-one-of-the-most-fundamental-techniques-in-data-science-and-machine-learning.-it-serves-as-a-cornerstone-for-dimensionality-reduction-data-visualization-and-understanding-the-structure-of-high-dimensional-datasets.-pca-transforms-data-to-a-lower-dimensional-space-while-preserving-as-much-variance-information-as-possible.at-its-core-pca-answers-a-crucial-question-what-are-the-most-important-directions-of-variation-in-my-data-this-question-is-essential-when-dealing-with-high-dimensional-data-where-visualization-is-challenging-storage-is-expensive-or-computational-complexity-is-prohibitive.pca-has-applications-across-numerous-fields--data-visualization-reducing-high-dimensional-data-to-2d3d-for-plotting--data-compression-storing-data-more-efficiently-with-minimal-information-loss--noise-reduction-filtering-out-noise-by-keeping-only-major-components--feature-engineering-creating-new-features-that-capture-data-structure--exploratory-data-analysis-understanding-patterns-and-relationships-in-data-learning-objectivesby-the-end-of-this-notebook-you-will-be-able-to1.-understand-the-mathematical-foundations-of-pca-and-eigenvalue-decomposition2.-derive-the-pca-algorithm-from-variance-maximization-principles3.-implement-pca-from-scratch-using-eigendecomposition4.-interpret-principal-components-as-directions-of-maximum-variance5.-analyze-the-trade-off-between-dimensionality-reduction-and-information-retention6.-apply-pca-to-real-world-datasets-synthetic-and-mnist7.-evaluate-pca-results-using-reconstruction-error-and-explained-variance8.-connect-pca-to-linear-algebra-concepts-covariance-eigenvectors-projections-theoretical-background-the-variance-maximization-problempca-finds-the-directions-in-which-data-varies-the-most.-mathematically-given-data-matrix-x-in-mathbbrn-times-p-n-samples-p-features-we-want-to-find-a-unit-vector-v-in-mathbbrp-such-that-the-variance-of-the-projected-data-xv-is-maximized.optimization-problemmax_v-textvarxv-quad-textsubject-to-quad-v-1-mathematical-derivationfor-centered-data-mean-subtracted-the-variance-of-projected-data-istextvarxv-frac1n-1-xv2-frac1n-1-vt-xt-x-v-vt-sigma-vwhere-sigma-frac1n-1-xt-x-is-the-sample-covariance-matrix.lagrangian-solutionl-vt-sigma-v---lambda-vt-v---1taking-derivatives-and-setting-to-zerofracpartial-lpartial-v-2sigma-v---2lambda-v-0this-gives-us-the-eigenvalue-equationsigma-v-lambda-v-key-results1.-principal-components-eigenvectors-of-the-covariance-matrix2.-explained-variance-eigenvalues-represent-variance-along-each-principal-component3.-optimal-projection-pca-provides-the-best-linear-dimensionality-reduction-in-terms-of-preserved-variance-properties-of-pca--orthogonal-components-principal-components-are-mutually-orthogonal--decreasing-variance-components-are-ordered-by-decreasing-eigenvalues--linear-transformation-pca-is-a-linear-transformation-of-the-original-data--reversible-can-reconstruct-original-data-with-some-loss-if-dimensions-are-reduced-implementation-from-first-principles" id="toc-principal-component-analysis-pca-theory-and-applications-introductionprincipal-component-analysis-pca-is-one-of-the-most-fundamental-techniques-in-data-science-and-machine-learning.-it-serves-as-a-cornerstone-for-dimensionality-reduction-data-visualization-and-understanding-the-structure-of-high-dimensional-datasets.-pca-transforms-data-to-a-lower-dimensional-space-while-preserving-as-much-variance-information-as-possible.at-its-core-pca-answers-a-crucial-question-what-are-the-most-important-directions-of-variation-in-my-data-this-question-is-essential-when-dealing-with-high-dimensional-data-where-visualization-is-challenging-storage-is-expensive-or-computational-complexity-is-prohibitive.pca-has-applications-across-numerous-fields--data-visualization-reducing-high-dimensional-data-to-2d3d-for-plotting--data-compression-storing-data-more-efficiently-with-minimal-information-loss--noise-reduction-filtering-out-noise-by-keeping-only-major-components--feature-engineering-creating-new-features-that-capture-data-structure--exploratory-data-analysis-understanding-patterns-and-relationships-in-data-learning-objectivesby-the-end-of-this-notebook-you-will-be-able-to1.-understand-the-mathematical-foundations-of-pca-and-eigenvalue-decomposition2.-derive-the-pca-algorithm-from-variance-maximization-principles3.-implement-pca-from-scratch-using-eigendecomposition4.-interpret-principal-components-as-directions-of-maximum-variance5.-analyze-the-trade-off-between-dimensionality-reduction-and-information-retention6.-apply-pca-to-real-world-datasets-synthetic-and-mnist7.-evaluate-pca-results-using-reconstruction-error-and-explained-variance8.-connect-pca-to-linear-algebra-concepts-covariance-eigenvectors-projections-theoretical-background-the-variance-maximization-problempca-finds-the-directions-in-which-data-varies-the-most.-mathematically-given-data-matrix-x-in-mathbbrn-times-p-n-samples-p-features-we-want-to-find-a-unit-vector-v-in-mathbbrp-such-that-the-variance-of-the-projected-data-xv-is-maximized.optimization-problemmax_v-textvarxv-quad-textsubject-to-quad-v-1-mathematical-derivationfor-centered-data-mean-subtracted-the-variance-of-projected-data-istextvarxv-frac1n-1-xv2-frac1n-1-vt-xt-x-v-vt-sigma-vwhere-sigma-frac1n-1-xt-x-is-the-sample-covariance-matrix.lagrangian-solutionl-vt-sigma-v---lambda-vt-v---1taking-derivatives-and-setting-to-zerofracpartial-lpartial-v-2sigma-v---2lambda-v-0this-gives-us-the-eigenvalue-equationsigma-v-lambda-v-key-results1.-principal-components-eigenvectors-of-the-covariance-matrix2.-explained-variance-eigenvalues-represent-variance-along-each-principal-component3.-optimal-projection-pca-provides-the-best-linear-dimensionality-reduction-in-terms-of-preserved-variance-properties-of-pca--orthogonal-components-principal-components-are-mutually-orthogonal--decreasing-variance-components-are-ordered-by-decreasing-eigenvalues--linear-transformation-pca-is-a-linear-transformation-of-the-original-data--reversible-can-reconstruct-original-data-with-some-loss-if-dimensions-are-reduced-implementation-from-first-principles" class="nav-link active" data-scroll-target="#principal-component-analysis-pca-theory-and-applications-introductionprincipal-component-analysis-pca-is-one-of-the-most-fundamental-techniques-in-data-science-and-machine-learning.-it-serves-as-a-cornerstone-for-dimensionality-reduction-data-visualization-and-understanding-the-structure-of-high-dimensional-datasets.-pca-transforms-data-to-a-lower-dimensional-space-while-preserving-as-much-variance-information-as-possible.at-its-core-pca-answers-a-crucial-question-what-are-the-most-important-directions-of-variation-in-my-data-this-question-is-essential-when-dealing-with-high-dimensional-data-where-visualization-is-challenging-storage-is-expensive-or-computational-complexity-is-prohibitive.pca-has-applications-across-numerous-fields--data-visualization-reducing-high-dimensional-data-to-2d3d-for-plotting--data-compression-storing-data-more-efficiently-with-minimal-information-loss--noise-reduction-filtering-out-noise-by-keeping-only-major-components--feature-engineering-creating-new-features-that-capture-data-structure--exploratory-data-analysis-understanding-patterns-and-relationships-in-data-learning-objectivesby-the-end-of-this-notebook-you-will-be-able-to1.-understand-the-mathematical-foundations-of-pca-and-eigenvalue-decomposition2.-derive-the-pca-algorithm-from-variance-maximization-principles3.-implement-pca-from-scratch-using-eigendecomposition4.-interpret-principal-components-as-directions-of-maximum-variance5.-analyze-the-trade-off-between-dimensionality-reduction-and-information-retention6.-apply-pca-to-real-world-datasets-synthetic-and-mnist7.-evaluate-pca-results-using-reconstruction-error-and-explained-variance8.-connect-pca-to-linear-algebra-concepts-covariance-eigenvectors-projections-theoretical-background-the-variance-maximization-problempca-finds-the-directions-in-which-data-varies-the-most.-mathematically-given-data-matrix-x-in-mathbbrn-times-p-n-samples-p-features-we-want-to-find-a-unit-vector-v-in-mathbbrp-such-that-the-variance-of-the-projected-data-xv-is-maximized.optimization-problemmax_v-textvarxv-quad-textsubject-to-quad-v-1-mathematical-derivationfor-centered-data-mean-subtracted-the-variance-of-projected-data-istextvarxv-frac1n-1-xv2-frac1n-1-vt-xt-x-v-vt-sigma-vwhere-sigma-frac1n-1-xt-x-is-the-sample-covariance-matrix.lagrangian-solutionl-vt-sigma-v---lambda-vt-v---1taking-derivatives-and-setting-to-zerofracpartial-lpartial-v-2sigma-v---2lambda-v-0this-gives-us-the-eigenvalue-equationsigma-v-lambda-v-key-results1.-principal-components-eigenvectors-of-the-covariance-matrix2.-explained-variance-eigenvalues-represent-variance-along-each-principal-component3.-optimal-projection-pca-provides-the-best-linear-dimensionality-reduction-in-terms-of-preserved-variance-properties-of-pca--orthogonal-components-principal-components-are-mutually-orthogonal--decreasing-variance-components-are-ordered-by-decreasing-eigenvalues--linear-transformation-pca-is-a-linear-transformation-of-the-original-data--reversible-can-reconstruct-original-data-with-some-loss-if-dimensions-are-reduced-implementation-from-first-principles">Principal Component Analysis (PCA): Theory and Applications## IntroductionPrincipal Component Analysis (PCA) is one of the most fundamental techniques in data science and machine learning. It serves as a cornerstone for dimensionality reduction, data visualization, and understanding the structure of high-dimensional datasets. PCA transforms data to a lower-dimensional space while preserving as much variance (information) as possible.At its core, PCA answers a crucial question: “What are the most important directions of variation in my data?” This question is essential when dealing with high-dimensional data where visualization is challenging, storage is expensive, or computational complexity is prohibitive.PCA has applications across numerous fields:- <strong>Data Visualization</strong>: Reducing high-dimensional data to 2D/3D for plotting- <strong>Data Compression</strong>: Storing data more efficiently with minimal information loss- <strong>Noise Reduction</strong>: Filtering out noise by keeping only major components- <strong>Feature Engineering</strong>: Creating new features that capture data structure- <strong>Exploratory Data Analysis</strong>: Understanding patterns and relationships in data## Learning ObjectivesBy the end of this notebook, you will be able to:1. <strong>Understand</strong> the mathematical foundations of PCA and eigenvalue decomposition2. <strong>Derive</strong> the PCA algorithm from variance maximization principles3. <strong>Implement</strong> PCA from scratch using eigendecomposition4. <strong>Interpret</strong> principal components as directions of maximum variance5. <strong>Analyze</strong> the trade-off between dimensionality reduction and information retention6. <strong>Apply</strong> PCA to real-world datasets (synthetic and MNIST)7. <strong>Evaluate</strong> PCA results using reconstruction error and explained variance8. <strong>Connect</strong> PCA to linear algebra concepts (covariance, eigenvectors, projections)## Theoretical Background### The Variance Maximization ProblemPCA finds the directions in which data varies the most. Mathematically, given data matrix <span class="math inline">\(X \in \mathbb{R}^{n \times p}\)</span> (n samples, p features), we want to find a unit vector <span class="math inline">\(v \in \mathbb{R}^p\)</span> such that the variance of the projected data <span class="math inline">\(Xv\)</span> is maximized.<strong>Optimization Problem:</strong><span class="math display">\[\max_{v} \text{Var}(Xv) \quad \text{subject to} \quad ||v|| = 1\]</span>### Mathematical DerivationFor centered data (mean-subtracted), the variance of projected data is:<span class="math display">\[\text{Var}(Xv) = \frac{1}{n-1} ||Xv||^2 = \frac{1}{n-1} v^T X^T X v = v^T \Sigma v\]</span>where <span class="math inline">\(\Sigma = \frac{1}{n-1} X^T X\)</span> is the sample covariance matrix.<strong>Lagrangian Solution:</strong><span class="math display">\[L = v^T \Sigma v - \lambda (v^T v - 1)\]</span>Taking derivatives and setting to zero:<span class="math display">\[\frac{\partial L}{\partial v} = 2\Sigma v - 2\lambda v = 0\]</span>This gives us the <strong>eigenvalue equation</strong>:<span class="math display">\[\Sigma v = \lambda v\]</span>### Key Results1. <strong>Principal Components</strong>: Eigenvectors of the covariance matrix2. <strong>Explained Variance</strong>: Eigenvalues represent variance along each principal component3. <strong>Optimal Projection</strong>: PCA provides the best linear dimensionality reduction in terms of preserved variance### Properties of PCA- <strong>Orthogonal Components</strong>: Principal components are mutually orthogonal- <strong>Decreasing Variance</strong>: Components are ordered by decreasing eigenvalues- <strong>Linear Transformation</strong>: PCA is a linear transformation of the original data- <strong>Reversible</strong>: Can reconstruct original data (with some loss if dimensions are reduced)—## Implementation from First Principles</a>
+  <ul class="collapse">
+  <li><a href="#example-1-understanding-pca-with-2d-correlated-datalets-start-with-a-simple-2d-example-to-build-intuition-about-what-pca-does." id="toc-example-1-understanding-pca-with-2d-correlated-datalets-start-with-a-simple-2d-example-to-build-intuition-about-what-pca-does." class="nav-link" data-scroll-target="#example-1-understanding-pca-with-2d-correlated-datalets-start-with-a-simple-2d-example-to-build-intuition-about-what-pca-does.">Example 1: Understanding PCA with 2D Correlated DataLet’s start with a simple 2D example to build intuition about what PCA does.</a>
+  <ul class="collapse">
+  <li><a href="#understanding-the-data-generation-processwere-generating-data-from-a-multivariate-normal-distribution-with--mean-mu-5--2--covariance-sigma-beginbmatrix-1.0-0.7-0.7-1.0-endbmatrixthe-correlation-coefficient-is-0.7-meaning-the-variables-are-positively-correlated.-this-creates-an-elliptical-data-cloud-tilted-along-the-correlation-direction." id="toc-understanding-the-data-generation-processwere-generating-data-from-a-multivariate-normal-distribution-with--mean-mu-5--2--covariance-sigma-beginbmatrix-1.0-0.7-0.7-1.0-endbmatrixthe-correlation-coefficient-is-0.7-meaning-the-variables-are-positively-correlated.-this-creates-an-elliptical-data-cloud-tilted-along-the-correlation-direction." class="nav-link" data-scroll-target="#understanding-the-data-generation-processwere-generating-data-from-a-multivariate-normal-distribution-with--mean-mu-5--2--covariance-sigma-beginbmatrix-1.0-0.7-0.7-1.0-endbmatrixthe-correlation-coefficient-is-0.7-meaning-the-variables-are-positively-correlated.-this-creates-an-elliptical-data-cloud-tilted-along-the-correlation-direction.">Understanding the Data Generation ProcessWe’re generating data from a <strong>multivariate normal distribution</strong> with:- <strong>Mean</strong>: <span class="math inline">\(\mu = [5, -2]\)</span>- <strong>Covariance</strong>: <span class="math inline">\(\Sigma = \begin{bmatrix} 1.0 &amp; 0.7 \\ 0.7 &amp; 1.0 \end{bmatrix}\)</span>The correlation coefficient is 0.7, meaning the variables are positively correlated. This creates an elliptical data cloud tilted along the correlation direction.</a></li>
+  <li><a href="#step-1-data-centeringwhy-center-the-data-pca-finds-directions-of-maximum-variance-from-the-origin.-if-data-isnt-centered-the-first-principal-component-might-just-point-toward-the-data-mean-rather-than-capturing-the-true-variance-structure." id="toc-step-1-data-centeringwhy-center-the-data-pca-finds-directions-of-maximum-variance-from-the-origin.-if-data-isnt-centered-the-first-principal-component-might-just-point-toward-the-data-mean-rather-than-capturing-the-true-variance-structure." class="nav-link" data-scroll-target="#step-1-data-centeringwhy-center-the-data-pca-finds-directions-of-maximum-variance-from-the-origin.-if-data-isnt-centered-the-first-principal-component-might-just-point-toward-the-data-mean-rather-than-capturing-the-true-variance-structure.">Step 1: Data Centering<strong>Why center the data?</strong> PCA finds directions of maximum variance from the origin. If data isn’t centered, the first principal component might just point toward the data mean rather than capturing the true variance structure.</a></li>
+  <li><a href="#step-2-computing-the-covariance-matrixthe-covariance-matrix-captures-how-variables-co-vary.-for-centered-datasigma-frac1n-1-xt-xwhere-each-element-sigma_ij-textcovx_i-x_j." id="toc-step-2-computing-the-covariance-matrixthe-covariance-matrix-captures-how-variables-co-vary.-for-centered-datasigma-frac1n-1-xt-xwhere-each-element-sigma_ij-textcovx_i-x_j." class="nav-link" data-scroll-target="#step-2-computing-the-covariance-matrixthe-covariance-matrix-captures-how-variables-co-vary.-for-centered-datasigma-frac1n-1-xt-xwhere-each-element-sigma_ij-textcovx_i-x_j.">Step 2: Computing the Covariance MatrixThe covariance matrix captures how variables co-vary. For centered data:<span class="math display">\[\Sigma = \frac{1}{n-1} X^T X\]</span>where each element <span class="math inline">\(\Sigma_{ij} = \text{Cov}(X_i, X_j)\)</span>.</a></li>
+  <li><a href="#step-3-eigenvalue-decompositionthe-heart-of-pca-lies-in-decomposing-the-covariance-matrixsigma-v-lambda-vphysical-interpretation--eigenvectors-v-directions-of-principal-axes--eigenvalues-λ-amount-of-variance-along-each-principal-axis" id="toc-step-3-eigenvalue-decompositionthe-heart-of-pca-lies-in-decomposing-the-covariance-matrixsigma-v-lambda-vphysical-interpretation--eigenvectors-v-directions-of-principal-axes--eigenvalues-λ-amount-of-variance-along-each-principal-axis" class="nav-link" data-scroll-target="#step-3-eigenvalue-decompositionthe-heart-of-pca-lies-in-decomposing-the-covariance-matrixsigma-v-lambda-vphysical-interpretation--eigenvectors-v-directions-of-principal-axes--eigenvalues-λ-amount-of-variance-along-each-principal-axis">Step 3: Eigenvalue DecompositionThe heart of PCA lies in decomposing the covariance matrix:<span class="math display">\[\Sigma v = \lambda v\]</span><strong>Physical Interpretation:</strong>- <strong>Eigenvectors (v)</strong>: Directions of principal axes- <strong>Eigenvalues (λ)</strong>: Amount of variance along each principal axis</a></li>
+  <li><a href="#step-4-projection-and-reconstructionprojection-transform-data-to-principal-component-spacey-x_textcentered-vreconstruction-transform-back-to-original-spacex_textreconstructed-y-vtfor-1d-pca-we-only-use-the-first-principal-component" id="toc-step-4-projection-and-reconstructionprojection-transform-data-to-principal-component-spacey-x_textcentered-vreconstruction-transform-back-to-original-spacex_textreconstructed-y-vtfor-1d-pca-we-only-use-the-first-principal-component" class="nav-link" data-scroll-target="#step-4-projection-and-reconstructionprojection-transform-data-to-principal-component-spacey-x_textcentered-vreconstruction-transform-back-to-original-spacex_textreconstructed-y-vtfor-1d-pca-we-only-use-the-first-principal-component">Step 4: Projection and Reconstruction<strong>Projection</strong>: Transform data to principal component space<span class="math display">\[Y = X_{\text{centered}} V\]</span><strong>Reconstruction</strong>: Transform back to original space<span class="math display">\[X_{\text{reconstructed}} = Y V^T\]</span>For 1D PCA, we only use the first principal component:</a></li>
+  </ul></li>
+  <li><a href="#example-2-pca-on-high-dimensional-data-mnistnow-lets-apply-pca-to-a-real-world-high-dimensional-dataset-handwritten-digits-from-mnist.-this-demonstrates-pcas-power-in-reducing-dimensionality-while-preserving-essential-information." id="toc-example-2-pca-on-high-dimensional-data-mnistnow-lets-apply-pca-to-a-real-world-high-dimensional-dataset-handwritten-digits-from-mnist.-this-demonstrates-pcas-power-in-reducing-dimensionality-while-preserving-essential-information." class="nav-link" data-scroll-target="#example-2-pca-on-high-dimensional-data-mnistnow-lets-apply-pca-to-a-real-world-high-dimensional-dataset-handwritten-digits-from-mnist.-this-demonstrates-pcas-power-in-reducing-dimensionality-while-preserving-essential-information.">Example 2: PCA on High-Dimensional Data (MNIST)Now let’s apply PCA to a real-world high-dimensional dataset: handwritten digits from MNIST. This demonstrates PCA’s power in reducing dimensionality while preserving essential information.</a>
+  <ul class="collapse">
+  <li><a href="#data-preprocessing-and-centering" id="toc-data-preprocessing-and-centering" class="nav-link" data-scroll-target="#data-preprocessing-and-centering">Data Preprocessing and Centering</a></li>
+  <li><a href="#understanding-the-covariance-structure" id="toc-understanding-the-covariance-structure" class="nav-link" data-scroll-target="#understanding-the-covariance-structure">Understanding the Covariance Structure</a></li>
+  <li><a href="#comprehensive-pca-analysis-with-visualizationslets-create-a-complete-visualization-showing-all-aspects-of-pca" id="toc-comprehensive-pca-analysis-with-visualizationslets-create-a-complete-visualization-showing-all-aspects-of-pca" class="nav-link" data-scroll-target="#comprehensive-pca-analysis-with-visualizationslets-create-a-complete-visualization-showing-all-aspects-of-pca">Comprehensive PCA Analysis with VisualizationsLet’s create a complete visualization showing all aspects of PCA:</a></li>
+  <li><a href="#principal-components-as-eigendigitsthe-principal-components-can-be-interpreted-as-fundamental-building-blocks-or-eigendigits---basic-patterns-that-combine-to-form-all-digit-images." id="toc-principal-components-as-eigendigitsthe-principal-components-can-be-interpreted-as-fundamental-building-blocks-or-eigendigits---basic-patterns-that-combine-to-form-all-digit-images." class="nav-link" data-scroll-target="#principal-components-as-eigendigitsthe-principal-components-can-be-interpreted-as-fundamental-building-blocks-or-eigendigits---basic-patterns-that-combine-to-form-all-digit-images.">Principal Components as ‘Eigendigits’The principal components can be interpreted as fundamental ’building blocks’ or ‘eigendigits’ - basic patterns that combine to form all digit images.</a></li>
+  <li><a href="#dimensionality-reduction-and-reconstruction-quality" id="toc-dimensionality-reduction-and-reconstruction-quality" class="nav-link" data-scroll-target="#dimensionality-reduction-and-reconstruction-quality">Dimensionality Reduction and Reconstruction Quality</a></li>
+  <li><a href="#center-the-data" id="toc-center-the-data" class="nav-link" data-scroll-target="#center-the-data">Center the data</a></li>
   <li><a href="#finding-covariance" id="toc-finding-covariance" class="nav-link" data-scroll-target="#finding-covariance">Finding covariance</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -355,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 15, 2025</p>
+      <p class="date">April 14, 2025</p>
     </div>
   </div>
   
@@ -367,7 +415,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>—author: Nipun Batrabadges: truecategories:- MLdate: ’2025-4-15’title: Principal Component Analysistoc: true—</p>
+<p>—author: Nipun Batrabadges: truecategories:- MLdate: ’2025-04-14’title: Principal Component Analysistoc: true—</p>
 <div id="cell-1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -386,42 +434,91 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>1.26.4</code></pre>
 </div>
 </div>
-<div id="cell-2" class="cell" data-execution_count="20">
+<section id="principal-component-analysis-pca-theory-and-applications-introductionprincipal-component-analysis-pca-is-one-of-the-most-fundamental-techniques-in-data-science-and-machine-learning.-it-serves-as-a-cornerstone-for-dimensionality-reduction-data-visualization-and-understanding-the-structure-of-high-dimensional-datasets.-pca-transforms-data-to-a-lower-dimensional-space-while-preserving-as-much-variance-information-as-possible.at-its-core-pca-answers-a-crucial-question-what-are-the-most-important-directions-of-variation-in-my-data-this-question-is-essential-when-dealing-with-high-dimensional-data-where-visualization-is-challenging-storage-is-expensive-or-computational-complexity-is-prohibitive.pca-has-applications-across-numerous-fields--data-visualization-reducing-high-dimensional-data-to-2d3d-for-plotting--data-compression-storing-data-more-efficiently-with-minimal-information-loss--noise-reduction-filtering-out-noise-by-keeping-only-major-components--feature-engineering-creating-new-features-that-capture-data-structure--exploratory-data-analysis-understanding-patterns-and-relationships-in-data-learning-objectivesby-the-end-of-this-notebook-you-will-be-able-to1.-understand-the-mathematical-foundations-of-pca-and-eigenvalue-decomposition2.-derive-the-pca-algorithm-from-variance-maximization-principles3.-implement-pca-from-scratch-using-eigendecomposition4.-interpret-principal-components-as-directions-of-maximum-variance5.-analyze-the-trade-off-between-dimensionality-reduction-and-information-retention6.-apply-pca-to-real-world-datasets-synthetic-and-mnist7.-evaluate-pca-results-using-reconstruction-error-and-explained-variance8.-connect-pca-to-linear-algebra-concepts-covariance-eigenvectors-projections-theoretical-background-the-variance-maximization-problempca-finds-the-directions-in-which-data-varies-the-most.-mathematically-given-data-matrix-x-in-mathbbrn-times-p-n-samples-p-features-we-want-to-find-a-unit-vector-v-in-mathbbrp-such-that-the-variance-of-the-projected-data-xv-is-maximized.optimization-problemmax_v-textvarxv-quad-textsubject-to-quad-v-1-mathematical-derivationfor-centered-data-mean-subtracted-the-variance-of-projected-data-istextvarxv-frac1n-1-xv2-frac1n-1-vt-xt-x-v-vt-sigma-vwhere-sigma-frac1n-1-xt-x-is-the-sample-covariance-matrix.lagrangian-solutionl-vt-sigma-v---lambda-vt-v---1taking-derivatives-and-setting-to-zerofracpartial-lpartial-v-2sigma-v---2lambda-v-0this-gives-us-the-eigenvalue-equationsigma-v-lambda-v-key-results1.-principal-components-eigenvectors-of-the-covariance-matrix2.-explained-variance-eigenvalues-represent-variance-along-each-principal-component3.-optimal-projection-pca-provides-the-best-linear-dimensionality-reduction-in-terms-of-preserved-variance-properties-of-pca--orthogonal-components-principal-components-are-mutually-orthogonal--decreasing-variance-components-are-ordered-by-decreasing-eigenvalues--linear-transformation-pca-is-a-linear-transformation-of-the-original-data--reversible-can-reconstruct-original-data-with-some-loss-if-dimensions-are-reduced-implementation-from-first-principles" class="level1">
+<h1>Principal Component Analysis (PCA): Theory and Applications## IntroductionPrincipal Component Analysis (PCA) is one of the most fundamental techniques in data science and machine learning. It serves as a cornerstone for dimensionality reduction, data visualization, and understanding the structure of high-dimensional datasets. PCA transforms data to a lower-dimensional space while preserving as much variance (information) as possible.At its core, PCA answers a crucial question: “What are the most important directions of variation in my data?” This question is essential when dealing with high-dimensional data where visualization is challenging, storage is expensive, or computational complexity is prohibitive.PCA has applications across numerous fields:- <strong>Data Visualization</strong>: Reducing high-dimensional data to 2D/3D for plotting- <strong>Data Compression</strong>: Storing data more efficiently with minimal information loss- <strong>Noise Reduction</strong>: Filtering out noise by keeping only major components- <strong>Feature Engineering</strong>: Creating new features that capture data structure- <strong>Exploratory Data Analysis</strong>: Understanding patterns and relationships in data## Learning ObjectivesBy the end of this notebook, you will be able to:1. <strong>Understand</strong> the mathematical foundations of PCA and eigenvalue decomposition2. <strong>Derive</strong> the PCA algorithm from variance maximization principles3. <strong>Implement</strong> PCA from scratch using eigendecomposition4. <strong>Interpret</strong> principal components as directions of maximum variance5. <strong>Analyze</strong> the trade-off between dimensionality reduction and information retention6. <strong>Apply</strong> PCA to real-world datasets (synthetic and MNIST)7. <strong>Evaluate</strong> PCA results using reconstruction error and explained variance8. <strong>Connect</strong> PCA to linear algebra concepts (covariance, eigenvectors, projections)## Theoretical Background### The Variance Maximization ProblemPCA finds the directions in which data varies the most. Mathematically, given data matrix <span class="math inline">\(X \in \mathbb{R}^{n \times p}\)</span> (n samples, p features), we want to find a unit vector <span class="math inline">\(v \in \mathbb{R}^p\)</span> such that the variance of the projected data <span class="math inline">\(Xv\)</span> is maximized.<strong>Optimization Problem:</strong><span class="math display">\[\max_{v} \text{Var}(Xv) \quad \text{subject to} \quad ||v|| = 1\]</span>### Mathematical DerivationFor centered data (mean-subtracted), the variance of projected data is:<span class="math display">\[\text{Var}(Xv) = \frac{1}{n-1} ||Xv||^2 = \frac{1}{n-1} v^T X^T X v = v^T \Sigma v\]</span>where <span class="math inline">\(\Sigma = \frac{1}{n-1} X^T X\)</span> is the sample covariance matrix.<strong>Lagrangian Solution:</strong><span class="math display">\[L = v^T \Sigma v - \lambda (v^T v - 1)\]</span>Taking derivatives and setting to zero:<span class="math display">\[\frac{\partial L}{\partial v} = 2\Sigma v - 2\lambda v = 0\]</span>This gives us the <strong>eigenvalue equation</strong>:<span class="math display">\[\Sigma v = \lambda v\]</span>### Key Results1. <strong>Principal Components</strong>: Eigenvectors of the covariance matrix2. <strong>Explained Variance</strong>: Eigenvalues represent variance along each principal component3. <strong>Optimal Projection</strong>: PCA provides the best linear dimensionality reduction in terms of preserved variance### Properties of PCA- <strong>Orthogonal Components</strong>: Principal components are mutually orthogonal- <strong>Decreasing Variance</strong>: Components are ordered by decreasing eigenvalues- <strong>Linear Transformation</strong>: PCA is a linear transformation of the original data- <strong>Reversible</strong>: Can reconstruct original data (with some loss if dimensions are reduced)—## Implementation from First Principles</h1>
+<section id="example-1-understanding-pca-with-2d-correlated-datalets-start-with-a-simple-2d-example-to-build-intuition-about-what-pca-does." class="level2">
+<h2 class="anchored" data-anchor-id="example-1-understanding-pca-with-2d-correlated-datalets-start-with-a-simple-2d-example-to-build-intuition-about-what-pca-does.">Example 1: Understanding PCA with 2D Correlated DataLet’s start with a simple 2D example to build intuition about what PCA does.</h2>
+<section id="understanding-the-data-generation-processwere-generating-data-from-a-multivariate-normal-distribution-with--mean-mu-5--2--covariance-sigma-beginbmatrix-1.0-0.7-0.7-1.0-endbmatrixthe-correlation-coefficient-is-0.7-meaning-the-variables-are-positively-correlated.-this-creates-an-elliptical-data-cloud-tilted-along-the-correlation-direction." class="level3">
+<h3 class="anchored" data-anchor-id="understanding-the-data-generation-processwere-generating-data-from-a-multivariate-normal-distribution-with--mean-mu-5--2--covariance-sigma-beginbmatrix-1.0-0.7-0.7-1.0-endbmatrixthe-correlation-coefficient-is-0.7-meaning-the-variables-are-positively-correlated.-this-creates-an-elliptical-data-cloud-tilted-along-the-correlation-direction.">Understanding the Data Generation ProcessWe’re generating data from a <strong>multivariate normal distribution</strong> with:- <strong>Mean</strong>: <span class="math inline">\(\mu = [5, -2]\)</span>- <strong>Covariance</strong>: <span class="math inline">\(\Sigma = \begin{bmatrix} 1.0 &amp; 0.7 \\ 0.7 &amp; 1.0 \end{bmatrix}\)</span>The correlation coefficient is 0.7, meaning the variables are positively correlated. This creates an elliptical data cloud tilted along the correlation direction.</h3>
+</section>
+<section id="step-1-data-centeringwhy-center-the-data-pca-finds-directions-of-maximum-variance-from-the-origin.-if-data-isnt-centered-the-first-principal-component-might-just-point-toward-the-data-mean-rather-than-capturing-the-true-variance-structure." class="level3">
+<h3 class="anchored" data-anchor-id="step-1-data-centeringwhy-center-the-data-pca-finds-directions-of-maximum-variance-from-the-origin.-if-data-isnt-centered-the-first-principal-component-might-just-point-toward-the-data-mean-rather-than-capturing-the-true-variance-structure.">Step 1: Data Centering<strong>Why center the data?</strong> PCA finds directions of maximum variance from the origin. If data isn’t centered, the first principal component might just point toward the data mean rather than capturing the true variance structure.</h3>
+<p><strong>Interpretation:</strong>- <strong>Original data</strong>: Centered around [5, -2] with elliptical spread- <strong>Centered data</strong>: Now centered at origin [0, 0], preserving the variance structure- <strong>Red point</strong>: Original mean, <strong>Blue point</strong>: Centered mean (at origin)Centering doesn’t change the relative positions of data points, just shifts the entire dataset.</p>
+</section>
+<section id="step-2-computing-the-covariance-matrixthe-covariance-matrix-captures-how-variables-co-vary.-for-centered-datasigma-frac1n-1-xt-xwhere-each-element-sigma_ij-textcovx_i-x_j." class="level3">
+<h3 class="anchored" data-anchor-id="step-2-computing-the-covariance-matrixthe-covariance-matrix-captures-how-variables-co-vary.-for-centered-datasigma-frac1n-1-xt-xwhere-each-element-sigma_ij-textcovx_i-x_j.">Step 2: Computing the Covariance MatrixThe covariance matrix captures how variables co-vary. For centered data:<span class="math display">\[\Sigma = \frac{1}{n-1} X^T X\]</span>where each element <span class="math inline">\(\Sigma_{ij} = \text{Cov}(X_i, X_j)\)</span>.</h3>
+<p><strong>Understanding the Covariance Matrix:</strong>- <strong>Diagonal elements</strong>: Variances of individual variables- <strong>Off-diagonal elements</strong>: Covariances between variables- <strong>Positive covariance (0.729)</strong>: Variables tend to increase/decrease together- <strong>Nearly symmetric</strong>: <span class="math inline">\(\text{Cov}(X_1, X_2) = \text{Cov}(X_2, X_1)\)</span></p>
+</section>
+<section id="step-3-eigenvalue-decompositionthe-heart-of-pca-lies-in-decomposing-the-covariance-matrixsigma-v-lambda-vphysical-interpretation--eigenvectors-v-directions-of-principal-axes--eigenvalues-λ-amount-of-variance-along-each-principal-axis" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-eigenvalue-decompositionthe-heart-of-pca-lies-in-decomposing-the-covariance-matrixsigma-v-lambda-vphysical-interpretation--eigenvectors-v-directions-of-principal-axes--eigenvalues-λ-amount-of-variance-along-each-principal-axis">Step 3: Eigenvalue DecompositionThe heart of PCA lies in decomposing the covariance matrix:<span class="math display">\[\Sigma v = \lambda v\]</span><strong>Physical Interpretation:</strong>- <strong>Eigenvectors (v)</strong>: Directions of principal axes- <strong>Eigenvalues (λ)</strong>: Amount of variance along each principal axis</h3>
+<p><strong>Key Insights:</strong>1. <strong>First Principal Component (PC1)</strong>: - Direction: [0.695, 0.719] (roughly 45° angle, pointing up-right) - Variance: 1.78 (captures most variation) - This aligns with the major axis of the elliptical data cloud2. <strong>Second Principal Component (PC2)</strong>: - Direction: [-0.719, 0.695] (perpendicular to PC1) - Variance: 0.32 (captures remaining variation) - This aligns with the minor axis of the ellipse3. <strong>Orthogonality</strong>: PC1 and PC2 are perpendicular (dot product ≈ 0)The eigenvectors show us the natural coordinate system of our data!</p>
+</section>
+<section id="step-4-projection-and-reconstructionprojection-transform-data-to-principal-component-spacey-x_textcentered-vreconstruction-transform-back-to-original-spacex_textreconstructed-y-vtfor-1d-pca-we-only-use-the-first-principal-component" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-projection-and-reconstructionprojection-transform-data-to-principal-component-spacey-x_textcentered-vreconstruction-transform-back-to-original-spacex_textreconstructed-y-vtfor-1d-pca-we-only-use-the-first-principal-component">Step 4: Projection and Reconstruction<strong>Projection</strong>: Transform data to principal component space<span class="math display">\[Y = X_{\text{centered}} V\]</span><strong>Reconstruction</strong>: Transform back to original space<span class="math display">\[X_{\text{reconstructed}} = Y V^T\]</span>For 1D PCA, we only use the first principal component:</h3>
+<p><strong>Understanding the Results:</strong>1. <strong>Projection Formula</strong>: <span class="math inline">\(y_i = \mathbf{x}_i^T \mathbf{v}_1\)</span> (dot product of data point with first eigenvector)2. <strong>Reconstruction Formula</strong>: <span class="math inline">\(\hat{\mathbf{x}}_i = y_i \mathbf{v}_1\)</span> (scale the eigenvector by the projection)3. <strong>Geometric Interpretation</strong>: Each point is projected onto the line defined by the first principal component, then reconstructed back to 2D space4. <strong>Information Loss</strong>: The distance between original and reconstructed points represents lost information (captured by PC2)The reconstruction shows how well a 1D representation captures the 2D data structure!</p>
+<div id="cell-13" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple 2D blobs with say 0.7 correlation</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> torch.distributions.multivariate_normal.MultivariateNormal(</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    torch.tensor([<span class="fl">5.0</span>, <span class="op">-</span><span class="fl">2.0</span>]), torch.tensor([[<span class="fl">1.0</span>, <span class="fl">0.7</span>], [<span class="fl">0.7</span>, <span class="fl">1.0</span>]])</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>).sample((<span class="dv">1000</span>,))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-3" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Plot the data</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">4</span>))</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>],  alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-14" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comprehensive PCA visualizationfig, axes = plt.subplots(2, 3, figsize=(18, 12))# 1. Original vs Centered Dataaxes[0, 0].scatter(X[:, 0], X[:, 1], alpha=0.6, s=30, label='Original Data')axes[0, 0].scatter(X_mean[0, 0], X_mean[0, 1], color='red', s=100, marker='x',                   linewidth=3, label='Original Mean')axes[0, 0].scatter(X_centered[:, 0], X_centered[:, 1], alpha=0.6, s=30,                   color='orange', label='Centered Data')axes[0, 0].scatter(0, 0, color='blue', s=100, marker='x', linewidth=3,                   label='Centered Mean')axes[0, 0].set_title('Data Centering')axes[0, 0].legend()axes[0, 0].grid(True, alpha=0.3)axes[0, 0].axis('equal')# 2. Covariance Matrix Visualizationim = axes[0, 1].imshow(cov.numpy(), cmap='coolwarm', vmin=-1, vmax=1)axes[0, 1].set_title('Covariance Matrix')for i in range(2):    for j in range(2):        axes[0, 1].text(j, i, f'{cov[i,j]:.3f}', ha='center', va='center',                        fontsize=12, fontweight='bold')axes[0, 1].set_xticks([0, 1])axes[0, 1].set_yticks([0, 1])axes[0, 1].set_xticklabels(['X1', 'X2'])axes[0, 1].set_yticklabels(['X1', 'X2'])plt.colorbar(im, ax=axes[0, 1])# 3. Eigendecomposition Resultsaxes[0, 2].bar(['PC1', 'PC2'], eigvals.numpy(), alpha=0.7, color=['blue', 'red'])axes[0, 2].set_title('Eigenvalues (Explained Variance)')axes[0, 2].set_ylabel('Variance')for i, val in enumerate(eigvals.numpy()):    axes[0, 2].text(i, val + 0.02, f'{val:.3f}', ha='center', va='bottom', fontweight='bold')axes[0, 2].grid(True, alpha=0.3)# 4. Principal Components Visualizationaxes[1, 0].scatter(X_centered[:, 0], X_centered[:, 1], alpha=0.6, s=30, color='lightblue')# Plot eigenvectors as arrows from originscale = 2  # Scale for visibilityfor i in range(2):    vec = eigvecs[:, i] * scale    axes[1, 0].arrow(0, 0, vec[0], vec[1], head_width=0.1, head_length=0.1,                     fc=f'C{i}', ec=f'C{i}', linewidth=3,                     label=f'PC{i+1} (λ={eigvals[i]:.3f})')axes[1, 0].set_title('Principal Components\n(Eigenvectors)')axes[1, 0].legend()axes[1, 0].grid(True, alpha=0.3)axes[1, 0].axis('equal')# 5. 1D Projectionaxes[1, 1].scatter(X_proj_1d[:, 0], X_proj_1d[:, 1], alpha=0.8, s=30,                   color='red', label='1D Projection')axes[1, 1].scatter(X_centered[:, 0], X_centered[:, 1], alpha=0.3, s=20,                   color='lightblue', label='Original Data')# Draw projection linesfor i in range(0, len(X_centered), 20):  # Show every 20th line for clarity    x_orig = X_centered[i]    x_proj = X_proj_1d[i]    axes[1, 1].plot([x_orig[0], x_proj[0]], [x_orig[1], x_proj[1]],                    'k--', alpha=0.3, linewidth=0.5)axes[1, 1].set_title('1D PCA Reconstruction')axes[1, 1].legend()axes[1, 1].grid(True, alpha=0.3)axes[1, 1].axis('equal')# 6. Explained Variance Analysisexplained_var_ratio = eigvals / torch.sum(eigvals)cumulative_var = torch.cumsum(explained_var_ratio, dim=0)x_pos = np.arange(len(eigvals))bars = axes[1, 2].bar(x_pos, explained_var_ratio.numpy(), alpha=0.7, label='Individual')axes[1, 2].plot(x_pos, cumulative_var.numpy(), 'ro-', linewidth=2, markersize=8, label='Cumulative')axes[1, 2].set_title('Explained Variance Ratio')axes[1, 2].set_xlabel('Principal Component')axes[1, 2].set_ylabel('Proportion of Variance')axes[1, 2].set_xticks(x_pos)axes[1, 2].set_xticklabels(['PC1', 'PC2'])axes[1, 2].legend()axes[1, 2].grid(True, alpha=0.3)# Add percentage labelsfor i, (ind, cum) in enumerate(zip(explained_var_ratio.numpy(), cumulative_var.numpy())):    axes[1, 2].text(i, ind + 0.02, f'{ind:.1%}', ha='center', va='bottom', fontweight='bold')    axes[1, 2].text(i, cum + 0.02, f'{cum:.1%}', ha='center', va='bottom', fontweight='bold', color='red')plt.tight_layout()plt.show()# Detailed Analysisprint("COMPREHENSIVE PCA ANALYSIS:")print("="*50)print(f"\n1. DATA CHARACTERISTICS:")print(f"   - Original mean: [{X_mean[0, 0]:.3f}, {X_mean[0, 1]:.3f}]")print(f"   - Data shape: {X.shape}")print(f"   - Correlation: {cov[0,1] / torch.sqrt(cov[0,0] * cov[1,1]):.3f}")print(f"\n2. COVARIANCE MATRIX:")print(f"   - Var(X1): {cov[0,0]:.3f}")print(f"   - Var(X2): {cov[1,1]:.3f}")print(f"   - Cov(X1,X2): {cov[0,1]:.3f}")print(f"   - Total variance: {torch.trace(cov):.3f}")print(f"\n3. EIGENDECOMPOSITION:")print(f"   - Eigenvalues: {eigvals.numpy()}")print(f"   - PC1 direction: [{eigvecs[0,0]:.3f}, {eigvecs[1,0]:.3f}]")print(f"   - PC2 direction: [{eigvecs[0,1]:.3f}, {eigvecs[1,1]:.3f}]")print(f"   - Orthogonality check: {torch.dot(eigvecs[:,0], eigvecs[:,1]):.6f}")print(f"\n4. VARIANCE EXPLANATION:")print(f"   - PC1 explains: {explained_var_ratio[0]:.1%} of variance")print(f"   - PC2 explains: {explained_var_ratio[1]:.1%} of variance")print(f"   - Total explained: {cumulative_var[-1]:.1%}")print(f"\n5. RECONSTRUCTION QUALITY:")reconstruction_error = torch.mean((X_centered - X_proj_1d)**2)print(f"   - Mean Squared Error (1D): {reconstruction_error:.6f}")print(f"   - Variance retained (1D): {explained_var_ratio[0]:.1%}")print(f"   - Information lost (1D): {explained_var_ratio[1]:.1%}")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="example-2-pca-on-high-dimensional-data-mnistnow-lets-apply-pca-to-a-real-world-high-dimensional-dataset-handwritten-digits-from-mnist.-this-demonstrates-pcas-power-in-reducing-dimensionality-while-preserving-essential-information." class="level2">
+<h2 class="anchored" data-anchor-id="example-2-pca-on-high-dimensional-data-mnistnow-lets-apply-pca-to-a-real-world-high-dimensional-dataset-handwritten-digits-from-mnist.-this-demonstrates-pcas-power-in-reducing-dimensionality-while-preserving-essential-information.">Example 2: PCA on High-Dimensional Data (MNIST)Now let’s apply PCA to a real-world high-dimensional dataset: handwritten digits from MNIST. This demonstrates PCA’s power in reducing dimensionality while preserving essential information.</h2>
+<p><strong>Understanding MNIST in PCA Context:</strong>- <strong>Original Dimensionality</strong>: 784 dimensions (28×28 pixels)- <strong>Sample Size</strong>: 1000 images (subset for computational efficiency)- <strong>Challenge</strong>: How can we capture the essence of digit shapes in far fewer dimensions?- <strong>PCA Goal</strong>: Find the most important ‘pixel patterns’ that distinguish different digits</p>
+<section id="data-preprocessing-and-centering" class="level3">
+<h3 class="anchored" data-anchor-id="data-preprocessing-and-centering">Data Preprocessing and Centering</h3>
+</section>
+<section id="understanding-the-covariance-structure" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-the-covariance-structure">Understanding the Covariance Structure</h3>
+<p><strong>Interpreting the Covariance Matrix:</strong>- <strong>Size</strong>: 784×784 matrix showing how each pixel correlates with every other pixel- <strong>Patterns</strong>: - Bright regions show high correlation (pixels that tend to be bright/dark together) - Block-like structure suggests spatial correlations (nearby pixels are related) - The pattern reveals the underlying structure of how digit pixels co-vary</p>
+</section>
+<section id="comprehensive-pca-analysis-with-visualizationslets-create-a-complete-visualization-showing-all-aspects-of-pca" class="level3">
+<h3 class="anchored" data-anchor-id="comprehensive-pca-analysis-with-visualizationslets-create-a-complete-visualization-showing-all-aspects-of-pca">Comprehensive PCA Analysis with VisualizationsLet’s create a complete visualization showing all aspects of PCA:</h3>
+<div id="cell-21" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Plot the data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>, <span class="dv">4</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>],  alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pca_files/figure-html/cell-4-output-1.png" width="360" height="351" class="figure-img"></p>
+<p><img src="pca_files/figure-html/cell-5-output-1.png" width="360" height="351" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="principal-components-as-eigendigitsthe-principal-components-can-be-interpreted-as-fundamental-building-blocks-or-eigendigits---basic-patterns-that-combine-to-form-all-digit-images." class="level3">
+<h3 class="anchored" data-anchor-id="principal-components-as-eigendigitsthe-principal-components-can-be-interpreted-as-fundamental-building-blocks-or-eigendigits---basic-patterns-that-combine-to-form-all-digit-images.">Principal Components as ‘Eigendigits’The principal components can be interpreted as fundamental ’building blocks’ or ‘eigendigits’ - basic patterns that combine to form all digit images.</h3>
+<p><strong>Understanding Principal Components:</strong>Each principal component represents a different pattern of pixel variations:- <strong>PC1</strong>: Captures the most common variation (average brightness vs.&nbsp;background)- <strong>PC2-PC4</strong>: Capture shape variations (edges, curves, strokes)- <strong>Higher PCs</strong>: Capture more subtle details and noiseThese components are like ‘visual features’ that the human visual system might use to recognize digits!</p>
+</section>
+<section id="dimensionality-reduction-and-reconstruction-quality" class="level3">
+<h3 class="anchored" data-anchor-id="dimensionality-reduction-and-reconstruction-quality">Dimensionality Reduction and Reconstruction Quality</h3>
+<p><strong>Key Observations:</strong>1. <strong>Dramatic Dimensionality Reduction</strong>: Even 10 components (1.3% of original dimensions) capture recognizable digit structure2. <strong>Quality vs.&nbsp;Compression Trade-off</strong>: - 2 components: ~25% variance, basic shape visible - 10 components: ~60% variance, clearly recognizable digits - 50 components: ~85% variance, high-quality reconstruction3. <strong>Diminishing Returns</strong>: Adding more components improves quality, but with decreasing benefit4. <strong>Storage Efficiency</strong>: Instead of storing 784 values per image, we can store just 10-50 principal component coefficients!</p>
+<p>—## Summary and Key Takeaways### Mathematical Foundations:1. <strong>Core Principle</strong>: PCA finds orthogonal directions of maximum variance through eigendecomposition of the covariance matrix2. <strong>Optimization</strong>: Solves <span class="math inline">\(\max_v v^T \Sigma v\)</span> subject to <span class="math inline">\(||v|| = 1\)</span>, yielding $v = v$3. <strong>Geometric Interpretation</strong>: Rotates coordinate system to align with natural axes of data variation### Practical Insights:1. <strong>Dimensionality Reduction</strong>: Often 90%+ of variance captured by small fraction of dimensions2. <strong>Data Compression</strong>: Store only principal component coefficients instead of raw features 3. <strong>Noise Reduction</strong>: Lower components often represent noise; keeping top components filters this out4. <strong>Feature Engineering</strong>: PC scores can serve as new features for machine learning### Key Properties:- <strong>Linear Transformation</strong>: <span class="math inline">\(Y = XW\)</span> where W contains eigenvectors- <strong>Orthogonal Components</strong>: Principal components are uncorrelated- <strong>Variance Ordering</strong>: Components ordered by decreasing explained variance- <strong>Reconstruction</strong>: <span class="math inline">\(\hat{X} = YW^T\)</span> (perfect if all components kept)### Applications and Extensions:<strong>Direct Applications:</strong>- Data visualization (reduce to 2D/3D)- Image compression and denoising- Exploratory data analysis- Preprocessing for machine learning<strong>Connections to Other Methods:</strong>- <strong>Factor Analysis</strong>: PCA without noise assumptions- <strong>Independent Component Analysis (ICA)</strong>: Non-orthogonal components- <strong>t-SNE/UMAP</strong>: Nonlinear dimensionality reduction- <strong>Autoencoders</strong>: Neural network-based dimensionality reduction### When to Use PCA:<strong>Good Cases:</strong>- High-dimensional data with linear correlations- Need for interpretable dimensions- Data visualization requirements- Computational efficiency important<strong>Limitations:</strong>- Assumes linear relationships- Components may not be interpretable- Sensitive to scaling of features- May not preserve local structure### Best Practices:1. <strong>Always center data</strong> (subtract mean)2. <strong>Consider scaling</strong> features if different units3. <strong>Choose components</strong> based on explained variance and domain knowledge4. <strong>Validate reconstruction quality</strong> for your specific use case5. <strong>Compare with other dimensionality reduction</strong> methodsUnderstanding PCA provides a solid foundation for advanced topics in machine learning, computer vision, and data science. It bridges linear algebra theory with practical data analysis, making it an essential tool in the data scientist’s toolkit.</p>
+</section>
 <section id="center-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="center-the-data">Center the data</h3>
-<div id="cell-5" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>X_mean <span class="op">=</span> X.mean(<span class="dv">0</span>, keepdim<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>X_centered <span class="op">=</span> X <span class="op">-</span> X_mean</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_centered[:, <span class="dv">0</span>], X_centered[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Centered'</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Original'</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_mean[:, <span class="dv">0</span>], X_mean[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'Original Mean'</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_centered.mean(<span class="dv">0</span>, keepdim<span class="op">=</span><span class="va">True</span>)[:, <span class="dv">0</span>], X_centered.mean(<span class="dv">0</span>, keepdim<span class="op">=</span><span class="va">True</span>)[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'blue'</span>, label<span class="op">=</span><span class="st">'Centered Mean'</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Centered vs Original'</span>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'X1'</span>)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'X2'</span>)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-28" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>X_mean <span class="op">=</span> X.mean(<span class="dv">0</span>, keepdim<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>X_centered <span class="op">=</span> X <span class="op">-</span> X_mean</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_centered[:, <span class="dv">0</span>], X_centered[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Centered'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Original'</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_mean[:, <span class="dv">0</span>], X_mean[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'Original Mean'</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_centered.mean(<span class="dv">0</span>, keepdim<span class="op">=</span><span class="va">True</span>)[:, <span class="dv">0</span>], X_centered.mean(<span class="dv">0</span>, keepdim<span class="op">=</span><span class="va">True</span>)[:, <span class="dv">1</span>], color<span class="op">=</span><span class="st">'blue'</span>, label<span class="op">=</span><span class="st">'Centered Mean'</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Centered vs Original'</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'X1'</span>)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'X2'</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pca_files/figure-html/cell-5-output-1.png" width="565" height="454" class="figure-img"></p>
+<p><img src="pca_files/figure-html/cell-6-output-1.png" width="565" height="454" class="figure-img"></p>
 </figure>
 </div>
 </div>
@@ -429,23 +526,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="finding-covariance" class="level3">
 <h3 class="anchored" data-anchor-id="finding-covariance">Finding covariance</h3>
-<div id="cell-7" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cov <span class="op">=</span> X_centered.T <span class="op">@</span> X_centered <span class="op">/</span> (X.shape[<span class="dv">0</span>] <span class="op">-</span> <span class="dv">1</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Covariance matrix:'</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cov)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-30" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>cov <span class="op">=</span> X_centered.T <span class="op">@</span> X_centered <span class="op">/</span> (X.shape[<span class="dv">0</span>] <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Covariance matrix:'</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cov)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Covariance matrix:
 tensor([[1.0229, 0.7291],
         [0.7291, 1.0733]])</code></pre>
 </div>
 </div>
-<div id="cell-8" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Finding the eigenvalues and eigenvectors</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>eigvals, eigvecs <span class="op">=</span> torch.linalg.eigh(cov)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Eigenvalues:'</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(eigvals)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Eigenvectors:'</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(eigvecs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-31" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Finding the eigenvalues and eigenvectors</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>eigvals, eigvecs <span class="op">=</span> torch.linalg.eigh(cov)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Eigenvalues:'</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(eigvals)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Eigenvectors:'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(eigvecs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Eigenvalues:
 tensor([0.3186, 1.7776])
@@ -454,50 +551,50 @@ tensor([[-0.7192,  0.6948],
         [ 0.6948,  0.7192]])</code></pre>
 </div>
 </div>
-<div id="cell-9" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot centered data with eigenvectors</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_centered[:, <span class="dv">0</span>], X_centered[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot eigenvectors starting from the mean</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    vec <span class="op">=</span> eigvecs[:, i]</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    plt.quiver(<span class="dv">0</span>, <span class="dv">0</span>, vec[<span class="dv">0</span>], vec[<span class="dv">1</span>], scale<span class="op">=</span><span class="dv">3</span>, color<span class="op">=</span><span class="ss">f"C</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>, label<span class="op">=</span><span class="ss">f"u</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>eigvals[i]<span class="sc">:.2f}</span><span class="ss">)"</span>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Centered Data with Principal Directions"</span>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-32" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot centered data with eigenvectors</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_centered[:, <span class="dv">0</span>], X_centered[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot eigenvectors starting from the mean</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    vec <span class="op">=</span> eigvecs[:, i]</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    plt.quiver(<span class="dv">0</span>, <span class="dv">0</span>, vec[<span class="dv">0</span>], vec[<span class="dv">1</span>], scale<span class="op">=</span><span class="dv">3</span>, color<span class="op">=</span><span class="ss">f"C</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>, label<span class="op">=</span><span class="ss">f"u</span><span class="sc">{</span>i<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>eigvals[i]<span class="sc">:.2f}</span><span class="ss">)"</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Centered Data with Principal Directions"</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pca_files/figure-html/cell-8-output-1.png" width="546" height="434" class="figure-img"></p>
+<p><img src="pca_files/figure-html/cell-9-output-1.png" width="546" height="434" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-10" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>top_vec <span class="op">=</span> eigvecs[:, <span class="op">-</span><span class="dv">1</span>]  <span class="co"># Last column of eigvecs (the top eigenvector)</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Top eigenvector:'</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(top_vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-33" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>top_vec <span class="op">=</span> eigvecs[:, <span class="op">-</span><span class="dv">1</span>]  <span class="co"># Last column of eigvecs (the top eigenvector)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Top eigenvector:'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(top_vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Top eigenvector:
 tensor([0.6948, 0.7192])</code></pre>
 </div>
 </div>
-<div id="cell-11" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Project centered data onto the top eigenvector using dot product</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>X_proj <span class="op">=</span> torch.zeros_like(X_centered)  <span class="co"># Initialize an empty tensor to store projections</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each data point and project it onto the top eigenvector</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(X_centered.shape[<span class="dv">0</span>]):</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the projection of the i-th data point onto the top eigenvector</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    X_proj[i] <span class="op">=</span> torch.dot(X_centered[i], top_vec) <span class="op">*</span> top_vec  <span class="co"># Scalar projection * eigenvector</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Reconstruct the data by adding the mean back</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>X_recon <span class="op">=</span> X_proj <span class="op">+</span> X_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-34" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Project centered data onto the top eigenvector using dot product</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>X_proj <span class="op">=</span> torch.zeros_like(X_centered)  <span class="co"># Initialize an empty tensor to store projections</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each data point and project it onto the top eigenvector</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(X_centered.shape[<span class="dv">0</span>]):</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate the projection of the i-th data point onto the top eigenvector</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    X_proj[i] <span class="op">=</span> torch.dot(X_centered[i], top_vec) <span class="op">*</span> top_vec  <span class="co"># Scalar projection * eigenvector</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Reconstruct the data by adding the mean back</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>X_recon <span class="op">=</span> X_proj <span class="op">+</span> X_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-12" class="cell" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>X_recon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-35" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>X_recon</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>tensor([[ 2.8117, -4.2273],
         [ 4.4202, -2.5621],
@@ -508,98 +605,98 @@ tensor([0.6948, 0.7192])</code></pre>
         [ 5.5841, -1.3573]])</code></pre>
 </div>
 </div>
-<div id="cell-13" class="cell" data-execution_count="38">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.2</span>, label<span class="op">=</span><span class="st">'Original'</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_recon[:, <span class="dv">0</span>], X_recon[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.8</span>, label<span class="op">=</span><span class="st">'PCA-1D'</span>)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"PCA projection onto top component"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-36" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:, <span class="dv">0</span>], X[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.2</span>, label<span class="op">=</span><span class="st">'Original'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.scatter(X_recon[:, <span class="dv">0</span>], X_recon[:, <span class="dv">1</span>], alpha<span class="op">=</span><span class="fl">0.8</span>, label<span class="op">=</span><span class="st">'PCA-1D'</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"PCA projection onto top component"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>Text(0.5, 1.0, 'PCA projection onto top component')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pca_files/figure-html/cell-12-output-2.png" width="546" height="434" class="figure-img"></p>
+<p><img src="pca_files/figure-html/cell-13-output-2.png" width="546" height="434" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-14" class="cell" data-execution_count="58">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load MNIST dataset</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>transform <span class="op">=</span> transforms.Compose([transforms.ToTensor(), transforms.Lambda(<span class="kw">lambda</span> x: x.view(<span class="op">-</span><span class="dv">1</span>))])</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>train_data <span class="op">=</span> torchvision.datasets.MNIST(root<span class="op">=</span><span class="st">'~/.data'</span>, train<span class="op">=</span><span class="va">True</span>, download<span class="op">=</span><span class="va">True</span>, transform<span class="op">=</span>transform)</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a small subset of data for simplicity</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> train_data.data[:<span class="dv">1000</span>].<span class="bu">float</span>()  <span class="co"># Take the first 1000 images (28x28 pixels)</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> train_data.targets[:<span class="dv">1000</span>]  <span class="co"># Corresponding labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-37" class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load MNIST dataset</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>transform <span class="op">=</span> transforms.Compose([transforms.ToTensor(), transforms.Lambda(<span class="kw">lambda</span> x: x.view(<span class="op">-</span><span class="dv">1</span>))])</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>train_data <span class="op">=</span> torchvision.datasets.MNIST(root<span class="op">=</span><span class="st">'~/.data'</span>, train<span class="op">=</span><span class="va">True</span>, download<span class="op">=</span><span class="va">True</span>, transform<span class="op">=</span>transform)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a small subset of data for simplicity</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> train_data.data[:<span class="dv">1000</span>].<span class="bu">float</span>()  <span class="co"># Take the first 1000 images (28x28 pixels)</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> train_data.targets[:<span class="dv">1000</span>]  <span class="co"># Corresponding labels</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="40">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first image</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(X[<span class="dv">0</span>].reshape(<span class="dv">28</span>, <span class="dv">28</span>), cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-38" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View the first image</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(X[<span class="dv">0</span>].reshape(<span class="dv">28</span>, <span class="dv">28</span>), cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pca_files/figure-html/cell-14-output-1.png" width="417" height="413" class="figure-img"></p>
+<p><img src="pca_files/figure-html/cell-15-output-1.png" width="417" height="413" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> X <span class="op">/</span> <span class="fl">255.0</span>  <span class="co"># Normalize to [0, 1]</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>X_centered <span class="op">=</span> X <span class="op">-</span> X.mean(dim<span class="op">=</span><span class="dv">0</span>)  <span class="co"># Center the data by subtracting the mean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-39" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> X <span class="op">/</span> <span class="fl">255.0</span>  <span class="co"># Normalize to [0, 1]</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>X_centered <span class="op">=</span> X <span class="op">-</span> X.mean(dim<span class="op">=</span><span class="dv">0</span>)  <span class="co"># Center the data by subtracting the mean</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-17" class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>X_vecs <span class="op">=</span> X_centered.reshape(X_centered.shape[<span class="dv">0</span>], <span class="op">-</span><span class="dv">1</span>)  <span class="co"># Reshape to (n_samples, n_features)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-40" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>X_vecs <span class="op">=</span> X_centered.reshape(X_centered.shape[<span class="dv">0</span>], <span class="op">-</span><span class="dv">1</span>)  <span class="co"># Reshape to (n_samples, n_features)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-18" class="cell" data-execution_count="47">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute covariance matrix</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>cov_matrix <span class="op">=</span> torch.cov(X_vecs.T)  <span class="co"># Transpose to get (n_features, n_samples)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-41" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute covariance matrix</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>cov_matrix <span class="op">=</span> torch.cov(X_vecs.T)  <span class="co"># Transpose to get (n_features, n_samples)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-19" class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Covariance matrix shape:'</span>, cov_matrix.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-42" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Covariance matrix shape:'</span>, cov_matrix.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Covariance matrix shape: torch.Size([784, 784])</code></pre>
 </div>
 </div>
-<div id="cell-20" class="cell" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(cov_matrix, cmap<span class="op">=</span><span class="st">'hot'</span>, interpolation<span class="op">=</span><span class="st">'nearest'</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Covariance Matrix'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-43" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(cov_matrix, cmap<span class="op">=</span><span class="st">'hot'</span>, interpolation<span class="op">=</span><span class="st">'nearest'</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Covariance Matrix'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>Text(0.5, 1.0, 'Covariance Matrix')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pca_files/figure-html/cell-19-output-2.png" width="521" height="434" class="figure-img"></p>
+<p><img src="pca_files/figure-html/cell-20-output-2.png" width="521" height="434" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-21" class="cell" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Eigenvalue decomposition</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>eigvals, eigvecs <span class="op">=</span> torch.linalg.eigh(cov_matrix)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Eigenvalues shape:'</span>, eigvals.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-44" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Eigenvalue decomposition</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>eigvals, eigvecs <span class="op">=</span> torch.linalg.eigh(cov_matrix)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Eigenvalues shape:'</span>, eigvals.shape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Eigenvalues shape: torch.Size([784])</code></pre>
 </div>
 </div>
-<div id="cell-22" class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Top K eigenvalues and eigenvectors</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>top_k_eigvals, top_k_indices <span class="op">=</span> torch.topk(eigvals, K)</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>top_k_eigvecs <span class="op">=</span> eigvecs[:, top_k_indices]</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Top K eigenvalues:'</span>, top_k_eigvals)</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Top K eigenvectors shape:'</span>, top_k_eigvecs.shape)</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the top K eigenvalues</span></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>plt.bar(<span class="bu">range</span>(K), top_k_eigvals.numpy())</span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Eigenvalue Index'</span>)</span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Eigenvalue'</span>)</span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Top K Eigenvalues'</span>)</span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-45" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Top K eigenvalues and eigenvectors</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>top_k_eigvals, top_k_indices <span class="op">=</span> torch.topk(eigvals, K)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>top_k_eigvecs <span class="op">=</span> eigvecs[:, top_k_indices]</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Top K eigenvalues:'</span>, top_k_eigvals)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Top K eigenvectors shape:'</span>, top_k_eigvecs.shape)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the top K eigenvalues</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>plt.bar(<span class="bu">range</span>(K), top_k_eigvals.numpy())</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Eigenvalue Index'</span>)</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Eigenvalue'</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Top K Eigenvalues'</span>)</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Top K eigenvalues: tensor([5.1288, 4.0052, 3.5313, 2.8018, 2.5156, 2.3427, 1.8130, 1.5647, 1.4760,
         1.1167])
@@ -608,47 +705,49 @@ Top K eigenvectors shape: torch.Size([784, 10])</code></pre>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pca_files/figure-html/cell-21-output-2.png" width="678" height="392" class="figure-img"></p>
+<p><img src="pca_files/figure-html/cell-22-output-2.png" width="678" height="392" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-23" class="cell" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Project data onto the top K eigenvectors</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>X_proj <span class="op">=</span> torch.matmul(X_vecs, top_k_eigvecs)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Projected data shape:'</span>, X_proj.shape)</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Reconstruct the data from the top K components</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-46" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Project data onto the top K eigenvectors</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>X_proj <span class="op">=</span> torch.matmul(X_vecs, top_k_eigvecs)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Projected data shape:'</span>, X_proj.shape)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Reconstruct the data from the top K components</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Projected data shape: torch.Size([1000, 10])</code></pre>
 </div>
 </div>
-<div id="cell-24" class="cell" data-execution_count="61">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.cm <span class="im">as</span> cm</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> cm.tab10(np.arange(<span class="dv">10</span>))  <span class="co"># 10 distinct colors</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    idx <span class="op">=</span> (y <span class="op">==</span> i)</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    plt.scatter(X_proj[idx, <span class="dv">0</span>], X_proj[idx, <span class="dv">1</span>], </span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>                alpha<span class="op">=</span><span class="fl">0.6</span>, color<span class="op">=</span>colors[i], label<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>, s<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'PCA Projection onto Top 2 Components (MNIST)'</span>)</span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Principal Component 1'</span>)</span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Principal Component 2'</span>)</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Digit'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-47" class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.cm <span class="im">as</span> cm</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>, <span class="dv">5</span>))</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> cm.tab10(np.arange(<span class="dv">10</span>))  <span class="co"># 10 distinct colors</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    idx <span class="op">=</span> (y <span class="op">==</span> i)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    plt.scatter(X_proj[idx, <span class="dv">0</span>], X_proj[idx, <span class="dv">1</span>], </span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>                alpha<span class="op">=</span><span class="fl">0.6</span>, color<span class="op">=</span>colors[i], label<span class="op">=</span><span class="ss">f"</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>, s<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'PCA Projection onto Top 2 Components (MNIST)'</span>)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Principal Component 1'</span>)</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Principal Component 2'</span>)</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">'equal'</span>)</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Digit'</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pca_files/figure-html/cell-23-output-1.png" width="487" height="488" class="figure-img"></p>
+<p><img src="pca_files/figure-html/cell-24-output-1.png" width="487" height="488" class="figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -6,8 +6,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Nipun Batra">
+<meta name="dcterms.date" content="2025-01-17">
+<meta name="keywords" content="matplotlib, visualization, plotting">
+<meta name="description" content="Comprehensive introduction to matplotlib for data visualization">
 
-<title>Introduction To Matplotlib – Probability Statistics Data Visualization Resources</title>
+<title>Introduction to Matplotlib – Probability Statistics Data Visualization Resources</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -320,30 +324,102 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-matplotlib" id="toc-introduction-to-matplotlib" class="nav-link active" data-scroll-target="#introduction-to-matplotlib">Introduction To Matplotlib</a>
+  <ul class="collapse">
+  <li><a href="#data-and-library-import" id="toc-data-and-library-import" class="nav-link" data-scroll-target="#data-and-library-import">Data and Library Import</a></li>
+  <li><a href="#a-simple-line-plot" id="toc-a-simple-line-plot" class="nav-link" data-scroll-target="#a-simple-line-plot">A Simple Line Plot</a>
+  <ul class="collapse">
+  <li><a href="#sin-wave" id="toc-sin-wave" class="nav-link" data-scroll-target="#sin-wave">Sin Wave</a></li>
+  <li><a href="#adding-label-title-and-grid" id="toc-adding-label-title-and-grid" class="nav-link" data-scroll-target="#adding-label-title-and-grid">Adding Label, Title and Grid</a></li>
+  </ul></li>
+  <li><a href="#organizing-the-plots" id="toc-organizing-the-plots" class="nav-link" data-scroll-target="#organizing-the-plots">Organizing The Plots</a>
+  <ul class="collapse">
+  <li><a href="#multiple-plots-on-the-same-figure" id="toc-multiple-plots-on-the-same-figure" class="nav-link" data-scroll-target="#multiple-plots-on-the-same-figure">Multiple plots on the same figure</a></li>
+  <li><a href="#splitting-a-figure" id="toc-splitting-a-figure" class="nav-link" data-scroll-target="#splitting-a-figure">Splitting a figure</a></li>
+  <li><a href="#tweaking" id="toc-tweaking" class="nav-link" data-scroll-target="#tweaking">Tweaking</a></li>
+  <li><a href="#limits-and-ticks" id="toc-limits-and-ticks" class="nav-link" data-scroll-target="#limits-and-ticks">Limits and Ticks</a></li>
+  </ul></li>
+  <li><a href="#saving-the-plots" id="toc-saving-the-plots" class="nav-link" data-scroll-target="#saving-the-plots">Saving The Plots</a></li>
+  <li><a href="#choose-your-plot" id="toc-choose-your-plot" class="nav-link" data-scroll-target="#choose-your-plot">Choose Your Plot</a>
+  <ul class="collapse">
+  <li><a href="#bar-plot" id="toc-bar-plot" class="nav-link" data-scroll-target="#bar-plot">Bar Plot</a></li>
+  <li><a href="#annotations" id="toc-annotations" class="nav-link" data-scroll-target="#annotations">Annotations</a></li>
+  <li><a href="#scatterplot" id="toc-scatterplot" class="nav-link" data-scroll-target="#scatterplot">Scatterplot</a></li>
+  <li><a href="#pie-chart" id="toc-pie-chart" class="nav-link" data-scroll-target="#pie-chart">Pie Chart</a></li>
+  <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram">Histogram</a></li>
+  <li><a href="#errorbar" id="toc-errorbar" class="nav-link" data-scroll-target="#errorbar">Errorbar</a></li>
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot">Boxplot</a></li>
+  </ul></li>
+  <li><a href="#scale-transformations" id="toc-scale-transformations" class="nav-link" data-scroll-target="#scale-transformations">Scale Transformations</a></li>
+  <li><a href="#d-visualization-and-contour" id="toc-d-visualization-and-contour" class="nav-link" data-scroll-target="#d-visualization-and-contour">3D Visualization And Contour</a></li>
+  <li><a href="#using-imshow-for-image-like-data" id="toc-using-imshow-for-image-like-data" class="nav-link" data-scroll-target="#using-imshow-for-image-like-data">Using Imshow for Image-Like Data</a>
+  <ul class="collapse">
+  <li><a href="#fill_between-highlighting-areas-in-plots" id="toc-fill_between-highlighting-areas-in-plots" class="nav-link" data-scroll-target="#fill_between-highlighting-areas-in-plots"><code>fill_between</code>: Highlighting Areas in Plots</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#tick-formatters-and-locators" id="toc-tick-formatters-and-locators" class="nav-link" data-scroll-target="#tick-formatters-and-locators">Tick Formatters and Locators</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction To Matplotlib</h1>
-</div>
+<h1 class="title">Introduction to Matplotlib</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Data Visualization</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">Matplotlib</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Comprehensive introduction to matplotlib for data visualization
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Nipun Batra </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 17, 2025</p>
+    </div>
+  </div>
   
     
   </div>
   
 
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>matplotlib, visualization, plotting</p>
+  </div>
+</div>
 
 </header>
 
 
+<p>—author: Nipun Batratitle: Introduction to Matplotlibdescription: Comprehensive introduction to matplotlib for data visualizationcategories: - Data Visualization - Python - Matplotlibkeywords: [matplotlib, visualization, plotting]date: ’2025-01-17’badges: truetoc: true—</p>
+<section id="introduction-to-matplotlib" class="level1">
+<h1>Introduction To Matplotlib</h1>
 <section id="data-and-library-import" class="level2">
 <h2 class="anchored" data-anchor-id="data-and-library-import">Data and Library Import</h2>
 <div id="cell-3" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;executionInfo&quot;,&quot;value&quot;:{&quot;elapsed&quot;:1001,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1736677118526,&quot;user&quot;:{&quot;displayName&quot;:&quot;Shrimay Shah&quot;,&quot;userId&quot;:&quot;09254094837528959508&quot;},&quot;user_tz&quot;:-330}}" data-execution_count="1">
@@ -2895,6 +2971,7 @@ Matplotlib stylesheets are pre-defined sets of style parameters that help you cr
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="tick-formatters-and-locators" class="level1">
